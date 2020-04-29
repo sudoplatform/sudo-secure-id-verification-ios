@@ -1,9 +1,9 @@
-# Sudo Identity Verification iOS SDK
+# Sudo Secure ID Verification iOS SDK
 
 ## Overview
 The Sudo Platform makes it seamless for developers to integrate Sudo capabilities into their existing applications with minimal effort.
 
-Please see the [Sudo Platform Developer Docs](https://sudoplatform.com/docs) for an overview of Identity Verification in the Sudo Platform.
+Please see the [Sudo Platform Developer Docs](https://sudoplatform.com/docs) for an overview of Secure ID Verification in the Sudo Platform.
 
 ## Version Support
 | Technology             | Supported version |
@@ -13,7 +13,7 @@ Please see the [Sudo Platform Developer Docs](https://sudoplatform.com/docs) for
 | Xcode version          | 11.0+             |
 
 ## Integration Instructions
-Visit the [Identity Verification section](https://sudoplatform.com/docs) of the Sudo Platform Developer Docs for SDK integration instructions.
+Visit the [Secure ID Verification section](https://sudoplatform.com/docs) of the Sudo Platform Developer Docs for SDK integration instructions.
 
 ## Questions and Support
 File any issues you find on the project's GitHub repository. Be careful not to share any Personally Identifiable Information (PII) or sensitive account information (API keys, credentials, etc.) when reporting an issue.
