@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Enumerations  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+
+    <a name="//apple_ref/swift/Section/Enumerations" class="dashAnchor"></a>
+
+    <a title="Enumerations  Reference"></a>
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="index.html">
+          SudoIdentityVerification Docs
+        </a>
+        
+      </p>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </p>
+    
+    
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="index.html">SudoIdentityVerification Reference</a>
+      <img class="carat" src="img/carat.png" />
+      Enumerations  Reference
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/DefaultSudoIdentityVerificationClient.html">DefaultSudoIdentityVerificationClient</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SudoOperation.html">SudoOperation</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums.html#/s:24SudoIdentityVerification9ApiResultO">ApiResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums.html#/s:24SudoIdentityVerification27GetSupportedCountriesResultO">GetSupportedCountriesResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums.html#/s:24SudoIdentityVerification11QueryOptionO">QueryOption</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums.html#/s:24SudoIdentityVerification0abC11ClientErrorO">SudoIdentityVerificationClientError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums.html#/s:24SudoIdentityVerification0A14OperationErrorO">SudoOperationError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums.html#/s:24SudoIdentityVerification0C6ResultO">VerificationResult</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/SudoIdentityVerificationClient.html">SudoIdentityVerificationClient</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/SudoIdentityVerificationClientConfigProvider.html">SudoIdentityVerificationClientConfigProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/VerifiedIdentity.html">VerifiedIdentity</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content top-matter">
+            <h1>Enumerations</h1>
+            <p>The following enumerations are available globally.</p>
+
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-content">
+            <div class="task-group">
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:24SudoIdentityVerification0abC11ClientErrorO"></a>
+                    <a name="//apple_ref/swift/Enum/SudoIdentityVerificationClientError" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24SudoIdentityVerification0abC11ClientErrorO">SudoIdentityVerificationClientError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>List of possible errors thrown by <code><a href="Protocols/SudoIdentityVerificationClient.html">SudoIdentityVerificationClient</a></code> implementation.</p>
+
+<ul>
+<li>invalidConfig: Indicates that the configuration dictionary passed to initialize the client was not valid.</li>
+<li>invalidInput: Indicates that the input to the API was invalid.</li>
+<li>badData: Indicates the bad data was found in cache or in backend response.</li>
+<li>identityNotVerified: Indicates the identity could not be verified based on the input provided.</li>
+<li>notSignedIn: Indicates the user is not signed in and the API call requires the user to be signed in.</li>
+<li>verificationResultNotFound: Indicates the identity verification result cannot be found for the user.</li>
+<li>graphQLError: Indicates that a GraphQL error was returned by the backend.</li>
+<li>fatalError: Indicates that a fatal error occurred. This could be due to coding error, out-of-memory
+condition or other conditions that is beyond control of <code><a href="Protocols/SudoIdentityVerificationClient.html">SudoIdentityVerificationClient</a></code> implementation.</li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">SudoIdentityVerificationClientError</span> <span class="p">:</span> <span class="kt">Error</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:24SudoIdentityVerification9ApiResultO"></a>
+                    <a name="//apple_ref/swift/Enum/ApiResult" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24SudoIdentityVerification9ApiResultO">ApiResult</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Generic API result. The API can fail with an error or complete successfully.</p>
+
+<ul>
+<li>success: API completed successfully.</li>
+<li>failure: API failed with an error.</li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">ApiResult</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:24SudoIdentityVerification0C6ResultO"></a>
+                    <a name="//apple_ref/swift/Enum/VerificationResult" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24SudoIdentityVerification0C6ResultO">VerificationResult</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Result returned by API for verifying an identity. The API can fail with an
+error or return the verified identity.</p>
+
+<ul>
+<li>success: The identity was verified successfully.</li>
+<li>failure: Verification failed with an error.</li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">VerificationResult</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:24SudoIdentityVerification27GetSupportedCountriesResultO"></a>
+                    <a name="//apple_ref/swift/Enum/GetSupportedCountriesResult" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24SudoIdentityVerification27GetSupportedCountriesResultO">GetSupportedCountriesResult</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Result returned by API for retrieving the list of supported countries for
+identity verification. The API can fail with an error or return the list of
+supported countries..</p>
+
+<ul>
+<li>success: Supported country list retrieval was successful.</li>
+<li>failure: Supported country list retrieval  failed with an error.</li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">GetSupportedCountriesResult</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:24SudoIdentityVerification11QueryOptionO"></a>
+                    <a name="//apple_ref/swift/Enum/QueryOption" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24SudoIdentityVerification11QueryOptionO">QueryOption</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Options for controlling the behaviour of query APIs.</p>
+
+<ul>
+<li>cacheOnly: returns query result from the local cache only.</li>
+<li>remoteOnly: performs the query in the backend and ignores any cached entries.</li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">QueryOption</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:24SudoIdentityVerification0A14OperationErrorO"></a>
+                    <a name="//apple_ref/swift/Enum/SudoOperationError" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24SudoIdentityVerification0A14OperationErrorO">SudoOperationError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>List of possible errors return by <code><a href="Classes/SudoOperation.html">SudoOperation</a></code> and its subclasses.</p>
+
+<ul>
+<li>preconditionFailure: One of preconditions of the operation was not met.</li>
+<li>invalidInput: Input to the operation was invalid.</li>
+<li>graphQLError: Sudo service&rsquo;s GraphQL endpoint returned an error.</li>
+<li>serverError: Indicates that an internal server error caused the operation to fail. The error is
+possibly transient and retrying at a later time may cause the operation to complete
+successfully</li>
+<li>fatalError: Indicates that a fatal error occurred. This could be due to coding error, out-of-memory
+condition or other conditions that is beyond control of <code><a href="Classes/SudoOperation.html">SudoOperation</a></code> implementation.</li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">SudoOperationError</span> <span class="p">:</span> <span class="kt">Error</span><span class="p">,</span> <span class="kt">Hashable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+      </article>
+    </div>
+    <section class="footer">
+      <p>&copy; 2020 <a class="link" href="https://sudoplatform.com/" target="_blank" rel="external">Sudo Platform Engineering</a>. All rights reserved. (Last updated: 2020-04-29)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
+  </body>
+</div>
+</html>
