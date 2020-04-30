@@ -21,7 +21,9 @@ public struct VerifiedIdentity {
     /// Verification method used.
     public let verificationMethod: String
 
-    /// Indicates whether or not the user can attempt to verify their identity again.
+    /// Indicates whether or not identity verification can be attempted again for this user. Set to false in
+    /// cases where the maximum number of attempts has been reached or a finding from the identity
+    /// verification attempt means that it should not proceed.
     public let canAttemptVerificationAgain: Bool
 
     /// URL to upload the scanned documents for identity verification.

@@ -86,13 +86,13 @@ public protocol SudoIdentityVerificationClient: class {
     /// as provisioning a virtual card.
     ///
     /// - Parameters:
-    ///   - firstName: First name
-    ///   - lastName: Last name.
-    ///   - address: Address.
-    ///   - city: City.
-    ///   - state: State.
+    ///   - firstName: First name. Case insensitive.
+    ///   - lastName: Last name. Case insensitive.
+    ///   - address: Address. Case insensitive.
+    ///   - city: City. Case insensitive.
+    ///   - state: State. This is abbreviated name for the state, e.g. ‘NY’ not ‘New York’.
     ///   - postalCode: Postal code.
-    ///   - country: 3 characters ISO country code. Must be one of countries retrieved via `getSupportedCountries` API.
+    ///   - country: ISO 3166-1 alpha-3 country code. Must be one of countries retrieved via `getSupportedCountries` API.
     ///   - dateOfBirth: Date of birth formatted in "yyyy-MM-dd".
     ///   - completion: The completion handler to invoke to pass the verification result.
     func verifyIdentity(firstName: String,
@@ -207,7 +207,7 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
     public func getSupportedCountries(completion: @escaping (GetSupportedCountriesResult) -> Void) {
         self.logger.info("Retrieving the list of supported countries for identity verification.")
 
-        self.graphQLClient.fetch(query: GetSupportedCountriesQuery(), cachePolicy: .fetchIgnoringCacheData) { (result, error) in
+        self.graphQLClient.fetch(query: GetSupportedCountriesForIdentityVerificationQuery(), cachePolicy: .fetchIgnoringCacheData) { (result, error) in
             if let error = error {
                 return completion(GetSupportedCountriesResult.failure(cause: error))
             }
@@ -222,7 +222,7 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
                 return completion(GetSupportedCountriesResult.failure(cause: SudoIdentityVerificationClientError.graphQLError(description: message)))
             }
 
-            guard let countryList = result.data?.getSupportedCountries?.countryList else {
+            guard let countryList = result.data?.getSupportedCountriesForIdentityVerification?.countryList else {
                 return completion(GetSupportedCountriesResult.success(countries: []))
             }
 

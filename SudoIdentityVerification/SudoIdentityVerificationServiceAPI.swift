@@ -373,6 +373,78 @@ public final class GetSupportedCountriesQuery: GraphQLQuery {
   }
 }
 
+public final class GetSupportedCountriesForIdentityVerificationQuery: GraphQLQuery {
+  public static let operationString =
+    "query GetSupportedCountriesForIdentityVerification {\n  getSupportedCountriesForIdentityVerification {\n    __typename\n    countryList\n  }\n}"
+
+  public init() {
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes = ["Query"]
+
+    public static let selections: [GraphQLSelection] = [
+      GraphQLField("getSupportedCountriesForIdentityVerification", type: .object(GetSupportedCountriesForIdentityVerification.selections)),
+    ]
+
+    public var snapshot: Snapshot
+
+    public init(snapshot: Snapshot) {
+      self.snapshot = snapshot
+    }
+
+    public init(getSupportedCountriesForIdentityVerification: GetSupportedCountriesForIdentityVerification? = nil) {
+      self.init(snapshot: ["__typename": "Query", "getSupportedCountriesForIdentityVerification": getSupportedCountriesForIdentityVerification.flatMap { $0.snapshot }])
+    }
+
+    public var getSupportedCountriesForIdentityVerification: GetSupportedCountriesForIdentityVerification? {
+      get {
+        return (snapshot["getSupportedCountriesForIdentityVerification"] as? Snapshot).flatMap { GetSupportedCountriesForIdentityVerification(snapshot: $0) }
+      }
+      set {
+        snapshot.updateValue(newValue?.snapshot, forKey: "getSupportedCountriesForIdentityVerification")
+      }
+    }
+
+    public struct GetSupportedCountriesForIdentityVerification: GraphQLSelectionSet {
+      public static let possibleTypes = ["SupportedCountries"]
+
+      public static let selections: [GraphQLSelection] = [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("countryList", type: .nonNull(.list(.nonNull(.scalar(String.self))))),
+      ]
+
+      public var snapshot: Snapshot
+
+      public init(snapshot: Snapshot) {
+        self.snapshot = snapshot
+      }
+
+      public init(countryList: [String]) {
+        self.init(snapshot: ["__typename": "SupportedCountries", "countryList": countryList])
+      }
+
+      public var __typename: String {
+        get {
+          return snapshot["__typename"]! as! String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var countryList: [String] {
+        get {
+          return snapshot["countryList"]! as! [String]
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "countryList")
+        }
+      }
+    }
+  }
+}
+
 public final class VerifyIdentityMutation: GraphQLMutation {
   public static let operationString =
     "mutation VerifyIdentity($input: VerifyIdentityInput) {\n  verifyIdentity(input: $input) {\n    __typename\n    owner\n    verified\n    verifiedAtEpochMs\n    verificationMethod\n    canAttemptVerificationAgain\n    idScanUrl\n  }\n}"
