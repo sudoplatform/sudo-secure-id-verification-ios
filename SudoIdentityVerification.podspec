@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name                  = 'SudoIdentityVerification'
-  spec.version               = '4.7.3'
+  spec.version               = '4.7.4'
   spec.author                = { 'Sudo Platform Engineering' => 'sudoplatform-engineering@anonyome.com' }
   spec.homepage              = 'https://sudoplatform.com/'
   spec.summary               = 'Secure ID Verification SDK for the Sudo Platform by Anonyome Labs.'

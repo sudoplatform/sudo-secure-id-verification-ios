@@ -92,7 +92,7 @@ public protocol SudoIdentityVerificationClient: class {
     ///   - city: City. Case insensitive.
     ///   - state: State. This is abbreviated name for the state, e.g. ‘NY’ not ‘New York’.
     ///   - postalCode: Postal code.
-    ///   - country: ISO 3166-1 alpha-3 country code. Must be one of countries retrieved via `getSupportedCountries` API.
+    ///   - country: ISO 3166-1 alpha-2 country code. Must be one of countries retrieved via `getSupportedCountries` API.
     ///   - dateOfBirth: Date of birth formatted in "yyyy-MM-dd".
     ///   - completion: The completion handler to invoke to pass the verification result.
     func verifyIdentity(firstName: String,
