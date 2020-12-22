@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          SudoIdentityVerification 4.8.0 Docs
+          SudoIdentityVerification 5.0.0 Docs
         </a>
         
       </p>
@@ -59,12 +59,6 @@
             <a class="nav-group-name-link" href="../Enums.html">Enumerations</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Enums.html#/s:24SudoIdentityVerification9ApiResultO">ApiResult</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Enums.html#/s:24SudoIdentityVerification27GetSupportedCountriesResultO">GetSupportedCountriesResult</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums.html#/s:24SudoIdentityVerification11QueryOptionO">QueryOption</a>
               </li>
               <li class="nav-group-task">
@@ -72,9 +66,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums.html#/s:24SudoIdentityVerification0A14OperationErrorO">SudoOperationError</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Enums.html#/s:24SudoIdentityVerification0C6ResultO">VerificationResult</a>
               </li>
             </ul>
           </li>
@@ -272,9 +263,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:24SudoIdentityVerification0abC6ClientP21getSupportedCountries10completionyyAA03GetfG6ResultOc_tF"></a>
-                    <a name="//apple_ref/swift/Method/getSupportedCountries(completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:24SudoIdentityVerification0abC6ClientP21getSupportedCountries10completionyyAA03GetfG6ResultOc_tF">getSupportedCountries(completion:<wbr>)</a>
+                    <a name="/s:24SudoIdentityVerification0abC6ClientP22listSupportedCountries10completionyys6ResultOySaySSGs5Error_pGc_tF"></a>
+                    <a name="//apple_ref/swift/Method/listSupportedCountries(completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24SudoIdentityVerification0abC6ClientP22listSupportedCountries10completionyys6ResultOySaySSGs5Error_pGc_tF">listSupportedCountries(completion:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -288,7 +279,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getSupportedCountries</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Enums.html#/s:24SudoIdentityVerification27GetSupportedCountriesResultO">GetSupportedCountriesResult</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listSupportedCountries</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Swift</span><span class="o">.</span><span class="kt">Result</span><span class="o">&lt;</span><span class="p">[</span><span class="kt">String</span><span class="p">],</span> <span class="kt">Error</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -298,9 +289,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:24SudoIdentityVerification0abC6ClientP06verifyB09firstName04lastG07address4city5state10postalCode7country11dateOfBirth10completionySS_S3SSgANS3SyAA0C6ResultOctF"></a>
+                    <a name="/s:24SudoIdentityVerification0abC6ClientP06verifyB09firstName04lastG07address4city5state10postalCode7country11dateOfBirth10completionySS_S3SSgANS3Sys6ResultOyAA08VerifiedB0Vs5Error_pGctF"></a>
                     <a name="//apple_ref/swift/Method/verifyIdentity(firstName:lastName:address:city:state:postalCode:country:dateOfBirth:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:24SudoIdentityVerification0abC6ClientP06verifyB09firstName04lastG07address4city5state10postalCode7country11dateOfBirth10completionySS_S3SSgANS3SyAA0C6ResultOctF">verifyIdentity(firstName:<wbr>lastName:<wbr>address:<wbr>city:<wbr>state:<wbr>postalCode:<wbr>country:<wbr>dateOfBirth:<wbr>completion:<wbr>)</a>
+                    <a class="token" href="#/s:24SudoIdentityVerification0abC6ClientP06verifyB09firstName04lastG07address4city5state10postalCode7country11dateOfBirth10completionySS_S3SSgANS3Sys6ResultOyAA08VerifiedB0Vs5Error_pGctF">verifyIdentity(firstName:<wbr>lastName:<wbr>address:<wbr>city:<wbr>state:<wbr>postalCode:<wbr>country:<wbr>dateOfBirth:<wbr>completion:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -322,7 +313,7 @@
                            <span class="nv">postalCode</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
                            <span class="nv">country</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
                            <span class="nv">dateOfBirth</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
-                           <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Enums.html#/s:24SudoIdentityVerification0C6ResultO">VerificationResult</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+                           <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Swift</span><span class="o">.</span><span class="kt">Result</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/VerifiedIdentity.html">VerifiedIdentity</a></span><span class="p">,</span> <span class="kt">Error</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -332,9 +323,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:24SudoIdentityVerification0abC6ClientP05checkbC06option10completionyAA11QueryOptionO_yAA0C6ResultOctF"></a>
+                    <a name="/s:24SudoIdentityVerification0abC6ClientP05checkbC06option10completionyAA11QueryOptionO_ys6ResultOyAA08VerifiedB0Vs5Error_pGctF"></a>
                     <a name="//apple_ref/swift/Method/checkIdentityVerification(option:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:24SudoIdentityVerification0abC6ClientP05checkbC06option10completionyAA11QueryOptionO_yAA0C6ResultOctF">checkIdentityVerification(option:<wbr>completion:<wbr>)</a>
+                    <a class="token" href="#/s:24SudoIdentityVerification0abC6ClientP05checkbC06option10completionyAA11QueryOptionO_ys6ResultOyAA08VerifiedB0Vs5Error_pGctF">checkIdentityVerification(option:<wbr>completion:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -348,7 +339,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">checkIdentityVerification</span><span class="p">(</span><span class="nv">option</span><span class="p">:</span> <span class="kt"><a href="../Enums.html#/s:24SudoIdentityVerification11QueryOptionO">QueryOption</a></span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Enums.html#/s:24SudoIdentityVerification0C6ResultO">VerificationResult</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">checkIdentityVerification</span><span class="p">(</span><span class="nv">option</span><span class="p">:</span> <span class="kt"><a href="../Enums.html#/s:24SudoIdentityVerification11QueryOptionO">QueryOption</a></span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Swift</span><span class="o">.</span><span class="kt">Result</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/VerifiedIdentity.html">VerifiedIdentity</a></span><span class="p">,</span> <span class="kt">Error</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -389,7 +380,7 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://sudoplatform.com/" target="_blank" rel="external">Sudo Platform Engineering</a>. All rights reserved. (Last updated: 2020-11-10)</p>
+      <p>&copy; 2020 <a class="link" href="https://sudoplatform.com/" target="_blank" rel="external">Sudo Platform Engineering</a>. All rights reserved. (Last updated: 2020-12-22)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

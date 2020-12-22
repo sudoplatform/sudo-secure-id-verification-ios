@@ -91,7 +91,6 @@
 		D931C7DA23432B7800932612 /* NSLock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSLock.swift; sourceTree = "<group>"; };
 		D931C7E02343307200932612 /* SudoOperationQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudoOperationQueue.swift; sourceTree = "<group>"; };
 		D946445E23580EF100F4BCF8 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
-		D9616183235ED6B5000CCD4B /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		D9971C5822FD299A0077076C /* SudoIdentityVerification.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SudoIdentityVerification.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9971C5B22FD299A0077076C /* SudoIdentityVerification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SudoIdentityVerification.h; sourceTree = "<group>"; };
 		D9971C5C22FD299A0077076C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -210,7 +209,6 @@
 			children = (
 				D9971C7222FD2A510077076C /* Podfile */,
 				D9971C7322FD2A5B0077076C /* SudoIdentityVerification.podspec */,
-				D9616183235ED6B5000CCD4B /* CHANGELOG.md */,
 				D9971C5A22FD299A0077076C /* SudoIdentityVerification */,
 				D9971C6522FD299A0077076C /* SudoIdentityVerificationTests */,
 				D9F16E6C22FD498E0055513F /* SudoIdentityVerificationIntegrationTests */,
