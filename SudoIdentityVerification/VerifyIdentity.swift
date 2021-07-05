@@ -7,6 +7,7 @@
 import Foundation
 import AWSAppSync
 import SudoLogging
+import SudoApiClient
 
 /// Operation to verify an identity.
 class VerifyIdentity: SudoOperation {
@@ -14,7 +15,7 @@ class VerifyIdentity: SudoOperation {
     /// Verified identity.
     public var verifiedIdentity: VerifiedIdentity?
 
-    private unowned let graphQLClient: AWSAppSyncClient
+    private unowned let graphQLClient: SudoApiClient
 
     private let firstName: String
     private let lastName: String
@@ -42,7 +43,7 @@ class VerifyIdentity: SudoOperation {
     ///   - postalCode: Postal code.
     ///   - country: Country.
     ///   - dateOfBirth: Date of birth.
-    init(graphQLClient: AWSAppSyncClient,
+    init(graphQLClient: SudoApiClient,
          logger: Logger = Logger.sudoIdentityVerificationClientLogger,
          firstName: String,
          lastName: String,
@@ -65,54 +66,60 @@ class VerifyIdentity: SudoOperation {
     }
 
     override func execute() {
-        let input = VerifyIdentityInput(verificationMethod: Constants.verificationMethod, firstName: self.firstName, lastName: self.lastName, address: self.address, city: self.city, state: self.addressState, postalCode: self.postalCode, country: self.country, dateOfBirth: self.dateOfBirth)
-        self.graphQLClient.perform(mutation: VerifyIdentityMutation(input: input)) { (result, error) in
-            if let error = error {
-                self.error = error
-                return self.done()
-            }
-
-            guard let result = result else {
-                self.error = SudoOperationError.fatalError(description: "Mutation completed successfully but result is missing.")
-                return self.done()
-            }
-
-            if let error = result.errors?.first {
-                let message = "Failed to verify identity: \(error)"
-                self.logger.error(message)
-
-                if let errorType = error[SudoOperation.SudoServiceError.type] as? String {
-                    switch errorType {
-                    case SudoOperation.SudoServiceError.serviceError:
-                        self.error = SudoOperationError.serverError
-                    case SudoOperation.SudoServiceError.decodingError:
-                        self.error = SudoOperationError.invalidInput
-                    default:
-                        self.error = SudoOperationError.graphQLError(description: message)
+        let input = VerifyIdentityInput(
+            verificationMethod: Constants.verificationMethod,
+            firstName: self.firstName,
+            lastName: self.lastName,
+            address: self.address,
+            city: self.city,
+            state: self.addressState,
+            postalCode: self.postalCode,
+            country: self.country,
+            dateOfBirth: self.dateOfBirth
+        )
+        do {
+            try self.graphQLClient.perform(
+                mutation: VerifyIdentityMutation(input: input),
+                resultHandler: { (result, error) in
+                    if let error = error {
+                        self.error = SudoIdentityVerificationClientError.fromApiOperationError(error: error)
+                        return self.done()
                     }
-                } else {
-                    self.error = SudoOperationError.graphQLError(description: message)
+
+                    guard let result = result else {
+                        self.error = SudoIdentityVerificationClientError.fatalError(description: "Mutation completed successfully but result is missing.")
+                        return self.done()
+                    }
+
+                    if let error = result.errors?.first {
+                        self.logger.error("Failed to verify identity: \(error)")
+                        self.error = SudoIdentityVerificationClientError.fromApiOperationError(error: error)
+                        return self.done()
+                    }
+
+                    guard let verifiedIdentity = result.data?.verifyIdentity else {
+                        self.error = SudoIdentityVerificationClientError.fatalError(description: "Mutation result did not contain required object.")
+                        return self.done()
+                    }
+
+                    var verifiedAt: Date?
+                    if let verifiedAtEpochMs = verifiedIdentity.verifiedAtEpochMs {
+                        verifiedAt = Date(millisecondsSinceEpoch: verifiedAtEpochMs)
+                    }
+
+                    self.verifiedIdentity = VerifiedIdentity(
+                        owner: verifiedIdentity.owner,
+                        verified: verifiedIdentity.verified,
+                        verifiedAt: verifiedAt,
+                        verificationMethod: verifiedIdentity.verificationMethod,
+                        canAttemptVerificationAgain: verifiedIdentity.canAttemptVerificationAgain,
+                        idScanUrl: verifiedIdentity.idScanUrl
+                    )
+                    self.done()
                 }
-
-                return self.done()
-            }
-
-            guard let verifiedIdentity = result.data?.verifyIdentity else {
-                self.error = SudoOperationError.fatalError(description: "Mutation result did not contain required object.")
-                return self.done()
-            }
-
-            var verifiedAt: Date?
-            if let verifiedAtEpochMs = verifiedIdentity.verifiedAtEpochMs {
-                verifiedAt = Date(millisecondsSinceEpoch: verifiedAtEpochMs)
-            }
-
-            self.verifiedIdentity = VerifiedIdentity(owner: verifiedIdentity.owner,
-                                                     verified: verifiedIdentity.verified,
-                                                     verifiedAt: verifiedAt,
-                                                     verificationMethod: verifiedIdentity.verificationMethod,
-                                                     canAttemptVerificationAgain: verifiedIdentity.canAttemptVerificationAgain,
-                                                     idScanUrl: verifiedIdentity.idScanUrl)
+            )
+        } catch {
+            self.error = SudoIdentityVerificationClientError.fromApiOperationError(error: error)
             self.done()
         }
     }
