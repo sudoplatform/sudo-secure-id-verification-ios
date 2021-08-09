@@ -9,13 +9,14 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 target "SudoIdentityVerification" do
   podspec :name => 'SudoIdentityVerification'
+
+  target "SudoIdentityVerificationTests" do
+    podspec :name => 'SudoIdentityVerification'
+  end
+
+  target "SudoIdentityVerificationIntegrationTests" do
+    podspec :name => 'SudoIdentityVerification'
+    pod 'SudoKeyManager', '~> 1.0'
+  end
 end
 
-target "SudoIdentityVerificationTests" do
-  podspec :name => 'SudoIdentityVerification'
-end
-
-target "SudoIdentityVerificationIntegrationTests" do
-  podspec :name => 'SudoIdentityVerification'
-  pod 'SudoKeyManager', '~> 1.0'
-end

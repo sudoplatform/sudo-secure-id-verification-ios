@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		155A9E717A5BB148FF8501CA /* Pods_SudoIdentityVerificationIntegrationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60C7F5FCD28D38F6251AB649 /* Pods_SudoIdentityVerificationIntegrationTests.framework */; };
-		2158E8B65DC21DF0573F39E5 /* Pods_SudoIdentityVerificationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C69303EF5F4F45D26A928DA /* Pods_SudoIdentityVerificationTests.framework */; };
+		1226CFBA02270F761D231EF6 /* Pods_SudoIdentityVerification_SudoIdentityVerificationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A9115CEAC7B4AEEAC33548C /* Pods_SudoIdentityVerification_SudoIdentityVerificationTests.framework */; };
+		43D6D31923C37E225D4C5767 /* Pods_SudoIdentityVerification_SudoIdentityVerificationIntegrationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FDE22F05609B721ED44435F /* Pods_SudoIdentityVerification_SudoIdentityVerificationIntegrationTests.framework */; };
 		48C67035011972CF549C8BA1 /* Pods_SudoIdentityVerification.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AE40C3DE0E6284CA542E97D /* Pods_SudoIdentityVerification.framework */; };
 		D91CAE4F2451484300DA1152 /* AWSEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91CAE4E2451484300DA1152 /* AWSEndpoint.swift */; };
 		D931C7B92342D22700932612 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D931C7B82342D22700932612 /* AppDelegate.swift */; };
@@ -69,14 +69,18 @@
 
 /* Begin PBXFileReference section */
 		1AE40C3DE0E6284CA542E97D /* Pods_SudoIdentityVerification.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SudoIdentityVerification.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1C69303EF5F4F45D26A928DA /* Pods_SudoIdentityVerificationTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SudoIdentityVerificationTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		60C7F5FCD28D38F6251AB649 /* Pods_SudoIdentityVerificationIntegrationTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SudoIdentityVerificationIntegrationTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A9115CEAC7B4AEEAC33548C /* Pods_SudoIdentityVerification_SudoIdentityVerificationTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SudoIdentityVerification_SudoIdentityVerificationTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		66AE3D879B31835C41437EF6 /* Pods-SudoIdentityVerificationIntegrationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoIdentityVerificationIntegrationTests.release.xcconfig"; path = "Target Support Files/Pods-SudoIdentityVerificationIntegrationTests/Pods-SudoIdentityVerificationIntegrationTests.release.xcconfig"; sourceTree = "<group>"; };
 		6E4BD0F655190A99DBF71354 /* Pods-SudoIdentityVerification.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoIdentityVerification.debug.xcconfig"; path = "Target Support Files/Pods-SudoIdentityVerification/Pods-SudoIdentityVerification.debug.xcconfig"; sourceTree = "<group>"; };
+		7FDE22F05609B721ED44435F /* Pods_SudoIdentityVerification_SudoIdentityVerificationIntegrationTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SudoIdentityVerification_SudoIdentityVerificationIntegrationTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		83B0E4AC203362B62BEC7258 /* Pods-SudoIdentityVerification.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoIdentityVerification.release.xcconfig"; path = "Target Support Files/Pods-SudoIdentityVerification/Pods-SudoIdentityVerification.release.xcconfig"; sourceTree = "<group>"; };
 		A144BF9EB7328BF76A5008F2 /* Pods-SudoIdentityVerificationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoIdentityVerificationTests.release.xcconfig"; path = "Target Support Files/Pods-SudoIdentityVerificationTests/Pods-SudoIdentityVerificationTests.release.xcconfig"; sourceTree = "<group>"; };
+		AA47124AA29C40A510CA086F /* Pods-SudoIdentityVerification-SudoIdentityVerificationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoIdentityVerification-SudoIdentityVerificationTests.release.xcconfig"; path = "Target Support Files/Pods-SudoIdentityVerification-SudoIdentityVerificationTests/Pods-SudoIdentityVerification-SudoIdentityVerificationTests.release.xcconfig"; sourceTree = "<group>"; };
+		B79C83D1CF479A91E91D07F5 /* Pods-SudoIdentityVerification-SudoIdentityVerificationIntegrationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoIdentityVerification-SudoIdentityVerificationIntegrationTests.debug.xcconfig"; path = "Target Support Files/Pods-SudoIdentityVerification-SudoIdentityVerificationIntegrationTests/Pods-SudoIdentityVerification-SudoIdentityVerificationIntegrationTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BB5DEA78CA6C764EA545BFA8 /* Pods-SudoIdentityVerificationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoIdentityVerificationTests.debug.xcconfig"; path = "Target Support Files/Pods-SudoIdentityVerificationTests/Pods-SudoIdentityVerificationTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BE3DDF0B7D58FA145D83F9A7 /* Pods-SudoIdentityVerificationIntegrationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoIdentityVerificationIntegrationTests.debug.xcconfig"; path = "Target Support Files/Pods-SudoIdentityVerificationIntegrationTests/Pods-SudoIdentityVerificationIntegrationTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CA7ED6E3418BF61DD887F8C7 /* Pods-SudoIdentityVerification-SudoIdentityVerificationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoIdentityVerification-SudoIdentityVerificationTests.debug.xcconfig"; path = "Target Support Files/Pods-SudoIdentityVerification-SudoIdentityVerificationTests/Pods-SudoIdentityVerification-SudoIdentityVerificationTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D464875741DA041B942DA63D /* Pods-SudoIdentityVerification-SudoIdentityVerificationIntegrationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoIdentityVerification-SudoIdentityVerificationIntegrationTests.release.xcconfig"; path = "Target Support Files/Pods-SudoIdentityVerification-SudoIdentityVerificationIntegrationTests/Pods-SudoIdentityVerification-SudoIdentityVerificationIntegrationTests.release.xcconfig"; sourceTree = "<group>"; };
 		D91CAE4E2451484300DA1152 /* AWSEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSEndpoint.swift; sourceTree = "<group>"; };
 		D931C7B62342D22700932612 /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D931C7B82342D22700932612 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -131,8 +135,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1226CFBA02270F761D231EF6 /* Pods_SudoIdentityVerification_SudoIdentityVerificationTests.framework in Frameworks */,
 				D9971C6222FD299A0077076C /* SudoIdentityVerification.framework in Frameworks */,
-				2158E8B65DC21DF0573F39E5 /* Pods_SudoIdentityVerificationTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,8 +144,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43D6D31923C37E225D4C5767 /* Pods_SudoIdentityVerification_SudoIdentityVerificationIntegrationTests.framework in Frameworks */,
 				D9F16E7022FD498E0055513F /* SudoIdentityVerification.framework in Frameworks */,
-				155A9E717A5BB148FF8501CA /* Pods_SudoIdentityVerificationIntegrationTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +155,10 @@
 		C1CFCFDA6A8EDCBA54AF85D7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				B79C83D1CF479A91E91D07F5 /* Pods-SudoIdentityVerification-SudoIdentityVerificationIntegrationTests.debug.xcconfig */,
+				D464875741DA041B942DA63D /* Pods-SudoIdentityVerification-SudoIdentityVerificationIntegrationTests.release.xcconfig */,
+				CA7ED6E3418BF61DD887F8C7 /* Pods-SudoIdentityVerification-SudoIdentityVerificationTests.debug.xcconfig */,
+				AA47124AA29C40A510CA086F /* Pods-SudoIdentityVerification-SudoIdentityVerificationTests.release.xcconfig */,
 				6E4BD0F655190A99DBF71354 /* Pods-SudoIdentityVerification.debug.xcconfig */,
 				83B0E4AC203362B62BEC7258 /* Pods-SudoIdentityVerification.release.xcconfig */,
 				BE3DDF0B7D58FA145D83F9A7 /* Pods-SudoIdentityVerificationIntegrationTests.debug.xcconfig */,
@@ -165,8 +173,8 @@
 			isa = PBXGroup;
 			children = (
 				1AE40C3DE0E6284CA542E97D /* Pods_SudoIdentityVerification.framework */,
-				60C7F5FCD28D38F6251AB649 /* Pods_SudoIdentityVerificationIntegrationTests.framework */,
-				1C69303EF5F4F45D26A928DA /* Pods_SudoIdentityVerificationTests.framework */,
+				7FDE22F05609B721ED44435F /* Pods_SudoIdentityVerification_SudoIdentityVerificationIntegrationTests.framework */,
+				3A9115CEAC7B4AEEAC33548C /* Pods_SudoIdentityVerification_SudoIdentityVerificationTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -174,13 +182,13 @@
 		D931C7B72342D22700932612 /* TestApp */ = {
 			isa = PBXGroup;
 			children = (
-				D9F52A9C23D7CC1000F47271 /* sudoplatformconfig.json */,
 				D931C7B82342D22700932612 /* AppDelegate.swift */,
-				D931C7BA2342D22700932612 /* ViewController.swift */,
-				D931C7BC2342D22700932612 /* Main.storyboard */,
 				D931C7BF2342D22800932612 /* Assets.xcassets */,
-				D931C7C12342D22800932612 /* LaunchScreen.storyboard */,
 				D931C7C42342D22800932612 /* Info.plist */,
+				D931C7C12342D22800932612 /* LaunchScreen.storyboard */,
+				D931C7BC2342D22700932612 /* Main.storyboard */,
+				D9F52A9C23D7CC1000F47271 /* sudoplatformconfig.json */,
+				D931C7BA2342D22700932612 /* ViewController.swift */,
 			);
 			path = TestApp;
 			sourceTree = "<group>";
@@ -223,8 +231,8 @@
 			isa = PBXGroup;
 			children = (
 				D9971C5822FD299A0077076C /* SudoIdentityVerification.framework */,
-				D9971C6122FD299A0077076C /* SudoIdentityVerificationTests.xctest */,
 				D9F16E6B22FD498E0055513F /* SudoIdentityVerificationIntegrationTests.xctest */,
+				D9971C6122FD299A0077076C /* SudoIdentityVerificationTests.xctest */,
 				D931C7B62342D22700932612 /* TestApp.app */,
 			);
 			name = Products;
@@ -233,14 +241,14 @@
 		D9971C5A22FD299A0077076C /* SudoIdentityVerification */ = {
 			isa = PBXGroup;
 			children = (
-				D931C7D723432B2800932612 /* Operation */,
 				D9971C7A22FD41090077076C /* Extension */,
-				D9971C5B22FD299A0077076C /* SudoIdentityVerification.h */,
+				D931C7D723432B2800932612 /* Operation */,
 				D9971C5C22FD299A0077076C /* Info.plist */,
-				D9B5B2B52371666100392596 /* SudoIdentityVerificationServiceAPI.swift */,
+				D9971C7D22FD46650077076C /* Logger.swift */,
+				D9971C5B22FD299A0077076C /* SudoIdentityVerification.h */,
 				D9971C7622FD31690077076C /* SudoIdentityVerificationClient.swift */,
 				D9971C7822FD40DC0077076C /* SudoIdentityVerificationClientConfigProvider.swift */,
-				D9971C7D22FD46650077076C /* Logger.swift */,
+				D9B5B2B52371666100392596 /* SudoIdentityVerificationServiceAPI.swift */,
 				D9B5B2B323715DF300392596 /* VerifiedIdentity.swift */,
 			);
 			path = SudoIdentityVerification;
@@ -249,8 +257,8 @@
 		D9971C6522FD299A0077076C /* SudoIdentityVerificationTests */ = {
 			isa = PBXGroup;
 			children = (
-				D9971C6622FD299A0077076C /* SudoIdentityVerificationTests.swift */,
 				D9971C6822FD299A0077076C /* Info.plist */,
+				D9971C6622FD299A0077076C /* SudoIdentityVerificationTests.swift */,
 			);
 			path = SudoIdentityVerificationTests;
 			sourceTree = "<group>";
@@ -258,10 +266,10 @@
 		D9971C7A22FD41090077076C /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				D931C7CA2342D3D000932612 /* Data.swift */,
-				D931C7DA23432B7800932612 /* NSLock.swift */,
-				D946445E23580EF100F4BCF8 /* Date.swift */,
 				D91CAE4E2451484300DA1152 /* AWSEndpoint.swift */,
+				D931C7CA2342D3D000932612 /* Data.swift */,
+				D946445E23580EF100F4BCF8 /* Date.swift */,
+				D931C7DA23432B7800932612 /* NSLock.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -270,8 +278,8 @@
 			isa = PBXGroup;
 			children = (
 				D931C7CE2342D71700932612 /* Supporting Files */,
-				D9F16E6D22FD498E0055513F /* SudoIdentityVerificationIntegrationTests.swift */,
 				D9F16E6F22FD498E0055513F /* Info.plist */,
+				D9F16E6D22FD498E0055513F /* SudoIdentityVerificationIntegrationTests.swift */,
 			);
 			path = SudoIdentityVerificationIntegrationTests;
 			sourceTree = "<group>";
@@ -423,10 +431,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D931C7C32342D22800932612 /* LaunchScreen.storyboard in Resources */,
-				D9F52A9D23D7CC1000F47271 /* sudoplatformconfig.json in Resources */,
 				D931C7C02342D22800932612 /* Assets.xcassets in Resources */,
+				D931C7C32342D22800932612 /* LaunchScreen.storyboard in Resources */,
 				D931C7BE2342D22700932612 /* Main.storyboard in Resources */,
+				D9F52A9D23D7CC1000F47271 /* sudoplatformconfig.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,15 +491,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SudoIdentityVerificationTests/Pods-SudoIdentityVerificationTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-SudoIdentityVerification-SudoIdentityVerificationTests/Pods-SudoIdentityVerification-SudoIdentityVerificationTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SudoIdentityVerificationTests/Pods-SudoIdentityVerificationTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-SudoIdentityVerification-SudoIdentityVerificationTests/Pods-SudoIdentityVerification-SudoIdentityVerificationTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SudoIdentityVerificationTests/Pods-SudoIdentityVerificationTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SudoIdentityVerification-SudoIdentityVerificationTests/Pods-SudoIdentityVerification-SudoIdentityVerificationTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9A65DBD3C51F78478E8DC248 /* [CP] Check Pods Manifest.lock */ = {
@@ -509,7 +517,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SudoIdentityVerificationIntegrationTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-SudoIdentityVerification-SudoIdentityVerificationIntegrationTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -522,15 +530,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SudoIdentityVerificationIntegrationTests/Pods-SudoIdentityVerificationIntegrationTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-SudoIdentityVerification-SudoIdentityVerificationIntegrationTests/Pods-SudoIdentityVerification-SudoIdentityVerificationIntegrationTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SudoIdentityVerificationIntegrationTests/Pods-SudoIdentityVerificationIntegrationTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-SudoIdentityVerification-SudoIdentityVerificationIntegrationTests/Pods-SudoIdentityVerification-SudoIdentityVerificationIntegrationTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SudoIdentityVerificationIntegrationTests/Pods-SudoIdentityVerificationIntegrationTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SudoIdentityVerification-SudoIdentityVerificationIntegrationTests/Pods-SudoIdentityVerification-SudoIdentityVerificationIntegrationTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D931C7B12342D1C200932612 /* Copy Config */ = {
@@ -602,7 +610,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SudoIdentityVerificationTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-SudoIdentityVerification-SudoIdentityVerificationTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -616,8 +624,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D931C7BB2342D22700932612 /* ViewController.swift in Sources */,
 				D931C7B92342D22700932612 /* AppDelegate.swift in Sources */,
+				D931C7BB2342D22700932612 /* ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -625,18 +633,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D931C7CB2342D3D000932612 /* Data.swift in Sources */,
-				D9B5B2B423715DF300392596 /* VerifiedIdentity.swift in Sources */,
-				D9B5B2B62371666100392596 /* SudoIdentityVerificationServiceAPI.swift in Sources */,
-				D9971C7E22FD46650077076C /* Logger.swift in Sources */,
-				D946445F23580EF100F4BCF8 /* Date.swift in Sources */,
-				D931C7D923432B5F00932612 /* SudoOperation.swift in Sources */,
-				D99C97FE2372415100096A10 /* VerifyIdentity.swift in Sources */,
-				D9971C7922FD40DC0077076C /* SudoIdentityVerificationClientConfigProvider.swift in Sources */,
 				D91CAE4F2451484300DA1152 /* AWSEndpoint.swift in Sources */,
-				D931C7E12343307200932612 /* SudoOperationQueue.swift in Sources */,
-				D9971C7722FD31690077076C /* SudoIdentityVerificationClient.swift in Sources */,
+				D931C7CB2342D3D000932612 /* Data.swift in Sources */,
+				D946445F23580EF100F4BCF8 /* Date.swift in Sources */,
+				D9971C7E22FD46650077076C /* Logger.swift in Sources */,
 				D931C7DB23432B7900932612 /* NSLock.swift in Sources */,
+				D9971C7722FD31690077076C /* SudoIdentityVerificationClient.swift in Sources */,
+				D9971C7922FD40DC0077076C /* SudoIdentityVerificationClientConfigProvider.swift in Sources */,
+				D9B5B2B62371666100392596 /* SudoIdentityVerificationServiceAPI.swift in Sources */,
+				D931C7D923432B5F00932612 /* SudoOperation.swift in Sources */,
+				D931C7E12343307200932612 /* SudoOperationQueue.swift in Sources */,
+				D9B5B2B423715DF300392596 /* VerifiedIdentity.swift in Sources */,
+				D99C97FE2372415100096A10 /* VerifyIdentity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -918,7 +926,7 @@
 		};
 		D9971C7022FD299A0077076C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BB5DEA78CA6C764EA545BFA8 /* Pods-SudoIdentityVerificationTests.debug.xcconfig */;
+			baseConfigurationReference = CA7ED6E3418BF61DD887F8C7 /* Pods-SudoIdentityVerification-SudoIdentityVerificationTests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UU2W43R8JA;
@@ -937,7 +945,7 @@
 		};
 		D9971C7122FD299A0077076C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A144BF9EB7328BF76A5008F2 /* Pods-SudoIdentityVerificationTests.release.xcconfig */;
+			baseConfigurationReference = AA47124AA29C40A510CA086F /* Pods-SudoIdentityVerification-SudoIdentityVerificationTests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UU2W43R8JA;
@@ -956,7 +964,7 @@
 		};
 		D9F16E7422FD498E0055513F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BE3DDF0B7D58FA145D83F9A7 /* Pods-SudoIdentityVerificationIntegrationTests.debug.xcconfig */;
+			baseConfigurationReference = B79C83D1CF479A91E91D07F5 /* Pods-SudoIdentityVerification-SudoIdentityVerificationIntegrationTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -976,7 +984,7 @@
 		};
 		D9F16E7522FD498E0055513F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 66AE3D879B31835C41437EF6 /* Pods-SudoIdentityVerificationIntegrationTests.release.xcconfig */;
+			baseConfigurationReference = D464875741DA041B942DA63D /* Pods-SudoIdentityVerification-SudoIdentityVerificationIntegrationTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
