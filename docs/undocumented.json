@@ -23,7 +23,7 @@
     },
     {
       "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/SudoIdentityVerificationClient.swift",
-      "line": 180,
+      "line": 183,
       "symbol": "DefaultSudoIdentityVerificationClient.Config",
       "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
@@ -89,83 +89,6 @@
       "line": 577,
       "symbol": "VerifyIdentityDocumentMutation",
       "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/SudoOperation.swift",
-      "line": 15,
-      "symbol": "SudoOperationError.preconditionFailure",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/SudoOperation.swift",
-      "line": 18,
-      "symbol": "SudoOperationState",
-      "symbol_kind": "source.lang.swift.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/SudoOperation.swift",
-      "line": 77,
-      "symbol": "SudoOperation.copyDependenciesOutputAsInput",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/SudoOperation.swift",
-      "line": 79,
-      "symbol": "SudoOperation.isReady",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/SudoOperation.swift",
-      "line": 83,
-      "symbol": "SudoOperation.isExecuting",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/SudoOperation.swift",
-      "line": 89,
-      "symbol": "SudoOperation.isCancelled",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/SudoOperation.swift",
-      "line": 93,
-      "symbol": "SudoOperation.isFinished",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/SudoOperation.swift",
-      "line": 97,
-      "symbol": "SudoOperation.isAsynchronous",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/SudoOperation.swift",
-      "line": 101,
-      "symbol": "SudoOperation.init(logger:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/SudoOperation.swift",
-      "line": 154,
-      "symbol": "SudoOperation.start()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/SudoOperation.swift",
-      "line": 188,
-      "symbol": "SudoOperation.cancel()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     }
   ],

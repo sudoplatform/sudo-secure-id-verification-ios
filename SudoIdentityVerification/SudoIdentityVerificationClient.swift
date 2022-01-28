@@ -133,8 +133,8 @@ public protocol SudoIdentityVerificationClient: AnyObject {
 
     /// Retrieves the list of supported countries for identity verification.
     ///
-    /// - Parameter completion: The completion handler to invoke to pass the list of support countries or error.
-    func listSupportedCountries(completion: @escaping (Swift.Result<[String], Error>) -> Void) throws
+    /// - Returns: List of support countries.
+    func listSupportedCountries() async throws -> [String]
 
     /// Verifies an identity against the known public records and returns a result indicating whether or not the identity
     /// details provided was verified with enough confidence to grant the user access to Sudo platform functions such
@@ -149,23 +149,26 @@ public protocol SudoIdentityVerificationClient: AnyObject {
     ///   - postalCode: Postal code.
     ///   - country: ISO 3166-1 alpha-2 country code. Must be one of countries retrieved via `getSupportedCountries` API.
     ///   - dateOfBirth: Date of birth formatted in "yyyy-MM-dd".
-    ///   - completion: The completion handler to invoke to pass the verification result.
-    func verifyIdentity(firstName: String,
-                        lastName: String,
-                        address: String,
-                        city: String?,
-                        state: String?,
-                        postalCode: String,
-                        country: String,
-                        dateOfBirth: String,
-                        completion: @escaping (Swift.Result<VerifiedIdentity, Error>) -> Void)
+    ///
+    /// - Returns: Verification result.
+    func verifyIdentity(
+        firstName: String,
+        lastName: String,
+        address: String,
+        city: String?,
+        state: String?,
+        postalCode: String,
+        country: String,
+        dateOfBirth: String
+    ) async throws -> VerifiedIdentity
 
     /// Checks the identity verification status of the currently signed in user.
     ///
     /// - Parameters:
     ///   - option: Option to determine whether to check the status in the backend or return the cached result.
-    ///   - completion: The completion handler to invoke to pass the verification result.
-    func checkIdentityVerification(option: QueryOption, completion: @escaping (Swift.Result<VerifiedIdentity, Error>) -> Void) throws
+    ///
+    /// - Returns: Verification result.
+    func checkIdentityVerification(option: QueryOption) async throws -> VerifiedIdentity
 
     /// Resets any cached data.
     ///
@@ -186,17 +189,18 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
 
     }
 
+    struct Constants {
+        static let verificationMethod = "KNOWLEDGE_OF_PII"
+    }
+
     /// Default logger for the client.
     private let logger: Logger
 
-    ///`SudoUserClient` instance required to issue authentication tokens and perform cryptographic operations.
+    /// `SudoUserClient` instance required to issue authentication tokens and perform cryptographic operations.
     private let sudoUserClient: SudoUserClient
 
     /// GraphQL client for communicating with the identity verification service.
     private let graphQLClient: SudoApiClient
-
-    /// Operation queue used for serializing and rate controlling expensive remote API calls.
-    private let sudoOperationQueue = SudoOperationQueue()
 
     /// Intializes a new `DefaultSudoIdentityVerificationClient` instance.
     ///
@@ -227,7 +231,12 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
     ///   - logger: A logger to use for logging messages. If none provided then a default internal logger will be used.
     ///   - graphQLClient: Optional GraphQL client to use. Mainly used for unit testing.
     /// - Throws: `SudoIdentityVerificationClientError`
-    public init(config: [String: Any], sudoUserClient: SudoUserClient, logger: Logger? = nil, graphQLClient: SudoApiClient? = nil) throws {
+    public init(
+        config: [String: Any],
+        sudoUserClient: SudoUserClient,
+        logger: Logger? = nil,
+        graphQLClient: SudoApiClient? = nil
+    ) throws {
 
         #if DEBUG
             AWSDDLog.sharedInstance.logLevel = .verbose
@@ -250,70 +259,100 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
         }
     }
 
-    public func listSupportedCountries(completion: @escaping (Swift.Result<[String], Error>) -> Void) throws {
+    public func listSupportedCountries() async throws -> [String] {
         self.logger.info("Retrieving the list of supported countries for identity verification.")
 
         do {
-            try self.graphQLClient.fetch(
+            let (result, error) = try await self.graphQLClient.fetch(
                 query: GetSupportedCountriesForIdentityVerificationQuery(),
-                cachePolicy: .fetchIgnoringCacheData,
-                resultHandler: { (result, error) in
-                    if let error = error {
-                        return completion(.failure(SudoIdentityVerificationClientError.fromApiOperationError(error: error)))
-                    }
+                cachePolicy: .fetchIgnoringCacheData
+            )
+            if let error = error {
+                throw SudoIdentityVerificationClientError.fromApiOperationError(error: error)
+            }
 
-                    guard let result = result else {
-                        return completion(.failure(SudoIdentityVerificationClientError.fatalError(description: "Query returned nil result.")))
-                    }
+            guard let result = result else {
+                throw SudoIdentityVerificationClientError.fatalError(description: "Query returned nil result.")
+            }
 
-                    if let error = result.errors?.first {
-                        self.logger.error("Query failed with errors: \(error)")
-                        return completion(.failure(SudoIdentityVerificationClientError.fromApiOperationError(error: error)))
-                    }
+            if let error = result.errors?.first {
+                self.logger.error("Query failed with errors: \(error)")
+                throw SudoIdentityVerificationClientError.fromApiOperationError(error: error)
+            }
 
-                    guard let countryList = result.data?.getSupportedCountriesForIdentityVerification?.countryList else {
-                        return completion(.success([]))
-                    }
+            guard let countryList = result.data?.getSupportedCountriesForIdentityVerification?.countryList else {
+                return []
+            }
 
-                    completion(.success(countryList))
-                }
+            return countryList
+        } catch {
+            throw SudoIdentityVerificationClientError.fromApiOperationError(error: error)
+        }
+    }
+
+    public func verifyIdentity(
+        firstName: String,
+        lastName: String,
+        address: String,
+        city: String?,
+        state: String?,
+        postalCode: String,
+        country: String,
+        dateOfBirth: String
+    ) async throws -> VerifiedIdentity {
+        self.logger.info("Verifying an identity.")
+
+        let input = VerifyIdentityInput(
+            verificationMethod: Constants.verificationMethod,
+            firstName: firstName,
+            lastName: lastName,
+            address: address,
+            city: city,
+            state: state,
+            postalCode: postalCode,
+            country: country,
+            dateOfBirth: dateOfBirth
+        )
+
+        do {
+            let (result, error) = try await self.graphQLClient.perform(mutation: VerifyIdentityMutation(input: input))
+
+            if let error = error {
+                throw SudoIdentityVerificationClientError.fromApiOperationError(error: error)
+            }
+
+            guard let result = result else {
+                throw SudoIdentityVerificationClientError.fatalError(description: "Query returned nil result.")
+            }
+
+            if let error = result.errors?.first {
+                self.logger.error("Mutation failed with errors: \(error)")
+                throw SudoIdentityVerificationClientError.fromApiOperationError(error: error)
+            }
+
+            guard let verifiedIdentity = result.data?.verifyIdentity else {
+                throw SudoIdentityVerificationClientError.fatalError(description: "Mutation result did not contain required object.")
+            }
+
+            var verifiedAt: Date?
+            if let verifiedAtEpochMs = verifiedIdentity.verifiedAtEpochMs {
+                verifiedAt = Date(millisecondsSinceEpoch: verifiedAtEpochMs)
+            }
+
+            return VerifiedIdentity(
+                owner: verifiedIdentity.owner,
+                verified: verifiedIdentity.verified,
+                verifiedAt: verifiedAt,
+                verificationMethod: verifiedIdentity.verificationMethod,
+                canAttemptVerificationAgain: verifiedIdentity.canAttemptVerificationAgain,
+                idScanUrl: verifiedIdentity.idScanUrl
             )
         } catch {
             throw SudoIdentityVerificationClientError.fromApiOperationError(error: error)
         }
     }
 
-    public func verifyIdentity(firstName: String,
-                               lastName: String,
-                               address: String,
-                               city: String?,
-                               state: String?,
-                               postalCode: String,
-                               country: String,
-                               dateOfBirth: String,
-                               completion: @escaping (Swift.Result<VerifiedIdentity, Error>) -> Void) {
-        self.logger.info("Verifying an identity.")
-
-        let verifyIdentityOp = VerifyIdentity(graphQLClient: self.graphQLClient, firstName: firstName, lastName: lastName, address: address, city: city, state: state, postalCode: postalCode, country: country, dateOfBirth: dateOfBirth)
-        let completionOp = BlockOperation {
-            if let error = verifyIdentityOp.error {
-                self.logger.error("Failed verify the identity: \(error)")
-                completion(.failure(error))
-            } else {
-                guard let verifiedIdentity = verifyIdentityOp.verifiedIdentity else {
-                    self.logger.error("The identity could not be verified.")
-                    return completion(.failure(SudoIdentityVerificationClientError.identityNotVerified))
-                }
-
-                self.logger.info("The identity verified successfully.")
-                completion(.success(verifiedIdentity))
-            }
-        }
-
-        self.sudoOperationQueue.addOperations([verifyIdentityOp, completionOp], waitUntilFinished: false)
-    }
-
-    public func checkIdentityVerification(option: QueryOption, completion: @escaping (Swift.Result<VerifiedIdentity, Error>) -> Void) throws {
+    public func checkIdentityVerification(option: QueryOption) async throws -> VerifiedIdentity {
         self.logger.info("Checking the identity verification status.")
 
         let cachePolicy: CachePolicy
@@ -325,45 +364,40 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
         }
 
         do {
-            try self.graphQLClient.fetch(
+            let (result, error) = try await self.graphQLClient.fetch(
                 query: CheckIdentityVerificationQuery(),
-                cachePolicy: cachePolicy,
-                resultHandler: { (result, error) in
-                    if let error = error {
-                        return completion(.failure(SudoIdentityVerificationClientError.fromApiOperationError(error: error)))
-                    }
+                cachePolicy: cachePolicy
+            )
 
-                    guard let result = result else {
-                        return completion(.failure(SudoIdentityVerificationClientError.fatalError(description: "Query returned nil result.")))
-                    }
+            if let error = error {
+                throw SudoIdentityVerificationClientError.fromApiOperationError(error: error)
+            }
 
-                    if let error = result.errors?.first {
-                        self.logger.error("Query failed with errors: \(error)")
-                        return completion(.failure(SudoIdentityVerificationClientError.fromApiOperationError(error: error)))
-                    }
+            guard let result = result else {
+                throw SudoIdentityVerificationClientError.fatalError(description: "Query returned nil result.")
+            }
 
-                    guard let verifiedIdentity = result.data?.checkIdentityVerification else {
-                        return completion(.failure(SudoIdentityVerificationClientError.verificationResultNotFound))
-                    }
+            if let error = result.errors?.first {
+                self.logger.error("Query failed with errors: \(error)")
+                throw SudoIdentityVerificationClientError.fromApiOperationError(error: error)
+            }
 
-                    var verifiedAt: Date?
-                    if let verifiedAtEpochMs = verifiedIdentity.verifiedAtEpochMs {
-                        verifiedAt = Date(millisecondsSinceEpoch: verifiedAtEpochMs)
-                    }
+            guard let verifiedIdentity = result.data?.checkIdentityVerification else {
+                throw SudoIdentityVerificationClientError.verificationResultNotFound
+            }
 
-                    completion(
-                        .success(
-                            VerifiedIdentity(
-                                owner: verifiedIdentity.owner,
-                                verified: verifiedIdentity.verified,
-                                verifiedAt: verifiedAt,
-                                verificationMethod: verifiedIdentity.verificationMethod,
-                                canAttemptVerificationAgain: verifiedIdentity.canAttemptVerificationAgain,
-                                idScanUrl: verifiedIdentity.idScanUrl
-                            )
-                        )
-                    )
-                }
+            var verifiedAt: Date?
+            if let verifiedAtEpochMs = verifiedIdentity.verifiedAtEpochMs {
+                verifiedAt = Date(millisecondsSinceEpoch: verifiedAtEpochMs)
+            }
+
+            return VerifiedIdentity(
+                owner: verifiedIdentity.owner,
+                verified: verifiedIdentity.verified,
+                verifiedAt: verifiedAt,
+                verificationMethod: verifiedIdentity.verificationMethod,
+                canAttemptVerificationAgain: verifiedIdentity.canAttemptVerificationAgain,
+                idScanUrl: verifiedIdentity.idScanUrl
             )
         } catch {
             throw SudoIdentityVerificationClientError.fromApiOperationError(error: error)
