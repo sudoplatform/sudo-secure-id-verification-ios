@@ -285,7 +285,7 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
             }
 
             return countryList
-        } catch {
+        } catch let error as ApiOperationError {
             throw SudoIdentityVerificationClientError.fromApiOperationError(error: error)
         }
     }
@@ -347,7 +347,7 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
                 canAttemptVerificationAgain: verifiedIdentity.canAttemptVerificationAgain,
                 idScanUrl: verifiedIdentity.idScanUrl
             )
-        } catch {
+        } catch let error as ApiOperationError {
             throw SudoIdentityVerificationClientError.fromApiOperationError(error: error)
         }
     }
@@ -399,7 +399,7 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
                 canAttemptVerificationAgain: verifiedIdentity.canAttemptVerificationAgain,
                 idScanUrl: verifiedIdentity.idScanUrl
             )
-        } catch {
+        } catch let error as ApiOperationError {
             throw SudoIdentityVerificationClientError.fromApiOperationError(error: error)
         }
     }

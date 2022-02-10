@@ -540,7 +540,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cp -f identity-system-test-config/register_key.id \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\" || true\ncp -f identity-system-test-config/register_key.private \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\" || true\ncp -f identity-system-test-config/sudoplatformconfig.json \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\" || true\n\n\n";
+			shellScript = "cp -vf config/register_key.id \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\" || :\ncp -vf config/register_key.private \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\" || :\ncp -vf config/sudoplatformconfig.json \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\" || :\nif [ -f config/api.key ]; then\n    cp -vf config/api.key \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\" || :\nfi\n  \n\n\n";
 		};
 		D9944530237A794600ACCF71 /* Lint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -576,7 +576,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cp -f identity-system-test-config/register_key.id \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\" || true\ncp -f identity-system-test-config/register_key.private \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\" || true\ncp -f identity-system-test-config/sudoplatformconfig.json \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\" || true\n\n\n";
+			shellScript = "cp -vf config/register_key.id \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\" || :\ncp -vf config/register_key.private \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\" || :\ncp -vf config/sudoplatformconfig.json \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\" || :\n";
 		};
 		EA70016F6FA267B92DD6EEA9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
