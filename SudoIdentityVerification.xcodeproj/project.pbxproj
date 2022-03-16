@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0CD837E027E192F900CE53D5 /* XCTTestCase+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD837DF27E192F900CE53D5 /* XCTTestCase+Utility.swift */; };
 		1226CFBA02270F761D231EF6 /* Pods_SudoIdentityVerification_SudoIdentityVerificationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A9115CEAC7B4AEEAC33548C /* Pods_SudoIdentityVerification_SudoIdentityVerificationTests.framework */; };
 		43D6D31923C37E225D4C5767 /* Pods_SudoIdentityVerification_SudoIdentityVerificationIntegrationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FDE22F05609B721ED44435F /* Pods_SudoIdentityVerification_SudoIdentityVerificationIntegrationTests.framework */; };
 		48C67035011972CF549C8BA1 /* Pods_SudoIdentityVerification.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AE40C3DE0E6284CA542E97D /* Pods_SudoIdentityVerification.framework */; };
@@ -65,6 +66,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0CD837DF27E192F900CE53D5 /* XCTTestCase+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTTestCase+Utility.swift"; sourceTree = "<group>"; };
 		1AE40C3DE0E6284CA542E97D /* Pods_SudoIdentityVerification.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SudoIdentityVerification.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A9115CEAC7B4AEEAC33548C /* Pods_SudoIdentityVerification_SudoIdentityVerificationTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SudoIdentityVerification_SudoIdentityVerificationTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		66AE3D879B31835C41437EF6 /* Pods-SudoIdentityVerificationIntegrationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoIdentityVerificationIntegrationTests.release.xcconfig"; path = "Target Support Files/Pods-SudoIdentityVerificationIntegrationTests/Pods-SudoIdentityVerificationIntegrationTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -146,6 +148,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0CD837E227E1933300CE53D5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0CD837DF27E192F900CE53D5 /* XCTTestCase+Utility.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		C1CFCFDA6A8EDCBA54AF85D7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -260,6 +270,7 @@
 		D9F16E6C22FD498E0055513F /* SudoIdentityVerificationIntegrationTests */ = {
 			isa = PBXGroup;
 			children = (
+				0CD837E227E1933300CE53D5 /* Extensions */,
 				D931C7CE2342D71700932612 /* Supporting Files */,
 				D9F16E6F22FD498E0055513F /* Info.plist */,
 				D9F16E6D22FD498E0055513F /* SudoIdentityVerificationIntegrationTests.swift */,
@@ -640,6 +651,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CD837E027E192F900CE53D5 /* XCTTestCase+Utility.swift in Sources */,
 				D9F16E6E22FD498E0055513F /* SudoIdentityVerificationIntegrationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

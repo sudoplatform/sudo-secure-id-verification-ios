@@ -12,9 +12,27 @@ import AWSS3
 import SudoConfigManager
 import SudoApiClient
 
-public enum SudoIdentityVerificationClientError: Error {
-
-    /// Indicates the bad data was found in cache or in backend response..
+public enum SudoIdentityVerificationClientError: Error, Equatable {
+    
+    /// The Verified Identity attempted to be accessed does not exist or cannot be found.
+    case identityVerificationRecordNotFound
+    
+    /// An attempt to update the Verified Identity has failed.
+    case identityVerificationUpdateFailed
+    
+    /// The method used for verification is unsupported.
+    case unsupportedVerificationMethod
+    
+    /// An implausible age was input for verification.
+    case implausibleAge
+    
+    /// An invalid age was input for verification.
+    case invalidAge
+    
+    /// An unsupported country was associated with an identity to be verified.
+    case unsupportedCountry
+    
+    /// Indicates the bad data was found in cache or in backend response.
     case badData
 
     ///  Indicates the identity could not be verified based on the input provided.
@@ -77,13 +95,57 @@ public enum SudoIdentityVerificationClientError: Error {
     /// Indicates that a fatal error occurred. This could be due to coding error, out-of-memory condition or other
     /// conditions that is beyond control of `SudoIdentityVerificationClient` implementation.
     case fatalError(description: String)
+    
+    // MARK: - Conformance: Equatable
 
+    public static func == (lhs: SudoIdentityVerificationClientError, rhs: SudoIdentityVerificationClientError) -> Bool {
+        switch (lhs, rhs) {
+        case (.requestFailed(let lhsResponse, let lhsCause), requestFailed(let rhsResponse, let rhsCause)):
+            if let lhsResponse = lhsResponse, let rhsResponse = rhsResponse {
+                return lhsResponse.statusCode == rhsResponse.statusCode
+            }
+            return type(of: lhsCause) == type(of: rhsCause)
+        case (.accountLocked, .accountLocked),
+             (.badData, .badData),
+             (.fatalError, .fatalError),
+             (.graphQLError, .graphQLError),
+             (.identityNotVerified, .identityNotVerified),
+             (.identityVerificationRecordNotFound, .identityVerificationRecordNotFound),
+             (.identityVerificationUpdateFailed, .identityVerificationUpdateFailed),
+             (.implausibleAge, .implausibleAge),
+             (.insufficientEntitlements, .insufficientEntitlements),
+             (.invalidAge, .invalidAge),
+             (.invalidConfig, .invalidConfig),
+             (.invalidInput, .invalidInput),
+             (.limitExceeded, .limitExceeded),
+             (.notAuthorized, .notAuthorized),
+             (.notRegistered, .notRegistered),
+             (.notSignedIn, .notSignedIn),
+             (.rateLimitExceeded, .rateLimitExceeded),
+             (.refreshTokensOperationAlreadyInProgress, .refreshTokensOperationAlreadyInProgress),
+             (.registerOperationAlreadyInProgress, .registerOperationAlreadyInProgress),
+             (.serviceError, .serviceError),
+             (.unsupportedCountry, .unsupportedCountry),
+             (.unsupportedVerificationMethod, .unsupportedVerificationMethod),
+             (.verificationResultNotFound, .verificationResultNotFound),
+             (.versionMismatch, .versionMismatch):
+            return true
+        default:
+            return false
+        }
+    }
 }
 
 extension SudoIdentityVerificationClientError {
 
     struct Constants {
         static let errorType = "errorType"
+        static let recordNotFoundError = "sudoplatform.identity-verification.IdentityVerificationRecordNotFoundError"
+        static let updateFailedError = "sudoplatform.identity-verification.IdentityVerificationUpdateFailedError"
+        static let unsupportedVerificationMethodError = "sudoplatform.identity-verification.UnsupportedVerificationMethodError"
+        static let implausibleAgeError = "sudoplatform.identity-verification.ImplausibleAgeError"
+        static let invalidAgeError = "sudoplatform.identity-verification.InvalidAgeError"
+        static let unsupportedCountryError = "sudoplatform.identity-verification.UnsupportedCountryError"
     }
 
     static func fromApiOperationError(error: Error) -> SudoIdentityVerificationClientError {
@@ -109,7 +171,25 @@ extension SudoIdentityVerificationClientError {
         case ApiOperationError.rateLimitExceeded:
             return .rateLimitExceeded
         case ApiOperationError.graphQLError(let cause):
-            return .graphQLError(description: "Unexpected GraphQL error: \(cause)")
+            guard let errorType = cause[Constants.errorType] as? String else {
+              return .fatalError(description: "GraphQL operation failed but error type was not found in the response. \(error)")
+            }
+            switch errorType {
+            case Constants.recordNotFoundError:
+                return .identityVerificationRecordNotFound
+            case Constants.updateFailedError:
+                return .identityVerificationUpdateFailed
+            case Constants.unsupportedVerificationMethodError:
+                return .unsupportedVerificationMethod
+            case Constants.implausibleAgeError:
+                return .implausibleAge
+            case Constants.invalidAgeError:
+                return .invalidAge
+            case Constants.unsupportedCountryError:
+                return .unsupportedCountry
+            default:
+                return graphQLError(description: "Unexpected GraphQL error: \(cause)")
+            }
         case ApiOperationError.requestFailed(let response, let cause):
             return .requestFailed(response: response, cause: cause)
         default:

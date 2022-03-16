@@ -9,21 +9,21 @@
     },
     {
       "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/SudoIdentityVerificationClient.swift",
-      "line": 127,
+      "line": 207,
       "symbol": "QueryOption.cacheOnly",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/SudoIdentityVerificationClient.swift",
-      "line": 128,
+      "line": 208,
       "symbol": "QueryOption.remoteOnly",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/SudoIdentityVerificationClient.swift",
-      "line": 183,
+      "line": 263,
       "symbol": "DefaultSudoIdentityVerificationClient.Config",
       "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
