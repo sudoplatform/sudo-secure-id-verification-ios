@@ -1,5 +1,5 @@
 //
-// Copyright © 2020 Anonyome Labs, Inc. All rights reserved.
+// Copyright © 2022 Anonyome Labs, Inc. All rights reserved.
 //
 // SPDX-License-Identifier: Apache-2.0
 //
@@ -38,7 +38,14 @@ public struct VerifiedIdentity {
     ///   - verificationMethod: Verification method used.
     ///   - canAttemptVerificationAgain: Indicates whether or not the user can attempt to verify their identity again.
     ///   - idScanUrl: URL to upload the scanned documents for identity verification.
-    public init(owner: String, verified: Bool, verifiedAt: Date? = nil, verificationMethod: String, canAttemptVerificationAgain: Bool, idScanUrl: String? = nil) {
+    public init(
+        owner: String,
+        verified: Bool,
+        verifiedAt: Date? = nil,
+        verificationMethod: String,
+        canAttemptVerificationAgain: Bool,
+        idScanUrl: String? = nil
+    ) {
         self.owner = owner
         self.verified = verified
         self.verifiedAt = verifiedAt

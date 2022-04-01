@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>VerifiedIdentity Structure Reference</title>
+    <title>VerifyIdentityInput Structure Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset="utf-8">
@@ -14,9 +14,9 @@
   </head>
   <body>
 
-    <a name="//apple_ref/swift/Struct/VerifiedIdentity" class="dashAnchor"></a>
+    <a name="//apple_ref/swift/Struct/VerifyIdentityInput" class="dashAnchor"></a>
 
-    <a title="VerifiedIdentity Structure Reference"></a>
+    <a title="VerifyIdentityInput Structure Reference"></a>
 
     <header class="header">
       <p class="header-col header-col--primary">
@@ -38,7 +38,7 @@
     <p class="breadcrumbs">
       <a class="breadcrumb" href="../index.html">SudoIdentityVerification Reference</a>
       <img class="carat" src="../img/carat.png" alt=""/>
-      VerifiedIdentity Structure Reference
+      VerifyIdentityInput Structure Reference
     </p>
 
     <div class="content-wrapper">
@@ -94,15 +94,15 @@
 
         <section class="section">
           <div class="section-content top-matter">
-            <h1>VerifiedIdentity</h1>
+            <h1>VerifyIdentityInput</h1>
               <div class="declaration">
                 <div class="language">
                   
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">VerifiedIdentity</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">VerifyIdentityInput</span> <span class="p">:</span> <span class="kt">Hashable</span></code></pre>
 
                 </div>
               </div>
-            <p>Represents verified identity details obtained via <code>verifyIdentity</code> API.</p>
+            <p>Input for verifyIdentity(input:)</p>
 
           </div>
         </section>
@@ -114,9 +114,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:24SudoIdentityVerification08VerifiedB0V5ownerSSvp"></a>
-                    <a name="//apple_ref/swift/Property/owner" class="dashAnchor"></a>
-                    <a class="token" href="#/s:24SudoIdentityVerification08VerifiedB0V5ownerSSvp">owner</a>
+                    <a name="/s:24SudoIdentityVerification06VerifyB5InputV9firstNameSSvp"></a>
+                    <a name="//apple_ref/swift/Property/firstName" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24SudoIdentityVerification06VerifyB5InputV9firstNameSSvp">firstName</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -124,14 +124,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>User ID of the user who provided identity details for verification.</p>
+                        <p>First name. Case insensitive.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">owner</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">firstName</span><span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -141,9 +141,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:24SudoIdentityVerification08VerifiedB0V8verifiedSbvp"></a>
-                    <a name="//apple_ref/swift/Property/verified" class="dashAnchor"></a>
-                    <a class="token" href="#/s:24SudoIdentityVerification08VerifiedB0V8verifiedSbvp">verified</a>
+                    <a name="/s:24SudoIdentityVerification06VerifyB5InputV8lastNameSSvp"></a>
+                    <a name="//apple_ref/swift/Property/lastName" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24SudoIdentityVerification06VerifyB5InputV8lastNameSSvp">lastName</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -151,14 +151,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><code>true</code> if the identity was verified successfully.</p>
+                        <p>Last name. Case insensitive.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">verified</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">lastName</span><span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -168,9 +168,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:24SudoIdentityVerification08VerifiedB0V10verifiedAt10Foundation4DateVSgvp"></a>
-                    <a name="//apple_ref/swift/Property/verifiedAt" class="dashAnchor"></a>
-                    <a class="token" href="#/s:24SudoIdentityVerification08VerifiedB0V10verifiedAt10Foundation4DateVSgvp">verifiedAt</a>
+                    <a name="/s:24SudoIdentityVerification06VerifyB5InputV7addressSSvp"></a>
+                    <a name="//apple_ref/swift/Property/address" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24SudoIdentityVerification06VerifyB5InputV7addressSSvp">address</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -178,14 +178,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Date and time at which the identity was verified.</p>
+                        <p>Address. Case insensitive.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">verifiedAt</span><span class="p">:</span> <span class="kt">Date</span><span class="p">?</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">address</span><span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -195,9 +195,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:24SudoIdentityVerification08VerifiedB0V18verificationMethodSSvp"></a>
-                    <a name="//apple_ref/swift/Property/verificationMethod" class="dashAnchor"></a>
-                    <a class="token" href="#/s:24SudoIdentityVerification08VerifiedB0V18verificationMethodSSvp">verificationMethod</a>
+                    <a name="/s:24SudoIdentityVerification06VerifyB5InputV4citySSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/city" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24SudoIdentityVerification06VerifyB5InputV4citySSSgvp">city</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -205,14 +205,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Verification method used.</p>
+                        <p>City. Case insensitive.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">verificationMethod</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">city</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -222,9 +222,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:24SudoIdentityVerification08VerifiedB0V010canAttemptC5AgainSbvp"></a>
-                    <a name="//apple_ref/swift/Property/canAttemptVerificationAgain" class="dashAnchor"></a>
-                    <a class="token" href="#/s:24SudoIdentityVerification08VerifiedB0V010canAttemptC5AgainSbvp">canAttemptVerificationAgain</a>
+                    <a name="/s:24SudoIdentityVerification06VerifyB5InputV5stateSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/state" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24SudoIdentityVerification06VerifyB5InputV5stateSSSgvp">state</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -232,16 +232,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Indicates whether or not identity verification can be attempted again for this user. Set to false in
-cases where the maximum number of attempts has been reached or a finding from the identity
-verification attempt means that it should not proceed.</p>
+                        <p>State. This is abbreviated name for the state, e.g. ‘NY’ not ‘New York’.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">canAttemptVerificationAgain</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">state</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -251,9 +249,9 @@ verification attempt means that it should not proceed.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:24SudoIdentityVerification08VerifiedB0V9idScanUrlSSSgvp"></a>
-                    <a name="//apple_ref/swift/Property/idScanUrl" class="dashAnchor"></a>
-                    <a class="token" href="#/s:24SudoIdentityVerification08VerifiedB0V9idScanUrlSSSgvp">idScanUrl</a>
+                    <a name="/s:24SudoIdentityVerification06VerifyB5InputV10postalCodeSSvp"></a>
+                    <a name="//apple_ref/swift/Property/postalCode" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24SudoIdentityVerification06VerifyB5InputV10postalCodeSSvp">postalCode</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -261,14 +259,14 @@ verification attempt means that it should not proceed.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>URL to upload the scanned documents for identity verification.</p>
+                        <p>Postal code.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">idScanUrl</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">postalCode</span><span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -278,9 +276,9 @@ verification attempt means that it should not proceed.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:24SudoIdentityVerification08VerifiedB0V5owner8verified0F2At18verificationMethod010canAttemptC5Again9idScanUrlACSS_Sb10Foundation4DateVSgSSSbSSSgtcfc"></a>
-                    <a name="//apple_ref/swift/Method/init(owner:verified:verifiedAt:verificationMethod:canAttemptVerificationAgain:idScanUrl:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:24SudoIdentityVerification08VerifiedB0V5owner8verified0F2At18verificationMethod010canAttemptC5Again9idScanUrlACSS_Sb10Foundation4DateVSgSSSbSSSgtcfc">init(owner:<wbr>verified:<wbr>verifiedAt:<wbr>verificationMethod:<wbr>canAttemptVerificationAgain:<wbr>idScanUrl:<wbr>)</a>
+                    <a name="/s:24SudoIdentityVerification06VerifyB5InputV7countrySSvp"></a>
+                    <a name="//apple_ref/swift/Property/country" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24SudoIdentityVerification06VerifyB5InputV7countrySSvp">country</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -288,102 +286,43 @@ verification attempt means that it should not proceed.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Initializes a <code>VerifiedIdentity</code> instance.</p>
+                        <p>ISO 3166-1 alpha-2 country code. Must be one of countries retrieved via <code>getSupportedCountries</code> API.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span>
-    <span class="nv">owner</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
-    <span class="nv">verified</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span>
-    <span class="nv">verifiedAt</span><span class="p">:</span> <span class="kt">Date</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
-    <span class="nv">verificationMethod</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
-    <span class="nv">canAttemptVerificationAgain</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span>
-    <span class="nv">idScanUrl</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span>
-<span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">country</span><span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>owner</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>User ID of the user who provided identity details for verification.</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>verified</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>Indicates whether or not the identity has been verified.</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>verifiedAt</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>Date and time at which the identity was verified.</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>verificationMethod</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>Verification method used.</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>canAttemptVerificationAgain</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>Indicates whether or not the user can attempt to verify their identity again.</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>idScanUrl</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>URL to upload the scanned documents for identity verification.</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:24SudoIdentityVerification06VerifyB5InputV11dateOfBirthSSvp"></a>
+                    <a name="//apple_ref/swift/Property/dateOfBirth" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24SudoIdentityVerification06VerifyB5InputV11dateOfBirthSSvp">dateOfBirth</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Date of birth formatted in &ldquo;yyyy-MM-dd&rdquo;</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">dateOfBirth</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>

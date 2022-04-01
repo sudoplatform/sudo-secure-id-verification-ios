@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          SudoIdentityVerification 11.0.0 Docs
+          SudoIdentityVerification 12.0.0 Docs
         </a>
         
       </p>
@@ -56,6 +56,9 @@
             <a class="nav-group-name-link" href="../Enums.html">Enumerations</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums.html#/s:24SudoIdentityVerification14IdDocumentTypeO">IdDocumentType</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums.html#/s:24SudoIdentityVerification11QueryOptionO">QueryOption</a>
               </li>
             </ul>
@@ -76,6 +79,12 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/VerifiedIdentity.html">VerifiedIdentity</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/VerifyIdentityDocumentInput.html">VerifyIdentityDocumentInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/VerifyIdentityInput.html">VerifyIdentityInput</a>
               </li>
             </ul>
           </li>
@@ -139,9 +148,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:24SudoIdentityVerification0abC6ClientP06verifyB09firstName04lastG07address4city5state10postalCode7country11dateOfBirthAA08VerifiedB0VSS_S3SSgAOS3StYaKF"></a>
-                    <a name="//apple_ref/swift/Method/verifyIdentity(firstName:lastName:address:city:state:postalCode:country:dateOfBirth:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:24SudoIdentityVerification0abC6ClientP06verifyB09firstName04lastG07address4city5state10postalCode7country11dateOfBirthAA08VerifiedB0VSS_S3SSgAOS3StYaKF">verifyIdentity(firstName:<wbr>lastName:<wbr>address:<wbr>city:<wbr>state:<wbr>postalCode:<wbr>country:<wbr>dateOfBirth:<wbr>)</a>
+                    <a name="/s:24SudoIdentityVerification0abC6ClientP06verifyB05inputAA08VerifiedB0VAA06VerifyB5InputV_tYaKF"></a>
+                    <a name="//apple_ref/swift/Method/verifyIdentity(input:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24SudoIdentityVerification0abC6ClientP06verifyB05inputAA08VerifiedB0VAA06VerifyB5InputV_tYaKF">verifyIdentity(input:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Asynchronous
@@ -153,7 +162,7 @@
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Verifies an identity against the known public records and returns a result indicating whether or not the identity
-details provided was verified with enough confidence to grant the user access to Sudo platform functions such
+details provided were verified with enough confidence to grant the user access to Sudo platform functions such
 as provisioning a virtual card.</p>
 
                       </div>
@@ -161,16 +170,7 @@ as provisioning a virtual card.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">verifyIdentity</span><span class="p">(</span>
-    <span class="nv">firstName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
-    <span class="nv">lastName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
-    <span class="nv">address</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
-    <span class="nv">city</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span>
-    <span class="nv">state</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span>
-    <span class="nv">postalCode</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
-    <span class="nv">country</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
-    <span class="nv">dateOfBirth</span><span class="p">:</span> <span class="kt">String</span>
-<span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/VerifiedIdentity.html">VerifiedIdentity</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">verifyIdentity</span><span class="p">(</span><span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/VerifyIdentityInput.html">VerifyIdentityInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/VerifiedIdentity.html">VerifiedIdentity</a></span></code></pre>
 
                         </div>
                       </div>
@@ -181,96 +181,65 @@ as provisioning a virtual card.</p>
                             <tr>
                               <td>
                                 <code>
-                                <em>firstName</em>
+                                <em>input</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>First name. Case insensitive.</p>
+                                  <p>Input variables for API.</p>
                                 </div>
                               </td>
                             </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Verification result.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:24SudoIdentityVerification0abC6ClientP06verifyB8Document5inputAA08VerifiedB0VAA06VerifybF5InputV_tYaKF"></a>
+                    <a name="//apple_ref/swift/Method/verifyIdentityDocument(input:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24SudoIdentityVerification0abC6ClientP06verifyB8Document5inputAA08VerifiedB0VAA06VerifybF5InputV_tYaKF">verifyIdentityDocument(input:<wbr>)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Asynchronous
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Attempts to verify an identity based on provided identity documents.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">verifyIdentityDocument</span><span class="p">(</span><span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/VerifyIdentityDocumentInput.html">VerifyIdentityDocumentInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/VerifiedIdentity.html">VerifiedIdentity</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
                             <tr>
                               <td>
                                 <code>
-                                <em>lastName</em>
+                                <em>input</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>Last name. Case insensitive.</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>address</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>Address. Case insensitive.</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>city</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>City. Case insensitive.</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>state</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>State. This is abbreviated name for the state, e.g. ‘NY’ not ‘New York’.</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>postalCode</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>Postal code.</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>country</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>ISO 3166-1 alpha-2 country code. Must be one of countries retrieved via <code>getSupportedCountries</code> API.</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>dateOfBirth</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>Date of birth formatted in &ldquo;yyyy-MM-dd&rdquo;.</p>
+                                  <p>Input variables for API.</p>
                                 </div>
                               </td>
                             </tr>
@@ -377,7 +346,7 @@ as provisioning a virtual card.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2022 <a class="link" href="https://sudoplatform.com/" target="_blank" rel="external noopener">Sudo Platform Engineering</a>. All rights reserved. (Last updated: 2022-03-16)</p>
+      <p>&copy; 2022 <a class="link" href="https://sudoplatform.com/" target="_blank" rel="external noopener">Sudo Platform Engineering</a>. All rights reserved. (Last updated: 2022-04-01)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>

@@ -1,0 +1,17 @@
+query CheckIdentityVerification {
+  checkIdentityVerification {
+    ...VerifiedIdentity
+  }
+}
+
+query GetSupportedCountries {
+  getSupportedCountries {
+    ...SupportedCountries
+  }
+}
+
+query GetSupportedCountriesForIdentityVerification {
+  getSupportedCountriesForIdentityVerification {
+    ...SupportedCountries
+  }
+}

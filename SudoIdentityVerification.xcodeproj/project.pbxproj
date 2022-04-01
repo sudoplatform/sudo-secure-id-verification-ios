@@ -11,22 +11,28 @@
 		1226CFBA02270F761D231EF6 /* Pods_SudoIdentityVerification_SudoIdentityVerificationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A9115CEAC7B4AEEAC33548C /* Pods_SudoIdentityVerification_SudoIdentityVerificationTests.framework */; };
 		43D6D31923C37E225D4C5767 /* Pods_SudoIdentityVerification_SudoIdentityVerificationIntegrationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FDE22F05609B721ED44435F /* Pods_SudoIdentityVerification_SudoIdentityVerificationIntegrationTests.framework */; };
 		48C67035011972CF549C8BA1 /* Pods_SudoIdentityVerification.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AE40C3DE0E6284CA542E97D /* Pods_SudoIdentityVerification.framework */; };
+		84239D7C27F54AA000400B51 /* SudoIdentityVerificationClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84239D7B27F54AA000400B51 /* SudoIdentityVerificationClientError.swift */; };
+		84239D8027F54D9000400B51 /* QueryOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84239D7F27F54D9000400B51 /* QueryOption.swift */; };
+		84239D8227F54DF900400B51 /* DefaultSudoIdentityVerificationClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84239D8127F54DF900400B51 /* DefaultSudoIdentityVerificationClient.swift */; };
+		84239D8527F5661800400B51 /* IdDocumentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84239D8427F5661800400B51 /* IdDocumentType.swift */; };
+		84239D8827F56C5800400B51 /* Data+JSONObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D931C7CA2342D3D000932612 /* Data+JSONObject.swift */; };
+		84239EBE27F58EEC00400B51 /* Data+JSONObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84239EBD27F58EEC00400B51 /* Data+JSONObject.swift */; };
+		84239EC827F672D100400B51 /* IdDocumentImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84239EC727F672D100400B51 /* IdDocumentImages.swift */; };
+		84239ECC27F6BE2200400B51 /* Inputs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84239ECB27F6BE2200400B51 /* Inputs.swift */; };
 		D91CAE4F2451484300DA1152 /* AWSEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91CAE4E2451484300DA1152 /* AWSEndpoint.swift */; };
 		D931C7B92342D22700932612 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D931C7B82342D22700932612 /* AppDelegate.swift */; };
 		D931C7BB2342D22700932612 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D931C7BA2342D22700932612 /* ViewController.swift */; };
 		D931C7BE2342D22700932612 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D931C7BC2342D22700932612 /* Main.storyboard */; };
 		D931C7C02342D22800932612 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D931C7BF2342D22800932612 /* Assets.xcassets */; };
 		D931C7C32342D22800932612 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D931C7C12342D22800932612 /* LaunchScreen.storyboard */; };
-		D931C7CB2342D3D000932612 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = D931C7CA2342D3D000932612 /* Data.swift */; };
 		D931C7D12342D7CC00932612 /* sandboxReceipt in Resources */ = {isa = PBXBuildFile; fileRef = D931C7CF2342D7CC00932612 /* sandboxReceipt */; };
-		D931C7DB23432B7900932612 /* NSLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D931C7DA23432B7800932612 /* NSLock.swift */; };
-		D946445F23580EF100F4BCF8 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = D946445E23580EF100F4BCF8 /* Date.swift */; };
+		D946445F23580EF100F4BCF8 /* Date+MillisecondsSinceEpoch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D946445E23580EF100F4BCF8 /* Date+MillisecondsSinceEpoch.swift */; };
 		D9971C6222FD299A0077076C /* SudoIdentityVerification.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9971C5822FD299A0077076C /* SudoIdentityVerification.framework */; };
 		D9971C6722FD299A0077076C /* SudoIdentityVerificationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9971C6622FD299A0077076C /* SudoIdentityVerificationTests.swift */; };
 		D9971C6922FD299A0077076C /* SudoIdentityVerification.h in Headers */ = {isa = PBXBuildFile; fileRef = D9971C5B22FD299A0077076C /* SudoIdentityVerification.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D9971C7722FD31690077076C /* SudoIdentityVerificationClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9971C7622FD31690077076C /* SudoIdentityVerificationClient.swift */; };
 		D9971C7922FD40DC0077076C /* SudoIdentityVerificationClientConfigProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9971C7822FD40DC0077076C /* SudoIdentityVerificationClientConfigProvider.swift */; };
-		D9971C7E22FD46650077076C /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9971C7D22FD46650077076C /* Logger.swift */; };
+		D9971C7E22FD46650077076C /* SudoLogger+IdentityVerification.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9971C7D22FD46650077076C /* SudoLogger+IdentityVerification.swift */; };
 		D9B5B2B423715DF300392596 /* VerifiedIdentity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B5B2B323715DF300392596 /* VerifiedIdentity.swift */; };
 		D9B5B2B62371666100392596 /* SudoIdentityVerificationServiceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B5B2B52371666100392596 /* SudoIdentityVerificationServiceAPI.swift */; };
 		D9F16E6E22FD498E0055513F /* SudoIdentityVerificationIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F16E6D22FD498E0055513F /* SudoIdentityVerificationIntegrationTests.swift */; };
@@ -73,6 +79,43 @@
 		6E4BD0F655190A99DBF71354 /* Pods-SudoIdentityVerification.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoIdentityVerification.debug.xcconfig"; path = "Target Support Files/Pods-SudoIdentityVerification/Pods-SudoIdentityVerification.debug.xcconfig"; sourceTree = "<group>"; };
 		7FDE22F05609B721ED44435F /* Pods_SudoIdentityVerification_SudoIdentityVerificationIntegrationTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SudoIdentityVerification_SudoIdentityVerificationIntegrationTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		83B0E4AC203362B62BEC7258 /* Pods-SudoIdentityVerification.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoIdentityVerification.release.xcconfig"; path = "Target Support Files/Pods-SudoIdentityVerification/Pods-SudoIdentityVerification.release.xcconfig"; sourceTree = "<group>"; };
+		84239D7B27F54AA000400B51 /* SudoIdentityVerificationClientError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudoIdentityVerificationClientError.swift; sourceTree = "<group>"; };
+		84239D7F27F54D9000400B51 /* QueryOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryOption.swift; sourceTree = "<group>"; };
+		84239D8127F54DF900400B51 /* DefaultSudoIdentityVerificationClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSudoIdentityVerificationClient.swift; sourceTree = "<group>"; };
+		84239D8427F5661800400B51 /* IdDocumentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdDocumentType.swift; sourceTree = "<group>"; };
+		84239E5F27F58B6600400B51 /* README.external.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.external.md; sourceTree = "<group>"; };
+		84239E6027F58B6600400B51 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		84239E6327F58B6600400B51 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		84239E6527F58B6600400B51 /* drivers-license-back-success.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "drivers-license-back-success.jpg"; sourceTree = "<group>"; };
+		84239E6627F58B6600400B51 /* drivers-license-front-failed.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "drivers-license-front-failed.jpg"; sourceTree = "<group>"; };
+		84239E6727F58B6600400B51 /* drivers-license-front-success.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "drivers-license-front-success.jpg"; sourceTree = "<group>"; };
+		84239E6827F58B6600400B51 /* drivers-license-back-failed.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "drivers-license-back-failed.jpg"; sourceTree = "<group>"; };
+		84239E6927F58B6600400B51 /* drivers-license-back-unreadable.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "drivers-license-back-unreadable.gif"; sourceTree = "<group>"; };
+		84239E6A27F58B6600400B51 /* drivers-license-back-expired.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "drivers-license-back-expired.jpg"; sourceTree = "<group>"; };
+		84239E6B27F58B6600400B51 /* passport-front-unreadable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport-front-unreadable.png"; sourceTree = "<group>"; };
+		84239E6C27F58B6600400B51 /* drivers-license-front-unreadable.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "drivers-license-front-unreadable.gif"; sourceTree = "<group>"; };
+		84239E6D27F58B6600400B51 /* id-card-front-success.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "id-card-front-success.jpg"; sourceTree = "<group>"; };
+		84239E6E27F58B6600400B51 /* drivers-license-front-mismatch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "drivers-license-front-mismatch.png"; sourceTree = "<group>"; };
+		84239E6F27F58B6600400B51 /* drivers-license-front-expired.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "drivers-license-front-expired.jpg"; sourceTree = "<group>"; };
+		84239E7027F58B6600400B51 /* drivers-license-back-mismatch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "drivers-license-back-mismatch.png"; sourceTree = "<group>"; };
+		84239E7127F58B6600400B51 /* passport-front-success.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "passport-front-success.jpg"; sourceTree = "<group>"; };
+		84239E7227F58B6600400B51 /* passport-back-unreadable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport-back-unreadable.png"; sourceTree = "<group>"; };
+		84239E7327F58B6600400B51 /* id-card-back-success.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "id-card-back-success.jpg"; sourceTree = "<group>"; };
+		84239E7427F58B6600400B51 /* passport-back-failed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport-back-failed.png"; sourceTree = "<group>"; };
+		84239E7527F58B6600400B51 /* passport-front-failed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport-front-failed.png"; sourceTree = "<group>"; };
+		84239E7627F58B6600400B51 /* passport-back-success.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "passport-back-success.jpg"; sourceTree = "<group>"; };
+		84239E7827F58B6600400B51 /* Template Identified.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Template Identified.jpg"; sourceTree = "<group>"; };
+		84239E7927F58B6600400B51 /* Document Verified.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Document Verified.jpg"; sourceTree = "<group>"; };
+		84239E7A27F58B6600400B51 /* Template Identified.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Template Identified.txt"; sourceTree = "<group>"; };
+		84239E7B27F58B6600400B51 /* Document Verified.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Document Verified.txt"; sourceTree = "<group>"; };
+		84239E7C27F58B6600400B51 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		84239E7D27F58B6600400B51 /* Document Not Verified.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Document Not Verified.txt"; sourceTree = "<group>"; };
+		84239E7E27F58B6600400B51 /* ID Not Readable.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "ID Not Readable.txt"; sourceTree = "<group>"; };
+		84239E7F27F58B6600400B51 /* Document Not Verified.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Document Not Verified.jpg"; sourceTree = "<group>"; };
+		84239E8027F58B6600400B51 /* ID Not Readable.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "ID Not Readable.jpg"; sourceTree = "<group>"; };
+		84239EBD27F58EEC00400B51 /* Data+JSONObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+JSONObject.swift"; sourceTree = "<group>"; };
+		84239EC727F672D100400B51 /* IdDocumentImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdDocumentImages.swift; sourceTree = "<group>"; };
+		84239ECB27F6BE2200400B51 /* Inputs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inputs.swift; sourceTree = "<group>"; };
 		A144BF9EB7328BF76A5008F2 /* Pods-SudoIdentityVerificationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoIdentityVerificationTests.release.xcconfig"; path = "Target Support Files/Pods-SudoIdentityVerificationTests/Pods-SudoIdentityVerificationTests.release.xcconfig"; sourceTree = "<group>"; };
 		AA47124AA29C40A510CA086F /* Pods-SudoIdentityVerification-SudoIdentityVerificationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoIdentityVerification-SudoIdentityVerificationTests.release.xcconfig"; path = "Target Support Files/Pods-SudoIdentityVerification-SudoIdentityVerificationTests/Pods-SudoIdentityVerification-SudoIdentityVerificationTests.release.xcconfig"; sourceTree = "<group>"; };
 		B79C83D1CF479A91E91D07F5 /* Pods-SudoIdentityVerification-SudoIdentityVerificationIntegrationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoIdentityVerification-SudoIdentityVerificationIntegrationTests.debug.xcconfig"; path = "Target Support Files/Pods-SudoIdentityVerification-SudoIdentityVerificationIntegrationTests/Pods-SudoIdentityVerification-SudoIdentityVerificationIntegrationTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -88,10 +131,9 @@
 		D931C7BF2342D22800932612 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D931C7C22342D22800932612 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D931C7C42342D22800932612 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D931C7CA2342D3D000932612 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		D931C7CA2342D3D000932612 /* Data+JSONObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+JSONObject.swift"; sourceTree = "<group>"; };
 		D931C7CF2342D7CC00932612 /* sandboxReceipt */ = {isa = PBXFileReference; lastKnownFileType = file; path = sandboxReceipt; sourceTree = "<group>"; };
-		D931C7DA23432B7800932612 /* NSLock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSLock.swift; sourceTree = "<group>"; };
-		D946445E23580EF100F4BCF8 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		D946445E23580EF100F4BCF8 /* Date+MillisecondsSinceEpoch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+MillisecondsSinceEpoch.swift"; sourceTree = "<group>"; };
 		D9971C5822FD299A0077076C /* SudoIdentityVerification.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SudoIdentityVerification.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9971C5B22FD299A0077076C /* SudoIdentityVerification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SudoIdentityVerification.h; sourceTree = "<group>"; };
 		D9971C5C22FD299A0077076C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -102,7 +144,7 @@
 		D9971C7322FD2A5B0077076C /* SudoIdentityVerification.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = SudoIdentityVerification.podspec; sourceTree = "<group>"; };
 		D9971C7622FD31690077076C /* SudoIdentityVerificationClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudoIdentityVerificationClient.swift; sourceTree = "<group>"; };
 		D9971C7822FD40DC0077076C /* SudoIdentityVerificationClientConfigProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudoIdentityVerificationClientConfigProvider.swift; sourceTree = "<group>"; };
-		D9971C7D22FD46650077076C /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		D9971C7D22FD46650077076C /* SudoLogger+IdentityVerification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SudoLogger+IdentityVerification.swift"; sourceTree = "<group>"; };
 		D9B5B2B323715DF300392596 /* VerifiedIdentity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiedIdentity.swift; sourceTree = "<group>"; };
 		D9B5B2B52371666100392596 /* SudoIdentityVerificationServiceAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SudoIdentityVerificationServiceAPI.swift; sourceTree = "<group>"; };
 		D9F16E6B22FD498E0055513F /* SudoIdentityVerificationIntegrationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SudoIdentityVerificationIntegrationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,9 +193,144 @@
 		0CD837E227E1933300CE53D5 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				84239EBD27F58EEC00400B51 /* Data+JSONObject.swift */,
 				0CD837DF27E192F900CE53D5 /* XCTTestCase+Utility.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		84239D7827F5497B00400B51 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				84239D7927F5498D00400B51 /* Internal */,
+				84239D7A27F5499000400B51 /* Public */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		84239D7927F5498D00400B51 /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				D9971C7A22FD41090077076C /* Extension */,
+				84239D8327F5639E00400B51 /* Utility */,
+			);
+			path = Internal;
+			sourceTree = "<group>";
+		};
+		84239D7A27F5499000400B51 /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				84239D7D27F54AE300400B51 /* Types */,
+				84239D8127F54DF900400B51 /* DefaultSudoIdentityVerificationClient.swift */,
+				D9971C7622FD31690077076C /* SudoIdentityVerificationClient.swift */,
+				D9971C7822FD40DC0077076C /* SudoIdentityVerificationClientConfigProvider.swift */,
+				84239D7B27F54AA000400B51 /* SudoIdentityVerificationClientError.swift */,
+			);
+			path = Public;
+			sourceTree = "<group>";
+		};
+		84239D7D27F54AE300400B51 /* Types */ = {
+			isa = PBXGroup;
+			children = (
+				84239D8427F5661800400B51 /* IdDocumentType.swift */,
+				84239ECB27F6BE2200400B51 /* Inputs.swift */,
+				84239D7F27F54D9000400B51 /* QueryOption.swift */,
+				D9B5B2B323715DF300392596 /* VerifiedIdentity.swift */,
+			);
+			path = Types;
+			sourceTree = "<group>";
+		};
+		84239D8327F5639E00400B51 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				D9B5B2B52371666100392596 /* SudoIdentityVerificationServiceAPI.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		84239D8727F56C3F00400B51 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				D931C7CA2342D3D000932612 /* Data+JSONObject.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		84239E5E27F58B6600400B51 /* TestData */ = {
+			isa = PBXGroup;
+			children = (
+				84239E6127F58B6600400B51 /* data */,
+				84239E5F27F58B6600400B51 /* README.external.md */,
+				84239E6027F58B6600400B51 /* README.md */,
+			);
+			path = TestData;
+			sourceTree = "<group>";
+		};
+		84239E6127F58B6600400B51 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				84239E6227F58B6600400B51 /* id-document-images */,
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
+		84239E6227F58B6600400B51 /* id-document-images */ = {
+			isa = PBXGroup;
+			children = (
+				84239E7727F58B6600400B51 /* IDology-sandbox */,
+				84239E6427F58B6600400B51 /* simulator */,
+				84239E6327F58B6600400B51 /* README.md */,
+			);
+			path = "id-document-images";
+			sourceTree = "<group>";
+		};
+		84239E6427F58B6600400B51 /* simulator */ = {
+			isa = PBXGroup;
+			children = (
+				84239E6A27F58B6600400B51 /* drivers-license-back-expired.jpg */,
+				84239E6827F58B6600400B51 /* drivers-license-back-failed.jpg */,
+				84239E7027F58B6600400B51 /* drivers-license-back-mismatch.png */,
+				84239E6527F58B6600400B51 /* drivers-license-back-success.jpg */,
+				84239E6927F58B6600400B51 /* drivers-license-back-unreadable.gif */,
+				84239E6F27F58B6600400B51 /* drivers-license-front-expired.jpg */,
+				84239E6627F58B6600400B51 /* drivers-license-front-failed.jpg */,
+				84239E6E27F58B6600400B51 /* drivers-license-front-mismatch.png */,
+				84239E6727F58B6600400B51 /* drivers-license-front-success.jpg */,
+				84239E6C27F58B6600400B51 /* drivers-license-front-unreadable.gif */,
+				84239E7327F58B6600400B51 /* id-card-back-success.jpg */,
+				84239E6D27F58B6600400B51 /* id-card-front-success.jpg */,
+				84239E7427F58B6600400B51 /* passport-back-failed.png */,
+				84239E7627F58B6600400B51 /* passport-back-success.jpg */,
+				84239E7227F58B6600400B51 /* passport-back-unreadable.png */,
+				84239E7527F58B6600400B51 /* passport-front-failed.png */,
+				84239E7127F58B6600400B51 /* passport-front-success.jpg */,
+				84239E6B27F58B6600400B51 /* passport-front-unreadable.png */,
+			);
+			path = simulator;
+			sourceTree = "<group>";
+		};
+		84239E7727F58B6600400B51 /* IDology-sandbox */ = {
+			isa = PBXGroup;
+			children = (
+				84239E7F27F58B6600400B51 /* Document Not Verified.jpg */,
+				84239E7D27F58B6600400B51 /* Document Not Verified.txt */,
+				84239E7927F58B6600400B51 /* Document Verified.jpg */,
+				84239E7B27F58B6600400B51 /* Document Verified.txt */,
+				84239E8027F58B6600400B51 /* ID Not Readable.jpg */,
+				84239E7E27F58B6600400B51 /* ID Not Readable.txt */,
+				84239E7C27F58B6600400B51 /* README.md */,
+				84239E7827F58B6600400B51 /* Template Identified.jpg */,
+				84239E7A27F58B6600400B51 /* Template Identified.txt */,
+			);
+			path = "IDology-sandbox";
+			sourceTree = "<group>";
+		};
+		84239EC627F672BE00400B51 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				84239EC727F672D100400B51 /* IdDocumentImages.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 		C1CFCFDA6A8EDCBA54AF85D7 /* Pods */ = {
@@ -186,6 +363,7 @@
 		D931C7B72342D22700932612 /* TestApp */ = {
 			isa = PBXGroup;
 			children = (
+				84239E5E27F58B6600400B51 /* TestData */,
 				D931C7B82342D22700932612 /* AppDelegate.swift */,
 				D931C7BF2342D22800932612 /* Assets.xcassets */,
 				D931C7C42342D22800932612 /* Info.plist */,
@@ -235,14 +413,9 @@
 		D9971C5A22FD299A0077076C /* SudoIdentityVerification */ = {
 			isa = PBXGroup;
 			children = (
-				D9971C7A22FD41090077076C /* Extension */,
+				84239D7827F5497B00400B51 /* Source */,
 				D9971C5C22FD299A0077076C /* Info.plist */,
-				D9971C7D22FD46650077076C /* Logger.swift */,
 				D9971C5B22FD299A0077076C /* SudoIdentityVerification.h */,
-				D9971C7622FD31690077076C /* SudoIdentityVerificationClient.swift */,
-				D9971C7822FD40DC0077076C /* SudoIdentityVerificationClientConfigProvider.swift */,
-				D9B5B2B52371666100392596 /* SudoIdentityVerificationServiceAPI.swift */,
-				D9B5B2B323715DF300392596 /* VerifiedIdentity.swift */,
 			);
 			path = SudoIdentityVerification;
 			sourceTree = "<group>";
@@ -250,6 +423,7 @@
 		D9971C6522FD299A0077076C /* SudoIdentityVerificationTests */ = {
 			isa = PBXGroup;
 			children = (
+				84239D8727F56C3F00400B51 /* Extension */,
 				D9971C6822FD299A0077076C /* Info.plist */,
 				D9971C6622FD299A0077076C /* SudoIdentityVerificationTests.swift */,
 			);
@@ -260,11 +434,10 @@
 			isa = PBXGroup;
 			children = (
 				D91CAE4E2451484300DA1152 /* AWSEndpoint.swift */,
-				D931C7CA2342D3D000932612 /* Data.swift */,
-				D946445E23580EF100F4BCF8 /* Date.swift */,
-				D931C7DA23432B7800932612 /* NSLock.swift */,
+				D946445E23580EF100F4BCF8 /* Date+MillisecondsSinceEpoch.swift */,
+				D9971C7D22FD46650077076C /* SudoLogger+IdentityVerification.swift */,
 			);
-			name = Extension;
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		D9F16E6C22FD498E0055513F /* SudoIdentityVerificationIntegrationTests */ = {
@@ -272,6 +445,7 @@
 			children = (
 				0CD837E227E1933300CE53D5 /* Extensions */,
 				D931C7CE2342D71700932612 /* Supporting Files */,
+				84239EC627F672BE00400B51 /* Util */,
 				D9F16E6F22FD498E0055513F /* Info.plist */,
 				D9F16E6D22FD498E0055513F /* SudoIdentityVerificationIntegrationTests.swift */,
 			);
@@ -300,6 +474,8 @@
 				D931C7B32342D22700932612 /* Frameworks */,
 				D931C7B42342D22700932612 /* Resources */,
 				D9F52A9B23D7C87E00F47271 /* Copy Config */,
+				84239EBF27F5962B00400B51 /* Copy id-document-images/simulator */,
+				84239EC027F596F600400B51 /* Copy id-document-images/IDology-sandbox */,
 			);
 			buildRules = (
 			);
@@ -457,6 +633,42 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		84239EBF27F5962B00400B51 /* Copy id-document-images/simulator */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Copy id-document-images/simulator";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "mkdir -p \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/id-document-images/simulator\"\ncp -vf TestApp/TestData/data/id-document-images/simulator/* \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/id-document-images/simulator\" || :\n";
+		};
+		84239EC027F596F600400B51 /* Copy id-document-images/IDology-sandbox */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Copy id-document-images/IDology-sandbox";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "mkdir -p \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/id-document-images/IDology-sandbox\"\ncp -vf TestApp/TestData/data/id-document-images/simulator/* \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/id-document-images/IDology-sandbox\" || :\n";
+		};
 		8D6C8F95A494258E515824FC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -628,13 +840,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				D91CAE4F2451484300DA1152 /* AWSEndpoint.swift in Sources */,
-				D931C7CB2342D3D000932612 /* Data.swift in Sources */,
-				D946445F23580EF100F4BCF8 /* Date.swift in Sources */,
-				D9971C7E22FD46650077076C /* Logger.swift in Sources */,
-				D931C7DB23432B7900932612 /* NSLock.swift in Sources */,
+				D946445F23580EF100F4BCF8 /* Date+MillisecondsSinceEpoch.swift in Sources */,
+				84239D8227F54DF900400B51 /* DefaultSudoIdentityVerificationClient.swift in Sources */,
+				84239D8527F5661800400B51 /* IdDocumentType.swift in Sources */,
+				84239ECC27F6BE2200400B51 /* Inputs.swift in Sources */,
+				84239D8027F54D9000400B51 /* QueryOption.swift in Sources */,
 				D9971C7722FD31690077076C /* SudoIdentityVerificationClient.swift in Sources */,
 				D9971C7922FD40DC0077076C /* SudoIdentityVerificationClientConfigProvider.swift in Sources */,
+				84239D7C27F54AA000400B51 /* SudoIdentityVerificationClientError.swift in Sources */,
 				D9B5B2B62371666100392596 /* SudoIdentityVerificationServiceAPI.swift in Sources */,
+				D9971C7E22FD46650077076C /* SudoLogger+IdentityVerification.swift in Sources */,
 				D9B5B2B423715DF300392596 /* VerifiedIdentity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -643,6 +858,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84239D8827F56C5800400B51 /* Data+JSONObject.swift in Sources */,
 				D9971C6722FD299A0077076C /* SudoIdentityVerificationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -651,8 +867,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0CD837E027E192F900CE53D5 /* XCTTestCase+Utility.swift in Sources */,
+				84239EBE27F58EEC00400B51 /* Data+JSONObject.swift in Sources */,
+				84239EC827F672D100400B51 /* IdDocumentImages.swift in Sources */,
 				D9F16E6E22FD498E0055513F /* SudoIdentityVerificationIntegrationTests.swift in Sources */,
+				0CD837E027E192F900CE53D5 /* XCTTestCase+Utility.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

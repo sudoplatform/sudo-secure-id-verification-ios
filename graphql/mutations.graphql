@@ -1,0 +1,11 @@
+mutation VerifyIdentity($input: VerifyIdentityInput!) {
+  verifyIdentity(input: $input) {
+    ...VerifiedIdentity
+  }
+}
+
+mutation VerifyIdentityDocument($input: VerifyIdentityDocumentInput!) {
+  verifyIdentityDocument(input: $input) {
+    ...VerifiedIdentity
+  }
+}
