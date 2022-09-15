@@ -3,14 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		0CD837E027E192F900CE53D5 /* XCTTestCase+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD837DF27E192F900CE53D5 /* XCTTestCase+Utility.swift */; };
-		1226CFBA02270F761D231EF6 /* Pods_SudoIdentityVerification_SudoIdentityVerificationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A9115CEAC7B4AEEAC33548C /* Pods_SudoIdentityVerification_SudoIdentityVerificationTests.framework */; };
-		43D6D31923C37E225D4C5767 /* Pods_SudoIdentityVerification_SudoIdentityVerificationIntegrationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FDE22F05609B721ED44435F /* Pods_SudoIdentityVerification_SudoIdentityVerificationIntegrationTests.framework */; };
-		48C67035011972CF549C8BA1 /* Pods_SudoIdentityVerification.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AE40C3DE0E6284CA542E97D /* Pods_SudoIdentityVerification.framework */; };
+		273A12A33585432B0C2542AF /* Pods_SudoIdentityVerification_SudoIdentityVerificationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9E1FA8CF6BA7C92423A873E /* Pods_SudoIdentityVerification_SudoIdentityVerificationTests.framework */; };
+		635A53B196C02B016B373376 /* Pods_SudoIdentityVerification.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C10004957DC645DA75F9D116 /* Pods_SudoIdentityVerification.framework */; };
+		6371835139B6BBC22E45B3F1 /* Pods_SudoIdentityVerification_SudoIdentityVerificationIntegrationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B78F1B9CE53CA47F9390DA89 /* Pods_SudoIdentityVerification_SudoIdentityVerificationIntegrationTests.framework */; };
 		84239D7C27F54AA000400B51 /* SudoIdentityVerificationClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84239D7B27F54AA000400B51 /* SudoIdentityVerificationClientError.swift */; };
 		84239D8027F54D9000400B51 /* QueryOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84239D7F27F54D9000400B51 /* QueryOption.swift */; };
 		84239D8227F54DF900400B51 /* DefaultSudoIdentityVerificationClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84239D8127F54DF900400B51 /* DefaultSudoIdentityVerificationClient.swift */; };
@@ -73,12 +73,9 @@
 
 /* Begin PBXFileReference section */
 		0CD837DF27E192F900CE53D5 /* XCTTestCase+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTTestCase+Utility.swift"; sourceTree = "<group>"; };
-		1AE40C3DE0E6284CA542E97D /* Pods_SudoIdentityVerification.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SudoIdentityVerification.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3A9115CEAC7B4AEEAC33548C /* Pods_SudoIdentityVerification_SudoIdentityVerificationTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SudoIdentityVerification_SudoIdentityVerificationTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		66AE3D879B31835C41437EF6 /* Pods-SudoIdentityVerificationIntegrationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoIdentityVerificationIntegrationTests.release.xcconfig"; path = "Target Support Files/Pods-SudoIdentityVerificationIntegrationTests/Pods-SudoIdentityVerificationIntegrationTests.release.xcconfig"; sourceTree = "<group>"; };
-		6E4BD0F655190A99DBF71354 /* Pods-SudoIdentityVerification.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoIdentityVerification.debug.xcconfig"; path = "Target Support Files/Pods-SudoIdentityVerification/Pods-SudoIdentityVerification.debug.xcconfig"; sourceTree = "<group>"; };
-		7FDE22F05609B721ED44435F /* Pods_SudoIdentityVerification_SudoIdentityVerificationIntegrationTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SudoIdentityVerification_SudoIdentityVerificationIntegrationTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		83B0E4AC203362B62BEC7258 /* Pods-SudoIdentityVerification.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoIdentityVerification.release.xcconfig"; path = "Target Support Files/Pods-SudoIdentityVerification/Pods-SudoIdentityVerification.release.xcconfig"; sourceTree = "<group>"; };
+		0EA822B8A8A5879EE4F8C530 /* Pods-SudoIdentityVerification-SudoIdentityVerificationIntegrationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoIdentityVerification-SudoIdentityVerificationIntegrationTests.debug.xcconfig"; path = "Target Support Files/Pods-SudoIdentityVerification-SudoIdentityVerificationIntegrationTests/Pods-SudoIdentityVerification-SudoIdentityVerificationIntegrationTests.debug.xcconfig"; sourceTree = "<group>"; };
+		2EB081BA7809BA229E0DBDCB /* Pods-SudoIdentityVerification-SudoIdentityVerificationIntegrationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoIdentityVerification-SudoIdentityVerificationIntegrationTests.release.xcconfig"; path = "Target Support Files/Pods-SudoIdentityVerification-SudoIdentityVerificationIntegrationTests/Pods-SudoIdentityVerification-SudoIdentityVerificationIntegrationTests.release.xcconfig"; sourceTree = "<group>"; };
+		815FD4B30B6CECF75610359F /* Pods-SudoIdentityVerification.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoIdentityVerification.debug.xcconfig"; path = "Target Support Files/Pods-SudoIdentityVerification/Pods-SudoIdentityVerification.debug.xcconfig"; sourceTree = "<group>"; };
 		84239D7B27F54AA000400B51 /* SudoIdentityVerificationClientError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudoIdentityVerificationClientError.swift; sourceTree = "<group>"; };
 		84239D7F27F54D9000400B51 /* QueryOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryOption.swift; sourceTree = "<group>"; };
 		84239D8127F54DF900400B51 /* DefaultSudoIdentityVerificationClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSudoIdentityVerificationClient.swift; sourceTree = "<group>"; };
@@ -116,13 +113,10 @@
 		84239EBD27F58EEC00400B51 /* Data+JSONObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+JSONObject.swift"; sourceTree = "<group>"; };
 		84239EC727F672D100400B51 /* IdDocumentImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdDocumentImages.swift; sourceTree = "<group>"; };
 		84239ECB27F6BE2200400B51 /* Inputs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inputs.swift; sourceTree = "<group>"; };
-		A144BF9EB7328BF76A5008F2 /* Pods-SudoIdentityVerificationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoIdentityVerificationTests.release.xcconfig"; path = "Target Support Files/Pods-SudoIdentityVerificationTests/Pods-SudoIdentityVerificationTests.release.xcconfig"; sourceTree = "<group>"; };
-		AA47124AA29C40A510CA086F /* Pods-SudoIdentityVerification-SudoIdentityVerificationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoIdentityVerification-SudoIdentityVerificationTests.release.xcconfig"; path = "Target Support Files/Pods-SudoIdentityVerification-SudoIdentityVerificationTests/Pods-SudoIdentityVerification-SudoIdentityVerificationTests.release.xcconfig"; sourceTree = "<group>"; };
-		B79C83D1CF479A91E91D07F5 /* Pods-SudoIdentityVerification-SudoIdentityVerificationIntegrationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoIdentityVerification-SudoIdentityVerificationIntegrationTests.debug.xcconfig"; path = "Target Support Files/Pods-SudoIdentityVerification-SudoIdentityVerificationIntegrationTests/Pods-SudoIdentityVerification-SudoIdentityVerificationIntegrationTests.debug.xcconfig"; sourceTree = "<group>"; };
-		BB5DEA78CA6C764EA545BFA8 /* Pods-SudoIdentityVerificationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoIdentityVerificationTests.debug.xcconfig"; path = "Target Support Files/Pods-SudoIdentityVerificationTests/Pods-SudoIdentityVerificationTests.debug.xcconfig"; sourceTree = "<group>"; };
-		BE3DDF0B7D58FA145D83F9A7 /* Pods-SudoIdentityVerificationIntegrationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoIdentityVerificationIntegrationTests.debug.xcconfig"; path = "Target Support Files/Pods-SudoIdentityVerificationIntegrationTests/Pods-SudoIdentityVerificationIntegrationTests.debug.xcconfig"; sourceTree = "<group>"; };
-		CA7ED6E3418BF61DD887F8C7 /* Pods-SudoIdentityVerification-SudoIdentityVerificationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoIdentityVerification-SudoIdentityVerificationTests.debug.xcconfig"; path = "Target Support Files/Pods-SudoIdentityVerification-SudoIdentityVerificationTests/Pods-SudoIdentityVerification-SudoIdentityVerificationTests.debug.xcconfig"; sourceTree = "<group>"; };
-		D464875741DA041B942DA63D /* Pods-SudoIdentityVerification-SudoIdentityVerificationIntegrationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoIdentityVerification-SudoIdentityVerificationIntegrationTests.release.xcconfig"; path = "Target Support Files/Pods-SudoIdentityVerification-SudoIdentityVerificationIntegrationTests/Pods-SudoIdentityVerification-SudoIdentityVerificationIntegrationTests.release.xcconfig"; sourceTree = "<group>"; };
+		8D3667D6F2950E0394446632 /* Pods-SudoIdentityVerification-SudoIdentityVerificationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoIdentityVerification-SudoIdentityVerificationTests.debug.xcconfig"; path = "Target Support Files/Pods-SudoIdentityVerification-SudoIdentityVerificationTests/Pods-SudoIdentityVerification-SudoIdentityVerificationTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B78F1B9CE53CA47F9390DA89 /* Pods_SudoIdentityVerification_SudoIdentityVerificationIntegrationTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SudoIdentityVerification_SudoIdentityVerificationIntegrationTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BAB72333DC2A26ED54120CCC /* Pods-SudoIdentityVerification-SudoIdentityVerificationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoIdentityVerification-SudoIdentityVerificationTests.release.xcconfig"; path = "Target Support Files/Pods-SudoIdentityVerification-SudoIdentityVerificationTests/Pods-SudoIdentityVerification-SudoIdentityVerificationTests.release.xcconfig"; sourceTree = "<group>"; };
+		C10004957DC645DA75F9D116 /* Pods_SudoIdentityVerification.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SudoIdentityVerification.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D91CAE4E2451484300DA1152 /* AWSEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSEndpoint.swift; sourceTree = "<group>"; };
 		D931C7B62342D22700932612 /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D931C7B82342D22700932612 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -151,6 +145,8 @@
 		D9F16E6D22FD498E0055513F /* SudoIdentityVerificationIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudoIdentityVerificationIntegrationTests.swift; sourceTree = "<group>"; };
 		D9F16E6F22FD498E0055513F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9F52A9C23D7CC1000F47271 /* sudoplatformconfig.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sudoplatformconfig.json; sourceTree = "<group>"; };
+		DE3B94318AD0F681CD10528B /* Pods-SudoIdentityVerification.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoIdentityVerification.release.xcconfig"; path = "Target Support Files/Pods-SudoIdentityVerification/Pods-SudoIdentityVerification.release.xcconfig"; sourceTree = "<group>"; };
+		E9E1FA8CF6BA7C92423A873E /* Pods_SudoIdentityVerification_SudoIdentityVerificationTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SudoIdentityVerification_SudoIdentityVerificationTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,7 +161,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				48C67035011972CF549C8BA1 /* Pods_SudoIdentityVerification.framework in Frameworks */,
+				635A53B196C02B016B373376 /* Pods_SudoIdentityVerification.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,7 +169,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1226CFBA02270F761D231EF6 /* Pods_SudoIdentityVerification_SudoIdentityVerificationTests.framework in Frameworks */,
+				273A12A33585432B0C2542AF /* Pods_SudoIdentityVerification_SudoIdentityVerificationTests.framework in Frameworks */,
 				D9971C6222FD299A0077076C /* SudoIdentityVerification.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -182,7 +178,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43D6D31923C37E225D4C5767 /* Pods_SudoIdentityVerification_SudoIdentityVerificationIntegrationTests.framework in Frameworks */,
+				6371835139B6BBC22E45B3F1 /* Pods_SudoIdentityVerification_SudoIdentityVerificationIntegrationTests.framework in Frameworks */,
 				D9F16E7022FD498E0055513F /* SudoIdentityVerification.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -333,31 +329,27 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
+		BD80145591BC18575878984E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C10004957DC645DA75F9D116 /* Pods_SudoIdentityVerification.framework */,
+				B78F1B9CE53CA47F9390DA89 /* Pods_SudoIdentityVerification_SudoIdentityVerificationIntegrationTests.framework */,
+				E9E1FA8CF6BA7C92423A873E /* Pods_SudoIdentityVerification_SudoIdentityVerificationTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C1CFCFDA6A8EDCBA54AF85D7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				B79C83D1CF479A91E91D07F5 /* Pods-SudoIdentityVerification-SudoIdentityVerificationIntegrationTests.debug.xcconfig */,
-				D464875741DA041B942DA63D /* Pods-SudoIdentityVerification-SudoIdentityVerificationIntegrationTests.release.xcconfig */,
-				CA7ED6E3418BF61DD887F8C7 /* Pods-SudoIdentityVerification-SudoIdentityVerificationTests.debug.xcconfig */,
-				AA47124AA29C40A510CA086F /* Pods-SudoIdentityVerification-SudoIdentityVerificationTests.release.xcconfig */,
-				6E4BD0F655190A99DBF71354 /* Pods-SudoIdentityVerification.debug.xcconfig */,
-				83B0E4AC203362B62BEC7258 /* Pods-SudoIdentityVerification.release.xcconfig */,
-				BE3DDF0B7D58FA145D83F9A7 /* Pods-SudoIdentityVerificationIntegrationTests.debug.xcconfig */,
-				66AE3D879B31835C41437EF6 /* Pods-SudoIdentityVerificationIntegrationTests.release.xcconfig */,
-				BB5DEA78CA6C764EA545BFA8 /* Pods-SudoIdentityVerificationTests.debug.xcconfig */,
-				A144BF9EB7328BF76A5008F2 /* Pods-SudoIdentityVerificationTests.release.xcconfig */,
+				0EA822B8A8A5879EE4F8C530 /* Pods-SudoIdentityVerification-SudoIdentityVerificationIntegrationTests.debug.xcconfig */,
+				2EB081BA7809BA229E0DBDCB /* Pods-SudoIdentityVerification-SudoIdentityVerificationIntegrationTests.release.xcconfig */,
+				8D3667D6F2950E0394446632 /* Pods-SudoIdentityVerification-SudoIdentityVerificationTests.debug.xcconfig */,
+				BAB72333DC2A26ED54120CCC /* Pods-SudoIdentityVerification-SudoIdentityVerificationTests.release.xcconfig */,
+				815FD4B30B6CECF75610359F /* Pods-SudoIdentityVerification.debug.xcconfig */,
+				DE3B94318AD0F681CD10528B /* Pods-SudoIdentityVerification.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		C24C22AE82CC7CE8BAB838BA /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				1AE40C3DE0E6284CA542E97D /* Pods_SudoIdentityVerification.framework */,
-				7FDE22F05609B721ED44435F /* Pods_SudoIdentityVerification_SudoIdentityVerificationIntegrationTests.framework */,
-				3A9115CEAC7B4AEEAC33548C /* Pods_SudoIdentityVerification_SudoIdentityVerificationTests.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		D931C7B72342D22700932612 /* TestApp */ = {
@@ -395,7 +387,7 @@
 				D931C7B72342D22700932612 /* TestApp */,
 				D9971C5922FD299A0077076C /* Products */,
 				C1CFCFDA6A8EDCBA54AF85D7 /* Pods */,
-				C24C22AE82CC7CE8BAB838BA /* Frameworks */,
+				BD80145591BC18575878984E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -490,7 +482,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D9971C6C22FD299A0077076C /* Build configuration list for PBXNativeTarget "SudoIdentityVerification" */;
 			buildPhases = (
-				8D6C8F95A494258E515824FC /* [CP] Check Pods Manifest.lock */,
+				61181D0A93393E46961C2F59 /* [CP] Check Pods Manifest.lock */,
 				D9971C5322FD299A0077076C /* Headers */,
 				D9971C5422FD299A0077076C /* Sources */,
 				D9971C5522FD299A0077076C /* Frameworks */,
@@ -510,11 +502,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D9971C6F22FD299A0077076C /* Build configuration list for PBXNativeTarget "SudoIdentityVerificationTests" */;
 			buildPhases = (
-				EA70016F6FA267B92DD6EEA9 /* [CP] Check Pods Manifest.lock */,
+				C94D3025BD3E071D34689FAB /* [CP] Check Pods Manifest.lock */,
 				D9971C5D22FD299A0077076C /* Sources */,
 				D9971C5E22FD299A0077076C /* Frameworks */,
 				D9971C5F22FD299A0077076C /* Resources */,
-				949EA20BFA7910366D78CDFF /* [CP] Embed Pods Frameworks */,
+				E6C7595DBA45B69E90464A9E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -531,12 +523,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D9F16E7322FD498E0055513F /* Build configuration list for PBXNativeTarget "SudoIdentityVerificationIntegrationTests" */;
 			buildPhases = (
-				9A65DBD3C51F78478E8DC248 /* [CP] Check Pods Manifest.lock */,
+				186049AF904D2F65E4E1DB53 /* [CP] Check Pods Manifest.lock */,
 				D9F16E6722FD498E0055513F /* Sources */,
 				D9F16E6822FD498E0055513F /* Frameworks */,
 				D9F16E6922FD498E0055513F /* Resources */,
-				CB6E85E4FB64E432065C8A80 /* [CP] Embed Pods Frameworks */,
 				D931C7B12342D1C200932612 /* Copy Config */,
+				2158AED1561AD63CB0485007 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -633,82 +625,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		84239EBF27F5962B00400B51 /* Copy id-document-images/simulator */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Copy id-document-images/simulator";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "mkdir -p \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/id-document-images/simulator\"\ncp -vf TestApp/TestData/data/id-document-images/simulator/* \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/id-document-images/simulator\" || :\n";
-		};
-		84239EC027F596F600400B51 /* Copy id-document-images/IDology-sandbox */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Copy id-document-images/IDology-sandbox";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "mkdir -p \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/id-document-images/IDology-sandbox\"\ncp -vf TestApp/TestData/data/id-document-images/simulator/* \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/id-document-images/IDology-sandbox\" || :\n";
-		};
-		8D6C8F95A494258E515824FC /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SudoIdentityVerification-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		949EA20BFA7910366D78CDFF /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SudoIdentityVerification-SudoIdentityVerificationTests/Pods-SudoIdentityVerification-SudoIdentityVerificationTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SudoIdentityVerification-SudoIdentityVerificationTests/Pods-SudoIdentityVerification-SudoIdentityVerificationTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SudoIdentityVerification-SudoIdentityVerificationTests/Pods-SudoIdentityVerification-SudoIdentityVerificationTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9A65DBD3C51F78478E8DC248 /* [CP] Check Pods Manifest.lock */ = {
+		186049AF904D2F65E4E1DB53 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -730,7 +647,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CB6E85E4FB64E432065C8A80 /* [CP] Embed Pods Frameworks */ = {
+		2158AED1561AD63CB0485007 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -747,7 +664,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SudoIdentityVerification-SudoIdentityVerificationIntegrationTests/Pods-SudoIdentityVerification-SudoIdentityVerificationIntegrationTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D931C7B12342D1C200932612 /* Copy Config */ = {
+		61181D0A93393E46961C2F59 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -755,18 +672,23 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = "Copy Config";
+			name = "[CP] Check Pods Manifest.lock";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SudoIdentityVerification-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cp -vf config/register_key.id \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\" || :\ncp -vf config/register_key.private \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\" || :\ncp -vf config/sudoplatformconfig.json \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\" || :\nif [ -f config/api.key ]; then\n    cp -vf config/api.key \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\" || :\nfi\n  \n\n\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
-		D9944530237A794600ACCF71 /* Lint */ = {
+		84239EBF27F5962B00400B51 /* Copy id-document-images/simulator */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -774,17 +696,18 @@
 			);
 			inputPaths = (
 			);
-			name = Lint;
+			name = "Copy id-document-images/simulator";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint > /dev/null; then\n    swiftlint --path ${PROJECT_DIR}\nelse\n    echo \"Warning: SwiftLint not installed, run 'brew install swiftlint'\"\nfi\n";
+			shellScript = "mkdir -p \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/id-document-images/simulator\"\ncp -vf TestApp/TestData/data/id-document-images/simulator/* \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/id-document-images/simulator\" || :\n";
 		};
-		D9F52A9B23D7C87E00F47271 /* Copy Config */ = {
+		84239EC027F596F600400B51 /* Copy id-document-images/IDology-sandbox */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -792,16 +715,16 @@
 			);
 			inputPaths = (
 			);
-			name = "Copy Config";
+			name = "Copy id-document-images/IDology-sandbox";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cp -vf config/register_key.id \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\" || :\ncp -vf config/register_key.private \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\" || :\ncp -vf config/sudoplatformconfig.json \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\" || :\n";
+			shellScript = "mkdir -p \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/id-document-images/IDology-sandbox\"\ncp -vf TestApp/TestData/data/id-document-images/simulator/* \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/id-document-images/IDology-sandbox\" || :\n";
 		};
-		EA70016F6FA267B92DD6EEA9 /* [CP] Check Pods Manifest.lock */ = {
+		C94D3025BD3E071D34689FAB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -821,6 +744,80 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D931C7B12342D1C200932612 /* Copy Config */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Config";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cp -vf config/register_key.id \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\" || :\ncp -vf config/register_key.private \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\" || :\ncp -vf config/sudoplatformconfig.json \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\" || :\nif [ -f config/api.key ]; then\n    cp -vf config/api.key \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\" || :\nfi\n  \n\n\n";
+		};
+		D9944530237A794600ACCF71 /* Lint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Lint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint > /dev/null; then\n    swiftlint --path ${PROJECT_DIR}\nelse\n    echo \"Warning: SwiftLint not installed, run 'brew install swiftlint'\"\nfi\n";
+		};
+		D9F52A9B23D7C87E00F47271 /* Copy Config */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Config";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cp -vf config/register_key.id \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\" || :\ncp -vf config/register_key.private \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\" || :\ncp -vf config/sudoplatformconfig.json \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\" || :\n";
+		};
+		E6C7595DBA45B69E90464A9E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SudoIdentityVerification-SudoIdentityVerificationTests/Pods-SudoIdentityVerification-SudoIdentityVerificationTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SudoIdentityVerification-SudoIdentityVerificationTests/Pods-SudoIdentityVerification-SudoIdentityVerificationTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SudoIdentityVerification-SudoIdentityVerificationTests/Pods-SudoIdentityVerification-SudoIdentityVerificationTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -926,6 +923,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UU2W43R8JA;
 				INFOPLIST_FILE = TestApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -943,6 +941,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UU2W43R8JA;
 				INFOPLIST_FILE = TestApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1006,7 +1005,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1066,7 +1065,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1081,7 +1080,7 @@
 		};
 		D9971C6D22FD299A0077076C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6E4BD0F655190A99DBF71354 /* Pods-SudoIdentityVerification.debug.xcconfig */;
+			baseConfigurationReference = 815FD4B30B6CECF75610359F /* Pods-SudoIdentityVerification.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -1093,7 +1092,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = SudoIdentityVerification/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1109,7 +1108,7 @@
 		};
 		D9971C6E22FD299A0077076C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 83B0E4AC203362B62BEC7258 /* Pods-SudoIdentityVerification.release.xcconfig */;
+			baseConfigurationReference = DE3B94318AD0F681CD10528B /* Pods-SudoIdentityVerification.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -1121,7 +1120,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = SudoIdentityVerification/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1136,11 +1135,12 @@
 		};
 		D9971C7022FD299A0077076C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CA7ED6E3418BF61DD887F8C7 /* Pods-SudoIdentityVerification-SudoIdentityVerificationTests.debug.xcconfig */;
+			baseConfigurationReference = 8D3667D6F2950E0394446632 /* Pods-SudoIdentityVerification-SudoIdentityVerificationTests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UU2W43R8JA;
 				INFOPLIST_FILE = SudoIdentityVerificationTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1155,11 +1155,12 @@
 		};
 		D9971C7122FD299A0077076C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AA47124AA29C40A510CA086F /* Pods-SudoIdentityVerification-SudoIdentityVerificationTests.release.xcconfig */;
+			baseConfigurationReference = BAB72333DC2A26ED54120CCC /* Pods-SudoIdentityVerification-SudoIdentityVerificationTests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UU2W43R8JA;
 				INFOPLIST_FILE = SudoIdentityVerificationTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1174,12 +1175,13 @@
 		};
 		D9F16E7422FD498E0055513F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B79C83D1CF479A91E91D07F5 /* Pods-SudoIdentityVerification-SudoIdentityVerificationIntegrationTests.debug.xcconfig */;
+			baseConfigurationReference = 0EA822B8A8A5879EE4F8C530 /* Pods-SudoIdentityVerification-SudoIdentityVerificationIntegrationTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UU2W43R8JA;
 				INFOPLIST_FILE = SudoIdentityVerificationIntegrationTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1194,12 +1196,13 @@
 		};
 		D9F16E7522FD498E0055513F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D464875741DA041B942DA63D /* Pods-SudoIdentityVerification-SudoIdentityVerificationIntegrationTests.release.xcconfig */;
+			baseConfigurationReference = 2EB081BA7809BA229E0DBDCB /* Pods-SudoIdentityVerification-SudoIdentityVerificationIntegrationTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UU2W43R8JA;
 				INFOPLIST_FILE = SudoIdentityVerificationIntegrationTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

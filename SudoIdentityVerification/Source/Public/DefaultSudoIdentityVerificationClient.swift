@@ -8,7 +8,7 @@ import Foundation
 import SudoLogging
 import SudoUser
 import AWSAppSync
-import AWSS3
+import AWSCore
 import SudoConfigManager
 import SudoApiClient
 
