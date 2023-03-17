@@ -17,7 +17,7 @@ target "SudoIdentityVerification" do
   target "SudoIdentityVerificationIntegrationTests" do
     podspec :name => 'SudoIdentityVerification'
     pod 'SudoKeyManager', '~> 2.0'
-    pod 'SudoEntitlements', '~> 8.0'
+    pod 'SudoEntitlements', '~> 9.0'
     pod 'SudoEntitlementsAdmin', '~> 4.0'
   end
 end
