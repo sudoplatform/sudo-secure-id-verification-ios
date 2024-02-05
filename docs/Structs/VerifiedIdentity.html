@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          SudoIdentityVerification 14.0.0 Docs
+          SudoIdentityVerification 15.0.0 Docs
         </a>
         
       </p>
@@ -55,6 +55,9 @@
           <li class="nav-group-name">
             <a class="nav-group-name-link" href="../Enums.html">Enumerations</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/DocumentVerificationStatus.html">DocumentVerificationStatus</a>
+              </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums.html#/s:24SudoIdentityVerification14IdDocumentTypeO">IdDocumentType</a>
               </li>
@@ -195,9 +198,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:24SudoIdentityVerification08VerifiedB0V18verificationMethodSSvp"></a>
+                    <a name="/s:24SudoIdentityVerification08VerifiedB0V18verificationMethodAA0cF0Ovp"></a>
                     <a name="//apple_ref/swift/Property/verificationMethod" class="dashAnchor"></a>
-                    <a class="token" href="#/s:24SudoIdentityVerification08VerifiedB0V18verificationMethodSSvp">verificationMethod</a>
+                    <a class="token" href="#/s:24SudoIdentityVerification08VerifiedB0V18verificationMethodAA0cF0Ovp">verificationMethod</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -212,7 +215,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">verificationMethod</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">verificationMethod</span><span class="p">:</span> <span class="kt">VerificationMethod</span></code></pre>
 
                         </div>
                       </div>
@@ -278,9 +281,93 @@ verification attempt means that it should not proceed.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:24SudoIdentityVerification08VerifiedB0V5owner8verified0F2At18verificationMethod010canAttemptC5Again9idScanUrlACSS_Sb10Foundation4DateVSgSSSbSSSgtcfc"></a>
-                    <a name="//apple_ref/swift/Method/init(owner:verified:verifiedAt:verificationMethod:canAttemptVerificationAgain:idScanUrl:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:24SudoIdentityVerification08VerifiedB0V5owner8verified0F2At18verificationMethod010canAttemptC5Again9idScanUrlACSS_Sb10Foundation4DateVSgSSSbSSSgtcfc">init(owner:<wbr>verified:<wbr>verifiedAt:<wbr>verificationMethod:<wbr>canAttemptVerificationAgain:<wbr>idScanUrl:<wbr>)</a>
+                    <a name="/s:24SudoIdentityVerification08VerifiedB0V08requiredC6MethodAA0cF0OSgvp"></a>
+                    <a name="//apple_ref/swift/Property/requiredVerificationMethod" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24SudoIdentityVerification08VerifiedB0V08requiredC6MethodAA0cF0OSgvp">requiredVerificationMethod</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>If identity is not verified, indicates required method of verification that the user
+must go through</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">requiredVerificationMethod</span><span class="p">:</span> <span class="kt">VerificationMethod</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:24SudoIdentityVerification08VerifiedB0V23acceptableDocumentTypesSayAA02IdF4TypeOGvp"></a>
+                    <a name="//apple_ref/swift/Property/acceptableDocumentTypes" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24SudoIdentityVerification08VerifiedB0V23acceptableDocumentTypesSayAA02IdF4TypeOGvp">acceptableDocumentTypes</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Where required verification method is <code>GOVERNMENT_ID</code>, lists the set
+of acceptable ID document types that can be presented to verify the
+identity</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">acceptableDocumentTypes</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Enums.html#/s:24SudoIdentityVerification14IdDocumentTypeO">IdDocumentType</a></span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:24SudoIdentityVerification08VerifiedB0V08documentC6StatusAA08DocumentcF0Ovp"></a>
+                    <a name="//apple_ref/swift/Property/documentVerificationStatus" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24SudoIdentityVerification08VerifiedB0V08documentC6StatusAA08DocumentcF0Ovp">documentVerificationStatus</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Indicates the status of verification of submitted ID documents</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">documentVerificationStatus</span><span class="p">:</span> <span class="kt"><a href="../Enums/DocumentVerificationStatus.html">DocumentVerificationStatus</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:24SudoIdentityVerification08VerifiedB0V5owner8verified0F2At18verificationMethod010canAttemptC5Again9idScanUrl08requiredcI023acceptableDocumentTypes08documentC6StatusACSS_Sb10Foundation4DateVSgAA0cI0OSbSSSgARSgSayAA02IdR4TypeOGAA0rcU0Otcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(owner:verified:verifiedAt:verificationMethod:canAttemptVerificationAgain:idScanUrl:requiredVerificationMethod:acceptableDocumentTypes:documentVerificationStatus:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24SudoIdentityVerification08VerifiedB0V5owner8verified0F2At18verificationMethod010canAttemptC5Again9idScanUrl08requiredcI023acceptableDocumentTypes08documentC6StatusACSS_Sb10Foundation4DateVSgAA0cI0OSbSSSgARSgSayAA02IdR4TypeOGAA0rcU0Otcfc">init(owner:<wbr>verified:<wbr>verifiedAt:<wbr>verificationMethod:<wbr>canAttemptVerificationAgain:<wbr>idScanUrl:<wbr>requiredVerificationMethod:<wbr>acceptableDocumentTypes:<wbr>documentVerificationStatus:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -299,9 +386,12 @@ verification attempt means that it should not proceed.</p>
     <span class="nv">owner</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
     <span class="nv">verified</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span>
     <span class="nv">verifiedAt</span><span class="p">:</span> <span class="kt">Date</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
-    <span class="nv">verificationMethod</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+    <span class="nv">verificationMethod</span><span class="p">:</span> <span class="kt">VerificationMethod</span><span class="p">,</span>
     <span class="nv">canAttemptVerificationAgain</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span>
-    <span class="nv">idScanUrl</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span>
+    <span class="nv">idScanUrl</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+    <span class="nv">requiredVerificationMethod</span><span class="p">:</span> <span class="kt">VerificationMethod</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+    <span class="nv">acceptableDocumentTypes</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Enums.html#/s:24SudoIdentityVerification14IdDocumentTypeO">IdDocumentType</a></span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span>
+    <span class="nv">documentVerificationStatus</span><span class="p">:</span> <span class="kt"><a href="../Enums/DocumentVerificationStatus.html">DocumentVerificationStatus</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">notRequired</span>
 <span class="p">)</span></code></pre>
 
                         </div>
@@ -382,6 +472,42 @@ verification attempt means that it should not proceed.</p>
                                 </div>
                               </td>
                             </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>requiredVerificationMethod</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Required verification method to use if not verified</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>acceptableDocumentTypes</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Array of acceptable ID document types if required verification method is GOVERNMENT_ID</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>documentVerificationStatus</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Status of ongoing ID document verification</p>
+                                </div>
+                              </td>
+                            </tr>
                           </tbody>
                         </table>
                       </div>
@@ -396,7 +522,7 @@ verification attempt means that it should not proceed.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2023 <a class="link" href="https://sudoplatform.com/" target="_blank" rel="external noopener">Sudo Platform Engineering</a>. All rights reserved. (Last updated: 2023-03-17)</p>
+      <p>&copy; 2024 <a class="link" href="https://sudoplatform.com/" target="_blank" rel="external noopener">Sudo Platform Engineering</a>. All rights reserved. (Last updated: 2024-02-05)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>

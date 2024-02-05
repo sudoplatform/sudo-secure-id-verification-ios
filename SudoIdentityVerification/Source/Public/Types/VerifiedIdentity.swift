@@ -19,7 +19,7 @@ public struct VerifiedIdentity {
     public let verifiedAt: Date?
 
     /// Verification method used.
-    public let verificationMethod: String
+    public let verificationMethod: VerificationMethod
 
     /// Indicates whether or not identity verification can be attempted again for this user. Set to false in
     /// cases where the maximum number of attempts has been reached or a finding from the identity
@@ -28,6 +28,18 @@ public struct VerifiedIdentity {
 
     /// URL to upload the scanned documents for identity verification.
     public let idScanUrl: String?
+
+    /// If identity is not verified, indicates required method of verification that the user
+    /// must go through
+    public let requiredVerificationMethod: VerificationMethod?
+
+    /// Where required verification method is `GOVERNMENT_ID`, lists the set
+    /// of acceptable ID document types that can be presented to verify the
+    /// identity
+    public let acceptableDocumentTypes: [IdDocumentType]
+
+    /// Indicates the status of verification of submitted ID documents
+    public let documentVerificationStatus: DocumentVerificationStatus
 
     /// Initializes a `VerifiedIdentity` instance.
     /// 
@@ -38,13 +50,19 @@ public struct VerifiedIdentity {
     ///   - verificationMethod: Verification method used.
     ///   - canAttemptVerificationAgain: Indicates whether or not the user can attempt to verify their identity again.
     ///   - idScanUrl: URL to upload the scanned documents for identity verification.
+    ///   - requiredVerificationMethod: Required verification method to use if not verified
+    ///   - acceptableDocumentTypes: Array of acceptable ID document types if required verification method is GOVERNMENT_ID
+    ///   - documentVerificationStatus: Status of ongoing ID document verification
     public init(
         owner: String,
         verified: Bool,
         verifiedAt: Date? = nil,
-        verificationMethod: String,
+        verificationMethod: VerificationMethod,
         canAttemptVerificationAgain: Bool,
-        idScanUrl: String? = nil
+        idScanUrl: String? = nil,
+        requiredVerificationMethod: VerificationMethod? = nil,
+        acceptableDocumentTypes: [IdDocumentType] = [],
+        documentVerificationStatus: DocumentVerificationStatus = .notRequired
     ) {
         self.owner = owner
         self.verified = verified
@@ -52,6 +70,36 @@ public struct VerifiedIdentity {
         self.verificationMethod = verificationMethod
         self.canAttemptVerificationAgain = canAttemptVerificationAgain
         self.idScanUrl = idScanUrl
+        self.requiredVerificationMethod = requiredVerificationMethod
+        self.acceptableDocumentTypes = acceptableDocumentTypes
+        self.documentVerificationStatus = documentVerificationStatus
+    }
+
+    internal init(
+        owner: String,
+        verified: Bool,
+        verifiedAtEpochMs: Double?,
+        verificationMethod: String,
+        canAttemptVerificationAgain: Bool,
+        idScanUrl: String?,
+        requiredVerificationMethod: String?,
+        acceptableDocumentTypes: [String],
+        documentVerificationStatus: String
+    ) {
+        var verifiedAt: Date?
+        if let verifiedAtEpochMs = verifiedAtEpochMs {
+            verifiedAt = Date(millisecondsSinceEpoch: verifiedAtEpochMs)
+        }
+
+        self.owner = owner
+        self.verified = verified
+        self.verifiedAt = verifiedAt
+        self.verificationMethod = VerificationMethod(verificationMethod)
+        self.canAttemptVerificationAgain = canAttemptVerificationAgain
+        self.idScanUrl = idScanUrl
+        self.requiredVerificationMethod = requiredVerificationMethod != nil ? VerificationMethod(requiredVerificationMethod!) : nil
+        self.acceptableDocumentTypes = acceptableDocumentTypes.map { IdDocumentType($0) }
+        self.documentVerificationStatus = DocumentVerificationStatus(documentVerificationStatus)
     }
 
 }

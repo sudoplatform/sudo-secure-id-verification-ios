@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		0CD837E027E192F900CE53D5 /* XCTTestCase+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD837DF27E192F900CE53D5 /* XCTTestCase+Utility.swift */; };
 		273A12A33585432B0C2542AF /* Pods_SudoIdentityVerification_SudoIdentityVerificationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9E1FA8CF6BA7C92423A873E /* Pods_SudoIdentityVerification_SudoIdentityVerificationTests.framework */; };
+		5D279B682B6C5B8800EAA061 /* DocumentVerificationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D279B672B6C5B8800EAA061 /* DocumentVerificationStatus.swift */; };
+		5D279B6A2B6C7A5A00EAA061 /* VerificationMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D279B692B6C7A5A00EAA061 /* VerificationMethod.swift */; };
+		5D279B6D2B6CB93E00EAA061 /* IdDocumentTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D279B6C2B6CB93E00EAA061 /* IdDocumentTypeTests.swift */; };
+		5D279B6F2B6CBB3500EAA061 /* DocumentVerificationStatusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D279B6E2B6CBB3500EAA061 /* DocumentVerificationStatusTests.swift */; };
+		5D279B712B6CBBC300EAA061 /* VerificationMethodTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D279B702B6CBBC300EAA061 /* VerificationMethodTests.swift */; };
 		635A53B196C02B016B373376 /* Pods_SudoIdentityVerification.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C10004957DC645DA75F9D116 /* Pods_SudoIdentityVerification.framework */; };
 		6371835139B6BBC22E45B3F1 /* Pods_SudoIdentityVerification_SudoIdentityVerificationIntegrationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B78F1B9CE53CA47F9390DA89 /* Pods_SudoIdentityVerification_SudoIdentityVerificationIntegrationTests.framework */; };
 		84239D7C27F54AA000400B51 /* SudoIdentityVerificationClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84239D7B27F54AA000400B51 /* SudoIdentityVerificationClientError.swift */; };
@@ -75,6 +80,11 @@
 		0CD837DF27E192F900CE53D5 /* XCTTestCase+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTTestCase+Utility.swift"; sourceTree = "<group>"; };
 		0EA822B8A8A5879EE4F8C530 /* Pods-SudoIdentityVerification-SudoIdentityVerificationIntegrationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoIdentityVerification-SudoIdentityVerificationIntegrationTests.debug.xcconfig"; path = "Target Support Files/Pods-SudoIdentityVerification-SudoIdentityVerificationIntegrationTests/Pods-SudoIdentityVerification-SudoIdentityVerificationIntegrationTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2EB081BA7809BA229E0DBDCB /* Pods-SudoIdentityVerification-SudoIdentityVerificationIntegrationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoIdentityVerification-SudoIdentityVerificationIntegrationTests.release.xcconfig"; path = "Target Support Files/Pods-SudoIdentityVerification-SudoIdentityVerificationIntegrationTests/Pods-SudoIdentityVerification-SudoIdentityVerificationIntegrationTests.release.xcconfig"; sourceTree = "<group>"; };
+		5D279B672B6C5B8800EAA061 /* DocumentVerificationStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentVerificationStatus.swift; sourceTree = "<group>"; };
+		5D279B692B6C7A5A00EAA061 /* VerificationMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationMethod.swift; sourceTree = "<group>"; };
+		5D279B6C2B6CB93E00EAA061 /* IdDocumentTypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdDocumentTypeTests.swift; sourceTree = "<group>"; };
+		5D279B6E2B6CBB3500EAA061 /* DocumentVerificationStatusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentVerificationStatusTests.swift; sourceTree = "<group>"; };
+		5D279B702B6CBBC300EAA061 /* VerificationMethodTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationMethodTests.swift; sourceTree = "<group>"; };
 		815FD4B30B6CECF75610359F /* Pods-SudoIdentityVerification.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoIdentityVerification.debug.xcconfig"; path = "Target Support Files/Pods-SudoIdentityVerification/Pods-SudoIdentityVerification.debug.xcconfig"; sourceTree = "<group>"; };
 		84239D7B27F54AA000400B51 /* SudoIdentityVerificationClientError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudoIdentityVerificationClientError.swift; sourceTree = "<group>"; };
 		84239D7F27F54D9000400B51 /* QueryOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryOption.swift; sourceTree = "<group>"; };
@@ -195,6 +205,16 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		5D279B6B2B6CB92300EAA061 /* Types */ = {
+			isa = PBXGroup;
+			children = (
+				5D279B6E2B6CBB3500EAA061 /* DocumentVerificationStatusTests.swift */,
+				5D279B6C2B6CB93E00EAA061 /* IdDocumentTypeTests.swift */,
+				5D279B702B6CBBC300EAA061 /* VerificationMethodTests.swift */,
+			);
+			path = Types;
+			sourceTree = "<group>";
+		};
 		84239D7827F5497B00400B51 /* Source */ = {
 			isa = PBXGroup;
 			children = (
@@ -228,9 +248,11 @@
 		84239D7D27F54AE300400B51 /* Types */ = {
 			isa = PBXGroup;
 			children = (
+				5D279B672B6C5B8800EAA061 /* DocumentVerificationStatus.swift */,
 				84239D8427F5661800400B51 /* IdDocumentType.swift */,
 				84239ECB27F6BE2200400B51 /* Inputs.swift */,
 				84239D7F27F54D9000400B51 /* QueryOption.swift */,
+				5D279B692B6C7A5A00EAA061 /* VerificationMethod.swift */,
 				D9B5B2B323715DF300392596 /* VerifiedIdentity.swift */,
 			);
 			path = Types;
@@ -416,6 +438,7 @@
 			isa = PBXGroup;
 			children = (
 				84239D8727F56C3F00400B51 /* Extension */,
+				5D279B6B2B6CB92300EAA061 /* Types */,
 				D9971C6822FD299A0077076C /* Info.plist */,
 				D9971C6622FD299A0077076C /* SudoIdentityVerificationTests.swift */,
 			);
@@ -839,6 +862,7 @@
 				D91CAE4F2451484300DA1152 /* AWSEndpoint.swift in Sources */,
 				D946445F23580EF100F4BCF8 /* Date+MillisecondsSinceEpoch.swift in Sources */,
 				84239D8227F54DF900400B51 /* DefaultSudoIdentityVerificationClient.swift in Sources */,
+				5D279B682B6C5B8800EAA061 /* DocumentVerificationStatus.swift in Sources */,
 				84239D8527F5661800400B51 /* IdDocumentType.swift in Sources */,
 				84239ECC27F6BE2200400B51 /* Inputs.swift in Sources */,
 				84239D8027F54D9000400B51 /* QueryOption.swift in Sources */,
@@ -847,6 +871,7 @@
 				84239D7C27F54AA000400B51 /* SudoIdentityVerificationClientError.swift in Sources */,
 				D9B5B2B62371666100392596 /* SudoIdentityVerificationServiceAPI.swift in Sources */,
 				D9971C7E22FD46650077076C /* SudoLogger+IdentityVerification.swift in Sources */,
+				5D279B6A2B6C7A5A00EAA061 /* VerificationMethod.swift in Sources */,
 				D9B5B2B423715DF300392596 /* VerifiedIdentity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -856,7 +881,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				84239D8827F56C5800400B51 /* Data+JSONObject.swift in Sources */,
+				5D279B6F2B6CBB3500EAA061 /* DocumentVerificationStatusTests.swift in Sources */,
+				5D279B6D2B6CB93E00EAA061 /* IdDocumentTypeTests.swift in Sources */,
 				D9971C6722FD299A0077076C /* SudoIdentityVerificationTests.swift in Sources */,
+				5D279B712B6CBBC300EAA061 /* VerificationMethodTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

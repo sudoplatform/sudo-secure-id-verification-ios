@@ -1,75 +1,89 @@
 {
   "warnings": [
     {
-      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/Source/Public/DefaultSudoIdentityVerificationClient.swift",
+      "file": "/Users/gitlab-runner/builds/s4pLexCBv/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/Source/Public/DefaultSudoIdentityVerificationClient.swift",
       "line": 18,
       "symbol": "DefaultSudoIdentityVerificationClient.Config",
       "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/Source/Public/SudoIdentityVerificationClientConfigProvider.swift",
+      "file": "/Users/gitlab-runner/builds/s4pLexCBv/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/Source/Public/SudoIdentityVerificationClientConfigProvider.swift",
       "line": 14,
       "symbol": "SudoIdentityVerificationClientConfigProvider.Config",
       "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/Source/Public/SudoIdentityVerificationClientError.swift",
+      "file": "/Users/gitlab-runner/builds/s4pLexCBv/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/Source/Public/SudoIdentityVerificationClientError.swift",
       "line": 10,
       "symbol": "SudoIdentityVerificationClientError",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/Source/Public/Types/IdDocumentType.swift",
+      "file": "/Users/gitlab-runner/builds/s4pLexCBv/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/Source/Public/Types/IdDocumentType.swift",
       "line": 12,
       "symbol": "IdDocumentType.driverLicense",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/Source/Public/Types/IdDocumentType.swift",
+      "file": "/Users/gitlab-runner/builds/s4pLexCBv/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/Source/Public/Types/IdDocumentType.swift",
       "line": 13,
       "symbol": "IdDocumentType.passport",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/Source/Public/Types/IdDocumentType.swift",
+      "file": "/Users/gitlab-runner/builds/s4pLexCBv/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/Source/Public/Types/IdDocumentType.swift",
       "line": 14,
       "symbol": "IdDocumentType.idCard",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/Source/Public/Types/Inputs.swift",
+      "file": "/Users/gitlab-runner/builds/s4pLexCBv/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/Source/Public/Types/IdDocumentType.swift",
+      "line": 15,
+      "symbol": "IdDocumentType.unknown(_:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/gitlab-runner/builds/s4pLexCBv/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/Source/Public/Types/Inputs.swift",
       "line": 36,
       "symbol": "VerifyIdentityInput.init(firstName:lastName:address:city:state:postalCode:country:dateOfBirth:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/Source/Public/Types/Inputs.swift",
+      "file": "/Users/gitlab-runner/builds/s4pLexCBv/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/Source/Public/Types/Inputs.swift",
       "line": 73,
       "symbol": "VerifyIdentityDocumentInput.init(image:backImage:country:documentType:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/Source/Public/Types/QueryOption.swift",
+      "file": "/Users/gitlab-runner/builds/s4pLexCBv/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/Source/Public/Types/QueryOption.swift",
       "line": 14,
       "symbol": "QueryOption.cacheOnly",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/Source/Public/Types/QueryOption.swift",
+      "file": "/Users/gitlab-runner/builds/s4pLexCBv/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/Source/Public/Types/QueryOption.swift",
       "line": 15,
       "symbol": "QueryOption.remoteOnly",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
+    },
+    {
+      "file": "/Users/gitlab-runner/builds/s4pLexCBv/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/Source/Public/Types/VerificationMethod.swift",
+      "line": 9,
+      "symbol": "VerificationMethod",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
     }
   ],
-  "source_directory": "/Users/anonyome/builds/c2dfa4ea/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh"
+  "source_directory": "/Users/gitlab-runner/builds/s4pLexCBv/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh"
 }

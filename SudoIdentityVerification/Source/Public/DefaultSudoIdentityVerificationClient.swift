@@ -24,12 +24,6 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
 
     }
 
-    /// Methods of verification.
-    enum VerificationMethod: String {
-        case knowledgeOfPii = "KNOWLEDGE_OF_PII"
-        case governmentId = "GOVERNMENT_ID"
-    }
-
     /// Default logger for the client.
     private let logger: Logger
 
@@ -131,15 +125,15 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
         self.logger.info("Verifying an identity.")
 
         let input = GraphQL.VerifyIdentityInput(
-            verificationMethod: VerificationMethod.knowledgeOfPii.rawValue,
-            firstName: input.firstName,
-            lastName: input.lastName,
             address: input.address,
             city: input.city,
-            state: input.state,
-            postalCode: input.postalCode,
             country: input.country,
-            dateOfBirth: input.dateOfBirth
+            dateOfBirth: input.dateOfBirth,
+            firstName: input.firstName,
+            lastName: input.lastName,
+            postalCode: input.postalCode,
+            state: input.state,
+            verificationMethod: VerificationMethod.knowledgeOfPii.toGraphQL()
         )
 
         do {
@@ -162,18 +156,16 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
                 throw SudoIdentityVerificationClientError.fatalError(description: "Mutation result did not contain required object.")
             }
 
-            var verifiedAt: Date?
-            if let verifiedAtEpochMs = verifiedIdentity.verifiedAtEpochMs {
-                verifiedAt = Date(millisecondsSinceEpoch: verifiedAtEpochMs)
-            }
-
             return VerifiedIdentity(
                 owner: verifiedIdentity.owner,
                 verified: verifiedIdentity.verified,
-                verifiedAt: verifiedAt,
+                verifiedAtEpochMs: verifiedIdentity.verifiedAtEpochMs,
                 verificationMethod: verifiedIdentity.verificationMethod,
                 canAttemptVerificationAgain: verifiedIdentity.canAttemptVerificationAgain,
-                idScanUrl: verifiedIdentity.idScanUrl
+                idScanUrl: verifiedIdentity.idScanUrl,
+                requiredVerificationMethod: verifiedIdentity.requiredVerificationMethod,
+                acceptableDocumentTypes: verifiedIdentity.acceptableDocumentTypes,
+                documentVerificationStatus: verifiedIdentity.documentVerificationStatus
             )
         } catch let error as ApiOperationError {
             throw SudoIdentityVerificationClientError.fromApiOperationError(error: error)
@@ -183,11 +175,11 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
     public func verifyIdentityDocument(input: VerifyIdentityDocumentInput) async throws -> VerifiedIdentity {
         self.logger.info("Verifying an identity document")
         let input = GraphQL.VerifyIdentityDocumentInput(
-            verificationMethod: VerificationMethod.governmentId.rawValue,
-            imageBase64: input.image.base64EncodedString(),
             backImageBase64: input.backImage.base64EncodedString(),
             country: input.country,
-            documentType: input.documentType.rawValue
+            documentType: input.documentType.toGraphQL(),
+            imageBase64: input.image.base64EncodedString(),
+            verificationMethod: VerificationMethod.governmentId.toGraphQL()
         )
 
         do {
@@ -205,17 +197,16 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
             guard let verifiedIdentity = result.data?.verifyIdentityDocument else {
                 throw SudoIdentityVerificationClientError.fatalError(description: "Mutation result did not contain required")
             }
-            var verifiedAt: Date?
-            if let verifiedAtEpochMs = verifiedIdentity.verifiedAtEpochMs {
-                verifiedAt = Date(millisecondsSinceEpoch: verifiedAtEpochMs)
-            }
             return VerifiedIdentity(
                 owner: verifiedIdentity.owner,
                 verified: verifiedIdentity.verified,
-                verifiedAt: verifiedAt,
+                verifiedAtEpochMs: verifiedIdentity.verifiedAtEpochMs,
                 verificationMethod: verifiedIdentity.verificationMethod,
                 canAttemptVerificationAgain: verifiedIdentity.canAttemptVerificationAgain,
-                idScanUrl: verifiedIdentity.idScanUrl
+                idScanUrl: verifiedIdentity.idScanUrl,
+                requiredVerificationMethod: verifiedIdentity.requiredVerificationMethod,
+                acceptableDocumentTypes: verifiedIdentity.acceptableDocumentTypes,
+                documentVerificationStatus: verifiedIdentity.documentVerificationStatus
             )
         } catch let error as ApiOperationError {
             throw SudoIdentityVerificationClientError.fromApiOperationError(error: error)
@@ -256,18 +247,16 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
                 throw SudoIdentityVerificationClientError.verificationResultNotFound
             }
 
-            var verifiedAt: Date?
-            if let verifiedAtEpochMs = verifiedIdentity.verifiedAtEpochMs {
-                verifiedAt = Date(millisecondsSinceEpoch: verifiedAtEpochMs)
-            }
-
             return VerifiedIdentity(
                 owner: verifiedIdentity.owner,
                 verified: verifiedIdentity.verified,
-                verifiedAt: verifiedAt,
+                verifiedAtEpochMs: verifiedIdentity.verifiedAtEpochMs,
                 verificationMethod: verifiedIdentity.verificationMethod,
                 canAttemptVerificationAgain: verifiedIdentity.canAttemptVerificationAgain,
-                idScanUrl: verifiedIdentity.idScanUrl
+                idScanUrl: verifiedIdentity.idScanUrl,
+                requiredVerificationMethod: verifiedIdentity.requiredVerificationMethod,
+                acceptableDocumentTypes: verifiedIdentity.acceptableDocumentTypes,
+                documentVerificationStatus: verifiedIdentity.documentVerificationStatus
             )
         } catch let error as ApiOperationError {
             throw SudoIdentityVerificationClientError.fromApiOperationError(error: error)
