@@ -27,6 +27,9 @@ public enum SudoIdentityVerificationClientError: Error, Equatable {
     /// An unsupported country was associated with an identity to be verified.
     case unsupportedCountry
 
+    /// An identity verification attempt originated from an unsupported network location.
+    case unsupportedNetworkLocation
+
     /// Indicates that bad data was found in cache or in backend response.
     case badData
 
@@ -119,6 +122,7 @@ public enum SudoIdentityVerificationClientError: Error, Equatable {
              (.registerOperationAlreadyInProgress, .registerOperationAlreadyInProgress),
              (.serviceError, .serviceError),
              (.unsupportedCountry, .unsupportedCountry),
+             (.unsupportedNetworkLocation, .unsupportedNetworkLocation),
              (.unsupportedVerificationMethod, .unsupportedVerificationMethod),
              (.verificationResultNotFound, .verificationResultNotFound),
              (.versionMismatch, .versionMismatch):
@@ -139,6 +143,7 @@ extension SudoIdentityVerificationClientError {
         static let implausibleAgeError = "sudoplatform.identity-verification.ImplausibleAgeError"
         static let invalidAgeError = "sudoplatform.identity-verification.InvalidAgeError"
         static let unsupportedCountryError = "sudoplatform.identity-verification.UnsupportedCountryError"
+        static let unsupportedNetworkLocationError = "sudoplatform.identity-verification.UnsupportedNetworkLocationError"
     }
 
     static func fromApiOperationError(error: Error) -> SudoIdentityVerificationClientError { // swiftlint:disable:this cyclomatic_complexity
@@ -180,6 +185,8 @@ extension SudoIdentityVerificationClientError {
                 return .invalidAge
             case Constants.unsupportedCountryError:
                 return .unsupportedCountry
+            case Constants.unsupportedNetworkLocationError:
+                return .unsupportedNetworkLocation
             default:
                 return graphQLError(description: "Unexpected GraphQL error: \(cause)")
             }
