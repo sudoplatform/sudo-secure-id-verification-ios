@@ -97,8 +97,8 @@ internal struct VerifyIdentityInput: GraphQLMapConvertible {
 internal struct VerifyIdentityDocumentInput: GraphQLMapConvertible {
   internal var graphQLMap: GraphQLMap
 
-  internal init(backImageBase64: String, country: String, documentType: String, imageBase64: String, verificationMethod: String) {
-    graphQLMap = ["backImageBase64": backImageBase64, "country": country, "documentType": documentType, "imageBase64": imageBase64, "verificationMethod": verificationMethod]
+  internal init(backImageBase64: String, country: String, documentType: String, faceImageBase64: Optional<String?> = nil, imageBase64: String, verificationMethod: String) {
+    graphQLMap = ["backImageBase64": backImageBase64, "country": country, "documentType": documentType, "faceImageBase64": faceImageBase64, "imageBase64": imageBase64, "verificationMethod": verificationMethod]
   }
 
   internal var backImageBase64: String {
@@ -125,6 +125,15 @@ internal struct VerifyIdentityDocumentInput: GraphQLMapConvertible {
     }
     set {
       graphQLMap.updateValue(newValue, forKey: "documentType")
+    }
+  }
+
+  internal var faceImageBase64: Optional<String?> {
+    get {
+      return graphQLMap["faceImageBase64"] as! Optional<String?>
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "faceImageBase64")
     }
   }
 
@@ -324,9 +333,9 @@ internal final class CheckIdentityVerificationQuery: GraphQLQuery {
   }
 }
 
-internal final class GetSupportedCountriesForIdentityVerificationQuery: GraphQLQuery {
+internal final class GetIdentityVerificationCapabilitiesQuery: GraphQLQuery {
   internal static let operationString =
-    "query GetSupportedCountriesForIdentityVerification {\n  getSupportedCountriesForIdentityVerification {\n    __typename\n    countryList\n  }\n}"
+    "query GetIdentityVerificationCapabilities {\n  getIdentityVerificationCapabilities {\n    __typename\n    supportedCountries\n    faceImageRequiredWithDocument\n  }\n}"
 
   internal init() {
   }
@@ -335,7 +344,7 @@ internal final class GetSupportedCountriesForIdentityVerificationQuery: GraphQLQ
     internal static let possibleTypes = ["Query"]
 
     internal static let selections: [GraphQLSelection] = [
-      GraphQLField("getSupportedCountriesForIdentityVerification", type: .object(GetSupportedCountriesForIdentityVerification.selections)),
+      GraphQLField("getIdentityVerificationCapabilities", type: .object(GetIdentityVerificationCapability.selections)),
     ]
 
     internal var snapshot: Snapshot
@@ -344,25 +353,26 @@ internal final class GetSupportedCountriesForIdentityVerificationQuery: GraphQLQ
       self.snapshot = snapshot
     }
 
-    internal init(getSupportedCountriesForIdentityVerification: GetSupportedCountriesForIdentityVerification? = nil) {
-      self.init(snapshot: ["__typename": "Query", "getSupportedCountriesForIdentityVerification": getSupportedCountriesForIdentityVerification.flatMap { $0.snapshot }])
+    internal init(getIdentityVerificationCapabilities: GetIdentityVerificationCapability? = nil) {
+      self.init(snapshot: ["__typename": "Query", "getIdentityVerificationCapabilities": getIdentityVerificationCapabilities.flatMap { $0.snapshot }])
     }
 
-    internal var getSupportedCountriesForIdentityVerification: GetSupportedCountriesForIdentityVerification? {
+    internal var getIdentityVerificationCapabilities: GetIdentityVerificationCapability? {
       get {
-        return (snapshot["getSupportedCountriesForIdentityVerification"] as? Snapshot).flatMap { GetSupportedCountriesForIdentityVerification(snapshot: $0) }
+        return (snapshot["getIdentityVerificationCapabilities"] as? Snapshot).flatMap { GetIdentityVerificationCapability(snapshot: $0) }
       }
       set {
-        snapshot.updateValue(newValue?.snapshot, forKey: "getSupportedCountriesForIdentityVerification")
+        snapshot.updateValue(newValue?.snapshot, forKey: "getIdentityVerificationCapabilities")
       }
     }
 
-    internal struct GetSupportedCountriesForIdentityVerification: GraphQLSelectionSet {
-      internal static let possibleTypes = ["SupportedCountries"]
+    internal struct GetIdentityVerificationCapability: GraphQLSelectionSet {
+      internal static let possibleTypes = ["IdentityVerificationCapabilities"]
 
       internal static let selections: [GraphQLSelection] = [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-        GraphQLField("countryList", type: .nonNull(.list(.nonNull(.scalar(String.self))))),
+        GraphQLField("supportedCountries", type: .nonNull(.list(.nonNull(.scalar(String.self))))),
+        GraphQLField("faceImageRequiredWithDocument", type: .nonNull(.scalar(Bool.self))),
       ]
 
       internal var snapshot: Snapshot
@@ -371,8 +381,8 @@ internal final class GetSupportedCountriesForIdentityVerificationQuery: GraphQLQ
         self.snapshot = snapshot
       }
 
-      internal init(countryList: [String]) {
-        self.init(snapshot: ["__typename": "SupportedCountries", "countryList": countryList])
+      internal init(supportedCountries: [String], faceImageRequiredWithDocument: Bool) {
+        self.init(snapshot: ["__typename": "IdentityVerificationCapabilities", "supportedCountries": supportedCountries, "faceImageRequiredWithDocument": faceImageRequiredWithDocument])
       }
 
       internal var __typename: String {
@@ -384,12 +394,21 @@ internal final class GetSupportedCountriesForIdentityVerificationQuery: GraphQLQ
         }
       }
 
-      internal var countryList: [String] {
+      internal var supportedCountries: [String] {
         get {
-          return snapshot["countryList"]! as! [String]
+          return snapshot["supportedCountries"]! as! [String]
         }
         set {
-          snapshot.updateValue(newValue, forKey: "countryList")
+          snapshot.updateValue(newValue, forKey: "supportedCountries")
+        }
+      }
+
+      internal var faceImageRequiredWithDocument: Bool {
+        get {
+          return snapshot["faceImageRequiredWithDocument"]! as! Bool
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "faceImageRequiredWithDocument")
         }
       }
     }
@@ -884,4 +903,5 @@ internal struct VerifiedIdentity: GraphQLFragment {
   }
 }
 // swiftlint:enable all
+
 }

@@ -58,8 +58,8 @@
     },
     {
       "file": "/Users/gitlab-runner/builds/s4pLexCBv/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/Source/Public/Types/Inputs.swift",
-      "line": 73,
-      "symbol": "VerifyIdentityDocumentInput.init(image:backImage:country:documentType:)",
+      "line": 76,
+      "symbol": "VerifyIdentityDocumentInput.init(image:backImage:faceImage:country:documentType:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },

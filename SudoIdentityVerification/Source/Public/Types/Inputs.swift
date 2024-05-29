@@ -64,15 +64,19 @@ public struct VerifyIdentityDocumentInput: Hashable {
     /// Image of back of government ID document.
     public let backImage: Data
 
+    /// Image of person's face, for comparison with ID.
+    public let faceImage: Data?
+
     /// ISO 3166-1 alpha-2 country code, e.g US.
     public let country: String
 
     /// Type of ID document being presented.
    public let documentType: IdDocumentType
 
-    public init(image: Data, backImage: Data, country: String, documentType: IdDocumentType) {
+    public init(image: Data, backImage: Data, faceImage: Data?, country: String, documentType: IdDocumentType) {
         self.image = image
         self.backImage = backImage
+        self.faceImage = faceImage
         self.country = country
         self.documentType = documentType
     }

@@ -33,7 +33,7 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
     /// GraphQL client for communicating with the identity verification service.
     private let graphQLClient: SudoApiClient
 
-    /// Intializes a new `DefaultSudoIdentityVerificationClient` instance.
+    /// Initializes a new `DefaultSudoIdentityVerificationClient` instance.
     ///
     /// - Parameters:
     ///   - sudoUserClient: `SudoUserClient` instance required to issue authentication tokens and perform cryptographic operations.
@@ -54,7 +54,7 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
         try self.init(config: config, sudoUserClient: sudoUserClient, logger: logger, graphQLClient: graphQLClient)
     }
 
-    /// Intializes a new `DefaultSudoIdentityVerificationClient` instance with the specified backend configuration.
+    /// Initializes a new `DefaultSudoIdentityVerificationClient` instance with the specified backend configuration.
     ///
     /// - Parameters:
     ///   - config: Configuration parameters for the client.
@@ -95,7 +95,7 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
 
         do {
             let (result, error) = try await self.graphQLClient.fetch(
-                query: GraphQL.GetSupportedCountriesForIdentityVerificationQuery(),
+                query: GraphQL.GetIdentityVerificationCapabilitiesQuery(),
                 cachePolicy: .fetchIgnoringCacheData
             )
             if let error = error {
@@ -111,11 +111,42 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
                 throw SudoIdentityVerificationClientError.fromApiOperationError(error: error)
             }
 
-            guard let countryList = result.data?.getSupportedCountriesForIdentityVerification?.countryList else {
+            guard let countryList = result.data?.getIdentityVerificationCapabilities?.supportedCountries else {
                 return []
             }
 
             return countryList
+        } catch let error as ApiOperationError {
+            throw SudoIdentityVerificationClientError.fromApiOperationError(error: error)
+        }
+    }
+
+    public func isFaceImageRequired() async throws -> Bool {
+        self.logger.info("Retrieving flag for requirement to provide face image with ID document.")
+
+        do {
+            let (result, error) = try await self.graphQLClient.fetch(
+                query: GraphQL.GetIdentityVerificationCapabilitiesQuery(),
+                cachePolicy: .fetchIgnoringCacheData
+            )
+            if let error = error {
+                throw SudoIdentityVerificationClientError.fromApiOperationError(error: error)
+            }
+
+            guard let result = result else {
+                throw SudoIdentityVerificationClientError.fatalError(description: "Query returned nil result.")
+            }
+
+            if let error = result.errors?.first {
+                self.logger.error("Query failed with errors: \(error)")
+                throw SudoIdentityVerificationClientError.fromApiOperationError(error: error)
+            }
+
+            guard let faceImageRequired = result.data?.getIdentityVerificationCapabilities?.faceImageRequiredWithDocument else {
+                return false
+            }
+
+            return faceImageRequired
         } catch let error as ApiOperationError {
             throw SudoIdentityVerificationClientError.fromApiOperationError(error: error)
         }
@@ -178,6 +209,7 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
             backImageBase64: input.backImage.base64EncodedString(),
             country: input.country,
             documentType: input.documentType.toGraphQL(),
+            faceImageBase64: input.faceImage?.base64EncodedString(),
             imageBase64: input.image.base64EncodedString(),
             verificationMethod: VerificationMethod.governmentId.toGraphQL()
         )

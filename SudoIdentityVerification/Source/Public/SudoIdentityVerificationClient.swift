@@ -14,6 +14,11 @@ public protocol SudoIdentityVerificationClient: AnyObject {
     /// - Returns: List of support countries.
     func listSupportedCountries() async throws -> [String]
 
+    /// Retrieves the flag for whether face image is required with ID document.
+    ///
+    /// - Returns: Boolean flag.
+    func isFaceImageRequired() async throws -> Bool
+
     /// Verifies an identity against the known public records and returns a result indicating whether or not the identity
     /// details provided were verified with enough confidence to grant the user access to Sudo platform functions such
     /// as provisioning a virtual card.

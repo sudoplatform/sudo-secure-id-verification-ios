@@ -29,7 +29,7 @@ public enum DocumentVerificationStatus: Hashable {
     /// ID document images were successfully verified
     case succeeded
 
-    /// Unkown document verification status returned from service. Upgrade required.
+    /// Unknown document verification status returned from service. Upgrade required.
     case unknown(String)
 
     // MARK: - Lifecycle
