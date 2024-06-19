@@ -5,6 +5,68 @@ import AWSAppSync
 
 struct GraphQL {
 
+internal struct VerifyIdentityDocumentInput: GraphQLMapConvertible {
+  internal var graphQLMap: GraphQLMap
+
+  internal init(backImageBase64: String, country: String, documentType: String, faceImageBase64: Optional<String?> = nil, imageBase64: String, verificationMethod: String) {
+    graphQLMap = ["backImageBase64": backImageBase64, "country": country, "documentType": documentType, "faceImageBase64": faceImageBase64, "imageBase64": imageBase64, "verificationMethod": verificationMethod]
+  }
+
+  internal var backImageBase64: String {
+    get {
+      return graphQLMap["backImageBase64"] as! String
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "backImageBase64")
+    }
+  }
+
+  internal var country: String {
+    get {
+      return graphQLMap["country"] as! String
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "country")
+    }
+  }
+
+  internal var documentType: String {
+    get {
+      return graphQLMap["documentType"] as! String
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "documentType")
+    }
+  }
+
+  internal var faceImageBase64: Optional<String?> {
+    get {
+      return graphQLMap["faceImageBase64"] as! Optional<String?>
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "faceImageBase64")
+    }
+  }
+
+  internal var imageBase64: String {
+    get {
+      return graphQLMap["imageBase64"] as! String
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "imageBase64")
+    }
+  }
+
+  internal var verificationMethod: String {
+    get {
+      return graphQLMap["verificationMethod"] as! String
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "verificationMethod")
+    }
+  }
+}
+
 internal struct VerifyIdentityInput: GraphQLMapConvertible {
   internal var graphQLMap: GraphQLMap
 
@@ -94,64 +156,186 @@ internal struct VerifyIdentityInput: GraphQLMapConvertible {
   }
 }
 
-internal struct VerifyIdentityDocumentInput: GraphQLMapConvertible {
-  internal var graphQLMap: GraphQLMap
+internal final class CaptureAndVerifyIdentityDocumentMutation: GraphQLMutation {
+  internal static let operationString =
+    "mutation CaptureAndVerifyIdentityDocument($input: VerifyIdentityDocumentInput) {\n  captureAndVerifyIdentityDocument(input: $input) {\n    __typename\n    ...VerifiedIdentity\n  }\n}"
 
-  internal init(backImageBase64: String, country: String, documentType: String, faceImageBase64: Optional<String?> = nil, imageBase64: String, verificationMethod: String) {
-    graphQLMap = ["backImageBase64": backImageBase64, "country": country, "documentType": documentType, "faceImageBase64": faceImageBase64, "imageBase64": imageBase64, "verificationMethod": verificationMethod]
+  internal static var requestString: String { return operationString.appending(VerifiedIdentity.fragmentString) }
+
+  internal var input: VerifyIdentityDocumentInput?
+
+  internal init(input: VerifyIdentityDocumentInput? = nil) {
+    self.input = input
   }
 
-  internal var backImageBase64: String {
-    get {
-      return graphQLMap["backImageBase64"] as! String
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "backImageBase64")
-    }
+  internal var variables: GraphQLMap? {
+    return ["input": input]
   }
 
-  internal var country: String {
-    get {
-      return graphQLMap["country"] as! String
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "country")
-    }
-  }
+  internal struct Data: GraphQLSelectionSet {
+    internal static let possibleTypes = ["Mutation"]
 
-  internal var documentType: String {
-    get {
-      return graphQLMap["documentType"] as! String
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "documentType")
-    }
-  }
+    internal static let selections: [GraphQLSelection] = [
+      GraphQLField("captureAndVerifyIdentityDocument", arguments: ["input": GraphQLVariable("input")], type: .object(CaptureAndVerifyIdentityDocument.selections)),
+    ]
 
-  internal var faceImageBase64: Optional<String?> {
-    get {
-      return graphQLMap["faceImageBase64"] as! Optional<String?>
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "faceImageBase64")
-    }
-  }
+    internal var snapshot: Snapshot
 
-  internal var imageBase64: String {
-    get {
-      return graphQLMap["imageBase64"] as! String
+    internal init(snapshot: Snapshot) {
+      self.snapshot = snapshot
     }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "imageBase64")
-    }
-  }
 
-  internal var verificationMethod: String {
-    get {
-      return graphQLMap["verificationMethod"] as! String
+    internal init(captureAndVerifyIdentityDocument: CaptureAndVerifyIdentityDocument? = nil) {
+      self.init(snapshot: ["__typename": "Mutation", "captureAndVerifyIdentityDocument": captureAndVerifyIdentityDocument.flatMap { $0.snapshot }])
     }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "verificationMethod")
+
+    internal var captureAndVerifyIdentityDocument: CaptureAndVerifyIdentityDocument? {
+      get {
+        return (snapshot["captureAndVerifyIdentityDocument"] as? Snapshot).flatMap { CaptureAndVerifyIdentityDocument(snapshot: $0) }
+      }
+      set {
+        snapshot.updateValue(newValue?.snapshot, forKey: "captureAndVerifyIdentityDocument")
+      }
+    }
+
+    internal struct CaptureAndVerifyIdentityDocument: GraphQLSelectionSet {
+      internal static let possibleTypes = ["VerifiedIdentity"]
+
+      internal static let selections: [GraphQLSelection] = [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("owner", type: .nonNull(.scalar(String.self))),
+        GraphQLField("verified", type: .nonNull(.scalar(Bool.self))),
+        GraphQLField("verifiedAtEpochMs", type: .scalar(Double.self)),
+        GraphQLField("verificationMethod", type: .nonNull(.scalar(String.self))),
+        GraphQLField("canAttemptVerificationAgain", type: .nonNull(.scalar(Bool.self))),
+        GraphQLField("idScanUrl", type: .scalar(String.self)),
+        GraphQLField("requiredVerificationMethod", type: .scalar(String.self)),
+        GraphQLField("acceptableDocumentTypes", type: .nonNull(.list(.nonNull(.scalar(String.self))))),
+        GraphQLField("documentVerificationStatus", type: .nonNull(.scalar(String.self))),
+      ]
+
+      internal var snapshot: Snapshot
+
+      internal init(snapshot: Snapshot) {
+        self.snapshot = snapshot
+      }
+
+      internal init(owner: String, verified: Bool, verifiedAtEpochMs: Double? = nil, verificationMethod: String, canAttemptVerificationAgain: Bool, idScanUrl: String? = nil, requiredVerificationMethod: String? = nil, acceptableDocumentTypes: [String], documentVerificationStatus: String) {
+        self.init(snapshot: ["__typename": "VerifiedIdentity", "owner": owner, "verified": verified, "verifiedAtEpochMs": verifiedAtEpochMs, "verificationMethod": verificationMethod, "canAttemptVerificationAgain": canAttemptVerificationAgain, "idScanUrl": idScanUrl, "requiredVerificationMethod": requiredVerificationMethod, "acceptableDocumentTypes": acceptableDocumentTypes, "documentVerificationStatus": documentVerificationStatus])
+      }
+
+      internal var __typename: String {
+        get {
+          return snapshot["__typename"]! as! String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      internal var owner: String {
+        get {
+          return snapshot["owner"]! as! String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "owner")
+        }
+      }
+
+      internal var verified: Bool {
+        get {
+          return snapshot["verified"]! as! Bool
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "verified")
+        }
+      }
+
+      internal var verifiedAtEpochMs: Double? {
+        get {
+          return snapshot["verifiedAtEpochMs"] as? Double
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "verifiedAtEpochMs")
+        }
+      }
+
+      internal var verificationMethod: String {
+        get {
+          return snapshot["verificationMethod"]! as! String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "verificationMethod")
+        }
+      }
+
+      internal var canAttemptVerificationAgain: Bool {
+        get {
+          return snapshot["canAttemptVerificationAgain"]! as! Bool
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "canAttemptVerificationAgain")
+        }
+      }
+
+      internal var idScanUrl: String? {
+        get {
+          return snapshot["idScanUrl"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "idScanUrl")
+        }
+      }
+
+      internal var requiredVerificationMethod: String? {
+        get {
+          return snapshot["requiredVerificationMethod"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "requiredVerificationMethod")
+        }
+      }
+
+      internal var acceptableDocumentTypes: [String] {
+        get {
+          return snapshot["acceptableDocumentTypes"]! as! [String]
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "acceptableDocumentTypes")
+        }
+      }
+
+      internal var documentVerificationStatus: String {
+        get {
+          return snapshot["documentVerificationStatus"]! as! String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "documentVerificationStatus")
+        }
+      }
+
+      internal var fragments: Fragments {
+        get {
+          return Fragments(snapshot: snapshot)
+        }
+        set {
+          snapshot += newValue.snapshot
+        }
+      }
+
+      internal struct Fragments {
+        internal var snapshot: Snapshot
+
+        internal var verifiedIdentity: VerifiedIdentity {
+          get {
+            return VerifiedIdentity(snapshot: snapshot)
+          }
+          set {
+            snapshot += newValue.snapshot
+          }
+        }
+      }
     }
   }
 }

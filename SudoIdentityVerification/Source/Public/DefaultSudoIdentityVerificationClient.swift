@@ -175,7 +175,7 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
             }
 
             guard let result = result else {
-                throw SudoIdentityVerificationClientError.fatalError(description: "Query returned nil result.")
+                throw SudoIdentityVerificationClientError.fatalError(description: "Mutation returned nil result.")
             }
 
             if let error = result.errors?.first {
@@ -220,13 +220,55 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
                 throw SudoIdentityVerificationClientError.fromApiOperationError(error: error)
             }
             guard let result = result else {
-                throw SudoIdentityVerificationClientError.fatalError(description: "Query returned nil result.")
+                throw SudoIdentityVerificationClientError.fatalError(description: "Mutation returned nil result.")
             }
             if let error = result.errors?.first {
                 self.logger.error("Mutation failued with errors: \(error)")
                 throw SudoIdentityVerificationClientError.fromApiOperationError(error: error)
             }
             guard let verifiedIdentity = result.data?.verifyIdentityDocument else {
+                throw SudoIdentityVerificationClientError.fatalError(description: "Mutation result did not contain required")
+            }
+            return VerifiedIdentity(
+                owner: verifiedIdentity.owner,
+                verified: verifiedIdentity.verified,
+                verifiedAtEpochMs: verifiedIdentity.verifiedAtEpochMs,
+                verificationMethod: verifiedIdentity.verificationMethod,
+                canAttemptVerificationAgain: verifiedIdentity.canAttemptVerificationAgain,
+                idScanUrl: verifiedIdentity.idScanUrl,
+                requiredVerificationMethod: verifiedIdentity.requiredVerificationMethod,
+                acceptableDocumentTypes: verifiedIdentity.acceptableDocumentTypes,
+                documentVerificationStatus: verifiedIdentity.documentVerificationStatus
+            )
+        } catch let error as ApiOperationError {
+            throw SudoIdentityVerificationClientError.fromApiOperationError(error: error)
+        }
+    }
+
+    public func captureAndVerifyIdentityDocument(input: VerifyIdentityDocumentInput) async throws -> VerifiedIdentity {
+        self.logger.info("Capturing an identity document and verifying identity")
+        let input = GraphQL.VerifyIdentityDocumentInput(
+            backImageBase64: input.backImage.base64EncodedString(),
+            country: input.country,
+            documentType: input.documentType.toGraphQL(),
+            faceImageBase64: input.faceImage?.base64EncodedString(),
+            imageBase64: input.image.base64EncodedString(),
+            verificationMethod: VerificationMethod.governmentId.toGraphQL()
+        )
+
+        do {
+            let (result, error) = try await self.graphQLClient.perform(mutation: GraphQL.CaptureAndVerifyIdentityDocumentMutation(input: input))
+            if let error = error {
+                throw SudoIdentityVerificationClientError.fromApiOperationError(error: error)
+            }
+            guard let result = result else {
+                throw SudoIdentityVerificationClientError.fatalError(description: "Mutation returned nil result.")
+            }
+            if let error = result.errors?.first {
+                self.logger.error("Mutation failued with errors: \(error)")
+                throw SudoIdentityVerificationClientError.fromApiOperationError(error: error)
+            }
+            guard let verifiedIdentity = result.data?.captureAndVerifyIdentityDocument else {
                 throw SudoIdentityVerificationClientError.fatalError(description: "Mutation result did not contain required")
             }
             return VerifiedIdentity(

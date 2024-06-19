@@ -35,6 +35,14 @@ public protocol SudoIdentityVerificationClient: AnyObject {
     /// - Returns: Verification result.
     func verifyIdentityDocument(input: VerifyIdentityDocumentInput) async throws -> VerifiedIdentity
 
+    /// Attempts to capture identity information from provided identity documents, then verify
+    /// identity using that information.
+    ///
+    /// - Parameter input: Input variables for API.
+    ///
+    /// - Returns: Verification result.
+    func captureAndVerifyIdentityDocument(input: VerifyIdentityDocumentInput) async throws -> VerifiedIdentity
+
     /// Checks the identity verification status of the currently signed in user.
     ///
     /// - Parameters:

@@ -1,3 +1,0 @@
-[submodule "TestApp/TestData"]
-	path = TestApp/TestData
-	url = git@gitlab.tools.anonyome.com:platform/identity-verification/sudo-identity-verification-test-data.git
