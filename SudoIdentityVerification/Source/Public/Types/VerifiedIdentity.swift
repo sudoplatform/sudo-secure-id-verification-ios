@@ -41,6 +41,9 @@ public struct VerifiedIdentity {
     /// Indicates the status of verification of submitted ID documents
     public let documentVerificationStatus: DocumentVerificationStatus
 
+    /// Date and time when verification was last attempted for this identity.
+    public let verificationLastAttemptedAt: Date?
+
     /// Initializes a `VerifiedIdentity` instance.
     /// 
     /// - Parameters:
@@ -53,6 +56,7 @@ public struct VerifiedIdentity {
     ///   - requiredVerificationMethod: Required verification method to use if not verified
     ///   - acceptableDocumentTypes: Array of acceptable ID document types if required verification method is GOVERNMENT_ID
     ///   - documentVerificationStatus: Status of ongoing ID document verification
+    ///   - verificationLastAttemptedAt: Date and time when verification was last attempted for this identity.
     public init(
         owner: String,
         verified: Bool,
@@ -62,7 +66,8 @@ public struct VerifiedIdentity {
         idScanUrl: String? = nil,
         requiredVerificationMethod: VerificationMethod? = nil,
         acceptableDocumentTypes: [IdDocumentType] = [],
-        documentVerificationStatus: DocumentVerificationStatus = .notRequired
+        documentVerificationStatus: DocumentVerificationStatus = .notRequired,
+        verificationLastAttemptedAt: Date? = nil
     ) {
         self.owner = owner
         self.verified = verified
@@ -73,22 +78,29 @@ public struct VerifiedIdentity {
         self.requiredVerificationMethod = requiredVerificationMethod
         self.acceptableDocumentTypes = acceptableDocumentTypes
         self.documentVerificationStatus = documentVerificationStatus
+        self.verificationLastAttemptedAt = verificationLastAttemptedAt
     }
 
     internal init(
         owner: String,
         verified: Bool,
-        verifiedAtEpochMs: Double?,
+        verifiedAtEpochMs: Double,
         verificationMethod: String,
         canAttemptVerificationAgain: Bool,
         idScanUrl: String?,
         requiredVerificationMethod: String?,
         acceptableDocumentTypes: [String],
-        documentVerificationStatus: String
+        documentVerificationStatus: String,
+        verificationLastAttemptedAtEpochMs: Double
     ) {
         var verifiedAt: Date?
-        if let verifiedAtEpochMs = verifiedAtEpochMs {
+        if verifiedAtEpochMs != 0 {
             verifiedAt = Date(millisecondsSinceEpoch: verifiedAtEpochMs)
+        }
+
+        var verificationLastAttemptedAt: Date?
+        if verificationLastAttemptedAtEpochMs != 0 {
+            verificationLastAttemptedAt = Date(millisecondsSinceEpoch: verificationLastAttemptedAtEpochMs)
         }
 
         self.owner = owner
@@ -100,6 +112,7 @@ public struct VerifiedIdentity {
         self.requiredVerificationMethod = requiredVerificationMethod != nil ? VerificationMethod(requiredVerificationMethod!) : nil
         self.acceptableDocumentTypes = acceptableDocumentTypes.map { IdDocumentType($0) }
         self.documentVerificationStatus = DocumentVerificationStatus(documentVerificationStatus)
+        self.verificationLastAttemptedAt = verificationLastAttemptedAt
     }
 
 }

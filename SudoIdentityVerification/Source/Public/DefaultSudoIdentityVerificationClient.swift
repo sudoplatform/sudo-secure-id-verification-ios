@@ -196,7 +196,8 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
                 idScanUrl: verifiedIdentity.idScanUrl,
                 requiredVerificationMethod: verifiedIdentity.requiredVerificationMethod,
                 acceptableDocumentTypes: verifiedIdentity.acceptableDocumentTypes,
-                documentVerificationStatus: verifiedIdentity.documentVerificationStatus
+                documentVerificationStatus: verifiedIdentity.documentVerificationStatus,
+                verificationLastAttemptedAtEpochMs: verifiedIdentity.verificationLastAttemptedAtEpochMs
             )
         } catch let error as ApiOperationError {
             throw SudoIdentityVerificationClientError.fromApiOperationError(error: error)
@@ -238,7 +239,8 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
                 idScanUrl: verifiedIdentity.idScanUrl,
                 requiredVerificationMethod: verifiedIdentity.requiredVerificationMethod,
                 acceptableDocumentTypes: verifiedIdentity.acceptableDocumentTypes,
-                documentVerificationStatus: verifiedIdentity.documentVerificationStatus
+                documentVerificationStatus: verifiedIdentity.documentVerificationStatus,
+                verificationLastAttemptedAtEpochMs: verifiedIdentity.verificationLastAttemptedAtEpochMs
             )
         } catch let error as ApiOperationError {
             throw SudoIdentityVerificationClientError.fromApiOperationError(error: error)
@@ -280,7 +282,8 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
                 idScanUrl: verifiedIdentity.idScanUrl,
                 requiredVerificationMethod: verifiedIdentity.requiredVerificationMethod,
                 acceptableDocumentTypes: verifiedIdentity.acceptableDocumentTypes,
-                documentVerificationStatus: verifiedIdentity.documentVerificationStatus
+                documentVerificationStatus: verifiedIdentity.documentVerificationStatus,
+                verificationLastAttemptedAtEpochMs: verifiedIdentity.verificationLastAttemptedAtEpochMs
             )
         } catch let error as ApiOperationError {
             throw SudoIdentityVerificationClientError.fromApiOperationError(error: error)
@@ -330,7 +333,8 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
                 idScanUrl: verifiedIdentity.idScanUrl,
                 requiredVerificationMethod: verifiedIdentity.requiredVerificationMethod,
                 acceptableDocumentTypes: verifiedIdentity.acceptableDocumentTypes,
-                documentVerificationStatus: verifiedIdentity.documentVerificationStatus
+                documentVerificationStatus: verifiedIdentity.documentVerificationStatus,
+                verificationLastAttemptedAtEpochMs: verifiedIdentity.verificationLastAttemptedAtEpochMs
             )
         } catch let error as ApiOperationError {
             throw SudoIdentityVerificationClientError.fromApiOperationError(error: error)

@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          SudoIdentityVerification 16.0.0 Docs
+          SudoIdentityVerification 16.1.0 Docs
         </a>
         
       </p>
@@ -365,9 +365,36 @@ identity</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:24SudoIdentityVerification08VerifiedB0V5owner8verified0F2At18verificationMethod010canAttemptC5Again9idScanUrl08requiredcI023acceptableDocumentTypes08documentC6StatusACSS_Sb10Foundation4DateVSgAA0cI0OSbSSSgARSgSayAA02IdR4TypeOGAA0rcU0Otcfc"></a>
-                    <a name="//apple_ref/swift/Method/init(owner:verified:verifiedAt:verificationMethod:canAttemptVerificationAgain:idScanUrl:requiredVerificationMethod:acceptableDocumentTypes:documentVerificationStatus:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:24SudoIdentityVerification08VerifiedB0V5owner8verified0F2At18verificationMethod010canAttemptC5Again9idScanUrl08requiredcI023acceptableDocumentTypes08documentC6StatusACSS_Sb10Foundation4DateVSgAA0cI0OSbSSSgARSgSayAA02IdR4TypeOGAA0rcU0Otcfc">init(owner:<wbr>verified:<wbr>verifiedAt:<wbr>verificationMethod:<wbr>canAttemptVerificationAgain:<wbr>idScanUrl:<wbr>requiredVerificationMethod:<wbr>acceptableDocumentTypes:<wbr>documentVerificationStatus:<wbr>)</a>
+                    <a name="/s:24SudoIdentityVerification08VerifiedB0V27verificationLastAttemptedAt10Foundation4DateVSgvp"></a>
+                    <a name="//apple_ref/swift/Property/verificationLastAttemptedAt" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24SudoIdentityVerification08VerifiedB0V27verificationLastAttemptedAt10Foundation4DateVSgvp">verificationLastAttemptedAt</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Date and time when verification was last attempted for this identity.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">verificationLastAttemptedAt</span><span class="p">:</span> <span class="kt">Date</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:24SudoIdentityVerification08VerifiedB0V5owner8verified0F2At18verificationMethod010canAttemptC5Again9idScanUrl08requiredcI023acceptableDocumentTypes08documentC6Status0h13LastAttemptedG0ACSS_Sb10Foundation4DateVSgAA0cI0OSbSSSgASSgSayAA02IdR4TypeOGAA0rcU0OAQtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(owner:verified:verifiedAt:verificationMethod:canAttemptVerificationAgain:idScanUrl:requiredVerificationMethod:acceptableDocumentTypes:documentVerificationStatus:verificationLastAttemptedAt:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24SudoIdentityVerification08VerifiedB0V5owner8verified0F2At18verificationMethod010canAttemptC5Again9idScanUrl08requiredcI023acceptableDocumentTypes08documentC6Status0h13LastAttemptedG0ACSS_Sb10Foundation4DateVSgAA0cI0OSbSSSgASSgSayAA02IdR4TypeOGAA0rcU0OAQtcfc">init(owner:<wbr>verified:<wbr>verifiedAt:<wbr>verificationMethod:<wbr>canAttemptVerificationAgain:<wbr>idScanUrl:<wbr>requiredVerificationMethod:<wbr>acceptableDocumentTypes:<wbr>documentVerificationStatus:<wbr>verificationLastAttemptedAt:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -391,7 +418,8 @@ identity</p>
     <span class="nv">idScanUrl</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
     <span class="nv">requiredVerificationMethod</span><span class="p">:</span> <span class="kt">VerificationMethod</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
     <span class="nv">acceptableDocumentTypes</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Enums.html#/s:24SudoIdentityVerification14IdDocumentTypeO">IdDocumentType</a></span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span>
-    <span class="nv">documentVerificationStatus</span><span class="p">:</span> <span class="kt"><a href="../Enums/DocumentVerificationStatus.html">DocumentVerificationStatus</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">notRequired</span>
+    <span class="nv">documentVerificationStatus</span><span class="p">:</span> <span class="kt"><a href="../Enums/DocumentVerificationStatus.html">DocumentVerificationStatus</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">notRequired</span><span class="p">,</span>
+    <span class="nv">verificationLastAttemptedAt</span><span class="p">:</span> <span class="kt">Date</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span>
 <span class="p">)</span></code></pre>
 
                         </div>
@@ -508,6 +536,18 @@ identity</p>
                                 </div>
                               </td>
                             </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>verificationLastAttemptedAt</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Date and time when verification was last attempted for this identity.</p>
+                                </div>
+                              </td>
+                            </tr>
                           </tbody>
                         </table>
                       </div>
@@ -522,7 +562,7 @@ identity</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2024 <a class="link" href="https://sudoplatform.com/" target="_blank" rel="external noopener">Sudo Platform Engineering</a>. All rights reserved. (Last updated: 2024-09-02)</p>
+      <p>&copy; 2024 <a class="link" href="https://sudoplatform.com/" target="_blank" rel="external noopener">Sudo Platform Engineering</a>. All rights reserved. (Last updated: 2024-09-30)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>
