@@ -78,6 +78,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "D9F16E6A22FD498E0055513F"
+            BuildableName = "SudoIdentityVerificationIntegrationTests.xctest"
+            BlueprintName = "SudoIdentityVerificationIntegrationTests"
+            ReferencedContainer = "container:SudoIdentityVerification.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

@@ -16,6 +16,10 @@ DerivedData
 *.xcuserstate
 Carthage/Build/
 identity-system-test-config
+config
 build/
-config/
+.build/
+Build/
 node_modules/
+
+/Package.resolved
