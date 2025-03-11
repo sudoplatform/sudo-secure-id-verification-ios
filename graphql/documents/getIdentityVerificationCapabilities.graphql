@@ -1,6 +1,0 @@
-query GetIdentityVerificationCapabilities {
-  getIdentityVerificationCapabilities {
-    supportedCountries
-    faceImageRequiredWithDocument
-  }
-}

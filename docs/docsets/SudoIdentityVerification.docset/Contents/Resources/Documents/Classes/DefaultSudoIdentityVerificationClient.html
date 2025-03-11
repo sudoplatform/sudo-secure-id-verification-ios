@@ -78,9 +78,6 @@
             <a class="nav-group-name-link" href="../Structs.html">Structures</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/SudoIdentityVerificationClientConfigProvider.html">SudoIdentityVerificationClientConfigProvider</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/VerifiedIdentity.html">VerifiedIdentity</a>
               </li>
               <li class="nav-group-task">
@@ -113,6 +110,15 @@
         <section class="section">
           <div class="section-content">
             <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Lifecycle"></a>
+                <a name="//apple_ref/swift/Section/Lifecycle" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Lifecycle"></a>
+                  <h3 class="section-name"><span>Lifecycle</span>
+</h3>
+                </div>
+              </div>
               <ul class="item-container">
                 <li class="item">
                   <div>
@@ -180,9 +186,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:24SudoIdentityVerification07DefaultabC6ClientC6config08sudoUserE06logger13graphQLClientACSDySSypG_0aH00ahE0_p0A7Logging6LoggerCSg0a3ApiE0AOCSgtKcfc"></a>
-                    <a name="//apple_ref/swift/Method/init(config:sudoUserClient:logger:graphQLClient:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:24SudoIdentityVerification07DefaultabC6ClientC6config08sudoUserE06logger13graphQLClientACSDySSypG_0aH00ahE0_p0A7Logging6LoggerCSg0a3ApiE0AOCSgtKcfc">init(config:<wbr>sudoUserClient:<wbr>logger:<wbr>graphQLClient:<wbr>)</a>
+                    <a name="/s:24SudoIdentityVerification07DefaultabC6ClientC08sudoUserE013graphQLClient6loggerAC0aG00agE0_p_0a3ApiE0AI_p0A7Logging6LoggerCSgtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(sudoUserClient:graphQLClient:logger:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24SudoIdentityVerification07DefaultabC6ClientC08sudoUserE013graphQLClient6loggerAC0aG00agE0_p_0a3ApiE0AI_p0A7Logging6LoggerCSgtcfc">init(sudoUserClient:<wbr>graphQLClient:<wbr>logger:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -191,11 +197,6 @@
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Initializes a new <code>DefaultSudoIdentityVerificationClient</code> instance with the specified backend configuration.</p>
-<div class="aside aside-throws">
-    <p class="aside-title">Throws</p>
-    <code>SudoIdentityVerificationClientError</code>
-
-</div>
 
                       </div>
                       <div class="declaration">
@@ -203,11 +204,10 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span>
-    <span class="nv">config</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">Any</span><span class="p">],</span>
     <span class="nv">sudoUserClient</span><span class="p">:</span> <span class="kt">SudoUserClient</span><span class="p">,</span>
-    <span class="nv">logger</span><span class="p">:</span> <span class="kt">Logger</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
-    <span class="nv">graphQLClient</span><span class="p">:</span> <span class="kt">SudoApiClient</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span>
-<span class="p">)</span> <span class="k">throws</span></code></pre>
+    <span class="nv">graphQLClient</span><span class="p">:</span> <span class="kt">SudoApiClient</span><span class="p">,</span>
+    <span class="nv">logger</span><span class="p">:</span> <span class="kt">Logger</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span>
+<span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -215,18 +215,6 @@
                         <h4>Parameters</h4>
                         <table class="graybox">
                           <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>config</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>Configuration parameters for the client.</p>
-                                </div>
-                              </td>
-                            </tr>
                             <tr>
                               <td>
                                 <code>
@@ -242,6 +230,18 @@
                             <tr>
                               <td>
                                 <code>
+                                <em>graphQLClient</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>GraphQL client to use.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
                                 <em>logger</em>
                                 </code>
                               </td>
@@ -251,24 +251,25 @@
                                 </div>
                               </td>
                             </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>graphQLClient</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>Optional GraphQL client to use. Mainly used for unit testing.</p>
-                                </div>
-                              </td>
-                            </tr>
                           </tbody>
                         </table>
                       </div>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Conformance%3A%20SudoIdentityVerificationClient"></a>
+                <a name="//apple_ref/swift/Section/Conformance: SudoIdentityVerificationClient" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Conformance%3A%20SudoIdentityVerificationClient"></a>
+                  <h3 class="section-name"><span>Conformance: SudoIdentityVerificationClient</span>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -417,9 +418,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:24SudoIdentityVerification0abC6ClientP05checkbC06optionAA08VerifiedB0VAA11QueryOptionO_tYaKF"></a>
-                    <a name="//apple_ref/swift/Method/checkIdentityVerification(option:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:24SudoIdentityVerification0abC6ClientP05checkbC06optionAA08VerifiedB0VAA11QueryOptionO_tYaKF">checkIdentityVerification(option:<wbr>)</a>
+                    <a name="/s:24SudoIdentityVerification0abC6ClientP05checkbC0AA08VerifiedB0VyYaKF"></a>
+                    <a name="//apple_ref/swift/Method/checkIdentityVerification()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24SudoIdentityVerification0abC6ClientP05checkbC0AA08VerifiedB0VyYaKF">checkIdentityVerification()</a>
                     </code>
                       <span class="declaration-note">
                         Asynchronous
@@ -436,7 +437,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">checkIdentityVerification</span><span class="p">(</span><span class="nv">option</span><span class="p">:</span> <span class="kt"><a href="../Enums.html#/s:24SudoIdentityVerification11QueryOptionO">QueryOption</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/VerifiedIdentity.html">VerifiedIdentity</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">checkIdentityVerification</span><span class="p">()</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/VerifiedIdentity.html">VerifiedIdentity</a></span></code></pre>
 
                         </div>
                       </div>
@@ -477,7 +478,7 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2025 <a class="link" href="" target="_blank" rel="external noopener"></a>. All rights reserved. (Last updated: 2025-03-10)</p>
+      <p>&copy; 2025 <a class="link" href="" target="_blank" rel="external noopener"></a>. All rights reserved. (Last updated: 2025-03-11)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>

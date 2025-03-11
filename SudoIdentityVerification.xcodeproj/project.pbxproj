@@ -9,11 +9,13 @@
 /* Begin PBXBuildFile section */
 		0CD837E027E192F900CE53D5 /* XCTTestCase+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD837DF27E192F900CE53D5 /* XCTTestCase+Utility.swift */; };
 		410E2B412D7E51570077AC6A /* SudoIdentityVerification in Frameworks */ = {isa = PBXBuildFile; productRef = 410E2B402D7E51570077AC6A /* SudoIdentityVerification */; };
+		417F516A2D7FBC0A00683870 /* SudoEntitlementsAdmin in Frameworks */ = {isa = PBXBuildFile; productRef = 417F51692D7FBC0A00683870 /* SudoEntitlementsAdmin */; };
+		417F516D2D7FBCCB00683870 /* SudoEntitlements in Frameworks */ = {isa = PBXBuildFile; productRef = 417F516C2D7FBCCB00683870 /* SudoEntitlements */; };
 		41BB83C12D793BE000732464 /* SudoIdentityVerification in Frameworks */ = {isa = PBXBuildFile; productRef = 41BB83C02D793BE000732464 /* SudoIdentityVerification */; };
 		41BB83C32D793F1D00732464 /* SudoIdentityVerification in Frameworks */ = {isa = PBXBuildFile; productRef = 41BB83C22D793F1D00732464 /* SudoIdentityVerification */; };
-		41BB83C72D79400700732464 /* SudoEntitlements in Frameworks */ = {isa = PBXBuildFile; productRef = 41BB83C62D79400700732464 /* SudoEntitlements */; };
-		41BB83CA2D79402000732464 /* SudoEntitlementsAdmin in Frameworks */ = {isa = PBXBuildFile; productRef = 41BB83C92D79402000732464 /* SudoEntitlementsAdmin */; };
-		41BB83CD2D79403600732464 /* SudoKeyManager in Frameworks */ = {isa = PBXBuildFile; productRef = 41BB83CC2D79403600732464 /* SudoKeyManager */; };
+		41C6D1F22D795D93002136AD /* SudoKeyManager in Frameworks */ = {isa = PBXBuildFile; productRef = 41C6D1F12D795D93002136AD /* SudoKeyManager */; };
+		41C6D1F52D79625A002136AD /* SudoApiClientMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C6D1F42D79625A002136AD /* SudoApiClientMock.swift */; };
+		41C6D1F72D796720002136AD /* VerifiedIdentityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C6D1F62D796720002136AD /* VerifiedIdentityTests.swift */; };
 		5D279B6D2B6CB93E00EAA061 /* IdDocumentTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D279B6C2B6CB93E00EAA061 /* IdDocumentTypeTests.swift */; };
 		5D279B6F2B6CBB3500EAA061 /* DocumentVerificationStatusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D279B6E2B6CBB3500EAA061 /* DocumentVerificationStatusTests.swift */; };
 		5D279B712B6CBBC300EAA061 /* VerificationMethodTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D279B702B6CBBC300EAA061 /* VerificationMethodTests.swift */; };
@@ -50,6 +52,8 @@
 
 /* Begin PBXFileReference section */
 		0CD837DF27E192F900CE53D5 /* XCTTestCase+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTTestCase+Utility.swift"; sourceTree = "<group>"; };
+		41C6D1F42D79625A002136AD /* SudoApiClientMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudoApiClientMock.swift; sourceTree = "<group>"; };
+		41C6D1F62D796720002136AD /* VerifiedIdentityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiedIdentityTests.swift; sourceTree = "<group>"; };
 		5D279B672B6C5B8800EAA061 /* DocumentVerificationStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentVerificationStatus.swift; sourceTree = "<group>"; };
 		5D279B692B6C7A5A00EAA061 /* VerificationMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationMethod.swift; sourceTree = "<group>"; };
 		5D279B6C2B6CB93E00EAA061 /* IdDocumentTypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdDocumentTypeTests.swift; sourceTree = "<group>"; };
@@ -92,7 +96,6 @@
 		84239EBD27F58EEC00400B51 /* Data+JSONObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+JSONObject.swift"; sourceTree = "<group>"; };
 		84239EC727F672D100400B51 /* IdDocumentImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdDocumentImages.swift; sourceTree = "<group>"; };
 		84239ECB27F6BE2200400B51 /* Inputs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inputs.swift; sourceTree = "<group>"; };
-		D91CAE4E2451484300DA1152 /* AWSEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSEndpoint.swift; sourceTree = "<group>"; };
 		D931C7B62342D22700932612 /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D931C7B82342D22700932612 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D931C7BA2342D22700932612 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -109,7 +112,6 @@
 		D9971C6622FD299A0077076C /* SudoIdentityVerificationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudoIdentityVerificationTests.swift; sourceTree = "<group>"; };
 		D9971C6822FD299A0077076C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9971C7622FD31690077076C /* SudoIdentityVerificationClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudoIdentityVerificationClient.swift; sourceTree = "<group>"; };
-		D9971C7822FD40DC0077076C /* SudoIdentityVerificationClientConfigProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudoIdentityVerificationClientConfigProvider.swift; sourceTree = "<group>"; };
 		D9971C7D22FD46650077076C /* SudoLogger+IdentityVerification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SudoLogger+IdentityVerification.swift"; sourceTree = "<group>"; };
 		D9B5B2B323715DF300392596 /* VerifiedIdentity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiedIdentity.swift; sourceTree = "<group>"; };
 		D9B5B2B52371666100392596 /* SudoIdentityVerificationServiceAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SudoIdentityVerificationServiceAPI.swift; sourceTree = "<group>"; };
@@ -140,10 +142,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41BB83C72D79400700732464 /* SudoEntitlements in Frameworks */,
-				41BB83CA2D79402000732464 /* SudoEntitlementsAdmin in Frameworks */,
+				417F516A2D7FBC0A00683870 /* SudoEntitlementsAdmin in Frameworks */,
 				41BB83C32D793F1D00732464 /* SudoIdentityVerification in Frameworks */,
-				41BB83CD2D79403600732464 /* SudoKeyManager in Frameworks */,
+				41C6D1F22D795D93002136AD /* SudoKeyManager in Frameworks */,
+				417F516D2D7FBCCB00683870 /* SudoEntitlements in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,12 +168,21 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		41C6D1F32D79624A002136AD /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				41C6D1F42D79625A002136AD /* SudoApiClientMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		5D279B6B2B6CB92300EAA061 /* Types */ = {
 			isa = PBXGroup;
 			children = (
 				5D279B6E2B6CBB3500EAA061 /* DocumentVerificationStatusTests.swift */,
 				5D279B6C2B6CB93E00EAA061 /* IdDocumentTypeTests.swift */,
 				5D279B702B6CBBC300EAA061 /* VerificationMethodTests.swift */,
+				41C6D1F62D796720002136AD /* VerifiedIdentityTests.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -200,7 +211,6 @@
 				84239D7D27F54AE300400B51 /* Types */,
 				84239D8127F54DF900400B51 /* DefaultSudoIdentityVerificationClient.swift */,
 				D9971C7622FD31690077076C /* SudoIdentityVerificationClient.swift */,
-				D9971C7822FD40DC0077076C /* SudoIdentityVerificationClientConfigProvider.swift */,
 				84239D7B27F54AA000400B51 /* SudoIdentityVerificationClientError.swift */,
 			);
 			path = Public;
@@ -372,6 +382,7 @@
 			isa = PBXGroup;
 			children = (
 				84239D8727F56C3F00400B51 /* Extension */,
+				41C6D1F32D79624A002136AD /* Mocks */,
 				5D279B6B2B6CB92300EAA061 /* Types */,
 				D9971C6822FD299A0077076C /* Info.plist */,
 				D9971C6622FD299A0077076C /* SudoIdentityVerificationTests.swift */,
@@ -382,7 +393,6 @@
 		D9971C7A22FD41090077076C /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				D91CAE4E2451484300DA1152 /* AWSEndpoint.swift */,
 				D946445E23580EF100F4BCF8 /* Date+MillisecondsSinceEpoch.swift */,
 				D9971C7D22FD46650077076C /* SudoLogger+IdentityVerification.swift */,
 			);
@@ -465,9 +475,9 @@
 			name = SudoIdentityVerificationIntegrationTests;
 			packageProductDependencies = (
 				41BB83C22D793F1D00732464 /* SudoIdentityVerification */,
-				41BB83C62D79400700732464 /* SudoEntitlements */,
-				41BB83C92D79402000732464 /* SudoEntitlementsAdmin */,
-				41BB83CC2D79403600732464 /* SudoKeyManager */,
+				41C6D1F12D795D93002136AD /* SudoKeyManager */,
+				417F51692D7FBC0A00683870 /* SudoEntitlementsAdmin */,
+				417F516C2D7FBCCB00683870 /* SudoEntitlements */,
 			);
 			productName = SudoDirectoryClientIntegrationTests;
 			productReference = D9F16E6B22FD498E0055513F /* SudoIdentityVerificationIntegrationTests.xctest */;
@@ -505,9 +515,9 @@
 			);
 			mainGroup = D9971C4E22FD299A0077076C;
 			packageReferences = (
-				41BB83C52D79400700732464 /* XCRemoteSwiftPackageReference "sudo-entitlements-ios" */,
-				41BB83C82D79402000732464 /* XCRemoteSwiftPackageReference "sudo-entitlements-admin-ios" */,
-				41BB83CB2D79403600732464 /* XCRemoteSwiftPackageReference "sudo-key-manager-ios" */,
+				41C6D1F02D795D93002136AD /* XCRemoteSwiftPackageReference "sudo-key-manager-ios" */,
+				417F51682D7FBC0A00683870 /* XCRemoteSwiftPackageReference "sudo-entitlements-admin-ios" */,
+				417F516B2D7FBCCB00683870 /* XCRemoteSwiftPackageReference "sudo-entitlements-ios" */,
 			);
 			productRefGroup = D9971C5922FD299A0077076C /* Products */;
 			projectDirPath = "";
@@ -645,8 +655,10 @@
 				84239D8827F56C5800400B51 /* Data+JSONObject.swift in Sources */,
 				5D279B6F2B6CBB3500EAA061 /* DocumentVerificationStatusTests.swift in Sources */,
 				5D279B6D2B6CB93E00EAA061 /* IdDocumentTypeTests.swift in Sources */,
+				41C6D1F52D79625A002136AD /* SudoApiClientMock.swift in Sources */,
 				D9971C6722FD299A0077076C /* SudoIdentityVerificationTests.swift in Sources */,
 				5D279B712B6CBBC300EAA061 /* VerificationMethodTests.swift in Sources */,
+				41C6D1F72D796720002136AD /* VerifiedIdentityTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -972,28 +984,28 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		41BB83C52D79400700732464 /* XCRemoteSwiftPackageReference "sudo-entitlements-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/sudoplatform/sudo-entitlements-ios";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 12.0.0;
-			};
-		};
-		41BB83C82D79402000732464 /* XCRemoteSwiftPackageReference "sudo-entitlements-admin-ios" */ = {
+		417F51682D7FBC0A00683870 /* XCRemoteSwiftPackageReference "sudo-entitlements-admin-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/sudoplatform/sudo-entitlements-admin-ios";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 7.0.0;
+				minimumVersion = 8.0.0;
 			};
 		};
-		41BB83CB2D79403600732464 /* XCRemoteSwiftPackageReference "sudo-key-manager-ios" */ = {
+		417F516B2D7FBCCB00683870 /* XCRemoteSwiftPackageReference "sudo-entitlements-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sudoplatform/sudo-entitlements-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 13.0.0;
+			};
+		};
+		41C6D1F02D795D93002136AD /* XCRemoteSwiftPackageReference "sudo-key-manager-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/sudoplatform/sudo-key-manager-ios";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 4.1.0;
+				minimumVersion = 4.1.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -1003,6 +1015,16 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = SudoIdentityVerification;
 		};
+		417F51692D7FBC0A00683870 /* SudoEntitlementsAdmin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 417F51682D7FBC0A00683870 /* XCRemoteSwiftPackageReference "sudo-entitlements-admin-ios" */;
+			productName = SudoEntitlementsAdmin;
+		};
+		417F516C2D7FBCCB00683870 /* SudoEntitlements */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 417F516B2D7FBCCB00683870 /* XCRemoteSwiftPackageReference "sudo-entitlements-ios" */;
+			productName = SudoEntitlements;
+		};
 		41BB83C02D793BE000732464 /* SudoIdentityVerification */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SudoIdentityVerification;
@@ -1011,19 +1033,9 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = SudoIdentityVerification;
 		};
-		41BB83C62D79400700732464 /* SudoEntitlements */ = {
+		41C6D1F12D795D93002136AD /* SudoKeyManager */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 41BB83C52D79400700732464 /* XCRemoteSwiftPackageReference "sudo-entitlements-ios" */;
-			productName = SudoEntitlements;
-		};
-		41BB83C92D79402000732464 /* SudoEntitlementsAdmin */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 41BB83C82D79402000732464 /* XCRemoteSwiftPackageReference "sudo-entitlements-admin-ios" */;
-			productName = SudoEntitlementsAdmin;
-		};
-		41BB83CC2D79403600732464 /* SudoKeyManager */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 41BB83CB2D79403600732464 /* XCRemoteSwiftPackageReference "sudo-key-manager-ios" */;
+			package = 41C6D1F02D795D93002136AD /* XCRemoteSwiftPackageReference "sudo-key-manager-ios" */;
 			productName = SudoKeyManager;
 		};
 /* End XCSwiftPackageProductDependency section */

@@ -1,5 +1,0 @@
-mutation CaptureAndVerifyIdentityDocument($input: VerifyIdentityDocumentInput) {
-  captureAndVerifyIdentityDocument(input: $input) {
-    ...VerifiedIdentity
-  }
-}

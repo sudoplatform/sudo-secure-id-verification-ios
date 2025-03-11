@@ -4,6 +4,7 @@
 // SPDX-License-Identifier: Apache-2.0
 //
 
+import Amplify
 import Foundation
 import SudoApiClient
 
@@ -173,9 +174,14 @@ extension SudoIdentityVerificationClientError {
             return .invalidInput
         case ApiOperationError.rateLimitExceeded:
             return .rateLimitExceeded
-        case ApiOperationError.graphQLError(let cause):
-            guard let errorType = cause[Constants.errorType] as? String else {
-              return .fatalError(description: "GraphQL operation failed but error type was not found in the response. \(error)")
+        case ApiOperationError.graphQLError(let underlyingError):
+            guard
+                let graphQLError = underlyingError as? GraphQLError,
+                let errorType = graphQLError.extensions?[Constants.errorType]?.stringValue
+            else {
+                return .fatalError(
+                    description: "GraphQL operation failed but error type was not found in the response. \(error.localizedDescription)"
+                )
             }
             switch errorType {
             case Constants.recordNotFoundError:
@@ -195,13 +201,12 @@ extension SudoIdentityVerificationClientError {
             case Constants.unsupportedNetworkLocationError:
                 return .unsupportedNetworkLocation
             default:
-                return graphQLError(description: "Unexpected GraphQL error: \(cause)")
+                return .graphQLError(description: "Unexpected GraphQL error: \(underlyingError.localizedDescription)")
             }
         case ApiOperationError.requestFailed(let response, let cause):
             return .requestFailed(response: response, cause: cause)
         default:
-            return .fatalError(description: "Unexpected API operation error: \(error)")
+            return .fatalError(description: "Unexpected API operation error: \(error.localizedDescription)")
         }
     }
-
 }

@@ -1,9 +1,0 @@
-overwrite: true
-schema:
-  - "./schema/**/*.graphql"
-documents:
-  - "./documents/**/*.graphql"
-generates:
-  introspection.json:
-    plugins:
-      - introspection

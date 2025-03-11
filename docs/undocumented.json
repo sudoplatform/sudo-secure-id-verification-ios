@@ -1,22 +1,8 @@
 {
   "warnings": [
     {
-      "file": "/Users/gitlab-runner/builds/kEPM7Co-x/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/Source/Public/DefaultSudoIdentityVerificationClient.swift",
-      "line": 18,
-      "symbol": "DefaultSudoIdentityVerificationClient.Config",
-      "symbol_kind": "source.lang.swift.decl.struct",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/gitlab-runner/builds/kEPM7Co-x/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/Source/Public/SudoIdentityVerificationClientConfigProvider.swift",
-      "line": 14,
-      "symbol": "SudoIdentityVerificationClientConfigProvider.Config",
-      "symbol_kind": "source.lang.swift.decl.struct",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/gitlab-runner/builds/kEPM7Co-x/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/Source/Public/SudoIdentityVerificationClientError.swift",
-      "line": 10,
+      "line": 11,
       "symbol": "SudoIdentityVerificationClientError",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"

@@ -44,12 +44,8 @@ public protocol SudoIdentityVerificationClient: AnyObject {
     func captureAndVerifyIdentityDocument(input: VerifyIdentityDocumentInput) async throws -> VerifiedIdentity
 
     /// Checks the identity verification status of the currently signed in user.
-    ///
-    /// - Parameters:
-    ///   - option: Option to determine whether to check the status in the backend or return the cached result.
-    ///
     /// - Returns: Verification result.
-    func checkIdentityVerification(option: QueryOption) async throws -> VerifiedIdentity
+    func checkIdentityVerification() async throws -> VerifiedIdentity
 
     /// Resets any cached data.
     ///
