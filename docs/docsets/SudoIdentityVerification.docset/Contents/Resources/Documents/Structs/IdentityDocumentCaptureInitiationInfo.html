@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>VerifyIdentityDocumentInput Structure Reference</title>
+    <title>IdentityDocumentCaptureInitiationInfo Structure Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset="utf-8">
@@ -14,9 +14,9 @@
   </head>
   <body>
 
-    <a name="//apple_ref/swift/Struct/VerifyIdentityDocumentInput" class="dashAnchor"></a>
+    <a name="//apple_ref/swift/Struct/IdentityDocumentCaptureInitiationInfo" class="dashAnchor"></a>
 
-    <a title="VerifyIdentityDocumentInput Structure Reference"></a>
+    <a title="IdentityDocumentCaptureInitiationInfo Structure Reference"></a>
 
     <header class="header">
       <p class="header-col header-col--primary">
@@ -38,7 +38,7 @@
     <p class="breadcrumbs">
       <a class="breadcrumb" href="../index.html">SudoIdentityVerification Reference</a>
       <img class="carat" src="../img/carat.png" alt=""/>
-      VerifyIdentityDocumentInput Structure Reference
+      IdentityDocumentCaptureInitiationInfo Structure Reference
     </p>
 
     <div class="content-wrapper">
@@ -97,15 +97,15 @@
 
         <section class="section">
           <div class="section-content top-matter">
-            <h1>VerifyIdentityDocumentInput</h1>
+            <h1>IdentityDocumentCaptureInitiationInfo</h1>
               <div class="declaration">
                 <div class="language">
                   
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">VerifyIdentityDocumentInput</span> <span class="p">:</span> <span class="kt">Hashable</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">IdentityDocumentCaptureInitiationInfo</span></code></pre>
 
                 </div>
               </div>
-            <p>Input for verifyIdentityDocument(input:)</p>
+            <p>Represents identity document capture initiation details obtained via <code>initiateIdentityDocumentCapture</code> API.</p>
 
           </div>
         </section>
@@ -117,9 +117,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:24SudoIdentityVerification06VerifyB13DocumentInputV5image10Foundation4DataVvp"></a>
-                    <a name="//apple_ref/swift/Property/image" class="dashAnchor"></a>
-                    <a class="token" href="#/s:24SudoIdentityVerification06VerifyB13DocumentInputV5image10Foundation4DataVvp">image</a>
+                    <a name="/s:24SudoIdentityVerification0B29DocumentCaptureInitiationInfoV08documentE3UrlSSvp"></a>
+                    <a name="//apple_ref/swift/Property/documentCaptureUrl" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24SudoIdentityVerification0B29DocumentCaptureInitiationInfoV08documentE3UrlSSvp">documentCaptureUrl</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -127,14 +127,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Image of front of government ID document.</p>
+                        <p>URL for uploading identity document information.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">image</span><span class="p">:</span> <span class="kt">Data</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">documentCaptureUrl</span><span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -144,9 +144,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:24SudoIdentityVerification06VerifyB13DocumentInputV9backImage10Foundation4DataVvp"></a>
-                    <a name="//apple_ref/swift/Property/backImage" class="dashAnchor"></a>
-                    <a class="token" href="#/s:24SudoIdentityVerification06VerifyB13DocumentInputV9backImage10Foundation4DataVvp">backImage</a>
+                    <a name="/s:24SudoIdentityVerification0B29DocumentCaptureInitiationInfoV8expiryAt10Foundation4DateVvp"></a>
+                    <a name="//apple_ref/swift/Property/expiryAt" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24SudoIdentityVerification0B29DocumentCaptureInitiationInfoV8expiryAt10Foundation4DateVvp">expiryAt</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -154,95 +154,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Image of back of government ID document.</p>
+                        <p>When the document capture URL is no longer usable.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">backImage</span><span class="p">:</span> <span class="kt">Data</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:24SudoIdentityVerification06VerifyB13DocumentInputV9faceImage10Foundation4DataVSgvp"></a>
-                    <a name="//apple_ref/swift/Property/faceImage" class="dashAnchor"></a>
-                    <a class="token" href="#/s:24SudoIdentityVerification06VerifyB13DocumentInputV9faceImage10Foundation4DataVSgvp">faceImage</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Image of person&rsquo;s face, for comparison with ID.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">faceImage</span><span class="p">:</span> <span class="kt">Data</span><span class="p">?</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:24SudoIdentityVerification06VerifyB13DocumentInputV7countrySSvp"></a>
-                    <a name="//apple_ref/swift/Property/country" class="dashAnchor"></a>
-                    <a class="token" href="#/s:24SudoIdentityVerification06VerifyB13DocumentInputV7countrySSvp">country</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>ISO 3166-1 alpha-2 country code, e.g US.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">country</span><span class="p">:</span> <span class="kt">String</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:24SudoIdentityVerification06VerifyB13DocumentInputV12documentTypeAA02IdeH0Ovp"></a>
-                    <a name="//apple_ref/swift/Property/documentType" class="dashAnchor"></a>
-                    <a class="token" href="#/s:24SudoIdentityVerification06VerifyB13DocumentInputV12documentTypeAA02IdeH0Ovp">documentType</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Type of ID document being presented.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">documentType</span><span class="p">:</span> <span class="kt"><a href="../Enums.html#/s:24SudoIdentityVerification14IdDocumentTypeO">IdDocumentType</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">expiryAt</span><span class="p">:</span> <span class="kt">Date</span></code></pre>
 
                         </div>
                       </div>

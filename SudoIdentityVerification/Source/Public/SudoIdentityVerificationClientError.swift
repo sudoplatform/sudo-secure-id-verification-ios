@@ -43,6 +43,9 @@ public enum SudoIdentityVerificationClientError: Error, Equatable {
     ///  Indicates the identity verification result cannot be found for the user.
     case verificationResultNotFound
 
+    /// Identity verification has already been completed.
+    case identityAlreadyVerified
+
     /// Indicates that an attempt to register was made but there's already one in progress.
     case registerOperationAlreadyInProgress
 

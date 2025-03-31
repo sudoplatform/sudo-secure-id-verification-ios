@@ -78,6 +78,9 @@
             <a class="nav-group-name-link" href="../Structs.html">Structures</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/IdentityDocumentCaptureInitiationInfo.html">IdentityDocumentCaptureInitiationInfo</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/VerifiedIdentity.html">VerifiedIdentity</a>
               </li>
               <li class="nav-group-task">
@@ -169,6 +172,41 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">isFaceImageRequired</span><span class="p">()</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Boolean flag.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:24SudoIdentityVerification0abC6ClientP34isDocumentCaptureInitiationEnabledSbyYaKF"></a>
+                    <a name="//apple_ref/swift/Method/isDocumentCaptureInitiationEnabled()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24SudoIdentityVerification0abC6ClientP34isDocumentCaptureInitiationEnabledSbyYaKF">isDocumentCaptureInitiationEnabled()</a>
+                    </code>
+                      <span class="declaration-note">
+                        Asynchronous
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Retrieves the flag for whether document capture can be initiated using 
+initiateIdentityDocumentCapture().</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">isDocumentCaptureInitiationEnabled</span><span class="p">()</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
@@ -378,6 +416,41 @@ identity using that information.</p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:24SudoIdentityVerification0abC6ClientP08initiateB15DocumentCaptureAA0bfG14InitiationInfoVyYaKF"></a>
+                    <a name="//apple_ref/swift/Method/initiateIdentityDocumentCapture()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24SudoIdentityVerification0abC6ClientP08initiateB15DocumentCaptureAA0bfG14InitiationInfoVyYaKF">initiateIdentityDocumentCapture()</a>
+                    </code>
+                      <span class="declaration-note">
+                        Asynchronous
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Attempts to initiate ID document capture using underlying provider&rsquo;s web
+based method.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">initiateIdentityDocumentCapture</span><span class="p">()</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/IdentityDocumentCaptureInitiationInfo.html">IdentityDocumentCaptureInitiationInfo</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>identity document capture info</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:24SudoIdentityVerification0abC6ClientP5resetyyKF"></a>
                     <a name="//apple_ref/swift/Method/reset()" class="dashAnchor"></a>
                     <a class="token" href="#/s:24SudoIdentityVerification0abC6ClientP5resetyyKF">reset()</a>
@@ -415,7 +488,7 @@ identity using that information.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2025 <a class="link" href="" target="_blank" rel="external noopener"></a>. All rights reserved. (Last updated: 2025-03-11)</p>
+      <p>&copy; 2025 <a class="link" href="" target="_blank" rel="external noopener"></a>. All rights reserved. (Last updated: 2025-03-31)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>

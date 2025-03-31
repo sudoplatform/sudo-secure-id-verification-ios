@@ -94,6 +94,19 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
         }
     }
 
+    public func isDocumentCaptureInitiationEnabled() async throws -> Bool {
+        logger.info("Retrieving flag for whether web based identity document capture is enabled.")
+        do {
+            let result = try await graphQLClient.fetch(query: GraphQL.GetIdentityVerificationCapabilitiesQuery())
+            guard let canInitiateDocumentCapture = result.getIdentityVerificationCapabilities?.canInitiateDocumentCapture else {
+                return false
+            }
+            return canInitiateDocumentCapture
+        } catch {
+            throw SudoIdentityVerificationClientError.fromApiOperationError(error: error)
+        }
+    }
+
     public func verifyIdentity(input: VerifyIdentityInput) async throws -> VerifiedIdentity {
         logger.info("Verifying an identity.")
 
@@ -188,6 +201,22 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
                 acceptableDocumentTypes: verifiedIdentity.acceptableDocumentTypes,
                 documentVerificationStatus: verifiedIdentity.documentVerificationStatus,
                 verificationLastAttemptedAtEpochMs: verifiedIdentity.verificationLastAttemptedAtEpochMs
+            )
+        } catch {
+            throw SudoIdentityVerificationClientError.fromApiOperationError(error: error)
+        }
+    }
+
+    public func initiateIdentityDocumentCapture() async throws -> IdentityDocumentCaptureInitiationInfo {
+        logger.info("Initiating web based capture of an identity document")
+        do {
+            let result = try await graphQLClient.perform(mutation: GraphQL.InitiateIdentityDocumentCaptureMutation())
+            guard let identityDocumentCaptureInitiationInfo = result.initiateIdentityDocumentCapture else {
+                throw SudoIdentityVerificationClientError.fatalError(description: "Mutation result did not contain required")
+            }
+            return IdentityDocumentCaptureInitiationInfo(
+                documentCaptureUrl: identityDocumentCaptureInitiationInfo.documentCaptureUrl,
+                expiryAtEpochSeconds: identityDocumentCaptureInitiationInfo.expiryAtEpochSeconds
             )
         } catch {
             throw SudoIdentityVerificationClientError.fromApiOperationError(error: error)

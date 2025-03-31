@@ -540,7 +540,7 @@ internal final class CheckIdentityVerificationQuery: GraphQLQuery {
 
 internal final class GetIdentityVerificationCapabilitiesQuery: GraphQLQuery {
   internal static let operationString =
-    "query GetIdentityVerificationCapabilities {\n  getIdentityVerificationCapabilities {\n    __typename\n    supportedCountries\n    faceImageRequiredWithDocument\n  }\n}"
+    "query GetIdentityVerificationCapabilities {\n  getIdentityVerificationCapabilities {\n    __typename\n    supportedCountries\n    faceImageRequiredWithDocument\n    canInitiateDocumentCapture\n  }\n}"
 
   internal init() {
   }
@@ -578,6 +578,7 @@ internal final class GetIdentityVerificationCapabilitiesQuery: GraphQLQuery {
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
         GraphQLField("supportedCountries", type: .nonNull(.list(.nonNull(.scalar(String.self))))),
         GraphQLField("faceImageRequiredWithDocument", type: .nonNull(.scalar(Bool.self))),
+        GraphQLField("canInitiateDocumentCapture", type: .nonNull(.scalar(Bool.self))),
       ]
 
       internal var snapshot: Snapshot
@@ -586,8 +587,8 @@ internal final class GetIdentityVerificationCapabilitiesQuery: GraphQLQuery {
         self.snapshot = snapshot
       }
 
-      internal init(supportedCountries: [String], faceImageRequiredWithDocument: Bool) {
-        self.init(snapshot: ["__typename": "IdentityVerificationCapabilities", "supportedCountries": supportedCountries, "faceImageRequiredWithDocument": faceImageRequiredWithDocument])
+      internal init(supportedCountries: [String], faceImageRequiredWithDocument: Bool, canInitiateDocumentCapture: Bool) {
+        self.init(snapshot: ["__typename": "IdentityVerificationCapabilities", "supportedCountries": supportedCountries, "faceImageRequiredWithDocument": faceImageRequiredWithDocument, "canInitiateDocumentCapture": canInitiateDocumentCapture])
       }
 
       internal var __typename: String {
@@ -614,6 +615,97 @@ internal final class GetIdentityVerificationCapabilitiesQuery: GraphQLQuery {
         }
         set {
           snapshot.updateValue(newValue, forKey: "faceImageRequiredWithDocument")
+        }
+      }
+
+      internal var canInitiateDocumentCapture: Bool {
+        get {
+          return snapshot["canInitiateDocumentCapture"]! as! Bool
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "canInitiateDocumentCapture")
+        }
+      }
+    }
+  }
+}
+
+internal final class InitiateIdentityDocumentCaptureMutation: GraphQLMutation {
+  internal static let operationString =
+    "mutation InitiateIdentityDocumentCapture {\n  initiateIdentityDocumentCapture {\n    __typename\n    documentCaptureUrl\n    expiryAtEpochSeconds\n  }\n}"
+
+  internal init() {
+  }
+
+  internal struct Data: GraphQLSelectionSet {
+    internal static let possibleTypes = ["Mutation"]
+
+    internal static let selections: [GraphQLSelection] = [
+      GraphQLField("initiateIdentityDocumentCapture", type: .object(InitiateIdentityDocumentCapture.selections)),
+    ]
+
+    internal var snapshot: Snapshot
+
+    internal init(snapshot: Snapshot) {
+      self.snapshot = snapshot
+    }
+
+    internal init(initiateIdentityDocumentCapture: InitiateIdentityDocumentCapture? = nil) {
+      self.init(snapshot: ["__typename": "Mutation", "initiateIdentityDocumentCapture": initiateIdentityDocumentCapture.flatMap { $0.snapshot }])
+    }
+
+    internal var initiateIdentityDocumentCapture: InitiateIdentityDocumentCapture? {
+      get {
+        return (snapshot["initiateIdentityDocumentCapture"] as? Snapshot).flatMap { InitiateIdentityDocumentCapture(snapshot: $0) }
+      }
+      set {
+        snapshot.updateValue(newValue?.snapshot, forKey: "initiateIdentityDocumentCapture")
+      }
+    }
+
+    internal struct InitiateIdentityDocumentCapture: GraphQLSelectionSet {
+      internal static let possibleTypes = ["IdentityDocumentCaptureInitiationResponse"]
+
+      internal static let selections: [GraphQLSelection] = [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("documentCaptureUrl", type: .nonNull(.scalar(String.self))),
+        GraphQLField("expiryAtEpochSeconds", type: .nonNull(.scalar(Double.self))),
+      ]
+
+      internal var snapshot: Snapshot
+
+      internal init(snapshot: Snapshot) {
+        self.snapshot = snapshot
+      }
+
+      internal init(documentCaptureUrl: String, expiryAtEpochSeconds: Double) {
+        self.init(snapshot: ["__typename": "IdentityDocumentCaptureInitiationResponse", "documentCaptureUrl": documentCaptureUrl, "expiryAtEpochSeconds": expiryAtEpochSeconds])
+      }
+
+      internal var __typename: String {
+        get {
+          return snapshot["__typename"]! as! String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      internal var documentCaptureUrl: String {
+        get {
+          return snapshot["documentCaptureUrl"]! as! String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "documentCaptureUrl")
+        }
+      }
+
+      internal var expiryAtEpochSeconds: Double {
+        get {
+          return snapshot["expiryAtEpochSeconds"]! as! Double
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "expiryAtEpochSeconds")
         }
       }
     }
