@@ -81,14 +81,27 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
         }
     }
 
-    public func isFaceImageRequired() async throws -> Bool {
-        logger.info("Retrieving flag for requirement to provide face image with ID document.")
+    public func isFaceImageRequiredWithDocumentCapture() async throws -> Bool {
+        logger.info("Retrieving flag for requirement to provide face image with ID document capture.")
         do {
             let result = try await graphQLClient.fetch(query: GraphQL.GetIdentityVerificationCapabilitiesQuery())
-            guard let faceImageRequired = result.getIdentityVerificationCapabilities?.faceImageRequiredWithDocument else {
+            guard let faceImageRequiredWithDocumentCapture = result.getIdentityVerificationCapabilities?.faceImageRequiredWithDocumentCapture else {
                 return false
             }
-            return faceImageRequired
+            return faceImageRequiredWithDocumentCapture
+        } catch {
+            throw SudoIdentityVerificationClientError.fromApiOperationError(error: error)
+        }
+    }
+
+    public func isFaceImageRequiredWithDocumentVerification() async throws -> Bool {
+        logger.info("Retrieving flag for requirement to provide face image with ID document verification.")
+        do {
+            let result = try await graphQLClient.fetch(query: GraphQL.GetIdentityVerificationCapabilitiesQuery())
+            guard let faceImageRequiredWithDocumentVerification = result.getIdentityVerificationCapabilities?.faceImageRequiredWithDocumentVerification else {
+                return false
+            }
+            return faceImageRequiredWithDocumentVerification
         } catch {
             throw SudoIdentityVerificationClientError.fromApiOperationError(error: error)
         }

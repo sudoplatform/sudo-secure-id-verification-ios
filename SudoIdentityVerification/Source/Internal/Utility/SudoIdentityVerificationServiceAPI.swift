@@ -540,7 +540,7 @@ internal final class CheckIdentityVerificationQuery: GraphQLQuery {
 
 internal final class GetIdentityVerificationCapabilitiesQuery: GraphQLQuery {
   internal static let operationString =
-    "query GetIdentityVerificationCapabilities {\n  getIdentityVerificationCapabilities {\n    __typename\n    supportedCountries\n    faceImageRequiredWithDocument\n    canInitiateDocumentCapture\n  }\n}"
+    "query GetIdentityVerificationCapabilities {\n  getIdentityVerificationCapabilities {\n    __typename\n    supportedCountries\n    faceImageRequiredWithDocumentCapture\n    faceImageRequiredWithDocumentVerification\n    canInitiateDocumentCapture\n  }\n}"
 
   internal init() {
   }
@@ -577,7 +577,8 @@ internal final class GetIdentityVerificationCapabilitiesQuery: GraphQLQuery {
       internal static let selections: [GraphQLSelection] = [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
         GraphQLField("supportedCountries", type: .nonNull(.list(.nonNull(.scalar(String.self))))),
-        GraphQLField("faceImageRequiredWithDocument", type: .nonNull(.scalar(Bool.self))),
+        GraphQLField("faceImageRequiredWithDocumentCapture", type: .nonNull(.scalar(Bool.self))),
+        GraphQLField("faceImageRequiredWithDocumentVerification", type: .nonNull(.scalar(Bool.self))),
         GraphQLField("canInitiateDocumentCapture", type: .nonNull(.scalar(Bool.self))),
       ]
 
@@ -587,8 +588,8 @@ internal final class GetIdentityVerificationCapabilitiesQuery: GraphQLQuery {
         self.snapshot = snapshot
       }
 
-      internal init(supportedCountries: [String], faceImageRequiredWithDocument: Bool, canInitiateDocumentCapture: Bool) {
-        self.init(snapshot: ["__typename": "IdentityVerificationCapabilities", "supportedCountries": supportedCountries, "faceImageRequiredWithDocument": faceImageRequiredWithDocument, "canInitiateDocumentCapture": canInitiateDocumentCapture])
+      internal init(supportedCountries: [String], faceImageRequiredWithDocumentCapture: Bool, faceImageRequiredWithDocumentVerification: Bool, canInitiateDocumentCapture: Bool) {
+        self.init(snapshot: ["__typename": "IdentityVerificationCapabilities", "supportedCountries": supportedCountries, "faceImageRequiredWithDocumentCapture": faceImageRequiredWithDocumentCapture, "faceImageRequiredWithDocumentVerification": faceImageRequiredWithDocumentVerification, "canInitiateDocumentCapture": canInitiateDocumentCapture])
       }
 
       internal var __typename: String {
@@ -609,12 +610,21 @@ internal final class GetIdentityVerificationCapabilitiesQuery: GraphQLQuery {
         }
       }
 
-      internal var faceImageRequiredWithDocument: Bool {
+      internal var faceImageRequiredWithDocumentCapture: Bool {
         get {
-          return snapshot["faceImageRequiredWithDocument"]! as! Bool
+          return snapshot["faceImageRequiredWithDocumentCapture"]! as! Bool
         }
         set {
-          snapshot.updateValue(newValue, forKey: "faceImageRequiredWithDocument")
+          snapshot.updateValue(newValue, forKey: "faceImageRequiredWithDocumentCapture")
+        }
+      }
+
+      internal var faceImageRequiredWithDocumentVerification: Bool {
+        get {
+          return snapshot["faceImageRequiredWithDocumentVerification"]! as! Bool
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "faceImageRequiredWithDocumentVerification")
         }
       }
 
