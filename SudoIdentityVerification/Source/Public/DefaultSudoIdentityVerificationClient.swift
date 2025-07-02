@@ -149,7 +149,8 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
                 requiredVerificationMethod: verifiedIdentity.requiredVerificationMethod,
                 acceptableDocumentTypes: verifiedIdentity.acceptableDocumentTypes,
                 documentVerificationStatus: verifiedIdentity.documentVerificationStatus,
-                verificationLastAttemptedAtEpochMs: verifiedIdentity.verificationLastAttemptedAtEpochMs
+                verificationLastAttemptedAtEpochMs: verifiedIdentity.verificationLastAttemptedAtEpochMs,
+                attemptsRemaining: verifiedIdentity.attemptsRemaining
             )
         } catch {
             throw SudoIdentityVerificationClientError.fromApiOperationError(error: error)
@@ -181,7 +182,8 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
                 requiredVerificationMethod: verifiedIdentity.requiredVerificationMethod,
                 acceptableDocumentTypes: verifiedIdentity.acceptableDocumentTypes,
                 documentVerificationStatus: verifiedIdentity.documentVerificationStatus,
-                verificationLastAttemptedAtEpochMs: verifiedIdentity.verificationLastAttemptedAtEpochMs
+                verificationLastAttemptedAtEpochMs: verifiedIdentity.verificationLastAttemptedAtEpochMs,
+                attemptsRemaining: verifiedIdentity.attemptsRemaining
             )
         } catch {
             throw SudoIdentityVerificationClientError.fromApiOperationError(error: error)
@@ -213,7 +215,8 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
                 requiredVerificationMethod: verifiedIdentity.requiredVerificationMethod,
                 acceptableDocumentTypes: verifiedIdentity.acceptableDocumentTypes,
                 documentVerificationStatus: verifiedIdentity.documentVerificationStatus,
-                verificationLastAttemptedAtEpochMs: verifiedIdentity.verificationLastAttemptedAtEpochMs
+                verificationLastAttemptedAtEpochMs: verifiedIdentity.verificationLastAttemptedAtEpochMs,
+                attemptsRemaining: verifiedIdentity.attemptsRemaining
             )
         } catch {
             throw SudoIdentityVerificationClientError.fromApiOperationError(error: error)
@@ -253,7 +256,8 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
                 requiredVerificationMethod: verifiedIdentity.requiredVerificationMethod,
                 acceptableDocumentTypes: verifiedIdentity.acceptableDocumentTypes,
                 documentVerificationStatus: verifiedIdentity.documentVerificationStatus,
-                verificationLastAttemptedAtEpochMs: verifiedIdentity.verificationLastAttemptedAtEpochMs
+                verificationLastAttemptedAtEpochMs: verifiedIdentity.verificationLastAttemptedAtEpochMs,
+                attemptsRemaining: verifiedIdentity.attemptsRemaining
             )
         } catch {
             throw SudoIdentityVerificationClientError.fromApiOperationError(error: error)

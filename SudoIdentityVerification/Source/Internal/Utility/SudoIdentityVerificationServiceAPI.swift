@@ -215,6 +215,7 @@ internal final class CaptureAndVerifyIdentityDocumentMutation: GraphQLMutation {
         GraphQLField("acceptableDocumentTypes", type: .nonNull(.list(.nonNull(.scalar(String.self))))),
         GraphQLField("documentVerificationStatus", type: .nonNull(.scalar(String.self))),
         GraphQLField("verificationLastAttemptedAtEpochMs", type: .nonNull(.scalar(Double.self))),
+        GraphQLField("attemptsRemaining", type: .nonNull(.scalar(Int.self))),
       ]
 
       internal var snapshot: Snapshot
@@ -223,8 +224,8 @@ internal final class CaptureAndVerifyIdentityDocumentMutation: GraphQLMutation {
         self.snapshot = snapshot
       }
 
-      internal init(owner: String, verified: Bool, verifiedAtEpochMs: Double, verificationMethod: String, canAttemptVerificationAgain: Bool, idScanUrl: String? = nil, requiredVerificationMethod: String? = nil, acceptableDocumentTypes: [String], documentVerificationStatus: String, verificationLastAttemptedAtEpochMs: Double) {
-        self.init(snapshot: ["__typename": "VerifiedIdentity", "owner": owner, "verified": verified, "verifiedAtEpochMs": verifiedAtEpochMs, "verificationMethod": verificationMethod, "canAttemptVerificationAgain": canAttemptVerificationAgain, "idScanUrl": idScanUrl, "requiredVerificationMethod": requiredVerificationMethod, "acceptableDocumentTypes": acceptableDocumentTypes, "documentVerificationStatus": documentVerificationStatus, "verificationLastAttemptedAtEpochMs": verificationLastAttemptedAtEpochMs])
+      internal init(owner: String, verified: Bool, verifiedAtEpochMs: Double, verificationMethod: String, canAttemptVerificationAgain: Bool, idScanUrl: String? = nil, requiredVerificationMethod: String? = nil, acceptableDocumentTypes: [String], documentVerificationStatus: String, verificationLastAttemptedAtEpochMs: Double, attemptsRemaining: Int) {
+        self.init(snapshot: ["__typename": "VerifiedIdentity", "owner": owner, "verified": verified, "verifiedAtEpochMs": verifiedAtEpochMs, "verificationMethod": verificationMethod, "canAttemptVerificationAgain": canAttemptVerificationAgain, "idScanUrl": idScanUrl, "requiredVerificationMethod": requiredVerificationMethod, "acceptableDocumentTypes": acceptableDocumentTypes, "documentVerificationStatus": documentVerificationStatus, "verificationLastAttemptedAtEpochMs": verificationLastAttemptedAtEpochMs, "attemptsRemaining": attemptsRemaining])
       }
 
       internal var __typename: String {
@@ -323,6 +324,15 @@ internal final class CaptureAndVerifyIdentityDocumentMutation: GraphQLMutation {
         }
         set {
           snapshot.updateValue(newValue, forKey: "verificationLastAttemptedAtEpochMs")
+        }
+      }
+
+      internal var attemptsRemaining: Int {
+        get {
+          return snapshot["attemptsRemaining"]! as! Int
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "attemptsRemaining")
         }
       }
 
@@ -402,6 +412,7 @@ internal final class CheckIdentityVerificationQuery: GraphQLQuery {
         GraphQLField("acceptableDocumentTypes", type: .nonNull(.list(.nonNull(.scalar(String.self))))),
         GraphQLField("documentVerificationStatus", type: .nonNull(.scalar(String.self))),
         GraphQLField("verificationLastAttemptedAtEpochMs", type: .nonNull(.scalar(Double.self))),
+        GraphQLField("attemptsRemaining", type: .nonNull(.scalar(Int.self))),
       ]
 
       internal var snapshot: Snapshot
@@ -410,8 +421,8 @@ internal final class CheckIdentityVerificationQuery: GraphQLQuery {
         self.snapshot = snapshot
       }
 
-      internal init(owner: String, verified: Bool, verifiedAtEpochMs: Double, verificationMethod: String, canAttemptVerificationAgain: Bool, idScanUrl: String? = nil, requiredVerificationMethod: String? = nil, acceptableDocumentTypes: [String], documentVerificationStatus: String, verificationLastAttemptedAtEpochMs: Double) {
-        self.init(snapshot: ["__typename": "VerifiedIdentity", "owner": owner, "verified": verified, "verifiedAtEpochMs": verifiedAtEpochMs, "verificationMethod": verificationMethod, "canAttemptVerificationAgain": canAttemptVerificationAgain, "idScanUrl": idScanUrl, "requiredVerificationMethod": requiredVerificationMethod, "acceptableDocumentTypes": acceptableDocumentTypes, "documentVerificationStatus": documentVerificationStatus, "verificationLastAttemptedAtEpochMs": verificationLastAttemptedAtEpochMs])
+      internal init(owner: String, verified: Bool, verifiedAtEpochMs: Double, verificationMethod: String, canAttemptVerificationAgain: Bool, idScanUrl: String? = nil, requiredVerificationMethod: String? = nil, acceptableDocumentTypes: [String], documentVerificationStatus: String, verificationLastAttemptedAtEpochMs: Double, attemptsRemaining: Int) {
+        self.init(snapshot: ["__typename": "VerifiedIdentity", "owner": owner, "verified": verified, "verifiedAtEpochMs": verifiedAtEpochMs, "verificationMethod": verificationMethod, "canAttemptVerificationAgain": canAttemptVerificationAgain, "idScanUrl": idScanUrl, "requiredVerificationMethod": requiredVerificationMethod, "acceptableDocumentTypes": acceptableDocumentTypes, "documentVerificationStatus": documentVerificationStatus, "verificationLastAttemptedAtEpochMs": verificationLastAttemptedAtEpochMs, "attemptsRemaining": attemptsRemaining])
       }
 
       internal var __typename: String {
@@ -510,6 +521,15 @@ internal final class CheckIdentityVerificationQuery: GraphQLQuery {
         }
         set {
           snapshot.updateValue(newValue, forKey: "verificationLastAttemptedAtEpochMs")
+        }
+      }
+
+      internal var attemptsRemaining: Int {
+        get {
+          return snapshot["attemptsRemaining"]! as! Int
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "attemptsRemaining")
         }
       }
 
@@ -780,6 +800,7 @@ internal final class VerifyIdentityMutation: GraphQLMutation {
         GraphQLField("acceptableDocumentTypes", type: .nonNull(.list(.nonNull(.scalar(String.self))))),
         GraphQLField("documentVerificationStatus", type: .nonNull(.scalar(String.self))),
         GraphQLField("verificationLastAttemptedAtEpochMs", type: .nonNull(.scalar(Double.self))),
+        GraphQLField("attemptsRemaining", type: .nonNull(.scalar(Int.self))),
       ]
 
       internal var snapshot: Snapshot
@@ -788,8 +809,8 @@ internal final class VerifyIdentityMutation: GraphQLMutation {
         self.snapshot = snapshot
       }
 
-      internal init(owner: String, verified: Bool, verifiedAtEpochMs: Double, verificationMethod: String, canAttemptVerificationAgain: Bool, idScanUrl: String? = nil, requiredVerificationMethod: String? = nil, acceptableDocumentTypes: [String], documentVerificationStatus: String, verificationLastAttemptedAtEpochMs: Double) {
-        self.init(snapshot: ["__typename": "VerifiedIdentity", "owner": owner, "verified": verified, "verifiedAtEpochMs": verifiedAtEpochMs, "verificationMethod": verificationMethod, "canAttemptVerificationAgain": canAttemptVerificationAgain, "idScanUrl": idScanUrl, "requiredVerificationMethod": requiredVerificationMethod, "acceptableDocumentTypes": acceptableDocumentTypes, "documentVerificationStatus": documentVerificationStatus, "verificationLastAttemptedAtEpochMs": verificationLastAttemptedAtEpochMs])
+      internal init(owner: String, verified: Bool, verifiedAtEpochMs: Double, verificationMethod: String, canAttemptVerificationAgain: Bool, idScanUrl: String? = nil, requiredVerificationMethod: String? = nil, acceptableDocumentTypes: [String], documentVerificationStatus: String, verificationLastAttemptedAtEpochMs: Double, attemptsRemaining: Int) {
+        self.init(snapshot: ["__typename": "VerifiedIdentity", "owner": owner, "verified": verified, "verifiedAtEpochMs": verifiedAtEpochMs, "verificationMethod": verificationMethod, "canAttemptVerificationAgain": canAttemptVerificationAgain, "idScanUrl": idScanUrl, "requiredVerificationMethod": requiredVerificationMethod, "acceptableDocumentTypes": acceptableDocumentTypes, "documentVerificationStatus": documentVerificationStatus, "verificationLastAttemptedAtEpochMs": verificationLastAttemptedAtEpochMs, "attemptsRemaining": attemptsRemaining])
       }
 
       internal var __typename: String {
@@ -888,6 +909,15 @@ internal final class VerifyIdentityMutation: GraphQLMutation {
         }
         set {
           snapshot.updateValue(newValue, forKey: "verificationLastAttemptedAtEpochMs")
+        }
+      }
+
+      internal var attemptsRemaining: Int {
+        get {
+          return snapshot["attemptsRemaining"]! as! Int
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "attemptsRemaining")
         }
       }
 
@@ -974,6 +1004,7 @@ internal final class VerifyIdentityDocumentMutation: GraphQLMutation {
         GraphQLField("acceptableDocumentTypes", type: .nonNull(.list(.nonNull(.scalar(String.self))))),
         GraphQLField("documentVerificationStatus", type: .nonNull(.scalar(String.self))),
         GraphQLField("verificationLastAttemptedAtEpochMs", type: .nonNull(.scalar(Double.self))),
+        GraphQLField("attemptsRemaining", type: .nonNull(.scalar(Int.self))),
       ]
 
       internal var snapshot: Snapshot
@@ -982,8 +1013,8 @@ internal final class VerifyIdentityDocumentMutation: GraphQLMutation {
         self.snapshot = snapshot
       }
 
-      internal init(owner: String, verified: Bool, verifiedAtEpochMs: Double, verificationMethod: String, canAttemptVerificationAgain: Bool, idScanUrl: String? = nil, requiredVerificationMethod: String? = nil, acceptableDocumentTypes: [String], documentVerificationStatus: String, verificationLastAttemptedAtEpochMs: Double) {
-        self.init(snapshot: ["__typename": "VerifiedIdentity", "owner": owner, "verified": verified, "verifiedAtEpochMs": verifiedAtEpochMs, "verificationMethod": verificationMethod, "canAttemptVerificationAgain": canAttemptVerificationAgain, "idScanUrl": idScanUrl, "requiredVerificationMethod": requiredVerificationMethod, "acceptableDocumentTypes": acceptableDocumentTypes, "documentVerificationStatus": documentVerificationStatus, "verificationLastAttemptedAtEpochMs": verificationLastAttemptedAtEpochMs])
+      internal init(owner: String, verified: Bool, verifiedAtEpochMs: Double, verificationMethod: String, canAttemptVerificationAgain: Bool, idScanUrl: String? = nil, requiredVerificationMethod: String? = nil, acceptableDocumentTypes: [String], documentVerificationStatus: String, verificationLastAttemptedAtEpochMs: Double, attemptsRemaining: Int) {
+        self.init(snapshot: ["__typename": "VerifiedIdentity", "owner": owner, "verified": verified, "verifiedAtEpochMs": verifiedAtEpochMs, "verificationMethod": verificationMethod, "canAttemptVerificationAgain": canAttemptVerificationAgain, "idScanUrl": idScanUrl, "requiredVerificationMethod": requiredVerificationMethod, "acceptableDocumentTypes": acceptableDocumentTypes, "documentVerificationStatus": documentVerificationStatus, "verificationLastAttemptedAtEpochMs": verificationLastAttemptedAtEpochMs, "attemptsRemaining": attemptsRemaining])
       }
 
       internal var __typename: String {
@@ -1085,6 +1116,15 @@ internal final class VerifyIdentityDocumentMutation: GraphQLMutation {
         }
       }
 
+      internal var attemptsRemaining: Int {
+        get {
+          return snapshot["attemptsRemaining"]! as! Int
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "attemptsRemaining")
+        }
+      }
+
       internal var fragments: Fragments {
         get {
           return Fragments(snapshot: snapshot)
@@ -1112,7 +1152,7 @@ internal final class VerifyIdentityDocumentMutation: GraphQLMutation {
 
 internal struct VerifiedIdentity: GraphQLFragment {
   internal static let fragmentString =
-    "fragment VerifiedIdentity on VerifiedIdentity {\n  __typename\n  owner\n  verified\n  verifiedAtEpochMs\n  verificationMethod\n  canAttemptVerificationAgain\n  idScanUrl\n  requiredVerificationMethod\n  acceptableDocumentTypes\n  documentVerificationStatus\n  verificationLastAttemptedAtEpochMs\n}"
+    "fragment VerifiedIdentity on VerifiedIdentity {\n  __typename\n  owner\n  verified\n  verifiedAtEpochMs\n  verificationMethod\n  canAttemptVerificationAgain\n  idScanUrl\n  requiredVerificationMethod\n  acceptableDocumentTypes\n  documentVerificationStatus\n  verificationLastAttemptedAtEpochMs\n  attemptsRemaining\n}"
 
   internal static let possibleTypes = ["VerifiedIdentity"]
 
@@ -1128,6 +1168,7 @@ internal struct VerifiedIdentity: GraphQLFragment {
     GraphQLField("acceptableDocumentTypes", type: .nonNull(.list(.nonNull(.scalar(String.self))))),
     GraphQLField("documentVerificationStatus", type: .nonNull(.scalar(String.self))),
     GraphQLField("verificationLastAttemptedAtEpochMs", type: .nonNull(.scalar(Double.self))),
+    GraphQLField("attemptsRemaining", type: .nonNull(.scalar(Int.self))),
   ]
 
   internal var snapshot: Snapshot
@@ -1136,8 +1177,8 @@ internal struct VerifiedIdentity: GraphQLFragment {
     self.snapshot = snapshot
   }
 
-  internal init(owner: String, verified: Bool, verifiedAtEpochMs: Double, verificationMethod: String, canAttemptVerificationAgain: Bool, idScanUrl: String? = nil, requiredVerificationMethod: String? = nil, acceptableDocumentTypes: [String], documentVerificationStatus: String, verificationLastAttemptedAtEpochMs: Double) {
-    self.init(snapshot: ["__typename": "VerifiedIdentity", "owner": owner, "verified": verified, "verifiedAtEpochMs": verifiedAtEpochMs, "verificationMethod": verificationMethod, "canAttemptVerificationAgain": canAttemptVerificationAgain, "idScanUrl": idScanUrl, "requiredVerificationMethod": requiredVerificationMethod, "acceptableDocumentTypes": acceptableDocumentTypes, "documentVerificationStatus": documentVerificationStatus, "verificationLastAttemptedAtEpochMs": verificationLastAttemptedAtEpochMs])
+  internal init(owner: String, verified: Bool, verifiedAtEpochMs: Double, verificationMethod: String, canAttemptVerificationAgain: Bool, idScanUrl: String? = nil, requiredVerificationMethod: String? = nil, acceptableDocumentTypes: [String], documentVerificationStatus: String, verificationLastAttemptedAtEpochMs: Double, attemptsRemaining: Int) {
+    self.init(snapshot: ["__typename": "VerifiedIdentity", "owner": owner, "verified": verified, "verifiedAtEpochMs": verifiedAtEpochMs, "verificationMethod": verificationMethod, "canAttemptVerificationAgain": canAttemptVerificationAgain, "idScanUrl": idScanUrl, "requiredVerificationMethod": requiredVerificationMethod, "acceptableDocumentTypes": acceptableDocumentTypes, "documentVerificationStatus": documentVerificationStatus, "verificationLastAttemptedAtEpochMs": verificationLastAttemptedAtEpochMs, "attemptsRemaining": attemptsRemaining])
   }
 
   internal var __typename: String {
@@ -1236,6 +1277,15 @@ internal struct VerifiedIdentity: GraphQLFragment {
     }
     set {
       snapshot.updateValue(newValue, forKey: "verificationLastAttemptedAtEpochMs")
+    }
+  }
+
+  internal var attemptsRemaining: Int {
+    get {
+      return snapshot["attemptsRemaining"]! as! Int
+    }
+    set {
+      snapshot.updateValue(newValue, forKey: "attemptsRemaining")
     }
   }
 }

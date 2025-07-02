@@ -44,6 +44,9 @@ public struct VerifiedIdentity {
     /// Date and time when verification was last attempted for this identity.
     public let verificationLastAttemptedAt: Date?
 
+    /// Number of verification attempts remaining.
+    public let attemptsRemaining: Int
+
     /// Initializes a `VerifiedIdentity` instance.
     /// 
     /// - Parameters:
@@ -57,6 +60,7 @@ public struct VerifiedIdentity {
     ///   - acceptableDocumentTypes: Array of acceptable ID document types if required verification method is GOVERNMENT_ID
     ///   - documentVerificationStatus: Status of ongoing ID document verification
     ///   - verificationLastAttemptedAt: Date and time when verification was last attempted for this identity.
+    ///   - attemptsRemaining: Number of verification attempts remaining.
     public init(
         owner: String,
         verified: Bool,
@@ -67,7 +71,8 @@ public struct VerifiedIdentity {
         requiredVerificationMethod: VerificationMethod? = nil,
         acceptableDocumentTypes: [IdDocumentType] = [],
         documentVerificationStatus: DocumentVerificationStatus = .notRequired,
-        verificationLastAttemptedAt: Date? = nil
+        verificationLastAttemptedAt: Date? = nil,
+        attemptsRemaining: Int
     ) {
         self.owner = owner
         self.verified = verified
@@ -79,6 +84,7 @@ public struct VerifiedIdentity {
         self.acceptableDocumentTypes = acceptableDocumentTypes
         self.documentVerificationStatus = documentVerificationStatus
         self.verificationLastAttemptedAt = verificationLastAttemptedAt
+        self.attemptsRemaining = attemptsRemaining
     }
 
     internal init(
@@ -91,7 +97,8 @@ public struct VerifiedIdentity {
         requiredVerificationMethod: String?,
         acceptableDocumentTypes: [String],
         documentVerificationStatus: String,
-        verificationLastAttemptedAtEpochMs: Double
+        verificationLastAttemptedAtEpochMs: Double,
+        attemptsRemaining: Int
     ) {
         var verifiedAt: Date?
         if verifiedAtEpochMs != 0 {
@@ -113,6 +120,7 @@ public struct VerifiedIdentity {
         self.acceptableDocumentTypes = acceptableDocumentTypes.map { IdDocumentType($0) }
         self.documentVerificationStatus = DocumentVerificationStatus(documentVerificationStatus)
         self.verificationLastAttemptedAt = verificationLastAttemptedAt
+        self.attemptsRemaining = attemptsRemaining
     }
 
 }

@@ -392,9 +392,36 @@ identity</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:24SudoIdentityVerification08VerifiedB0V5owner8verified0F2At18verificationMethod010canAttemptC5Again9idScanUrl08requiredcI023acceptableDocumentTypes08documentC6Status0h13LastAttemptedG0ACSS_Sb10Foundation4DateVSgAA0cI0OSbSSSgASSgSayAA02IdR4TypeOGAA0rcU0OAQtcfc"></a>
-                    <a name="//apple_ref/swift/Method/init(owner:verified:verifiedAt:verificationMethod:canAttemptVerificationAgain:idScanUrl:requiredVerificationMethod:acceptableDocumentTypes:documentVerificationStatus:verificationLastAttemptedAt:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:24SudoIdentityVerification08VerifiedB0V5owner8verified0F2At18verificationMethod010canAttemptC5Again9idScanUrl08requiredcI023acceptableDocumentTypes08documentC6Status0h13LastAttemptedG0ACSS_Sb10Foundation4DateVSgAA0cI0OSbSSSgASSgSayAA02IdR4TypeOGAA0rcU0OAQtcfc">init(owner:<wbr>verified:<wbr>verifiedAt:<wbr>verificationMethod:<wbr>canAttemptVerificationAgain:<wbr>idScanUrl:<wbr>requiredVerificationMethod:<wbr>acceptableDocumentTypes:<wbr>documentVerificationStatus:<wbr>verificationLastAttemptedAt:<wbr>)</a>
+                    <a name="/s:24SudoIdentityVerification08VerifiedB0V17attemptsRemainingSivp"></a>
+                    <a name="//apple_ref/swift/Property/attemptsRemaining" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24SudoIdentityVerification08VerifiedB0V17attemptsRemainingSivp">attemptsRemaining</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Number of verification attempts remaining.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">attemptsRemaining</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:24SudoIdentityVerification08VerifiedB0V5owner8verified0F2At18verificationMethod010canAttemptC5Again9idScanUrl08requiredcI023acceptableDocumentTypes08documentC6Status0h13LastAttemptedG017attemptsRemainingACSS_Sb10Foundation4DateVSgAA0cI0OSbSSSgATSgSayAA02IdR4TypeOGAA0rcU0OARSitcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(owner:verified:verifiedAt:verificationMethod:canAttemptVerificationAgain:idScanUrl:requiredVerificationMethod:acceptableDocumentTypes:documentVerificationStatus:verificationLastAttemptedAt:attemptsRemaining:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24SudoIdentityVerification08VerifiedB0V5owner8verified0F2At18verificationMethod010canAttemptC5Again9idScanUrl08requiredcI023acceptableDocumentTypes08documentC6Status0h13LastAttemptedG017attemptsRemainingACSS_Sb10Foundation4DateVSgAA0cI0OSbSSSgATSgSayAA02IdR4TypeOGAA0rcU0OARSitcfc">init(owner:<wbr>verified:<wbr>verifiedAt:<wbr>verificationMethod:<wbr>canAttemptVerificationAgain:<wbr>idScanUrl:<wbr>requiredVerificationMethod:<wbr>acceptableDocumentTypes:<wbr>documentVerificationStatus:<wbr>verificationLastAttemptedAt:<wbr>attemptsRemaining:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -419,7 +446,8 @@ identity</p>
     <span class="nv">requiredVerificationMethod</span><span class="p">:</span> <span class="kt">VerificationMethod</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
     <span class="nv">acceptableDocumentTypes</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Enums.html#/s:24SudoIdentityVerification14IdDocumentTypeO">IdDocumentType</a></span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span>
     <span class="nv">documentVerificationStatus</span><span class="p">:</span> <span class="kt"><a href="../Enums/DocumentVerificationStatus.html">DocumentVerificationStatus</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">notRequired</span><span class="p">,</span>
-    <span class="nv">verificationLastAttemptedAt</span><span class="p">:</span> <span class="kt">Date</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span>
+    <span class="nv">verificationLastAttemptedAt</span><span class="p">:</span> <span class="kt">Date</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+    <span class="nv">attemptsRemaining</span><span class="p">:</span> <span class="kt">Int</span>
 <span class="p">)</span></code></pre>
 
                         </div>
@@ -548,6 +576,18 @@ identity</p>
                                 </div>
                               </td>
                             </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>attemptsRemaining</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Number of verification attempts remaining.</p>
+                                </div>
+                              </td>
+                            </tr>
                           </tbody>
                         </table>
                       </div>
@@ -562,7 +602,7 @@ identity</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2025 <a class="link" href="" target="_blank" rel="external noopener"></a>. All rights reserved. (Last updated: 2025-04-09)</p>
+      <p>&copy; 2025 <a class="link" href="" target="_blank" rel="external noopener"></a>. All rights reserved. (Last updated: 2025-07-02)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>

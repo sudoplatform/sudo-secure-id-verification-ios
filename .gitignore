@@ -23,3 +23,4 @@ Build/
 node_modules/
 
 /Package.resolved
+graphql/.yarn/install-state.gz
