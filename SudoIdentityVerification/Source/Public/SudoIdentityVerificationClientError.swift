@@ -45,6 +45,15 @@ public enum SudoIdentityVerificationClientError: Error, Equatable {
 
     /// Identity verification has already been completed.
     case identityAlreadyVerified
+    
+    /// Identity document capture attempts has been exceeded.
+    case identityCaptureRetriesExceeded
+    
+    /// Identity document capture additional attempts has been prevented.
+    case identityCaptureRetryBlocked
+    
+    /// Identity data retrieval attempted for a user whose data has been redacted due to policy or is no longer available.
+    case identityDataRedacted
 
     /// Indicates that an attempt to register was made but there's already one in progress.
     case registerOperationAlreadyInProgress
@@ -112,6 +121,10 @@ public enum SudoIdentityVerificationClientError: Error, Equatable {
              (.badData, .badData),
              (.fatalError, .fatalError),
              (.graphQLError, .graphQLError),
+             (.identityAlreadyVerified, .identityAlreadyVerified),
+             (.identityCaptureRetryBlocked, .identityCaptureRetryBlocked),
+             (.identityCaptureRetriesExceeded, .identityCaptureRetriesExceeded),
+             (.identityDataRedacted, .identityDataRedacted),
              (.identityNotVerified, .identityNotVerified),
              (.identityVerificationRecordNotFound, .identityVerificationRecordNotFound),
              (.identityVerificationUpdateFailed, .identityVerificationUpdateFailed),
@@ -153,6 +166,10 @@ extension SudoIdentityVerificationClientError {
         static let unsupportedCountryError = "sudoplatform.identity-verification.UnsupportedCountryError"
         static let unsupportedNetworkLocationError = "sudoplatform.identity-verification.UnsupportedNetworkLocationError"
         static let requiredIdentityInformationNotProvided = "sudoplatform.identity-verification.RequiredIdentityInformationNotProvidedError"
+        static let identityAlreadyVerifiedError = "sudoplatform.identity-verification.IdentityAlreadyVerifiedError"
+        static let identityCaptureRetriesExceededError = "sudoplatform.identity-verification.IdentityCaptureRetriesExceededError"
+        static let identityCaptureRetryBlockedError = "sudoplatform.identity-verification.IdentityCaptureRetryBlockedError"
+        static let identityDataRedactedError = "sudoplatform.identity-verification.IdentityDataRedactedError"
     }
 
     static func fromApiOperationError(error: Error) -> SudoIdentityVerificationClientError { // swiftlint:disable:this cyclomatic_complexity
@@ -201,6 +218,14 @@ extension SudoIdentityVerificationClientError {
                 return .unsupportedCountry
             case Constants.requiredIdentityInformationNotProvided:
                 return .requiredIdentityInformationNotProvided
+            case Constants.identityAlreadyVerifiedError:
+                return .identityAlreadyVerified
+            case Constants.identityCaptureRetriesExceededError:
+                return .identityCaptureRetriesExceeded
+            case Constants.identityCaptureRetryBlockedError:
+                return .identityCaptureRetryBlocked
+            case Constants.identityDataRedactedError:
+                return .identityDataRedacted
             case Constants.unsupportedNetworkLocationError:
                 return .unsupportedNetworkLocation
             default:
