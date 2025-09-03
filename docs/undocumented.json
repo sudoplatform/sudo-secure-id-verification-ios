@@ -36,6 +36,27 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/gitlab-runner/builds/L19hCRpi9/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/Source/Public/Types/IdentityDataProcessingConsentContent.swift",
+      "line": 18,
+      "symbol": "IdentityDataProcessingConsentContent.init(content:contentType:locale:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/gitlab-runner/builds/L19hCRpi9/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/Source/Public/Types/IdentityDataProcessingConsentResponse.swift",
+      "line": 14,
+      "symbol": "IdentityDataProcessingConsentResponse.init(processed:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/gitlab-runner/builds/L19hCRpi9/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/Source/Public/Types/IdentityDataProcessingConsentStatus.swift",
+      "line": 24,
+      "symbol": "IdentityDataProcessingConsentStatus.init(consented:consentedAtEpochMs:consentWithdrawnAtEpochMs:content:contentType:locale:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/gitlab-runner/builds/L19hCRpi9/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/Source/Public/Types/Inputs.swift",
       "line": 36,
       "symbol": "VerifyIdentityInput.init(firstName:lastName:address:city:state:postalCode:country:dateOfBirth:)",
@@ -50,17 +71,17 @@
       "warning": "undocumented"
     },
     {
-      "file": "/Users/gitlab-runner/builds/L19hCRpi9/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/Source/Public/Types/QueryOption.swift",
-      "line": 14,
-      "symbol": "QueryOption.cacheOnly",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "file": "/Users/gitlab-runner/builds/L19hCRpi9/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/Source/Public/Types/Inputs.swift",
+      "line": 93,
+      "symbol": "IdentityDataProcessingConsentContentInput.init(preferredContentType:preferredLocale:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/gitlab-runner/builds/L19hCRpi9/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/Source/Public/Types/QueryOption.swift",
-      "line": 15,
-      "symbol": "QueryOption.remoteOnly",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "file": "/Users/gitlab-runner/builds/L19hCRpi9/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/Source/Public/Types/Inputs.swift",
+      "line": 108,
+      "symbol": "IdentityDataProcessingConsentInput.init(content:contentType:locale:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {

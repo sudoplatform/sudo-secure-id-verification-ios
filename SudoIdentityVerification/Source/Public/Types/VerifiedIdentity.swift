@@ -47,6 +47,9 @@ public struct VerifiedIdentity {
     /// Number of verification attempts remaining.
     public let attemptsRemaining: Int
 
+    /// Whether consent has been provided for identity data processing.
+    public let consented: Bool?
+
     /// Initializes a `VerifiedIdentity` instance.
     /// 
     /// - Parameters:
@@ -61,6 +64,7 @@ public struct VerifiedIdentity {
     ///   - documentVerificationStatus: Status of ongoing ID document verification
     ///   - verificationLastAttemptedAt: Date and time when verification was last attempted for this identity.
     ///   - attemptsRemaining: Number of verification attempts remaining.
+    ///   - consented: Whether consent has been provided for identity data processing
     public init(
         owner: String,
         verified: Bool,
@@ -72,7 +76,8 @@ public struct VerifiedIdentity {
         acceptableDocumentTypes: [IdDocumentType] = [],
         documentVerificationStatus: DocumentVerificationStatus = .notRequired,
         verificationLastAttemptedAt: Date? = nil,
-        attemptsRemaining: Int
+        attemptsRemaining: Int,
+        consented: Bool? = nil
     ) {
         self.owner = owner
         self.verified = verified
@@ -85,6 +90,7 @@ public struct VerifiedIdentity {
         self.documentVerificationStatus = documentVerificationStatus
         self.verificationLastAttemptedAt = verificationLastAttemptedAt
         self.attemptsRemaining = attemptsRemaining
+        self.consented = consented
     }
 
     internal init(
@@ -98,7 +104,8 @@ public struct VerifiedIdentity {
         acceptableDocumentTypes: [String],
         documentVerificationStatus: String,
         verificationLastAttemptedAtEpochMs: Double,
-        attemptsRemaining: Int
+        attemptsRemaining: Int,
+        consented: Bool?
     ) {
         var verifiedAt: Date?
         if verifiedAtEpochMs != 0 {
@@ -121,6 +128,7 @@ public struct VerifiedIdentity {
         self.documentVerificationStatus = DocumentVerificationStatus(documentVerificationStatus)
         self.verificationLastAttemptedAt = verificationLastAttemptedAt
         self.attemptsRemaining = attemptsRemaining
+        self.consented = consented
     }
 
 }

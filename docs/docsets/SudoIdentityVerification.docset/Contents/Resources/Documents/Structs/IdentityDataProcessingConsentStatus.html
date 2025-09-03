@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>DocumentVerificationStatus Enumeration Reference</title>
+    <title>IdentityDataProcessingConsentStatus Structure Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset="utf-8">
@@ -14,9 +14,9 @@
   </head>
   <body>
 
-    <a name="//apple_ref/swift/Enum/DocumentVerificationStatus" class="dashAnchor"></a>
+    <a name="//apple_ref/swift/Struct/IdentityDataProcessingConsentStatus" class="dashAnchor"></a>
 
-    <a title="DocumentVerificationStatus Enumeration Reference"></a>
+    <a title="IdentityDataProcessingConsentStatus Structure Reference"></a>
 
     <header class="header">
       <p class="header-col header-col--primary">
@@ -38,7 +38,7 @@
     <p class="breadcrumbs">
       <a class="breadcrumb" href="../index.html">SudoIdentityVerification Reference</a>
       <img class="carat" src="../img/carat.png" alt=""/>
-      DocumentVerificationStatus Enumeration Reference
+      IdentityDataProcessingConsentStatus Structure Reference
     </p>
 
     <div class="content-wrapper">
@@ -109,15 +109,15 @@
 
         <section class="section">
           <div class="section-content top-matter">
-            <h1>DocumentVerificationStatus</h1>
+            <h1>IdentityDataProcessingConsentStatus</h1>
               <div class="declaration">
                 <div class="language">
                   
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">DocumentVerificationStatus</span> <span class="p">:</span> <span class="kt">Hashable</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">IdentityDataProcessingConsentStatus</span> <span class="p">:</span> <span class="kt">Hashable</span></code></pre>
 
                 </div>
               </div>
-            <p>Status of ID document verification</p>
+            <p>Output type for getIdentityDataProcessingConsentStatus()</p>
 
           </div>
         </section>
@@ -129,9 +129,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:24SudoIdentityVerification08DocumentC6StatusO11notRequiredyA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/notRequired" class="dashAnchor"></a>
-                    <a class="token" href="#/s:24SudoIdentityVerification08DocumentC6StatusO11notRequiredyA2CmF">notRequired</a>
+                    <a name="/s:24SudoIdentityVerification0B27DataProcessingConsentStatusV9consentedSbvp"></a>
+                    <a name="//apple_ref/swift/Property/consented" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24SudoIdentityVerification0B27DataProcessingConsentStatusV9consentedSbvp">consented</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -139,14 +139,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>ID document is not required</p>
+                        <p>Whether the user has consented.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">notRequired</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">consented</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
@@ -156,9 +156,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:24SudoIdentityVerification08DocumentC6StatusO12notAttemptedyA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/notAttempted" class="dashAnchor"></a>
-                    <a class="token" href="#/s:24SudoIdentityVerification08DocumentC6StatusO12notAttemptedyA2CmF">notAttempted</a>
+                    <a name="/s:24SudoIdentityVerification0B27DataProcessingConsentStatusV18consentedAtEpochMsSdSgvp"></a>
+                    <a name="//apple_ref/swift/Property/consentedAtEpochMs" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24SudoIdentityVerification0B27DataProcessingConsentStatusV18consentedAtEpochMsSdSgvp">consentedAtEpochMs</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -166,14 +166,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>ID document is required but has not yet uploaded</p>
+                        <p>Epoch ms when consent was given, if any.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">notAttempted</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">consentedAtEpochMs</span><span class="p">:</span> <span class="kt">Double</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -183,9 +183,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:24SudoIdentityVerification08DocumentC6StatusO7pendingyA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/pending" class="dashAnchor"></a>
-                    <a class="token" href="#/s:24SudoIdentityVerification08DocumentC6StatusO7pendingyA2CmF">pending</a>
+                    <a name="/s:24SudoIdentityVerification0B27DataProcessingConsentStatusV25consentWithdrawnAtEpochMsSdSgvp"></a>
+                    <a name="//apple_ref/swift/Property/consentWithdrawnAtEpochMs" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24SudoIdentityVerification0B27DataProcessingConsentStatusV25consentWithdrawnAtEpochMsSdSgvp">consentWithdrawnAtEpochMs</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -193,14 +193,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>ID document images have been uploaded and is being processed</p>
+                        <p>Epoch ms when consent was withdrawn, if any.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">pending</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">consentWithdrawnAtEpochMs</span><span class="p">:</span> <span class="kt">Double</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -210,9 +210,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:24SudoIdentityVerification08DocumentC6StatusO18documentUnreadableyA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/documentUnreadable" class="dashAnchor"></a>
-                    <a class="token" href="#/s:24SudoIdentityVerification08DocumentC6StatusO18documentUnreadableyA2CmF">documentUnreadable</a>
+                    <a name="/s:24SudoIdentityVerification0B27DataProcessingConsentStatusV7contentSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/content" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24SudoIdentityVerification0B27DataProcessingConsentStatusV7contentSSSgvp">content</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -220,15 +220,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>ID document images are unable to be read. For example the may be too small,
-too large, too dim, too bright, have reflections, incomplete</p>
+                        <p>The consent content (optional, may be present if consented).</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">documentUnreadable</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">content</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -238,9 +237,9 @@ too large, too dim, too bright, have reflections, incomplete</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:24SudoIdentityVerification08DocumentC6StatusO6failedyA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/failed" class="dashAnchor"></a>
-                    <a class="token" href="#/s:24SudoIdentityVerification08DocumentC6StatusO6failedyA2CmF">failed</a>
+                    <a name="/s:24SudoIdentityVerification0B27DataProcessingConsentStatusV11contentTypeSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/contentType" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24SudoIdentityVerification0B27DataProcessingConsentStatusV11contentTypeSSSgvp">contentType</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -248,14 +247,14 @@ too large, too dim, too bright, have reflections, incomplete</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>ID document images could not be verified</p>
+                        <p>Content type (optional).</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">failed</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">contentType</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -265,9 +264,9 @@ too large, too dim, too bright, have reflections, incomplete</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:24SudoIdentityVerification08DocumentC6StatusO9succeededyA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/succeeded" class="dashAnchor"></a>
-                    <a class="token" href="#/s:24SudoIdentityVerification08DocumentC6StatusO9succeededyA2CmF">succeeded</a>
+                    <a name="/s:24SudoIdentityVerification0B27DataProcessingConsentStatusV6localeSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/locale" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24SudoIdentityVerification0B27DataProcessingConsentStatusV6localeSSSgvp">locale</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -275,41 +274,14 @@ too large, too dim, too bright, have reflections, incomplete</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>ID document images were successfully verified</p>
+                        <p>Locale (optional).</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">succeeded</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:24SudoIdentityVerification08DocumentC6StatusO7unknownyACSScACmF"></a>
-                    <a name="//apple_ref/swift/Element/unknown(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:24SudoIdentityVerification08DocumentC6StatusO7unknownyACSScACmF">unknown(_:<wbr>)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Unknown document verification status returned from service. Upgrade required.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">unknown</span><span class="p">(</span><span class="kt">String</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">locale</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>

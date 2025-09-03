@@ -22,6 +22,7 @@
 		84239D8827F56C5800400B51 /* Data+JSONObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D931C7CA2342D3D000932612 /* Data+JSONObject.swift */; };
 		84239EBE27F58EEC00400B51 /* Data+JSONObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84239EBD27F58EEC00400B51 /* Data+JSONObject.swift */; };
 		84239EC827F672D100400B51 /* IdDocumentImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84239EC727F672D100400B51 /* IdDocumentImages.swift */; };
+		ADE9799F2E67D0E800994BCD /* Consent.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE9799E2E67D0E800994BCD /* Consent.swift */; };
 		D931C7B92342D22700932612 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D931C7B82342D22700932612 /* AppDelegate.swift */; };
 		D931C7BB2342D22700932612 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D931C7BA2342D22700932612 /* ViewController.swift */; };
 		D931C7BE2342D22700932612 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D931C7BC2342D22700932612 /* Main.storyboard */; };
@@ -60,7 +61,6 @@
 		5D279B6E2B6CBB3500EAA061 /* DocumentVerificationStatusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentVerificationStatusTests.swift; sourceTree = "<group>"; };
 		5D279B702B6CBBC300EAA061 /* VerificationMethodTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationMethodTests.swift; sourceTree = "<group>"; };
 		84239D7B27F54AA000400B51 /* SudoIdentityVerificationClientError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudoIdentityVerificationClientError.swift; sourceTree = "<group>"; };
-		84239D7F27F54D9000400B51 /* QueryOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryOption.swift; sourceTree = "<group>"; };
 		84239D8127F54DF900400B51 /* DefaultSudoIdentityVerificationClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSudoIdentityVerificationClient.swift; sourceTree = "<group>"; };
 		84239D8427F5661800400B51 /* IdDocumentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdDocumentType.swift; sourceTree = "<group>"; };
 		84239E5F27F58B6600400B51 /* README.external.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.external.md; sourceTree = "<group>"; };
@@ -96,6 +96,7 @@
 		84239EBD27F58EEC00400B51 /* Data+JSONObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+JSONObject.swift"; sourceTree = "<group>"; };
 		84239EC727F672D100400B51 /* IdDocumentImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdDocumentImages.swift; sourceTree = "<group>"; };
 		84239ECB27F6BE2200400B51 /* Inputs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inputs.swift; sourceTree = "<group>"; };
+		ADE9799E2E67D0E800994BCD /* Consent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consent.swift; sourceTree = "<group>"; };
 		D931C7B62342D22700932612 /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D931C7B82342D22700932612 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D931C7BA2342D22700932612 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -222,7 +223,6 @@
 				5D279B672B6C5B8800EAA061 /* DocumentVerificationStatus.swift */,
 				84239D8427F5661800400B51 /* IdDocumentType.swift */,
 				84239ECB27F6BE2200400B51 /* Inputs.swift */,
-				84239D7F27F54D9000400B51 /* QueryOption.swift */,
 				5D279B692B6C7A5A00EAA061 /* VerificationMethod.swift */,
 				D9B5B2B323715DF300392596 /* VerifiedIdentity.swift */,
 			);
@@ -381,6 +381,7 @@
 		D9971C6522FD299A0077076C /* SudoIdentityVerificationTests */ = {
 			isa = PBXGroup;
 			children = (
+				ADE9799E2E67D0E800994BCD /* Consent.swift */,
 				84239D8727F56C3F00400B51 /* Extension */,
 				41C6D1F32D79624A002136AD /* Mocks */,
 				5D279B6B2B6CB92300EAA061 /* Types */,
@@ -654,6 +655,7 @@
 			files = (
 				84239D8827F56C5800400B51 /* Data+JSONObject.swift in Sources */,
 				5D279B6F2B6CBB3500EAA061 /* DocumentVerificationStatusTests.swift in Sources */,
+				ADE9799F2E67D0E800994BCD /* Consent.swift in Sources */,
 				5D279B6D2B6CB93E00EAA061 /* IdDocumentTypeTests.swift in Sources */,
 				41C6D1F52D79625A002136AD /* SudoApiClientMock.swift in Sources */,
 				D9971C6722FD299A0077076C /* SudoIdentityVerificationTests.swift in Sources */,

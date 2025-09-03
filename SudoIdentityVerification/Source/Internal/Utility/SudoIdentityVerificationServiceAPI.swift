@@ -68,6 +68,67 @@ internal struct VerifyIdentityDocumentInput: GraphQLMapConvertible {
   }
 }
 
+internal struct IdentityDataProcessingConsentContentInput: GraphQLMapConvertible {
+  internal var graphQLMap: GraphQLMap
+
+  internal init(preferredContentType: String, preferredLocale: String) {
+    graphQLMap = ["preferredContentType": preferredContentType, "preferredLocale": preferredLocale]
+  }
+
+  internal var preferredContentType: String {
+    get {
+      return graphQLMap["preferredContentType"] as! String
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "preferredContentType")
+    }
+  }
+
+  internal var preferredLocale: String {
+    get {
+      return graphQLMap["preferredLocale"] as! String
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "preferredLocale")
+    }
+  }
+}
+
+internal struct IdentityDataProcessingConsentInput: GraphQLMapConvertible {
+  internal var graphQLMap: GraphQLMap
+
+  internal init(content: String, contentType: String, locale: String) {
+    graphQLMap = ["content": content, "contentType": contentType, "locale": locale]
+  }
+
+  internal var content: String {
+    get {
+      return graphQLMap["content"] as! String
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "content")
+    }
+  }
+
+  internal var contentType: String {
+    get {
+      return graphQLMap["contentType"] as! String
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "contentType")
+    }
+  }
+
+  internal var locale: String {
+    get {
+      return graphQLMap["locale"] as! String
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "locale")
+    }
+  }
+}
+
 internal struct VerifyIdentityInput: GraphQLMapConvertible {
   internal var graphQLMap: GraphQLMap
 
@@ -216,6 +277,7 @@ internal final class CaptureAndVerifyIdentityDocumentMutation: GraphQLMutation {
         GraphQLField("documentVerificationStatus", type: .nonNull(.scalar(String.self))),
         GraphQLField("verificationLastAttemptedAtEpochMs", type: .nonNull(.scalar(Double.self))),
         GraphQLField("attemptsRemaining", type: .nonNull(.scalar(Int.self))),
+        GraphQLField("consented", type: .scalar(Bool.self)),
       ]
 
       internal var snapshot: Snapshot
@@ -224,8 +286,8 @@ internal final class CaptureAndVerifyIdentityDocumentMutation: GraphQLMutation {
         self.snapshot = snapshot
       }
 
-      internal init(owner: String, verified: Bool, verifiedAtEpochMs: Double, verificationMethod: String, canAttemptVerificationAgain: Bool, idScanUrl: String? = nil, requiredVerificationMethod: String? = nil, acceptableDocumentTypes: [String], documentVerificationStatus: String, verificationLastAttemptedAtEpochMs: Double, attemptsRemaining: Int) {
-        self.init(snapshot: ["__typename": "VerifiedIdentity", "owner": owner, "verified": verified, "verifiedAtEpochMs": verifiedAtEpochMs, "verificationMethod": verificationMethod, "canAttemptVerificationAgain": canAttemptVerificationAgain, "idScanUrl": idScanUrl, "requiredVerificationMethod": requiredVerificationMethod, "acceptableDocumentTypes": acceptableDocumentTypes, "documentVerificationStatus": documentVerificationStatus, "verificationLastAttemptedAtEpochMs": verificationLastAttemptedAtEpochMs, "attemptsRemaining": attemptsRemaining])
+      internal init(owner: String, verified: Bool, verifiedAtEpochMs: Double, verificationMethod: String, canAttemptVerificationAgain: Bool, idScanUrl: String? = nil, requiredVerificationMethod: String? = nil, acceptableDocumentTypes: [String], documentVerificationStatus: String, verificationLastAttemptedAtEpochMs: Double, attemptsRemaining: Int, consented: Bool? = nil) {
+        self.init(snapshot: ["__typename": "VerifiedIdentity", "owner": owner, "verified": verified, "verifiedAtEpochMs": verifiedAtEpochMs, "verificationMethod": verificationMethod, "canAttemptVerificationAgain": canAttemptVerificationAgain, "idScanUrl": idScanUrl, "requiredVerificationMethod": requiredVerificationMethod, "acceptableDocumentTypes": acceptableDocumentTypes, "documentVerificationStatus": documentVerificationStatus, "verificationLastAttemptedAtEpochMs": verificationLastAttemptedAtEpochMs, "attemptsRemaining": attemptsRemaining, "consented": consented])
       }
 
       internal var __typename: String {
@@ -333,6 +395,15 @@ internal final class CaptureAndVerifyIdentityDocumentMutation: GraphQLMutation {
         }
         set {
           snapshot.updateValue(newValue, forKey: "attemptsRemaining")
+        }
+      }
+
+      internal var consented: Bool? {
+        get {
+          return snapshot["consented"] as? Bool
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "consented")
         }
       }
 
@@ -413,6 +484,7 @@ internal final class CheckIdentityVerificationQuery: GraphQLQuery {
         GraphQLField("documentVerificationStatus", type: .nonNull(.scalar(String.self))),
         GraphQLField("verificationLastAttemptedAtEpochMs", type: .nonNull(.scalar(Double.self))),
         GraphQLField("attemptsRemaining", type: .nonNull(.scalar(Int.self))),
+        GraphQLField("consented", type: .scalar(Bool.self)),
       ]
 
       internal var snapshot: Snapshot
@@ -421,8 +493,8 @@ internal final class CheckIdentityVerificationQuery: GraphQLQuery {
         self.snapshot = snapshot
       }
 
-      internal init(owner: String, verified: Bool, verifiedAtEpochMs: Double, verificationMethod: String, canAttemptVerificationAgain: Bool, idScanUrl: String? = nil, requiredVerificationMethod: String? = nil, acceptableDocumentTypes: [String], documentVerificationStatus: String, verificationLastAttemptedAtEpochMs: Double, attemptsRemaining: Int) {
-        self.init(snapshot: ["__typename": "VerifiedIdentity", "owner": owner, "verified": verified, "verifiedAtEpochMs": verifiedAtEpochMs, "verificationMethod": verificationMethod, "canAttemptVerificationAgain": canAttemptVerificationAgain, "idScanUrl": idScanUrl, "requiredVerificationMethod": requiredVerificationMethod, "acceptableDocumentTypes": acceptableDocumentTypes, "documentVerificationStatus": documentVerificationStatus, "verificationLastAttemptedAtEpochMs": verificationLastAttemptedAtEpochMs, "attemptsRemaining": attemptsRemaining])
+      internal init(owner: String, verified: Bool, verifiedAtEpochMs: Double, verificationMethod: String, canAttemptVerificationAgain: Bool, idScanUrl: String? = nil, requiredVerificationMethod: String? = nil, acceptableDocumentTypes: [String], documentVerificationStatus: String, verificationLastAttemptedAtEpochMs: Double, attemptsRemaining: Int, consented: Bool? = nil) {
+        self.init(snapshot: ["__typename": "VerifiedIdentity", "owner": owner, "verified": verified, "verifiedAtEpochMs": verifiedAtEpochMs, "verificationMethod": verificationMethod, "canAttemptVerificationAgain": canAttemptVerificationAgain, "idScanUrl": idScanUrl, "requiredVerificationMethod": requiredVerificationMethod, "acceptableDocumentTypes": acceptableDocumentTypes, "documentVerificationStatus": documentVerificationStatus, "verificationLastAttemptedAtEpochMs": verificationLastAttemptedAtEpochMs, "attemptsRemaining": attemptsRemaining, "consented": consented])
       }
 
       internal var __typename: String {
@@ -533,6 +605,15 @@ internal final class CheckIdentityVerificationQuery: GraphQLQuery {
         }
       }
 
+      internal var consented: Bool? {
+        get {
+          return snapshot["consented"] as? Bool
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "consented")
+        }
+      }
+
       internal var fragments: Fragments {
         get {
           return Fragments(snapshot: snapshot)
@@ -558,9 +639,230 @@ internal final class CheckIdentityVerificationQuery: GraphQLQuery {
   }
 }
 
+internal final class GetIdentityDataProcessingConsentContentQuery: GraphQLQuery {
+  internal static let operationString =
+    "query GetIdentityDataProcessingConsentContent($input: IdentityDataProcessingConsentContentInput!) {\n  getIdentityDataProcessingConsentContent(input: $input) {\n    __typename\n    content\n    contentType\n    locale\n  }\n}"
+
+  internal var input: IdentityDataProcessingConsentContentInput
+
+  internal init(input: IdentityDataProcessingConsentContentInput) {
+    self.input = input
+  }
+
+  internal var variables: GraphQLMap? {
+    return ["input": input]
+  }
+
+  internal struct Data: GraphQLSelectionSet {
+    internal static let possibleTypes = ["Query"]
+
+    internal static let selections: [GraphQLSelection] = [
+      GraphQLField("getIdentityDataProcessingConsentContent", arguments: ["input": GraphQLVariable("input")], type: .object(GetIdentityDataProcessingConsentContent.selections)),
+    ]
+
+    internal var snapshot: Snapshot
+
+    internal init(snapshot: Snapshot) {
+      self.snapshot = snapshot
+    }
+
+    internal init(getIdentityDataProcessingConsentContent: GetIdentityDataProcessingConsentContent? = nil) {
+      self.init(snapshot: ["__typename": "Query", "getIdentityDataProcessingConsentContent": getIdentityDataProcessingConsentContent.flatMap { $0.snapshot }])
+    }
+
+    internal var getIdentityDataProcessingConsentContent: GetIdentityDataProcessingConsentContent? {
+      get {
+        return (snapshot["getIdentityDataProcessingConsentContent"] as? Snapshot).flatMap { GetIdentityDataProcessingConsentContent(snapshot: $0) }
+      }
+      set {
+        snapshot.updateValue(newValue?.snapshot, forKey: "getIdentityDataProcessingConsentContent")
+      }
+    }
+
+    internal struct GetIdentityDataProcessingConsentContent: GraphQLSelectionSet {
+      internal static let possibleTypes = ["IdentityDataProcessingConsentContent"]
+
+      internal static let selections: [GraphQLSelection] = [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("content", type: .nonNull(.scalar(String.self))),
+        GraphQLField("contentType", type: .nonNull(.scalar(String.self))),
+        GraphQLField("locale", type: .nonNull(.scalar(String.self))),
+      ]
+
+      internal var snapshot: Snapshot
+
+      internal init(snapshot: Snapshot) {
+        self.snapshot = snapshot
+      }
+
+      internal init(content: String, contentType: String, locale: String) {
+        self.init(snapshot: ["__typename": "IdentityDataProcessingConsentContent", "content": content, "contentType": contentType, "locale": locale])
+      }
+
+      internal var __typename: String {
+        get {
+          return snapshot["__typename"]! as! String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      internal var content: String {
+        get {
+          return snapshot["content"]! as! String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "content")
+        }
+      }
+
+      internal var contentType: String {
+        get {
+          return snapshot["contentType"]! as! String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "contentType")
+        }
+      }
+
+      internal var locale: String {
+        get {
+          return snapshot["locale"]! as! String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "locale")
+        }
+      }
+    }
+  }
+}
+
+internal final class GetIdentityDataProcessingConsentStatusQuery: GraphQLQuery {
+  internal static let operationString =
+    "query GetIdentityDataProcessingConsentStatus {\n  getIdentityDataProcessingConsentStatus {\n    __typename\n    consented\n    consentedAtEpochMs\n    consentWithdrawnAtEpochMs\n    content\n    contentType\n    locale\n  }\n}"
+
+  internal init() {
+  }
+
+  internal struct Data: GraphQLSelectionSet {
+    internal static let possibleTypes = ["Query"]
+
+    internal static let selections: [GraphQLSelection] = [
+      GraphQLField("getIdentityDataProcessingConsentStatus", type: .object(GetIdentityDataProcessingConsentStatus.selections)),
+    ]
+
+    internal var snapshot: Snapshot
+
+    internal init(snapshot: Snapshot) {
+      self.snapshot = snapshot
+    }
+
+    internal init(getIdentityDataProcessingConsentStatus: GetIdentityDataProcessingConsentStatus? = nil) {
+      self.init(snapshot: ["__typename": "Query", "getIdentityDataProcessingConsentStatus": getIdentityDataProcessingConsentStatus.flatMap { $0.snapshot }])
+    }
+
+    internal var getIdentityDataProcessingConsentStatus: GetIdentityDataProcessingConsentStatus? {
+      get {
+        return (snapshot["getIdentityDataProcessingConsentStatus"] as? Snapshot).flatMap { GetIdentityDataProcessingConsentStatus(snapshot: $0) }
+      }
+      set {
+        snapshot.updateValue(newValue?.snapshot, forKey: "getIdentityDataProcessingConsentStatus")
+      }
+    }
+
+    internal struct GetIdentityDataProcessingConsentStatus: GraphQLSelectionSet {
+      internal static let possibleTypes = ["IdentityDataProcessingConsentStatus"]
+
+      internal static let selections: [GraphQLSelection] = [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("consented", type: .nonNull(.scalar(Bool.self))),
+        GraphQLField("consentedAtEpochMs", type: .scalar(Double.self)),
+        GraphQLField("consentWithdrawnAtEpochMs", type: .scalar(Double.self)),
+        GraphQLField("content", type: .scalar(String.self)),
+        GraphQLField("contentType", type: .scalar(String.self)),
+        GraphQLField("locale", type: .scalar(String.self)),
+      ]
+
+      internal var snapshot: Snapshot
+
+      internal init(snapshot: Snapshot) {
+        self.snapshot = snapshot
+      }
+
+      internal init(consented: Bool, consentedAtEpochMs: Double? = nil, consentWithdrawnAtEpochMs: Double? = nil, content: String? = nil, contentType: String? = nil, locale: String? = nil) {
+        self.init(snapshot: ["__typename": "IdentityDataProcessingConsentStatus", "consented": consented, "consentedAtEpochMs": consentedAtEpochMs, "consentWithdrawnAtEpochMs": consentWithdrawnAtEpochMs, "content": content, "contentType": contentType, "locale": locale])
+      }
+
+      internal var __typename: String {
+        get {
+          return snapshot["__typename"]! as! String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      internal var consented: Bool {
+        get {
+          return snapshot["consented"]! as! Bool
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "consented")
+        }
+      }
+
+      internal var consentedAtEpochMs: Double? {
+        get {
+          return snapshot["consentedAtEpochMs"] as? Double
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "consentedAtEpochMs")
+        }
+      }
+
+      internal var consentWithdrawnAtEpochMs: Double? {
+        get {
+          return snapshot["consentWithdrawnAtEpochMs"] as? Double
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "consentWithdrawnAtEpochMs")
+        }
+      }
+
+      internal var content: String? {
+        get {
+          return snapshot["content"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "content")
+        }
+      }
+
+      internal var contentType: String? {
+        get {
+          return snapshot["contentType"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "contentType")
+        }
+      }
+
+      internal var locale: String? {
+        get {
+          return snapshot["locale"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "locale")
+        }
+      }
+    }
+  }
+}
+
 internal final class GetIdentityVerificationCapabilitiesQuery: GraphQLQuery {
   internal static let operationString =
-    "query GetIdentityVerificationCapabilities {\n  getIdentityVerificationCapabilities {\n    __typename\n    supportedCountries\n    faceImageRequiredWithDocumentCapture\n    faceImageRequiredWithDocumentVerification\n    canInitiateDocumentCapture\n  }\n}"
+    "query GetIdentityVerificationCapabilities {\n  getIdentityVerificationCapabilities {\n    __typename\n    supportedCountries\n    faceImageRequiredWithDocumentCapture\n    faceImageRequiredWithDocumentVerification\n    canInitiateDocumentCapture\n    consentRequired\n  }\n}"
 
   internal init() {
   }
@@ -600,6 +902,7 @@ internal final class GetIdentityVerificationCapabilitiesQuery: GraphQLQuery {
         GraphQLField("faceImageRequiredWithDocumentCapture", type: .nonNull(.scalar(Bool.self))),
         GraphQLField("faceImageRequiredWithDocumentVerification", type: .nonNull(.scalar(Bool.self))),
         GraphQLField("canInitiateDocumentCapture", type: .nonNull(.scalar(Bool.self))),
+        GraphQLField("consentRequired", type: .nonNull(.scalar(Bool.self))),
       ]
 
       internal var snapshot: Snapshot
@@ -608,8 +911,8 @@ internal final class GetIdentityVerificationCapabilitiesQuery: GraphQLQuery {
         self.snapshot = snapshot
       }
 
-      internal init(supportedCountries: [String], faceImageRequiredWithDocumentCapture: Bool, faceImageRequiredWithDocumentVerification: Bool, canInitiateDocumentCapture: Bool) {
-        self.init(snapshot: ["__typename": "IdentityVerificationCapabilities", "supportedCountries": supportedCountries, "faceImageRequiredWithDocumentCapture": faceImageRequiredWithDocumentCapture, "faceImageRequiredWithDocumentVerification": faceImageRequiredWithDocumentVerification, "canInitiateDocumentCapture": canInitiateDocumentCapture])
+      internal init(supportedCountries: [String], faceImageRequiredWithDocumentCapture: Bool, faceImageRequiredWithDocumentVerification: Bool, canInitiateDocumentCapture: Bool, consentRequired: Bool) {
+        self.init(snapshot: ["__typename": "IdentityVerificationCapabilities", "supportedCountries": supportedCountries, "faceImageRequiredWithDocumentCapture": faceImageRequiredWithDocumentCapture, "faceImageRequiredWithDocumentVerification": faceImageRequiredWithDocumentVerification, "canInitiateDocumentCapture": canInitiateDocumentCapture, "consentRequired": consentRequired])
       }
 
       internal var __typename: String {
@@ -654,6 +957,15 @@ internal final class GetIdentityVerificationCapabilitiesQuery: GraphQLQuery {
         }
         set {
           snapshot.updateValue(newValue, forKey: "canInitiateDocumentCapture")
+        }
+      }
+
+      internal var consentRequired: Bool {
+        get {
+          return snapshot["consentRequired"]! as! Bool
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "consentRequired")
         }
       }
     }
@@ -742,6 +1054,85 @@ internal final class InitiateIdentityDocumentCaptureMutation: GraphQLMutation {
   }
 }
 
+internal final class ProvideIdentityDataProcessingConsentMutation: GraphQLMutation {
+  internal static let operationString =
+    "mutation ProvideIdentityDataProcessingConsent($input: IdentityDataProcessingConsentInput!) {\n  provideIdentityDataProcessingConsent(input: $input) {\n    __typename\n    processed\n  }\n}"
+
+  internal var input: IdentityDataProcessingConsentInput
+
+  internal init(input: IdentityDataProcessingConsentInput) {
+    self.input = input
+  }
+
+  internal var variables: GraphQLMap? {
+    return ["input": input]
+  }
+
+  internal struct Data: GraphQLSelectionSet {
+    internal static let possibleTypes = ["Mutation"]
+
+    internal static let selections: [GraphQLSelection] = [
+      GraphQLField("provideIdentityDataProcessingConsent", arguments: ["input": GraphQLVariable("input")], type: .object(ProvideIdentityDataProcessingConsent.selections)),
+    ]
+
+    internal var snapshot: Snapshot
+
+    internal init(snapshot: Snapshot) {
+      self.snapshot = snapshot
+    }
+
+    internal init(provideIdentityDataProcessingConsent: ProvideIdentityDataProcessingConsent? = nil) {
+      self.init(snapshot: ["__typename": "Mutation", "provideIdentityDataProcessingConsent": provideIdentityDataProcessingConsent.flatMap { $0.snapshot }])
+    }
+
+    internal var provideIdentityDataProcessingConsent: ProvideIdentityDataProcessingConsent? {
+      get {
+        return (snapshot["provideIdentityDataProcessingConsent"] as? Snapshot).flatMap { ProvideIdentityDataProcessingConsent(snapshot: $0) }
+      }
+      set {
+        snapshot.updateValue(newValue?.snapshot, forKey: "provideIdentityDataProcessingConsent")
+      }
+    }
+
+    internal struct ProvideIdentityDataProcessingConsent: GraphQLSelectionSet {
+      internal static let possibleTypes = ["IdentityDataProcessingConsentResponse"]
+
+      internal static let selections: [GraphQLSelection] = [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("processed", type: .nonNull(.scalar(Bool.self))),
+      ]
+
+      internal var snapshot: Snapshot
+
+      internal init(snapshot: Snapshot) {
+        self.snapshot = snapshot
+      }
+
+      internal init(processed: Bool) {
+        self.init(snapshot: ["__typename": "IdentityDataProcessingConsentResponse", "processed": processed])
+      }
+
+      internal var __typename: String {
+        get {
+          return snapshot["__typename"]! as! String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      internal var processed: Bool {
+        get {
+          return snapshot["processed"]! as! Bool
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "processed")
+        }
+      }
+    }
+  }
+}
+
 internal final class VerifyIdentityMutation: GraphQLMutation {
   internal static let operationString =
     "mutation VerifyIdentity($input: VerifyIdentityInput) {\n  verifyIdentity(input: $input) {\n    __typename\n    ...VerifiedIdentity\n  }\n}"
@@ -801,6 +1192,7 @@ internal final class VerifyIdentityMutation: GraphQLMutation {
         GraphQLField("documentVerificationStatus", type: .nonNull(.scalar(String.self))),
         GraphQLField("verificationLastAttemptedAtEpochMs", type: .nonNull(.scalar(Double.self))),
         GraphQLField("attemptsRemaining", type: .nonNull(.scalar(Int.self))),
+        GraphQLField("consented", type: .scalar(Bool.self)),
       ]
 
       internal var snapshot: Snapshot
@@ -809,8 +1201,8 @@ internal final class VerifyIdentityMutation: GraphQLMutation {
         self.snapshot = snapshot
       }
 
-      internal init(owner: String, verified: Bool, verifiedAtEpochMs: Double, verificationMethod: String, canAttemptVerificationAgain: Bool, idScanUrl: String? = nil, requiredVerificationMethod: String? = nil, acceptableDocumentTypes: [String], documentVerificationStatus: String, verificationLastAttemptedAtEpochMs: Double, attemptsRemaining: Int) {
-        self.init(snapshot: ["__typename": "VerifiedIdentity", "owner": owner, "verified": verified, "verifiedAtEpochMs": verifiedAtEpochMs, "verificationMethod": verificationMethod, "canAttemptVerificationAgain": canAttemptVerificationAgain, "idScanUrl": idScanUrl, "requiredVerificationMethod": requiredVerificationMethod, "acceptableDocumentTypes": acceptableDocumentTypes, "documentVerificationStatus": documentVerificationStatus, "verificationLastAttemptedAtEpochMs": verificationLastAttemptedAtEpochMs, "attemptsRemaining": attemptsRemaining])
+      internal init(owner: String, verified: Bool, verifiedAtEpochMs: Double, verificationMethod: String, canAttemptVerificationAgain: Bool, idScanUrl: String? = nil, requiredVerificationMethod: String? = nil, acceptableDocumentTypes: [String], documentVerificationStatus: String, verificationLastAttemptedAtEpochMs: Double, attemptsRemaining: Int, consented: Bool? = nil) {
+        self.init(snapshot: ["__typename": "VerifiedIdentity", "owner": owner, "verified": verified, "verifiedAtEpochMs": verifiedAtEpochMs, "verificationMethod": verificationMethod, "canAttemptVerificationAgain": canAttemptVerificationAgain, "idScanUrl": idScanUrl, "requiredVerificationMethod": requiredVerificationMethod, "acceptableDocumentTypes": acceptableDocumentTypes, "documentVerificationStatus": documentVerificationStatus, "verificationLastAttemptedAtEpochMs": verificationLastAttemptedAtEpochMs, "attemptsRemaining": attemptsRemaining, "consented": consented])
       }
 
       internal var __typename: String {
@@ -918,6 +1310,15 @@ internal final class VerifyIdentityMutation: GraphQLMutation {
         }
         set {
           snapshot.updateValue(newValue, forKey: "attemptsRemaining")
+        }
+      }
+
+      internal var consented: Bool? {
+        get {
+          return snapshot["consented"] as? Bool
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "consented")
         }
       }
 
@@ -1005,6 +1406,7 @@ internal final class VerifyIdentityDocumentMutation: GraphQLMutation {
         GraphQLField("documentVerificationStatus", type: .nonNull(.scalar(String.self))),
         GraphQLField("verificationLastAttemptedAtEpochMs", type: .nonNull(.scalar(Double.self))),
         GraphQLField("attemptsRemaining", type: .nonNull(.scalar(Int.self))),
+        GraphQLField("consented", type: .scalar(Bool.self)),
       ]
 
       internal var snapshot: Snapshot
@@ -1013,8 +1415,8 @@ internal final class VerifyIdentityDocumentMutation: GraphQLMutation {
         self.snapshot = snapshot
       }
 
-      internal init(owner: String, verified: Bool, verifiedAtEpochMs: Double, verificationMethod: String, canAttemptVerificationAgain: Bool, idScanUrl: String? = nil, requiredVerificationMethod: String? = nil, acceptableDocumentTypes: [String], documentVerificationStatus: String, verificationLastAttemptedAtEpochMs: Double, attemptsRemaining: Int) {
-        self.init(snapshot: ["__typename": "VerifiedIdentity", "owner": owner, "verified": verified, "verifiedAtEpochMs": verifiedAtEpochMs, "verificationMethod": verificationMethod, "canAttemptVerificationAgain": canAttemptVerificationAgain, "idScanUrl": idScanUrl, "requiredVerificationMethod": requiredVerificationMethod, "acceptableDocumentTypes": acceptableDocumentTypes, "documentVerificationStatus": documentVerificationStatus, "verificationLastAttemptedAtEpochMs": verificationLastAttemptedAtEpochMs, "attemptsRemaining": attemptsRemaining])
+      internal init(owner: String, verified: Bool, verifiedAtEpochMs: Double, verificationMethod: String, canAttemptVerificationAgain: Bool, idScanUrl: String? = nil, requiredVerificationMethod: String? = nil, acceptableDocumentTypes: [String], documentVerificationStatus: String, verificationLastAttemptedAtEpochMs: Double, attemptsRemaining: Int, consented: Bool? = nil) {
+        self.init(snapshot: ["__typename": "VerifiedIdentity", "owner": owner, "verified": verified, "verifiedAtEpochMs": verifiedAtEpochMs, "verificationMethod": verificationMethod, "canAttemptVerificationAgain": canAttemptVerificationAgain, "idScanUrl": idScanUrl, "requiredVerificationMethod": requiredVerificationMethod, "acceptableDocumentTypes": acceptableDocumentTypes, "documentVerificationStatus": documentVerificationStatus, "verificationLastAttemptedAtEpochMs": verificationLastAttemptedAtEpochMs, "attemptsRemaining": attemptsRemaining, "consented": consented])
       }
 
       internal var __typename: String {
@@ -1125,6 +1527,15 @@ internal final class VerifyIdentityDocumentMutation: GraphQLMutation {
         }
       }
 
+      internal var consented: Bool? {
+        get {
+          return snapshot["consented"] as? Bool
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "consented")
+        }
+      }
+
       internal var fragments: Fragments {
         get {
           return Fragments(snapshot: snapshot)
@@ -1150,9 +1561,81 @@ internal final class VerifyIdentityDocumentMutation: GraphQLMutation {
   }
 }
 
+internal final class WithdrawIdentityDataProcessingConsentMutation: GraphQLMutation {
+  internal static let operationString =
+    "mutation WithdrawIdentityDataProcessingConsent {\n  withdrawIdentityDataProcessingConsent {\n    __typename\n    processed\n  }\n}"
+
+  internal init() {
+  }
+
+  internal struct Data: GraphQLSelectionSet {
+    internal static let possibleTypes = ["Mutation"]
+
+    internal static let selections: [GraphQLSelection] = [
+      GraphQLField("withdrawIdentityDataProcessingConsent", type: .object(WithdrawIdentityDataProcessingConsent.selections)),
+    ]
+
+    internal var snapshot: Snapshot
+
+    internal init(snapshot: Snapshot) {
+      self.snapshot = snapshot
+    }
+
+    internal init(withdrawIdentityDataProcessingConsent: WithdrawIdentityDataProcessingConsent? = nil) {
+      self.init(snapshot: ["__typename": "Mutation", "withdrawIdentityDataProcessingConsent": withdrawIdentityDataProcessingConsent.flatMap { $0.snapshot }])
+    }
+
+    internal var withdrawIdentityDataProcessingConsent: WithdrawIdentityDataProcessingConsent? {
+      get {
+        return (snapshot["withdrawIdentityDataProcessingConsent"] as? Snapshot).flatMap { WithdrawIdentityDataProcessingConsent(snapshot: $0) }
+      }
+      set {
+        snapshot.updateValue(newValue?.snapshot, forKey: "withdrawIdentityDataProcessingConsent")
+      }
+    }
+
+    internal struct WithdrawIdentityDataProcessingConsent: GraphQLSelectionSet {
+      internal static let possibleTypes = ["IdentityDataProcessingConsentResponse"]
+
+      internal static let selections: [GraphQLSelection] = [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("processed", type: .nonNull(.scalar(Bool.self))),
+      ]
+
+      internal var snapshot: Snapshot
+
+      internal init(snapshot: Snapshot) {
+        self.snapshot = snapshot
+      }
+
+      internal init(processed: Bool) {
+        self.init(snapshot: ["__typename": "IdentityDataProcessingConsentResponse", "processed": processed])
+      }
+
+      internal var __typename: String {
+        get {
+          return snapshot["__typename"]! as! String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      internal var processed: Bool {
+        get {
+          return snapshot["processed"]! as! Bool
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "processed")
+        }
+      }
+    }
+  }
+}
+
 internal struct VerifiedIdentity: GraphQLFragment {
   internal static let fragmentString =
-    "fragment VerifiedIdentity on VerifiedIdentity {\n  __typename\n  owner\n  verified\n  verifiedAtEpochMs\n  verificationMethod\n  canAttemptVerificationAgain\n  idScanUrl\n  requiredVerificationMethod\n  acceptableDocumentTypes\n  documentVerificationStatus\n  verificationLastAttemptedAtEpochMs\n  attemptsRemaining\n}"
+    "fragment VerifiedIdentity on VerifiedIdentity {\n  __typename\n  owner\n  verified\n  verifiedAtEpochMs\n  verificationMethod\n  canAttemptVerificationAgain\n  idScanUrl\n  requiredVerificationMethod\n  acceptableDocumentTypes\n  documentVerificationStatus\n  verificationLastAttemptedAtEpochMs\n  attemptsRemaining\n  consented\n}"
 
   internal static let possibleTypes = ["VerifiedIdentity"]
 
@@ -1169,6 +1652,7 @@ internal struct VerifiedIdentity: GraphQLFragment {
     GraphQLField("documentVerificationStatus", type: .nonNull(.scalar(String.self))),
     GraphQLField("verificationLastAttemptedAtEpochMs", type: .nonNull(.scalar(Double.self))),
     GraphQLField("attemptsRemaining", type: .nonNull(.scalar(Int.self))),
+    GraphQLField("consented", type: .scalar(Bool.self)),
   ]
 
   internal var snapshot: Snapshot
@@ -1177,8 +1661,8 @@ internal struct VerifiedIdentity: GraphQLFragment {
     self.snapshot = snapshot
   }
 
-  internal init(owner: String, verified: Bool, verifiedAtEpochMs: Double, verificationMethod: String, canAttemptVerificationAgain: Bool, idScanUrl: String? = nil, requiredVerificationMethod: String? = nil, acceptableDocumentTypes: [String], documentVerificationStatus: String, verificationLastAttemptedAtEpochMs: Double, attemptsRemaining: Int) {
-    self.init(snapshot: ["__typename": "VerifiedIdentity", "owner": owner, "verified": verified, "verifiedAtEpochMs": verifiedAtEpochMs, "verificationMethod": verificationMethod, "canAttemptVerificationAgain": canAttemptVerificationAgain, "idScanUrl": idScanUrl, "requiredVerificationMethod": requiredVerificationMethod, "acceptableDocumentTypes": acceptableDocumentTypes, "documentVerificationStatus": documentVerificationStatus, "verificationLastAttemptedAtEpochMs": verificationLastAttemptedAtEpochMs, "attemptsRemaining": attemptsRemaining])
+  internal init(owner: String, verified: Bool, verifiedAtEpochMs: Double, verificationMethod: String, canAttemptVerificationAgain: Bool, idScanUrl: String? = nil, requiredVerificationMethod: String? = nil, acceptableDocumentTypes: [String], documentVerificationStatus: String, verificationLastAttemptedAtEpochMs: Double, attemptsRemaining: Int, consented: Bool? = nil) {
+    self.init(snapshot: ["__typename": "VerifiedIdentity", "owner": owner, "verified": verified, "verifiedAtEpochMs": verifiedAtEpochMs, "verificationMethod": verificationMethod, "canAttemptVerificationAgain": canAttemptVerificationAgain, "idScanUrl": idScanUrl, "requiredVerificationMethod": requiredVerificationMethod, "acceptableDocumentTypes": acceptableDocumentTypes, "documentVerificationStatus": documentVerificationStatus, "verificationLastAttemptedAtEpochMs": verificationLastAttemptedAtEpochMs, "attemptsRemaining": attemptsRemaining, "consented": consented])
   }
 
   internal var __typename: String {
@@ -1286,6 +1770,15 @@ internal struct VerifiedIdentity: GraphQLFragment {
     }
     set {
       snapshot.updateValue(newValue, forKey: "attemptsRemaining")
+    }
+  }
+
+  internal var consented: Bool? {
+    get {
+      return snapshot["consented"] as? Bool
+    }
+    set {
+      snapshot.updateValue(newValue, forKey: "consented")
     }
   }
 }

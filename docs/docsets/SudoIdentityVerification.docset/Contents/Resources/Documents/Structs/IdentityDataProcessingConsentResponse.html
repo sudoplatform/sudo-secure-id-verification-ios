@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>IdentityDocumentCaptureInitiationInfo Structure Reference</title>
+    <title>IdentityDataProcessingConsentResponse Structure Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset="utf-8">
@@ -14,9 +14,9 @@
   </head>
   <body>
 
-    <a name="//apple_ref/swift/Struct/IdentityDocumentCaptureInitiationInfo" class="dashAnchor"></a>
+    <a name="//apple_ref/swift/Struct/IdentityDataProcessingConsentResponse" class="dashAnchor"></a>
 
-    <a title="IdentityDocumentCaptureInitiationInfo Structure Reference"></a>
+    <a title="IdentityDataProcessingConsentResponse Structure Reference"></a>
 
     <header class="header">
       <p class="header-col header-col--primary">
@@ -38,7 +38,7 @@
     <p class="breadcrumbs">
       <a class="breadcrumb" href="../index.html">SudoIdentityVerification Reference</a>
       <img class="carat" src="../img/carat.png" alt=""/>
-      IdentityDocumentCaptureInitiationInfo Structure Reference
+      IdentityDataProcessingConsentResponse Structure Reference
     </p>
 
     <div class="content-wrapper">
@@ -109,15 +109,15 @@
 
         <section class="section">
           <div class="section-content top-matter">
-            <h1>IdentityDocumentCaptureInitiationInfo</h1>
+            <h1>IdentityDataProcessingConsentResponse</h1>
               <div class="declaration">
                 <div class="language">
                   
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">IdentityDocumentCaptureInitiationInfo</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">IdentityDataProcessingConsentResponse</span> <span class="p">:</span> <span class="kt">Hashable</span></code></pre>
 
                 </div>
               </div>
-            <p>Represents identity document capture initiation details obtained via <code>initiateIdentityDocumentCapture</code> API.</p>
+            <p>Output type for provideIdentityDataProcessingConsent and withdrawIdentityDataProcessingConsent</p>
 
           </div>
         </section>
@@ -129,9 +129,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:24SudoIdentityVerification0B29DocumentCaptureInitiationInfoV08documentE3UrlSSvp"></a>
-                    <a name="//apple_ref/swift/Property/documentCaptureUrl" class="dashAnchor"></a>
-                    <a class="token" href="#/s:24SudoIdentityVerification0B29DocumentCaptureInitiationInfoV08documentE3UrlSSvp">documentCaptureUrl</a>
+                    <a name="/s:24SudoIdentityVerification0B29DataProcessingConsentResponseV9processedSbvp"></a>
+                    <a name="//apple_ref/swift/Property/processed" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24SudoIdentityVerification0B29DataProcessingConsentResponseV9processedSbvp">processed</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -139,41 +139,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>URL for uploading identity document information.</p>
+                        <p>Whether the consent action was processed successfully.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">documentCaptureUrl</span><span class="p">:</span> <span class="kt">String</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:24SudoIdentityVerification0B29DocumentCaptureInitiationInfoV8expiryAt10Foundation4DateVvp"></a>
-                    <a name="//apple_ref/swift/Property/expiryAt" class="dashAnchor"></a>
-                    <a class="token" href="#/s:24SudoIdentityVerification0B29DocumentCaptureInitiationInfoV8expiryAt10Foundation4DateVvp">expiryAt</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>When the document capture URL is no longer usable.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">expiryAt</span><span class="p">:</span> <span class="kt">Date</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">processed</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>

@@ -45,13 +45,13 @@ public enum SudoIdentityVerificationClientError: Error, Equatable {
 
     /// Identity verification has already been completed.
     case identityAlreadyVerified
-    
+
     /// Identity document capture attempts has been exceeded.
     case identityCaptureRetriesExceeded
-    
+
     /// Identity document capture additional attempts has been prevented.
     case identityCaptureRetryBlocked
-    
+
     /// Identity data retrieval attempted for a user whose data has been redacted due to policy or is no longer available.
     case identityDataRedacted
 
@@ -101,6 +101,9 @@ public enum SudoIdentityVerificationClientError: Error, Equatable {
     /// Indicates that there were too many attempts at sending API requests within a short period of time.
     case rateLimitExceeded
 
+    /// Indicates that an operation requiring consent was attempted, and consent was not granted
+    case consentRequired
+
     /// Indicates that a GraphQL error was returned by the backend.
     case graphQLError(description: String)
 
@@ -120,6 +123,7 @@ public enum SudoIdentityVerificationClientError: Error, Equatable {
         case (.accountLocked, .accountLocked),
              (.badData, .badData),
              (.fatalError, .fatalError),
+             (.consentRequired, .consentRequired),
              (.graphQLError, .graphQLError),
              (.identityAlreadyVerified, .identityAlreadyVerified),
              (.identityCaptureRetryBlocked, .identityCaptureRetryBlocked),
@@ -170,6 +174,7 @@ extension SudoIdentityVerificationClientError {
         static let identityCaptureRetriesExceededError = "sudoplatform.identity-verification.IdentityCaptureRetriesExceededError"
         static let identityCaptureRetryBlockedError = "sudoplatform.identity-verification.IdentityCaptureRetryBlockedError"
         static let identityDataRedactedError = "sudoplatform.identity-verification.IdentityDataRedactedError"
+        static let consentRequiredError = "sudoplatform.identity-verification.ConsentRequiredError"
     }
 
     static func fromApiOperationError(error: Error) -> SudoIdentityVerificationClientError { // swiftlint:disable:this cyclomatic_complexity
@@ -228,6 +233,8 @@ extension SudoIdentityVerificationClientError {
                 return .identityDataRedacted
             case Constants.unsupportedNetworkLocationError:
                 return .unsupportedNetworkLocation
+            case Constants.consentRequiredError:
+                return .consentRequired
             default:
                 return .graphQLError(description: "Unexpected GraphQL error: \(underlyingError.localizedDescription)")
             }

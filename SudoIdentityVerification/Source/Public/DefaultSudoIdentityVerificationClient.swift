@@ -48,7 +48,7 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
         ) else {
             throw SudoIdentityVerificationClientError.invalidConfig
         }
-        self.init(sudoUserClient: sudoUserClient,  graphQLClient: graphQLClient, logger: logger)
+        self.init(sudoUserClient: sudoUserClient, graphQLClient: graphQLClient, logger: logger)
     }
 
     /// Initializes a new `DefaultSudoIdentityVerificationClient` instance with the specified backend configuration.
@@ -120,6 +120,19 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
         }
     }
 
+    public func isConsentRequiredForVerification() async throws -> Bool {
+        logger.info("Retrieving flag for whether consent for identity data processing is required.")
+        do {
+            let result = try await graphQLClient.fetch(query: GraphQL.GetIdentityVerificationCapabilitiesQuery())
+            guard let consentRequired = result.getIdentityVerificationCapabilities?.consentRequired else {
+                return false
+            }
+            return consentRequired
+        } catch {
+            throw SudoIdentityVerificationClientError.fromApiOperationError(error: error)
+        }
+    }
+
     public func verifyIdentity(input: VerifyIdentityInput) async throws -> VerifiedIdentity {
         logger.info("Verifying an identity.")
 
@@ -150,7 +163,8 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
                 acceptableDocumentTypes: verifiedIdentity.acceptableDocumentTypes,
                 documentVerificationStatus: verifiedIdentity.documentVerificationStatus,
                 verificationLastAttemptedAtEpochMs: verifiedIdentity.verificationLastAttemptedAtEpochMs,
-                attemptsRemaining: verifiedIdentity.attemptsRemaining
+                attemptsRemaining: verifiedIdentity.attemptsRemaining,
+                consented: verifiedIdentity.consented
             )
         } catch {
             throw SudoIdentityVerificationClientError.fromApiOperationError(error: error)
@@ -183,7 +197,8 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
                 acceptableDocumentTypes: verifiedIdentity.acceptableDocumentTypes,
                 documentVerificationStatus: verifiedIdentity.documentVerificationStatus,
                 verificationLastAttemptedAtEpochMs: verifiedIdentity.verificationLastAttemptedAtEpochMs,
-                attemptsRemaining: verifiedIdentity.attemptsRemaining
+                attemptsRemaining: verifiedIdentity.attemptsRemaining,
+                consented: verifiedIdentity.consented
             )
         } catch {
             throw SudoIdentityVerificationClientError.fromApiOperationError(error: error)
@@ -216,7 +231,8 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
                 acceptableDocumentTypes: verifiedIdentity.acceptableDocumentTypes,
                 documentVerificationStatus: verifiedIdentity.documentVerificationStatus,
                 verificationLastAttemptedAtEpochMs: verifiedIdentity.verificationLastAttemptedAtEpochMs,
-                attemptsRemaining: verifiedIdentity.attemptsRemaining
+                attemptsRemaining: verifiedIdentity.attemptsRemaining,
+                consented: verifiedIdentity.consented
             )
         } catch {
             throw SudoIdentityVerificationClientError.fromApiOperationError(error: error)
@@ -257,8 +273,81 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
                 acceptableDocumentTypes: verifiedIdentity.acceptableDocumentTypes,
                 documentVerificationStatus: verifiedIdentity.documentVerificationStatus,
                 verificationLastAttemptedAtEpochMs: verifiedIdentity.verificationLastAttemptedAtEpochMs,
-                attemptsRemaining: verifiedIdentity.attemptsRemaining
+                attemptsRemaining: verifiedIdentity.attemptsRemaining,
+                consented: verifiedIdentity.consented
             )
+        } catch {
+            throw SudoIdentityVerificationClientError.fromApiOperationError(error: error)
+        }
+    }
+
+    public func getIdentityDataProcessingConsentContent(input: IdentityDataProcessingConsentContentInput) async throws -> IdentityDataProcessingConsentContent {
+        logger.info("Retrieving identity data processing consent content.")
+        let gqlInput = GraphQL.IdentityDataProcessingConsentContentInput(
+            preferredContentType: input.preferredContentType,
+            preferredLocale: input.preferredLocale
+        )
+        do {
+            let result = try await graphQLClient.fetch(query: GraphQL.GetIdentityDataProcessingConsentContentQuery(input: gqlInput))
+            guard let content = result.getIdentityDataProcessingConsentContent else {
+                throw SudoIdentityVerificationClientError.fatalError(description: "Query result did not contain consent content.")
+            }
+            return IdentityDataProcessingConsentContent(
+                content: content.content,
+                contentType: content.contentType,
+                locale: content.locale
+            )
+        } catch {
+            throw SudoIdentityVerificationClientError.fromApiOperationError(error: error)
+        }
+    }
+
+    public func getIdentityDataProcessingConsentStatus() async throws -> IdentityDataProcessingConsentStatus {
+        logger.info("Retrieving identity data processing consent status.")
+        do {
+            let result = try await graphQLClient.fetch(query: GraphQL.GetIdentityDataProcessingConsentStatusQuery())
+            guard let status = result.getIdentityDataProcessingConsentStatus else {
+                throw SudoIdentityVerificationClientError.fatalError(description: "Query result did not contain consent status.")
+            }
+            return IdentityDataProcessingConsentStatus(
+                consented: status.consented,
+                consentedAtEpochMs: status.consentedAtEpochMs,
+                consentWithdrawnAtEpochMs: status.consentWithdrawnAtEpochMs,
+                content: status.content,
+                contentType: status.contentType,
+                locale: status.locale
+            )
+        } catch {
+            throw SudoIdentityVerificationClientError.fromApiOperationError(error: error)
+        }
+    }
+
+    public func provideIdentityDataProcessingConsent(input: IdentityDataProcessingConsentInput) async throws -> IdentityDataProcessingConsentResponse {
+        logger.info("Providing identity data processing consent.")
+        let gqlInput = GraphQL.IdentityDataProcessingConsentInput(
+            content: input.content,
+            contentType: input.contentType,
+            locale: input.locale
+        )
+        do {
+            let result = try await graphQLClient.perform(mutation: GraphQL.ProvideIdentityDataProcessingConsentMutation(input: gqlInput))
+            guard let response = result.provideIdentityDataProcessingConsent else {
+                throw SudoIdentityVerificationClientError.fatalError(description: "Mutation result did not contain consent response.")
+            }
+            return IdentityDataProcessingConsentResponse(processed: response.processed)
+        } catch {
+            throw SudoIdentityVerificationClientError.fromApiOperationError(error: error)
+        }
+    }
+
+    public func withdrawIdentityDataProcessingConsent() async throws -> IdentityDataProcessingConsentResponse {
+        logger.info("Withdrawing identity data processing consent.")
+        do {
+            let result = try await graphQLClient.perform(mutation: GraphQL.WithdrawIdentityDataProcessingConsentMutation())
+            guard let response = result.withdrawIdentityDataProcessingConsent else {
+                throw SudoIdentityVerificationClientError.fatalError(description: "Mutation result did not contain consent response.")
+            }
+            return IdentityDataProcessingConsentResponse(processed: response.processed)
         } catch {
             throw SudoIdentityVerificationClientError.fromApiOperationError(error: error)
         }

@@ -82,3 +82,32 @@ public struct VerifyIdentityDocumentInput: Hashable {
     }
 
 }
+
+/// Input for getIdentityDataProcessingConsentContent(input:)
+public struct IdentityDataProcessingConsentContentInput: Hashable {
+    /// Preferred content type (e.g., "text/plain", "text/html").
+    public let preferredContentType: String
+    /// Preferred locale (e.g., "en-US").
+    public let preferredLocale: String
+
+    public init(preferredContentType: String, preferredLocale: String) {
+        self.preferredContentType = preferredContentType
+        self.preferredLocale = preferredLocale
+    }
+}
+
+/// Input for provideIdentityDataProcessingConsent(input:)
+public struct IdentityDataProcessingConsentInput: Hashable {
+    /// Consent content (e.g., the text the user is consenting to).
+    public let content: String
+    /// Content type (e.g., "text/plain", "text/html").
+    public let contentType: String
+    /// Locale (e.g., "en-US").
+    public let locale: String
+
+    public init(content: String, contentType: String, locale: String) {
+        self.content = content
+        self.contentType = contentType
+        self.locale = locale
+    }
+}

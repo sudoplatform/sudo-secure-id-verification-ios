@@ -32,6 +32,12 @@ public protocol SudoIdentityVerificationClient: AnyObject {
     /// - Returns: Boolean flag.
     func isDocumentCaptureInitiationEnabled() async throws -> Bool
 
+    /// Retrieves the flag for whether consent is required in order to perform identity
+    /// data processing.
+    ///
+    /// - Returns: Boolean flag.
+    func isConsentRequiredForVerification() async throws -> Bool
+
     /// Verifies an identity against the known public records and returns a result indicating whether or not the identity
     /// details provided were verified with enough confidence to grant the user access to Sudo platform functions such
     /// as provisioning a virtual card.
@@ -64,11 +70,28 @@ public protocol SudoIdentityVerificationClient: AnyObject {
     /// based method.
     ///
     /// - Returns: identity document capture info
-    func initiateIdentityDocumentCapture() async throws-> IdentityDocumentCaptureInitiationInfo
+    func initiateIdentityDocumentCapture() async throws -> IdentityDocumentCaptureInitiationInfo
 
     /// Resets any cached data.
     ///
     /// - Throws: `SudoIdentityVerificationClientError`
     func reset() throws
 
+    /// Retrieves the content for identity data processing consent.
+    /// - Parameter input: Preferred content type and locale.
+    /// - Returns: Consent content.
+    func getIdentityDataProcessingConsentContent(input: IdentityDataProcessingConsentContentInput) async throws -> IdentityDataProcessingConsentContent
+
+    /// Retrieves the current consent status for identity data processing.
+    /// - Returns: Consent status.
+    func getIdentityDataProcessingConsentStatus() async throws -> IdentityDataProcessingConsentStatus
+
+    /// Provides consent for identity data processing.
+    /// - Parameter input: Consent content, type, and locale.
+    /// - Returns: Consent response.
+    func provideIdentityDataProcessingConsent(input: IdentityDataProcessingConsentInput) async throws -> IdentityDataProcessingConsentResponse
+
+    /// Withdraws consent for identity data processing.
+    /// - Returns: Consent response.
+    func withdrawIdentityDataProcessingConsent() async throws -> IdentityDataProcessingConsentResponse
 }
