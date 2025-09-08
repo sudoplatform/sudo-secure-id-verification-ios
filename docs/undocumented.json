@@ -38,7 +38,7 @@
     {
       "file": "/Users/gitlab-runner/builds/L19hCRpi9/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/Source/Public/Types/IdentityDataProcessingConsentContent.swift",
       "line": 18,
-      "symbol": "IdentityDataProcessingConsentContent.init(content:contentType:locale:)",
+      "symbol": "IdentityDataProcessingConsentContent.init(content:contentType:language:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
@@ -52,7 +52,7 @@
     {
       "file": "/Users/gitlab-runner/builds/L19hCRpi9/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/Source/Public/Types/IdentityDataProcessingConsentStatus.swift",
       "line": 24,
-      "symbol": "IdentityDataProcessingConsentStatus.init(consented:consentedAtEpochMs:consentWithdrawnAtEpochMs:content:contentType:locale:)",
+      "symbol": "IdentityDataProcessingConsentStatus.init(consented:consentedAtEpochMs:consentWithdrawnAtEpochMs:content:contentType:language:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
@@ -73,14 +73,14 @@
     {
       "file": "/Users/gitlab-runner/builds/L19hCRpi9/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/Source/Public/Types/Inputs.swift",
       "line": 93,
-      "symbol": "IdentityDataProcessingConsentContentInput.init(preferredContentType:preferredLocale:)",
+      "symbol": "IdentityDataProcessingConsentContentInput.init(preferredContentType:preferredLanguage:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/gitlab-runner/builds/L19hCRpi9/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/Source/Public/Types/Inputs.swift",
       "line": 108,
-      "symbol": "IdentityDataProcessingConsentInput.init(content:contentType:locale:)",
+      "symbol": "IdentityDataProcessingConsentInput.init(content:contentType:language:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },

@@ -12,12 +12,12 @@ public struct IdentityDataProcessingConsentContent: Hashable {
     public let content: String
     /// Content type (e.g., "text/plain", "text/html").
     public let contentType: String
-    /// Locale (e.g., "en-US").
-    public let locale: String
+    /// language (e.g., "en-US").
+    public let language: String
 
-    public init(content: String, contentType: String, locale: String) {
+    public init(content: String, contentType: String, language: String) {
         self.content = content
         self.contentType = contentType
-        self.locale = locale
+        self.language = language
     }
 }

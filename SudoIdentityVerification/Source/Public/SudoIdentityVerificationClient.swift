@@ -78,7 +78,7 @@ public protocol SudoIdentityVerificationClient: AnyObject {
     func reset() throws
 
     /// Retrieves the content for identity data processing consent.
-    /// - Parameter input: Preferred content type and locale.
+    /// - Parameter input: Preferred content type and language (in RFC 5646 format).
     /// - Returns: Consent content.
     func getIdentityDataProcessingConsentContent(input: IdentityDataProcessingConsentContentInput) async throws -> IdentityDataProcessingConsentContent
 
@@ -87,7 +87,7 @@ public protocol SudoIdentityVerificationClient: AnyObject {
     func getIdentityDataProcessingConsentStatus() async throws -> IdentityDataProcessingConsentStatus
 
     /// Provides consent for identity data processing.
-    /// - Parameter input: Consent content, type, and locale.
+    /// - Parameter input: Consent content, type, and language.
     /// - Returns: Consent response.
     func provideIdentityDataProcessingConsent(input: IdentityDataProcessingConsentInput) async throws -> IdentityDataProcessingConsentResponse
 

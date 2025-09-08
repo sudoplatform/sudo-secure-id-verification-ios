@@ -285,7 +285,7 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
         logger.info("Retrieving identity data processing consent content.")
         let gqlInput = GraphQL.IdentityDataProcessingConsentContentInput(
             preferredContentType: input.preferredContentType,
-            preferredLocale: input.preferredLocale
+            preferredLanguage: input.preferredLanguage
         )
         do {
             let result = try await graphQLClient.fetch(query: GraphQL.GetIdentityDataProcessingConsentContentQuery(input: gqlInput))
@@ -295,7 +295,7 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
             return IdentityDataProcessingConsentContent(
                 content: content.content,
                 contentType: content.contentType,
-                locale: content.locale
+                language: content.language
             )
         } catch {
             throw SudoIdentityVerificationClientError.fromApiOperationError(error: error)
@@ -315,7 +315,7 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
                 consentWithdrawnAtEpochMs: status.consentWithdrawnAtEpochMs,
                 content: status.content,
                 contentType: status.contentType,
-                locale: status.locale
+                language: status.language
             )
         } catch {
             throw SudoIdentityVerificationClientError.fromApiOperationError(error: error)
@@ -327,7 +327,7 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
         let gqlInput = GraphQL.IdentityDataProcessingConsentInput(
             content: input.content,
             contentType: input.contentType,
-            locale: input.locale
+            language: input.language
         )
         do {
             let result = try await graphQLClient.perform(mutation: GraphQL.ProvideIdentityDataProcessingConsentMutation(input: gqlInput))

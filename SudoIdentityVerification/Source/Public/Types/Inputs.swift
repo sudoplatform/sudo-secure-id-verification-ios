@@ -87,12 +87,12 @@ public struct VerifyIdentityDocumentInput: Hashable {
 public struct IdentityDataProcessingConsentContentInput: Hashable {
     /// Preferred content type (e.g., "text/plain", "text/html").
     public let preferredContentType: String
-    /// Preferred locale (e.g., "en-US").
-    public let preferredLocale: String
+    /// Preferred language (e.g., "en-US").
+    public let preferredLanguage: String
 
-    public init(preferredContentType: String, preferredLocale: String) {
+    public init(preferredContentType: String, preferredLanguage: String) {
         self.preferredContentType = preferredContentType
-        self.preferredLocale = preferredLocale
+        self.preferredLanguage = preferredLanguage
     }
 }
 
@@ -102,12 +102,12 @@ public struct IdentityDataProcessingConsentInput: Hashable {
     public let content: String
     /// Content type (e.g., "text/plain", "text/html").
     public let contentType: String
-    /// Locale (e.g., "en-US").
-    public let locale: String
+    /// language (e.g., "en-US").
+    public let language: String
 
-    public init(content: String, contentType: String, locale: String) {
+    public init(content: String, contentType: String, language: String) {
         self.content = content
         self.contentType = contentType
-        self.locale = locale
+        self.language = language
     }
 }

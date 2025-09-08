@@ -71,8 +71,8 @@ internal struct VerifyIdentityDocumentInput: GraphQLMapConvertible {
 internal struct IdentityDataProcessingConsentContentInput: GraphQLMapConvertible {
   internal var graphQLMap: GraphQLMap
 
-  internal init(preferredContentType: String, preferredLocale: String) {
-    graphQLMap = ["preferredContentType": preferredContentType, "preferredLocale": preferredLocale]
+  internal init(preferredContentType: String, preferredLanguage: String) {
+    graphQLMap = ["preferredContentType": preferredContentType, "preferredLanguage": preferredLanguage]
   }
 
   internal var preferredContentType: String {
@@ -84,12 +84,12 @@ internal struct IdentityDataProcessingConsentContentInput: GraphQLMapConvertible
     }
   }
 
-  internal var preferredLocale: String {
+  internal var preferredLanguage: String {
     get {
-      return graphQLMap["preferredLocale"] as! String
+      return graphQLMap["preferredLanguage"] as! String
     }
     set {
-      graphQLMap.updateValue(newValue, forKey: "preferredLocale")
+      graphQLMap.updateValue(newValue, forKey: "preferredLanguage")
     }
   }
 }
@@ -97,8 +97,8 @@ internal struct IdentityDataProcessingConsentContentInput: GraphQLMapConvertible
 internal struct IdentityDataProcessingConsentInput: GraphQLMapConvertible {
   internal var graphQLMap: GraphQLMap
 
-  internal init(content: String, contentType: String, locale: String) {
-    graphQLMap = ["content": content, "contentType": contentType, "locale": locale]
+  internal init(content: String, contentType: String, language: String) {
+    graphQLMap = ["content": content, "contentType": contentType, "language": language]
   }
 
   internal var content: String {
@@ -119,12 +119,12 @@ internal struct IdentityDataProcessingConsentInput: GraphQLMapConvertible {
     }
   }
 
-  internal var locale: String {
+  internal var language: String {
     get {
-      return graphQLMap["locale"] as! String
+      return graphQLMap["language"] as! String
     }
     set {
-      graphQLMap.updateValue(newValue, forKey: "locale")
+      graphQLMap.updateValue(newValue, forKey: "language")
     }
   }
 }
@@ -641,7 +641,7 @@ internal final class CheckIdentityVerificationQuery: GraphQLQuery {
 
 internal final class GetIdentityDataProcessingConsentContentQuery: GraphQLQuery {
   internal static let operationString =
-    "query GetIdentityDataProcessingConsentContent($input: IdentityDataProcessingConsentContentInput!) {\n  getIdentityDataProcessingConsentContent(input: $input) {\n    __typename\n    content\n    contentType\n    locale\n  }\n}"
+    "query GetIdentityDataProcessingConsentContent($input: IdentityDataProcessingConsentContentInput!) {\n  getIdentityDataProcessingConsentContent(input: $input) {\n    __typename\n    content\n    contentType\n    language\n  }\n}"
 
   internal var input: IdentityDataProcessingConsentContentInput
 
@@ -686,7 +686,7 @@ internal final class GetIdentityDataProcessingConsentContentQuery: GraphQLQuery 
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
         GraphQLField("content", type: .nonNull(.scalar(String.self))),
         GraphQLField("contentType", type: .nonNull(.scalar(String.self))),
-        GraphQLField("locale", type: .nonNull(.scalar(String.self))),
+        GraphQLField("language", type: .nonNull(.scalar(String.self))),
       ]
 
       internal var snapshot: Snapshot
@@ -695,8 +695,8 @@ internal final class GetIdentityDataProcessingConsentContentQuery: GraphQLQuery 
         self.snapshot = snapshot
       }
 
-      internal init(content: String, contentType: String, locale: String) {
-        self.init(snapshot: ["__typename": "IdentityDataProcessingConsentContent", "content": content, "contentType": contentType, "locale": locale])
+      internal init(content: String, contentType: String, language: String) {
+        self.init(snapshot: ["__typename": "IdentityDataProcessingConsentContent", "content": content, "contentType": contentType, "language": language])
       }
 
       internal var __typename: String {
@@ -726,12 +726,12 @@ internal final class GetIdentityDataProcessingConsentContentQuery: GraphQLQuery 
         }
       }
 
-      internal var locale: String {
+      internal var language: String {
         get {
-          return snapshot["locale"]! as! String
+          return snapshot["language"]! as! String
         }
         set {
-          snapshot.updateValue(newValue, forKey: "locale")
+          snapshot.updateValue(newValue, forKey: "language")
         }
       }
     }
@@ -740,7 +740,7 @@ internal final class GetIdentityDataProcessingConsentContentQuery: GraphQLQuery 
 
 internal final class GetIdentityDataProcessingConsentStatusQuery: GraphQLQuery {
   internal static let operationString =
-    "query GetIdentityDataProcessingConsentStatus {\n  getIdentityDataProcessingConsentStatus {\n    __typename\n    consented\n    consentedAtEpochMs\n    consentWithdrawnAtEpochMs\n    content\n    contentType\n    locale\n  }\n}"
+    "query GetIdentityDataProcessingConsentStatus {\n  getIdentityDataProcessingConsentStatus {\n    __typename\n    consented\n    consentedAtEpochMs\n    consentWithdrawnAtEpochMs\n    content\n    contentType\n    language\n  }\n}"
 
   internal init() {
   }
@@ -781,7 +781,7 @@ internal final class GetIdentityDataProcessingConsentStatusQuery: GraphQLQuery {
         GraphQLField("consentWithdrawnAtEpochMs", type: .scalar(Double.self)),
         GraphQLField("content", type: .scalar(String.self)),
         GraphQLField("contentType", type: .scalar(String.self)),
-        GraphQLField("locale", type: .scalar(String.self)),
+        GraphQLField("language", type: .scalar(String.self)),
       ]
 
       internal var snapshot: Snapshot
@@ -790,8 +790,8 @@ internal final class GetIdentityDataProcessingConsentStatusQuery: GraphQLQuery {
         self.snapshot = snapshot
       }
 
-      internal init(consented: Bool, consentedAtEpochMs: Double? = nil, consentWithdrawnAtEpochMs: Double? = nil, content: String? = nil, contentType: String? = nil, locale: String? = nil) {
-        self.init(snapshot: ["__typename": "IdentityDataProcessingConsentStatus", "consented": consented, "consentedAtEpochMs": consentedAtEpochMs, "consentWithdrawnAtEpochMs": consentWithdrawnAtEpochMs, "content": content, "contentType": contentType, "locale": locale])
+      internal init(consented: Bool, consentedAtEpochMs: Double? = nil, consentWithdrawnAtEpochMs: Double? = nil, content: String? = nil, contentType: String? = nil, language: String? = nil) {
+        self.init(snapshot: ["__typename": "IdentityDataProcessingConsentStatus", "consented": consented, "consentedAtEpochMs": consentedAtEpochMs, "consentWithdrawnAtEpochMs": consentWithdrawnAtEpochMs, "content": content, "contentType": contentType, "language": language])
       }
 
       internal var __typename: String {
@@ -848,12 +848,12 @@ internal final class GetIdentityDataProcessingConsentStatusQuery: GraphQLQuery {
         }
       }
 
-      internal var locale: String? {
+      internal var language: String? {
         get {
-          return snapshot["locale"] as? String
+          return snapshot["language"] as? String
         }
         set {
-          snapshot.updateValue(newValue, forKey: "locale")
+          snapshot.updateValue(newValue, forKey: "language")
         }
       }
     }

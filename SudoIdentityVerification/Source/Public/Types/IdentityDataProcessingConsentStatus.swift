@@ -18,8 +18,8 @@ public struct IdentityDataProcessingConsentStatus: Hashable {
     public let content: String?
     /// Content type (optional).
     public let contentType: String?
-    /// Locale (optional).
-    public let locale: String?
+    /// Language (optional).
+    public let language: String?
 
     public init(
         consented: Bool,
@@ -27,13 +27,13 @@ public struct IdentityDataProcessingConsentStatus: Hashable {
         consentWithdrawnAtEpochMs: Double?,
         content: String?,
         contentType: String?,
-        locale: String?
+        language: String?
     ) {
         self.consented = consented
         self.consentedAtEpochMs = consentedAtEpochMs
         self.consentWithdrawnAtEpochMs = consentWithdrawnAtEpochMs
         self.content = content
         self.contentType = contentType
-        self.locale = locale
+        self.language = language
     }
 }
