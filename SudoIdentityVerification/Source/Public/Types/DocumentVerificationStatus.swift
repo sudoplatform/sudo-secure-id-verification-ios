@@ -16,6 +16,21 @@ public enum DocumentVerificationStatus: Hashable {
     /// ID document is required but has not yet uploaded
     case notAttempted
 
+    /// capture URL has been generated but not opened
+    case captureInitiated
+
+    /// capture URL has been opened but documents not yet submitted
+    case captureLinkOpened
+
+    /// capture URL has been opened too many times as per provider
+    case captureRetryLimitExceeded
+
+    /// capture URL was not opened within the allowed time window
+    case captureLinkTimeout
+
+    /// capture URL was never opened and has expired
+    case captureLinkExpired
+
     /// ID document images have been uploaded and is being processed
     case pending
 
@@ -41,6 +56,16 @@ public enum DocumentVerificationStatus: Hashable {
             self = .notRequired
         case "notAttempted":
             self = .notAttempted
+        case "captureInitiated":
+            self = .captureInitiated
+        case "captureLinkOpened":
+            self = .captureLinkOpened
+        case "captureRetryLimitExceeded":
+            self = .captureRetryLimitExceeded
+        case "captureLinkTimeout":
+            self = .captureLinkTimeout
+        case "captureLinkExpired":
+            self = .captureLinkExpired
         case "pending":
             self = .pending
         case "documentUnreadable":
