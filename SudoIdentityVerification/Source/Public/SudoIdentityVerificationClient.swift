@@ -5,6 +5,7 @@
 //
 
 import Foundation
+import SudoUser
 
 /// Protocol encapsulating a set of functions for identity verification..
 public protocol SudoIdentityVerificationClient: AnyObject {
@@ -94,4 +95,18 @@ public protocol SudoIdentityVerificationClient: AnyObject {
     /// Withdraws consent for identity data processing.
     /// - Returns: Consent response.
     func withdrawIdentityDataProcessingConsent() async throws -> IdentityDataProcessingConsentResponse
+
+    // MARK: - Sign-In Delegate
+
+    /// Sets an optional delegate to handle sign-in when operations are attempted while not signed in.
+    ///
+    /// When set, all operations (except subscriptions and initialization) will check sign-in status
+    /// and invoke the delegate's `signIn()` method if the user is not signed in. The delegate should
+    /// handle the sign-in process and throw an error if sign-in fails or is cancelled. If the delegate
+    /// throws an error, that error will be propagated to the caller and the original operation will not be executed.
+    ///
+    /// - Parameter delegate: A delegate conforming to `SudoPlatformSignInDelegate`. Pass nil to disable sign-in checking.
+    ///
+    func setSignInDelegate(_ delegate: SudoPlatformSignInDelegate?) async
+    
 }

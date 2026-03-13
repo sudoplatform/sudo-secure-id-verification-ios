@@ -34,6 +34,9 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
     /// GraphQL client for communicating with the identity verification service.
     private let graphQLClient: SudoApiClient
 
+    // Sign-in guard to permit in-line callback for signing in when required
+    private let signInGuard: SignInGuard
+
     // MARK: - Lifecycle
 
     /// Initializes a new `DefaultSudoIdentityVerificationClient` instance.
@@ -62,14 +65,20 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
         logger: Logger? = nil
     ) {
         self.sudoUserClient = sudoUserClient
+        signInGuard = SignInGuard(userClient: sudoUserClient)
         self.graphQLClient = graphQLClient
         self.logger = logger ?? Logger.sudoIdentityVerificationClientLogger
     }
 
     // MARK: - Conformance: SudoIdentityVerificationClient
 
+    public func setSignInDelegate(_ delegate: SudoPlatformSignInDelegate?) async {
+        await signInGuard.setDelegate(delegate)
+    }
+
     public func listSupportedCountries() async throws -> [String] {
         logger.info("Retrieving the list of supported countries for identity verification.")
+        try await ensureSignedIn()
         do {
             let result = try await graphQLClient.fetch(query: GraphQL.GetIdentityVerificationCapabilitiesQuery())
             guard let countryList = result.getIdentityVerificationCapabilities?.supportedCountries else {
@@ -83,6 +92,7 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
 
     public func isFaceImageRequiredWithDocumentCapture() async throws -> Bool {
         logger.info("Retrieving flag for requirement to provide face image with ID document capture.")
+        try await ensureSignedIn()
         do {
             let result = try await graphQLClient.fetch(query: GraphQL.GetIdentityVerificationCapabilitiesQuery())
             guard let faceImageRequiredWithDocumentCapture = result.getIdentityVerificationCapabilities?.faceImageRequiredWithDocumentCapture else {
@@ -96,6 +106,7 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
 
     public func isFaceImageRequiredWithDocumentVerification() async throws -> Bool {
         logger.info("Retrieving flag for requirement to provide face image with ID document verification.")
+        try await ensureSignedIn()
         do {
             let result = try await graphQLClient.fetch(query: GraphQL.GetIdentityVerificationCapabilitiesQuery())
             guard let faceImageRequiredWithDocumentVerification = result.getIdentityVerificationCapabilities?.faceImageRequiredWithDocumentVerification else {
@@ -109,6 +120,7 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
 
     public func isDocumentCaptureInitiationEnabled() async throws -> Bool {
         logger.info("Retrieving flag for whether web based identity document capture is enabled.")
+        try await ensureSignedIn()
         do {
             let result = try await graphQLClient.fetch(query: GraphQL.GetIdentityVerificationCapabilitiesQuery())
             guard let canInitiateDocumentCapture = result.getIdentityVerificationCapabilities?.canInitiateDocumentCapture else {
@@ -122,6 +134,7 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
 
     public func isConsentRequiredForVerification() async throws -> Bool {
         logger.info("Retrieving flag for whether consent for identity data processing is required.")
+        try await ensureSignedIn()
         do {
             let result = try await graphQLClient.fetch(query: GraphQL.GetIdentityVerificationCapabilitiesQuery())
             guard let consentRequired = result.getIdentityVerificationCapabilities?.consentRequired else {
@@ -135,6 +148,7 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
 
     public func verifyIdentity(input: VerifyIdentityInput) async throws -> VerifiedIdentity {
         logger.info("Verifying an identity.")
+        try await ensureSignedIn()
 
         let input = GraphQL.VerifyIdentityInput(
             address: input.address,
@@ -173,6 +187,7 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
 
     public func verifyIdentityDocument(input: VerifyIdentityDocumentInput) async throws -> VerifiedIdentity {
         logger.info("Verifying an identity document")
+        try await ensureSignedIn()
         let input = GraphQL.VerifyIdentityDocumentInput(
             backImageBase64: input.backImage.base64EncodedString(),
             country: input.country,
@@ -207,6 +222,7 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
 
     public func captureAndVerifyIdentityDocument(input: VerifyIdentityDocumentInput) async throws -> VerifiedIdentity {
         logger.info("Capturing an identity document and verifying identity")
+        try await ensureSignedIn()
         let input = GraphQL.VerifyIdentityDocumentInput(
             backImageBase64: input.backImage.base64EncodedString(),
             country: input.country,
@@ -241,6 +257,7 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
 
     public func initiateIdentityDocumentCapture() async throws -> IdentityDocumentCaptureInitiationInfo {
         logger.info("Initiating web based capture of an identity document")
+        try await ensureSignedIn()
         do {
             let result = try await graphQLClient.perform(mutation: GraphQL.InitiateIdentityDocumentCaptureMutation())
             guard let identityDocumentCaptureInitiationInfo = result.initiateIdentityDocumentCapture else {
@@ -257,6 +274,7 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
 
     public func checkIdentityVerification() async throws -> VerifiedIdentity {
         logger.info("Checking the identity verification status.")
+        try await ensureSignedIn()
         do {
             let result = try await graphQLClient.fetch(query: GraphQL.CheckIdentityVerificationQuery())
             guard let verifiedIdentity = result.checkIdentityVerification else {
@@ -283,6 +301,7 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
 
     public func getIdentityDataProcessingConsentContent(input: IdentityDataProcessingConsentContentInput) async throws -> IdentityDataProcessingConsentContent {
         logger.info("Retrieving identity data processing consent content.")
+        try await ensureSignedIn()
         let gqlInput = GraphQL.IdentityDataProcessingConsentContentInput(
             preferredContentType: input.preferredContentType,
             preferredLanguage: input.preferredLanguage
@@ -304,6 +323,7 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
 
     public func getIdentityDataProcessingConsentStatus() async throws -> IdentityDataProcessingConsentStatus {
         logger.info("Retrieving identity data processing consent status.")
+        try await ensureSignedIn()
         do {
             let result = try await graphQLClient.fetch(query: GraphQL.GetIdentityDataProcessingConsentStatusQuery())
             guard let status = result.getIdentityDataProcessingConsentStatus else {
@@ -324,6 +344,7 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
 
     public func provideIdentityDataProcessingConsent(input: IdentityDataProcessingConsentInput) async throws -> IdentityDataProcessingConsentResponse {
         logger.info("Providing identity data processing consent.")
+        try await ensureSignedIn()
         let gqlInput = GraphQL.IdentityDataProcessingConsentInput(
             content: input.content,
             contentType: input.contentType,
@@ -342,6 +363,7 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
 
     public func withdrawIdentityDataProcessingConsent() async throws -> IdentityDataProcessingConsentResponse {
         logger.info("Withdrawing identity data processing consent.")
+        try await ensureSignedIn()
         do {
             let result = try await graphQLClient.perform(mutation: GraphQL.WithdrawIdentityDataProcessingConsentMutation())
             guard let response = result.withdrawIdentityDataProcessingConsent else {
@@ -353,6 +375,14 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
         }
     }
 
+    /// Checks if user is signed in and invokes delegate if needed.
+    /// Only performs check if delegate is configured.
+    ///
+    /// - Throws: Any error thrown by the sign-in delegate
+    private func ensureSignedIn() async throws {
+        try await signInGuard.ensureSignedIn()
+    }
+    
     public func reset() throws {
         logger.info("Resetting client state.")
     }

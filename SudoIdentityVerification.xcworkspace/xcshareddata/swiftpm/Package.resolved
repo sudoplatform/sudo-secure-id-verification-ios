@@ -131,8 +131,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/sudoplatform/sudo-user-ios",
       "state" : {
-        "revision" : "6ce2d7d0b8125c09bd26f19bf44b8768dbdf65cf",
-        "version" : "18.0.0"
+        "revision" : "b371b692842279251d9bc048e3e2c5f0454e55b4",
+        "version" : "18.3.0"
       }
     },
     {
