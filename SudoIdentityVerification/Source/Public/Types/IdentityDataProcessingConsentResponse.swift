@@ -7,7 +7,7 @@
 import Foundation
 
 /// Output type for provideIdentityDataProcessingConsent and withdrawIdentityDataProcessingConsent
-public struct IdentityDataProcessingConsentResponse: Hashable {
+public struct IdentityDataProcessingConsentResponse: Hashable, Sendable {
     /// Whether the consent action was processed successfully.
     public let processed: Bool
 

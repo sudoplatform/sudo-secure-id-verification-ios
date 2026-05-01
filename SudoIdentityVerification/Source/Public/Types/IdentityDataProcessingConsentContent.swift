@@ -7,7 +7,7 @@
 import Foundation
 
 /// Output type for getIdentityDataProcessingConsentContent(input:)
-public struct IdentityDataProcessingConsentContent: Hashable {
+public struct IdentityDataProcessingConsentContent: Hashable, Sendable {
     /// The consent content (e.g., the text the user is consenting to).
     public let content: String
     /// Content type (e.g., "text/plain", "text/html").

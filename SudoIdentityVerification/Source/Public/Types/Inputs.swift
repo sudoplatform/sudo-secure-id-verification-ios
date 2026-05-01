@@ -7,7 +7,7 @@
 import Foundation
 
 /// Input for verifyIdentity(input:)
-public struct VerifyIdentityInput: Hashable {
+public struct VerifyIdentityInput: Hashable, Sendable {
 
     /// First name. Case insensitive.
     public let firstName: String
@@ -56,7 +56,7 @@ public struct VerifyIdentityInput: Hashable {
 }
 
 /// Input for verifyIdentityDocument(input:)
-public struct VerifyIdentityDocumentInput: Hashable {
+public struct VerifyIdentityDocumentInput: Hashable, Sendable {
 
     /// Image of front of government ID document.
     public let image: Data
@@ -84,7 +84,7 @@ public struct VerifyIdentityDocumentInput: Hashable {
 }
 
 /// Input for getIdentityDataProcessingConsentContent(input:)
-public struct IdentityDataProcessingConsentContentInput: Hashable {
+public struct IdentityDataProcessingConsentContentInput: Hashable, Sendable {
     /// Preferred content type (e.g., "text/plain", "text/html").
     public let preferredContentType: String
     /// Preferred language (e.g., "en-US").
@@ -97,7 +97,7 @@ public struct IdentityDataProcessingConsentContentInput: Hashable {
 }
 
 /// Input for provideIdentityDataProcessingConsent(input:)
-public struct IdentityDataProcessingConsentInput: Hashable {
+public struct IdentityDataProcessingConsentInput: Hashable, Sendable {
     /// Consent content (e.g., the text the user is consenting to).
     public let content: String
     /// Content type (e.g., "text/plain", "text/html").

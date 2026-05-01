@@ -7,7 +7,7 @@
 import Foundation
 
 /// Represents verified identity details obtained via `verifyIdentity` API.
-public struct VerifiedIdentity {
+public struct VerifiedIdentity: Sendable {
 
     /// User ID of the user who provided identity details for verification.
     public let owner: String

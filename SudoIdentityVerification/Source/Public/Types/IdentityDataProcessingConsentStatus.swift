@@ -7,7 +7,7 @@
 import Foundation
 
 /// Output type for getIdentityDataProcessingConsentStatus()
-public struct IdentityDataProcessingConsentStatus: Hashable {
+public struct IdentityDataProcessingConsentStatus: Hashable, Sendable {
     /// Whether the user has consented.
     public let consented: Bool
     /// Epoch ms when consent was given, if any.

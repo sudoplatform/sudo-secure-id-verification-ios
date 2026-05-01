@@ -6,7 +6,7 @@
 
 import Foundation
 
-public enum VerificationMethod: Hashable {
+public enum VerificationMethod: Hashable, Sendable {
     case none
     case knowledgeOfPii
     case governmentId

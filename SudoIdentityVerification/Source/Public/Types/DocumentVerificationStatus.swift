@@ -5,10 +5,9 @@
 //
 
 import Foundation
-import UIKit
 
 /// Status of ID document verification
-public enum DocumentVerificationStatus: Hashable {
+public enum DocumentVerificationStatus: Hashable, Sendable {
 
     /// ID document is not required
     case notRequired

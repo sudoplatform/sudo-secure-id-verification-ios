@@ -8,7 +8,7 @@ import Amplify
 import Foundation
 import SudoApiClient
 
-public enum SudoIdentityVerificationClientError: Error, Equatable {
+public enum SudoIdentityVerificationClientError: Error, Equatable, @unchecked Sendable {
 
     /// The Verified Identity attempted to be accessed does not exist or cannot be found.
     case identityVerificationRecordNotFound
@@ -96,7 +96,7 @@ public enum SudoIdentityVerificationClientError: Error, Equatable {
     case serviceError
 
     /// Indicates that the request failed due to connectivity, availability or access error.
-    case requestFailed(response: HTTPURLResponse?, cause: Error?)
+    case requestFailed(response: HTTPURLResponse?, cause: (any Error & Sendable)?)
 
     /// Indicates that there were too many attempts at sending API requests within a short period of time.
     case rateLimitExceeded

@@ -1,6 +1,13 @@
 {
   "warnings": [
     {
+      "file": "/Users/gitlab-runner/builds/kEPM7Co-x/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/Source/Internal/Utility/SudoIdentityVerificationServiceAPI.swift",
+      "line": 9,
+      "symbol": "GraphQL",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/gitlab-runner/builds/kEPM7Co-x/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/Source/Public/SudoIdentityVerificationClientError.swift",
       "line": 11,
       "symbol": "SudoIdentityVerificationClientError",
@@ -9,28 +16,28 @@
     },
     {
       "file": "/Users/gitlab-runner/builds/kEPM7Co-x/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/Source/Public/Types/IdDocumentType.swift",
-      "line": 12,
+      "line": 11,
       "symbol": "IdDocumentType.driverLicense",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/gitlab-runner/builds/kEPM7Co-x/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/Source/Public/Types/IdDocumentType.swift",
-      "line": 13,
+      "line": 12,
       "symbol": "IdDocumentType.passport",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/gitlab-runner/builds/kEPM7Co-x/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/Source/Public/Types/IdDocumentType.swift",
-      "line": 14,
+      "line": 13,
       "symbol": "IdDocumentType.idCard",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/gitlab-runner/builds/kEPM7Co-x/0/platform/identity-verification/sudo-identity-verification-ios/sudo-secure-id-verification-ios-gh/SudoIdentityVerification/Source/Public/Types/IdDocumentType.swift",
-      "line": 15,
+      "line": 14,
       "symbol": "IdDocumentType.unknown(_:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"

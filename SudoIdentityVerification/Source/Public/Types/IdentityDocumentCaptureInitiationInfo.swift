@@ -7,7 +7,7 @@
 import Foundation
 
 /// Represents identity document capture initiation details obtained via `initiateIdentityDocumentCapture` API.
-public struct IdentityDocumentCaptureInitiationInfo {
+public struct IdentityDocumentCaptureInitiationInfo: Sendable {
 
     /// URL for uploading identity document information.
     public let documentCaptureUrl: String

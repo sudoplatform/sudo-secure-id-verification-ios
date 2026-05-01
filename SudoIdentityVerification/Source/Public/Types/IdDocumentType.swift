@@ -5,10 +5,9 @@
 //
 
 import Foundation
-import UIKit
 
 /// Type of document used for identity verification.
-public enum IdDocumentType: Hashable {
+public enum IdDocumentType: Hashable, Sendable {
     case driverLicense
     case passport
     case idCard
