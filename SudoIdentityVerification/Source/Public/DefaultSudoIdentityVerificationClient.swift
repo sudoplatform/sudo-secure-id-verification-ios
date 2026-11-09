@@ -5,6 +5,7 @@
 //
 
 import Foundation
+import PassKit
 import SudoApiClient
 import SudoConfigManager
 import SudoLogging
@@ -37,6 +38,9 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
     // Sign-in guard to permit in-line callback for signing in when required
     private let signInGuard: SignInGuard
 
+    /// Requests identity documents from the user's Wallet.
+    private let identityDocumentRequester: IdentityDocumentRequester
+
     // MARK: - Lifecycle
 
     /// Initializes a new `DefaultSudoIdentityVerificationClient` instance.
@@ -59,14 +63,29 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
     ///   - sudoUserClient: `SudoUserClient` instance required to issue authentication tokens and perform cryptographic operations.
     ///   - graphQLClient: GraphQL client to use.
     ///   - logger: A logger to use for logging messages. If none provided then a default internal logger will be used.
-    public init(
+    convenience public init(
         sudoUserClient: SudoUserClient,
         graphQLClient: SudoApiClient,
+        logger: Logger? = nil
+    ) {
+        self.init(
+            sudoUserClient: sudoUserClient,
+            graphQLClient: graphQLClient,
+            identityDocumentRequester: PassKitIdentityDocumentRequester(),
+            logger: logger
+        )
+    }
+
+    init(
+        sudoUserClient: SudoUserClient,
+        graphQLClient: SudoApiClient,
+        identityDocumentRequester: IdentityDocumentRequester,
         logger: Logger? = nil
     ) {
         self.sudoUserClient = sudoUserClient
         signInGuard = SignInGuard(userClient: sudoUserClient)
         self.graphQLClient = graphQLClient
+        self.identityDocumentRequester = identityDocumentRequester
         self.logger = logger ?? Logger.sudoIdentityVerificationClientLogger
     }
 
@@ -141,6 +160,17 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
                 return false
             }
             return consentRequired
+        } catch {
+            throw SudoIdentityVerificationClientError.fromApiOperationError(error: error)
+        }
+    }
+
+    public func isDigitalCredentialVerificationEnabled() async throws -> Bool {
+        logger.info("Retrieving flag for whether identity verification with a digital credential is enabled.")
+        try await ensureSignedIn()
+        do {
+            let result = try await graphQLClient.fetch(query: GraphQL.GetIdentityVerificationCapabilitiesQuery())
+            return result.getIdentityVerificationCapabilities?.canVerifyWithDigitalCredential ?? false
         } catch {
             throw SudoIdentityVerificationClientError.fromApiOperationError(error: error)
         }
@@ -253,6 +283,50 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
         } catch {
             throw SudoIdentityVerificationClientError.fromApiOperationError(error: error)
         }
+    }
+
+    public func verifyIdentityWithDigitalCredential(
+        input: VerifyIdentityWithDigitalCredentialInput
+    ) async throws -> DigitalCredentialVerificationOutcome {
+        logger.info("Verifying an identity using a digital credential.")
+        try await ensureSignedIn()
+
+        let digitalCredentialRequest = try await initiateDigitalCredentialVerification(teamId: input.teamId)
+        guard let flowRequest = digitalCredentialRequest.flow.asAppleVerifyWithWalletFlowRequest else {
+            throw SudoIdentityVerificationClientError.fatalError(
+                description: "Unexpected digital credential flow: \(digitalCredentialRequest.flow.__typename)"
+            )
+        }
+        let walletRequest = try WalletIdentityRequestBuilder.request(for: flowRequest, merchantIdentifier: input.merchantIdentifier)
+        let response = try await requestWalletIdentityDocument(walletRequest).base64EncodedString()
+
+        // The service rejects a response for an expired request too, but only with an untyped error.
+        let expiresAt = Date(timeIntervalSince1970: digitalCredentialRequest.expiryAtEpochSeconds)
+        try ensureNotExpired(expiresAt)
+
+        guard let verifiedIdentity = try await finalizeDigitalCredentialVerification(response: response, address: nil) else {
+            return .residentialAddressRequired(PendingDigitalCredentialVerification(response: response, expiresAt: expiresAt))
+        }
+        return .completed(verifiedIdentity)
+    }
+
+    public func completeDigitalCredentialVerification(
+        pending: PendingDigitalCredentialVerification,
+        address: ResidentialAddressInput
+    ) async throws -> VerifiedIdentity {
+        logger.info("Completing a digital credential verification with a residential address.")
+        try await ensureSignedIn()
+
+        // The service rejects a response for an expired request too, but only with an untyped error.
+        try ensureNotExpired(pending.expiresAt)
+
+        guard let verifiedIdentity = try await finalizeDigitalCredentialVerification(response: pending.response, address: address) else {
+            // The service only asks for an address when a submission has none.
+            throw SudoIdentityVerificationClientError.fatalError(
+                description: "Service required a residential address although one was supplied."
+            )
+        }
+        return verifiedIdentity
     }
 
     public func initiateIdentityDocumentCapture() async throws -> IdentityDocumentCaptureInitiationInfo {
@@ -385,5 +459,104 @@ public class DefaultSudoIdentityVerificationClient: SudoIdentityVerificationClie
     
     public func reset() throws {
         logger.info("Resetting client state.")
+    }
+
+    // MARK: - Helpers: Digital credential verification
+
+    /// Opens a digital credential verification session with the service for the Apple Verify with
+    /// Wallet flow.
+    /// - Parameter teamId: Apple Developer team identifier of the calling application.
+    private func initiateDigitalCredentialVerification(
+        teamId: String
+    ) async throws -> GraphQL.InitiateDigitalCredentialVerificationMutation.Data.InitiateDigitalCredentialVerification {
+        let gqlInput = GraphQL.InitiateDigitalCredentialVerificationInput(flow: .appleVerifyWithWallet, teamId: teamId)
+        let result: GraphQL.InitiateDigitalCredentialVerificationMutation.Data
+        do {
+            result = try await graphQLClient.perform(mutation: GraphQL.InitiateDigitalCredentialVerificationMutation(input: gqlInput))
+        } catch {
+            throw SudoIdentityVerificationClientError.fromApiOperationError(error: error)
+        }
+        guard let digitalCredentialRequest = result.initiateDigitalCredentialVerification else {
+            throw SudoIdentityVerificationClientError.fatalError(description: "Mutation result did not contain required object.")
+        }
+        return digitalCredentialRequest
+    }
+
+    /// Prompts the user to present the requested identity document from their Wallet.
+    /// - Returns: Encrypted document response, decryptable only by the identity verification service.
+    private func requestWalletIdentityDocument(_ request: PKIdentityRequest) async throws -> Data {
+        guard let descriptor = request.descriptor, await identityDocumentRequester.canRequestDocument(descriptor) else {
+            throw SudoIdentityVerificationClientError.digitalCredentialUnavailable
+        }
+        do {
+            return try await identityDocumentRequester.requestDocument(request)
+        } catch let error as PKIdentityError {
+            switch error.code {
+            case .cancelled:
+                throw SudoIdentityVerificationClientError.digitalCredentialCancelled
+            case .notSupported, .regionNotSupported:
+                throw SudoIdentityVerificationClientError.digitalCredentialUnavailable
+            default:
+                throw SudoIdentityVerificationClientError.digitalCredentialRequestFailed(cause: error)
+            }
+        } catch {
+            throw SudoIdentityVerificationClientError.digitalCredentialRequestFailed(cause: error)
+        }
+    }
+
+    /// Submits a Wallet response to the service, with the user's residential address if given.
+    /// - Parameters:
+    ///   - response: Base64 encoded encrypted Wallet response.
+    ///   - address: The user's residential address.
+    /// - Returns: The verification result, or nil if the service requires a residential address that
+    ///   the credential does not carry and none was given. The response may then be submitted again
+    ///   with an address.
+    private func finalizeDigitalCredentialVerification(
+        response: String,
+        address: ResidentialAddressInput?
+    ) async throws -> VerifiedIdentity? {
+        let gqlAddress = address.map {
+            GraphQL.DigitalCredentialResidentialAddressInput(
+                address: $0.address,
+                city: $0.city,
+                country: $0.country,
+                postalCode: $0.postalCode,
+                state: $0.state
+            )
+        }
+        let gqlInput = GraphQL.FinalizeDigitalCredentialVerificationInput(residentialAddress: gqlAddress, response: response)
+        let result: GraphQL.FinalizeDigitalCredentialVerificationMutation.Data
+        do {
+            result = try await graphQLClient.perform(mutation: GraphQL.FinalizeDigitalCredentialVerificationMutation(input: gqlInput))
+        } catch {
+            let errorType = SudoIdentityVerificationClientError.graphQLErrorType(of: error)
+            if errorType == SudoIdentityVerificationClientError.Constants.digitalCredentialResidentialAddressRequiredError {
+                return nil
+            }
+            throw SudoIdentityVerificationClientError.fromApiOperationError(error: error)
+        }
+        guard let verifiedIdentity = result.finalizeDigitalCredentialVerification else {
+            throw SudoIdentityVerificationClientError.fatalError(description: "Mutation result did not contain required object.")
+        }
+        return VerifiedIdentity(
+            owner: verifiedIdentity.owner,
+            verified: verifiedIdentity.verified,
+            verifiedAtEpochMs: verifiedIdentity.verifiedAtEpochMs,
+            verificationMethod: verifiedIdentity.verificationMethod,
+            canAttemptVerificationAgain: verifiedIdentity.canAttemptVerificationAgain,
+            idScanUrl: verifiedIdentity.idScanUrl,
+            requiredVerificationMethod: verifiedIdentity.requiredVerificationMethod,
+            acceptableDocumentTypes: verifiedIdentity.acceptableDocumentTypes,
+            documentVerificationStatus: verifiedIdentity.documentVerificationStatus,
+            verificationLastAttemptedAtEpochMs: verifiedIdentity.verificationLastAttemptedAtEpochMs,
+            attemptsRemaining: verifiedIdentity.attemptsRemaining,
+            consented: verifiedIdentity.consented
+        )
+    }
+
+    private func ensureNotExpired(_ expiresAt: Date) throws {
+        guard Date() < expiresAt else {
+            throw SudoIdentityVerificationClientError.digitalCredentialRequestExpired
+        }
     }
 }

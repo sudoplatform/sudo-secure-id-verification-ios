@@ -104,6 +104,44 @@ public enum SudoIdentityVerificationClientError: Error, Equatable, @unchecked Se
     /// Indicates that an operation requiring consent was attempted, and consent was not granted
     case consentRequired
 
+    /// Indicates a digital credential cannot be requested from the Wallet. The device may not support
+    /// identity document requests, the calling application may lack the identity document request
+    /// entitlement, or the Wallet may hold no document that satisfies the request.
+    case digitalCredentialUnavailable
+
+    /// Indicates the user dismissed the Wallet prompt without presenting a digital credential.
+    case digitalCredentialCancelled
+
+    /// Indicates the Wallet request for a digital credential failed before a credential was presented.
+    case digitalCredentialRequestFailed(cause: Error?)
+
+    /// Indicates the digital credential request issued by the service expired before a credential was
+    /// presented, or before a pending verification was completed. A new verification attempt can be
+    /// started.
+    case digitalCredentialRequestExpired
+
+    /// Indicates the service asked for a digital credential this version of the SDK cannot request from
+    /// the Wallet, because a requested document type, element or storage intent is not one it can
+    /// express, or the request needs a later version of iOS.
+    case unsupportedDigitalCredentialRequest(description: String)
+
+    /// Indicates the presented digital credential was rejected because the Wallet response is
+    /// malformed, not bound to the request it was presented for, or not authentic. A new verification
+    /// attempt can be started.
+    case digitalCredentialVerificationFailed
+
+    /// Indicates the presented digital credential was issued by an authority the service does not
+    /// trust. The credential may be genuine; a credential from a different issuer may be accepted.
+    case digitalCredentialIssuerNotTrusted
+
+    /// Indicates the presented digital credential is not of a type the service accepts.
+    case digitalCredentialNotAccepted
+
+    /// Indicates the presented digital credential is no longer valid: it has expired, or the
+    /// certificate its issuer signed it with has expired or been revoked. The user may be able to
+    /// refresh the credential in their Wallet.
+    case digitalCredentialNoLongerValid
+
     /// Indicates that a GraphQL error was returned by the backend.
     case graphQLError(description: String)
 
@@ -120,10 +158,19 @@ public enum SudoIdentityVerificationClientError: Error, Equatable, @unchecked Se
                 return lhsResponse.statusCode == rhsResponse.statusCode
             }
             return type(of: lhsCause) == type(of: rhsCause)
+        case (.digitalCredentialRequestFailed(let lhsCause), .digitalCredentialRequestFailed(let rhsCause)):
+            return type(of: lhsCause) == type(of: rhsCause)
         case (.accountLocked, .accountLocked),
              (.badData, .badData),
              (.fatalError, .fatalError),
              (.consentRequired, .consentRequired),
+             (.digitalCredentialCancelled, .digitalCredentialCancelled),
+             (.digitalCredentialIssuerNotTrusted, .digitalCredentialIssuerNotTrusted),
+             (.digitalCredentialNoLongerValid, .digitalCredentialNoLongerValid),
+             (.digitalCredentialNotAccepted, .digitalCredentialNotAccepted),
+             (.digitalCredentialRequestExpired, .digitalCredentialRequestExpired),
+             (.digitalCredentialUnavailable, .digitalCredentialUnavailable),
+             (.digitalCredentialVerificationFailed, .digitalCredentialVerificationFailed),
              (.graphQLError, .graphQLError),
              (.identityAlreadyVerified, .identityAlreadyVerified),
              (.identityCaptureRetryBlocked, .identityCaptureRetryBlocked),
@@ -147,6 +194,7 @@ public enum SudoIdentityVerificationClientError: Error, Equatable, @unchecked Se
              (.requiredIdentityInformationNotProvided, .requiredIdentityInformationNotProvided),
              (.serviceError, .serviceError),
              (.unsupportedCountry, .unsupportedCountry),
+             (.unsupportedDigitalCredentialRequest, .unsupportedDigitalCredentialRequest),
              (.unsupportedNetworkLocation, .unsupportedNetworkLocation),
              (.unsupportedVerificationMethod, .unsupportedVerificationMethod),
              (.verificationResultNotFound, .verificationResultNotFound),
@@ -175,6 +223,22 @@ extension SudoIdentityVerificationClientError {
         static let identityCaptureRetryBlockedError = "sudoplatform.identity-verification.IdentityCaptureRetryBlockedError"
         static let identityDataRedactedError = "sudoplatform.identity-verification.IdentityDataRedactedError"
         static let consentRequiredError = "sudoplatform.identity-verification.ConsentRequiredError"
+        static let digitalCredentialVerificationFailedError = "sudoplatform.IV.DigitalCredentialVerificationFailedError"
+        static let digitalCredentialIssuerNotTrustedError = "sudoplatform.IV.DigitalCredentialIssuerNotTrustedError"
+        static let digitalCredentialNotAcceptedError = "sudoplatform.IV.DigitalCredentialNotAcceptedError"
+        static let digitalCredentialNoLongerValidError = "sudoplatform.IV.DigitalCredentialNoLongerValidError"
+        static let digitalCredentialResidentialAddressRequiredError = "sudoplatform.IV.DigitalCredentialResidentialAddressRequiredError"
+    }
+
+    /// The service error type carried by a GraphQL error, if `error` is one.
+    static func graphQLErrorType(of error: Error) -> String? {
+        guard
+            case ApiOperationError.graphQLError(let underlyingError) = error,
+            let graphQLError = underlyingError as? GraphQLError
+        else {
+            return nil
+        }
+        return graphQLError.extensions?[Constants.errorType]?.stringValue
     }
 
     static func fromApiOperationError(error: Error) -> SudoIdentityVerificationClientError { // swiftlint:disable:this cyclomatic_complexity
@@ -235,6 +299,14 @@ extension SudoIdentityVerificationClientError {
                 return .unsupportedNetworkLocation
             case Constants.consentRequiredError:
                 return .consentRequired
+            case Constants.digitalCredentialVerificationFailedError:
+                return .digitalCredentialVerificationFailed
+            case Constants.digitalCredentialIssuerNotTrustedError:
+                return .digitalCredentialIssuerNotTrusted
+            case Constants.digitalCredentialNotAcceptedError:
+                return .digitalCredentialNotAccepted
+            case Constants.digitalCredentialNoLongerValidError:
+                return .digitalCredentialNoLongerValid
             default:
                 return .graphQLError(description: "Unexpected GraphQL error: \(underlyingError.localizedDescription)")
             }

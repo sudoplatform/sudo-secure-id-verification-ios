@@ -39,6 +39,14 @@ public protocol SudoIdentityVerificationClient: AnyObject {
     /// - Returns: Boolean flag.
     func isConsentRequiredForVerification() async throws -> Bool
 
+    /// Retrieves the flag for whether the service accepts identity verification with a digital
+    /// credential using `verifyIdentityWithDigitalCredential(input:)`. This reflects the service
+    /// configuration only; it does not indicate whether the device or the user's Wallet can present a
+    /// credential.
+    ///
+    /// - Returns: Boolean flag.
+    func isDigitalCredentialVerificationEnabled() async throws -> Bool
+
     /// Verifies an identity against the known public records and returns a result indicating whether or not the identity
     /// details provided were verified with enough confidence to grant the user access to Sudo platform functions such
     /// as provisioning a virtual card.
@@ -62,6 +70,72 @@ public protocol SudoIdentityVerificationClient: AnyObject {
     ///
     /// - Returns: Verification result.
     func captureAndVerifyIdentityDocument(input: VerifyIdentityDocumentInput) async throws -> VerifiedIdentity
+
+    /// Verifies an identity using a digital credential, such as a mobile driver's licence, held in the
+    /// user's Wallet. Requests a presentation from the service, prompts the user to present the
+    /// requested document elements from their Wallet, then submits the encrypted Wallet response to the
+    /// service for verification.
+    ///
+    /// A successful verification completes identity verification on its own; the knowledge of PII step
+    /// performed by `verifyIdentity(input:)` is not required.
+    ///
+    /// Where the service requires a residential address and the presented credential carries none, the
+    /// outcome is `.residentialAddressRequired`. Collect the user's address and pass the pending
+    /// verification to `completeDigitalCredentialVerification(pending:address:)`.
+    ///
+    /// The calling application requires the identity document request entitlement
+    /// (`com.apple.developer.in-app-identity-presentment`) with `merchantIdentifier` among its
+    /// merchant identifiers.
+    ///
+    /// - Parameter input: Input variables for API.
+    ///
+    /// - Returns: Verification outcome.
+    ///
+    /// - Throws: `SudoIdentityVerificationClientError`, including:
+    ///   - `digitalCredentialUnavailable` if no credential can be requested from the Wallet.
+    ///   - `digitalCredentialCancelled` if the user dismissed the Wallet prompt.
+    ///   - `digitalCredentialRequestFailed` if the Wallet request failed.
+    ///   - `digitalCredentialRequestExpired` if the request expired before a credential was presented.
+    ///   - `unsupportedDigitalCredentialRequest` if the service asked for a credential this version of
+    ///     the SDK cannot request.
+    ///   - `digitalCredentialVerificationFailed` if the presented credential was rejected as malformed
+    ///     or not authentic.
+    ///   - `digitalCredentialIssuerNotTrusted` if the presented credential's issuer is not trusted.
+    ///   - `digitalCredentialNotAccepted` if the presented credential is not of an accepted type.
+    ///   - `digitalCredentialNoLongerValid` if the presented credential, or the certificate that signed
+    ///     it, has expired or been revoked.
+    ///   - `identityAlreadyVerified` if the user's identity is already verified.
+    ///   - `identityCaptureRetriesExceeded` if the user has no verification attempts remaining.
+    ///   - `unsupportedVerificationMethod` if the service does not accept digital credentials.
+    func verifyIdentityWithDigitalCredential(input: VerifyIdentityWithDigitalCredentialInput) async throws -> DigitalCredentialVerificationOutcome
+
+    /// Completes a digital credential verification that requires the user's residential address by
+    /// submitting the presentation again with the address. The user does not present a credential
+    /// again.
+    ///
+    /// The service verifies the address against the identity verification provider's records, using
+    /// the name and date of birth from the credential.
+    ///
+    /// - Parameters:
+    ///   - pending: The pending verification from a `.residentialAddressRequired` outcome of
+    ///     `verifyIdentityWithDigitalCredential(input:)`.
+    ///   - address: The user's residential address.
+    ///
+    /// - Returns: Verification result, which is unverified if the address was not verified.
+    ///
+    /// - Throws: `SudoIdentityVerificationClientError`, including:
+    ///   - `digitalCredentialRequestExpired` if the pending verification has expired; start a new
+    ///     verification.
+    ///   - `unsupportedCountry` if the address is not in a supported country; it may be corrected and
+    ///     submitted again.
+    ///   - `invalidInput` if the address omits a required field, or the presentation can no longer be
+    ///     completed.
+    ///   - `requiredIdentityInformationNotProvided` if the presentation was submitted without an
+    ///     address too many times; start a new verification.
+    func completeDigitalCredentialVerification(
+        pending: PendingDigitalCredentialVerification,
+        address: ResidentialAddressInput
+    ) async throws -> VerifiedIdentity
 
     /// Checks the identity verification status of the currently signed in user.
     /// - Returns: Verification result.

@@ -16,6 +16,8 @@
 		41C6D1F22D795D93002136AD /* SudoKeyManager in Frameworks */ = {isa = PBXBuildFile; productRef = 41C6D1F12D795D93002136AD /* SudoKeyManager */; };
 		41C6D1F52D79625A002136AD /* SudoApiClientMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C6D1F42D79625A002136AD /* SudoApiClientMock.swift */; };
 		41C6D1F72D796720002136AD /* VerifiedIdentityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C6D1F62D796720002136AD /* VerifiedIdentityTests.swift */; };
+		4D18397C81484982721D104C /* IdentityDocumentRequesterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44076DDDC69CB08B10DF1108 /* IdentityDocumentRequesterMock.swift */; };
+		968C89FD4B8F5FDDAAAADD5F /* DigitalCredentialVerificationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A7C894F2AA49789461487 /* DigitalCredentialVerificationTests.swift */; };
 		5D279B6D2B6CB93E00EAA061 /* IdDocumentTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D279B6C2B6CB93E00EAA061 /* IdDocumentTypeTests.swift */; };
 		5D279B6F2B6CBB3500EAA061 /* DocumentVerificationStatusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D279B6E2B6CBB3500EAA061 /* DocumentVerificationStatusTests.swift */; };
 		5D279B712B6CBBC300EAA061 /* VerificationMethodTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D279B702B6CBBC300EAA061 /* VerificationMethodTests.swift */; };
@@ -124,6 +126,12 @@
 		D9F16E6D22FD498E0055513F /* SudoIdentityVerificationIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudoIdentityVerificationIntegrationTests.swift; sourceTree = "<group>"; };
 		D9F16E6F22FD498E0055513F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9F52A9C23D7CC1000F47271 /* sudoplatformconfig.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sudoplatformconfig.json; sourceTree = "<group>"; };
+		40DAD0A7704C5540A06DBF20 /* IdentityDocumentRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityDocumentRequester.swift; sourceTree = "<group>"; };
+		44076DDDC69CB08B10DF1108 /* IdentityDocumentRequesterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityDocumentRequesterMock.swift; sourceTree = "<group>"; };
+		6B92A7EB54603EB31397F107 /* GraphQLSelectionSet+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GraphQLSelectionSet+Extensions.swift"; sourceTree = "<group>"; };
+		9D5A7C894F2AA49789461487 /* DigitalCredentialVerificationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalCredentialVerificationTests.swift; sourceTree = "<group>"; };
+		AE4B367068452D7CCA1FF918 /* WalletIdentityRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletIdentityRequestBuilder.swift; sourceTree = "<group>"; };
+		DBF8532DCA78D047540FA21A /* DigitalCredentialVerificationOutcome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalCredentialVerificationOutcome.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				41C6D1F42D79625A002136AD /* SudoApiClientMock.swift */,
+				44076DDDC69CB08B10DF1108 /* IdentityDocumentRequesterMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -192,6 +201,15 @@
 			path = Types;
 			sourceTree = "<group>";
 		};
+		6FDB8D08B877F64E95E99338 /* DigitalCredential */ = {
+			isa = PBXGroup;
+			children = (
+				40DAD0A7704C5540A06DBF20 /* IdentityDocumentRequester.swift */,
+				AE4B367068452D7CCA1FF918 /* WalletIdentityRequestBuilder.swift */,
+			);
+			path = DigitalCredential;
+			sourceTree = "<group>";
+		};
 		84239D7827F5497B00400B51 /* Source */ = {
 			isa = PBXGroup;
 			children = (
@@ -204,6 +222,7 @@
 		84239D7927F5498D00400B51 /* Internal */ = {
 			isa = PBXGroup;
 			children = (
+				6FDB8D08B877F64E95E99338 /* DigitalCredential */,
 				D9971C7A22FD41090077076C /* Extension */,
 				84239D8327F5639E00400B51 /* Utility */,
 			);
@@ -225,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				5D279B672B6C5B8800EAA061 /* DocumentVerificationStatus.swift */,
+				DBF8532DCA78D047540FA21A /* DigitalCredentialVerificationOutcome.swift */,
 				84239D8427F5661800400B51 /* IdDocumentType.swift */,
 				84239ECB27F6BE2200400B51 /* Inputs.swift */,
 				5D279B692B6C7A5A00EAA061 /* VerificationMethod.swift */,
@@ -389,6 +409,7 @@
 				41C6D1F32D79624A002136AD /* Mocks */,
 				5D279B6B2B6CB92300EAA061 /* Types */,
 				ADE9799E2E67D0E800994BCD /* Consent.swift */,
+				9D5A7C894F2AA49789461487 /* DigitalCredentialVerificationTests.swift */,
 				D9971C6822FD299A0077076C /* Info.plist */,
 				AD569DF42F6269EE0063D128 /* SignInDelegateTests.swift */,
 				D9971C6622FD299A0077076C /* SudoIdentityVerificationTests.swift */,
@@ -400,6 +421,7 @@
 			isa = PBXGroup;
 			children = (
 				D946445E23580EF100F4BCF8 /* Date+MillisecondsSinceEpoch.swift */,
+				6B92A7EB54603EB31397F107 /* GraphQLSelectionSet+Extensions.swift */,
 				D9971C7D22FD46650077076C /* SudoLogger+IdentityVerification.swift */,
 			);
 			path = Extension;
@@ -660,6 +682,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADE9799F2E67D0E800994BCD /* Consent.swift in Sources */,
+				968C89FD4B8F5FDDAAAADD5F /* DigitalCredentialVerificationTests.swift in Sources */,
+				4D18397C81484982721D104C /* IdentityDocumentRequesterMock.swift in Sources */,
 				84239D8827F56C5800400B51 /* Data+JSONObject.swift in Sources */,
 				5D279B6F2B6CBB3500EAA061 /* DocumentVerificationStatusTests.swift in Sources */,
 				5D279B6D2B6CB93E00EAA061 /* IdDocumentTypeTests.swift in Sources */,

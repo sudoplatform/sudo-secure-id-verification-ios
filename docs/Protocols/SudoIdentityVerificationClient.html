@@ -56,10 +56,21 @@
             <a class="nav-group-name-link" href="../Enums.html">Enumerations</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/DigitalCredentialVerificationOutcome.html">DigitalCredentialVerificationOutcome</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/DocumentVerificationStatus.html">DocumentVerificationStatus</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums.html#/s:24SudoIdentityVerification14IdDocumentTypeO">IdDocumentType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions.html#/GraphQL">GraphQL</a>
               </li>
             </ul>
           </li>
@@ -93,6 +104,12 @@
                 <a class="nav-group-task-link" href="../Structs/IdentityDocumentCaptureInitiationInfo.html">IdentityDocumentCaptureInitiationInfo</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/PendingDigitalCredentialVerification.html">PendingDigitalCredentialVerification</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/ResidentialAddressInput.html">ResidentialAddressInput</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/VerifiedIdentity.html">VerifiedIdentity</a>
               </li>
               <li class="nav-group-task">
@@ -100,6 +117,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/VerifyIdentityInput.html">VerifyIdentityInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/VerifyIdentityWithDigitalCredentialInput.html">VerifyIdentityWithDigitalCredentialInput</a>
               </li>
             </ul>
           </li>
@@ -149,7 +169,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listSupportedCountries</span><span class="p">()</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">String</span><span class="p">]</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listSupportedCountries</span><span class="p">()</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">String</span><span class="p">]</span></code></pre>
 
                         </div>
                       </div>
@@ -184,7 +204,7 @@ capture.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">isFaceImageRequiredWithDocumentCapture</span><span class="p">()</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">isFaceImageRequiredWithDocumentCapture</span><span class="p">()</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
@@ -219,7 +239,7 @@ verification.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">isFaceImageRequiredWithDocumentVerification</span><span class="p">()</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">isFaceImageRequiredWithDocumentVerification</span><span class="p">()</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
@@ -254,7 +274,7 @@ initiateIdentityDocumentCapture().</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">isDocumentCaptureInitiationEnabled</span><span class="p">()</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">isDocumentCaptureInitiationEnabled</span><span class="p">()</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
@@ -289,7 +309,44 @@ data processing.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">isConsentRequiredForVerification</span><span class="p">()</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">isConsentRequiredForVerification</span><span class="p">()</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Boolean flag.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:24SudoIdentityVerification0abC6ClientP019isDigitalCredentialC7EnabledSbyYaKF"></a>
+                    <a name="//apple_ref/swift/Method/isDigitalCredentialVerificationEnabled()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24SudoIdentityVerification0abC6ClientP019isDigitalCredentialC7EnabledSbyYaKF">isDigitalCredentialVerificationEnabled()</a>
+                    </code>
+                      <span class="declaration-note">
+                        Asynchronous
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Retrieves the flag for whether the service accepts identity verification with a digital
+credential using <code><a href="../Protocols/SudoIdentityVerificationClient.html#/s:24SudoIdentityVerification0abC6ClientP06verifyB21WithDigitalCredential5inputAA0ghC7OutcomeOAA06VerifybfgH5InputV_tYaKF">verifyIdentityWithDigitalCredential(input:)</a></code>. This reflects the service
+configuration only; it does not indicate whether the device or the user&rsquo;s Wallet can present a
+credential.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">isDigitalCredentialVerificationEnabled</span><span class="p">()</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
@@ -325,7 +382,7 @@ as provisioning a virtual card.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">verifyIdentity</span><span class="p">(</span><span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/VerifyIdentityInput.html">VerifyIdentityInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/VerifiedIdentity.html">VerifiedIdentity</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">verifyIdentity</span><span class="p">(</span><span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/VerifyIdentityInput.html">VerifyIdentityInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/VerifiedIdentity.html">VerifiedIdentity</a></span></code></pre>
 
                         </div>
                       </div>
@@ -378,7 +435,7 @@ as provisioning a virtual card.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">verifyIdentityDocument</span><span class="p">(</span><span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/VerifyIdentityDocumentInput.html">VerifyIdentityDocumentInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/VerifiedIdentity.html">VerifiedIdentity</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">verifyIdentityDocument</span><span class="p">(</span><span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/VerifyIdentityDocumentInput.html">VerifyIdentityDocumentInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/VerifiedIdentity.html">VerifiedIdentity</a></span></code></pre>
 
                         </div>
                       </div>
@@ -432,7 +489,7 @@ identity using that information.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">captureAndVerifyIdentityDocument</span><span class="p">(</span><span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/VerifyIdentityDocumentInput.html">VerifyIdentityDocumentInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/VerifiedIdentity.html">VerifiedIdentity</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">captureAndVerifyIdentityDocument</span><span class="p">(</span><span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/VerifyIdentityDocumentInput.html">VerifyIdentityDocumentInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/VerifiedIdentity.html">VerifiedIdentity</a></span></code></pre>
 
                         </div>
                       </div>
@@ -465,6 +522,186 @@ identity using that information.</p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:24SudoIdentityVerification0abC6ClientP06verifyB21WithDigitalCredential5inputAA0ghC7OutcomeOAA06VerifybfgH5InputV_tYaKF"></a>
+                    <a name="//apple_ref/swift/Method/verifyIdentityWithDigitalCredential(input:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24SudoIdentityVerification0abC6ClientP06verifyB21WithDigitalCredential5inputAA0ghC7OutcomeOAA06VerifybfgH5InputV_tYaKF">verifyIdentityWithDigitalCredential(input:<wbr>)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Asynchronous
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Verifies an identity using a digital credential, such as a mobile driver&rsquo;s licence, held in the
+user&rsquo;s Wallet. Requests a presentation from the service, prompts the user to present the
+requested document elements from their Wallet, then submits the encrypted Wallet response to the
+service for verification.</p>
+
+<p>A successful verification completes identity verification on its own; the knowledge of PII step
+performed by <code><a href="../Protocols/SudoIdentityVerificationClient.html#/s:24SudoIdentityVerification0abC6ClientP06verifyB05inputAA08VerifiedB0VAA06VerifyB5InputV_tYaKF">verifyIdentity(input:)</a></code> is not required.</p>
+
+<p>Where the service requires a residential address and the presented credential carries none, the
+outcome is <code>.residentialAddressRequired</code>. Collect the user&rsquo;s address and pass the pending
+verification to <code><a href="../Protocols/SudoIdentityVerificationClient.html#/s:24SudoIdentityVerification0abC6ClientP025completeDigitalCredentialC07pending7addressAA08VerifiedB0VAA07PendingfgC0V_AA23ResidentialAddressInputVtYaKF">completeDigitalCredentialVerification(pending:address:)</a></code>.</p>
+
+<p>The calling application requires the identity document request entitlement
+(<code>com.apple.developer.in-app-identity-presentment</code>) with <code>merchantIdentifier</code> among its
+merchant identifiers.</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <p><code>SudoIdentityVerificationClientError</code>, including:</p>
+
+<ul>
+<li><code>digitalCredentialUnavailable</code> if no credential can be requested from the Wallet.</li>
+<li><code>digitalCredentialCancelled</code> if the user dismissed the Wallet prompt.</li>
+<li><code>digitalCredentialRequestFailed</code> if the Wallet request failed.</li>
+<li><code>digitalCredentialRequestExpired</code> if the request expired before a credential was presented.</li>
+<li><code>unsupportedDigitalCredentialRequest</code> if the service asked for a credential this version of
+the SDK cannot request.</li>
+<li><code>digitalCredentialVerificationFailed</code> if the presented credential was rejected as malformed
+or not authentic.</li>
+<li><code>digitalCredentialIssuerNotTrusted</code> if the presented credential&rsquo;s issuer is not trusted.</li>
+<li><code>digitalCredentialNotAccepted</code> if the presented credential is not of an accepted type.</li>
+<li><code>digitalCredentialNoLongerValid</code> if the presented credential, or the certificate that signed
+it, has expired or been revoked.</li>
+<li><code>identityAlreadyVerified</code> if the user&rsquo;s identity is already verified.</li>
+<li><code>identityCaptureRetriesExceeded</code> if the user has no verification attempts remaining.</li>
+<li><code>unsupportedVerificationMethod</code> if the service does not accept digital credentials.</li>
+</ul>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">verifyIdentityWithDigitalCredential</span><span class="p">(</span><span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/VerifyIdentityWithDigitalCredentialInput.html">VerifyIdentityWithDigitalCredentialInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Enums/DigitalCredentialVerificationOutcome.html">DigitalCredentialVerificationOutcome</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>input</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Input variables for API.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Verification outcome.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:24SudoIdentityVerification0abC6ClientP025completeDigitalCredentialC07pending7addressAA08VerifiedB0VAA07PendingfgC0V_AA23ResidentialAddressInputVtYaKF"></a>
+                    <a name="//apple_ref/swift/Method/completeDigitalCredentialVerification(pending:address:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24SudoIdentityVerification0abC6ClientP025completeDigitalCredentialC07pending7addressAA08VerifiedB0VAA07PendingfgC0V_AA23ResidentialAddressInputVtYaKF">completeDigitalCredentialVerification(pending:<wbr>address:<wbr>)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Asynchronous
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Completes a digital credential verification that requires the user&rsquo;s residential address by
+submitting the presentation again with the address. The user does not present a credential
+again.</p>
+
+<p>The service verifies the address against the identity verification provider&rsquo;s records, using
+the name and date of birth from the credential.</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <p><code>SudoIdentityVerificationClientError</code>, including:</p>
+
+<ul>
+<li><code>digitalCredentialRequestExpired</code> if the pending verification has expired; start a new
+verification.</li>
+<li><code>unsupportedCountry</code> if the address is not in a supported country; it may be corrected and
+submitted again.</li>
+<li><code>invalidInput</code> if the address omits a required field, or the presentation can no longer be
+completed.</li>
+<li><code>requiredIdentityInformationNotProvided</code> if the presentation was submitted without an
+address too many times; start a new verification.</li>
+</ul>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">completeDigitalCredentialVerification</span><span class="p">(</span>
+    <span class="nv">pending</span><span class="p">:</span> <span class="kt"><a href="../Structs/PendingDigitalCredentialVerification.html">PendingDigitalCredentialVerification</a></span><span class="p">,</span>
+    <span class="nv">address</span><span class="p">:</span> <span class="kt"><a href="../Structs/ResidentialAddressInput.html">ResidentialAddressInput</a></span>
+<span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/VerifiedIdentity.html">VerifiedIdentity</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>pending</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The pending verification from a <code>.residentialAddressRequired</code> outcome of
+<code><a href="../Protocols/SudoIdentityVerificationClient.html#/s:24SudoIdentityVerification0abC6ClientP06verifyB21WithDigitalCredential5inputAA0ghC7OutcomeOAA06VerifybfgH5InputV_tYaKF">verifyIdentityWithDigitalCredential(input:)</a></code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>address</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The user&rsquo;s residential address.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Verification result, which is unverified if the address was not verified.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:24SudoIdentityVerification0abC6ClientP05checkbC0AA08VerifiedB0VyYaKF"></a>
                     <a name="//apple_ref/swift/Method/checkIdentityVerification()" class="dashAnchor"></a>
                     <a class="token" href="#/s:24SudoIdentityVerification0abC6ClientP05checkbC0AA08VerifiedB0VyYaKF">checkIdentityVerification()</a>
@@ -485,7 +722,7 @@ identity using that information.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">checkIdentityVerification</span><span class="p">()</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/VerifiedIdentity.html">VerifiedIdentity</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">checkIdentityVerification</span><span class="p">()</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/VerifiedIdentity.html">VerifiedIdentity</a></span></code></pre>
 
                         </div>
                       </div>
@@ -520,7 +757,7 @@ based method.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">initiateIdentityDocumentCapture</span><span class="p">()</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/IdentityDocumentCaptureInitiationInfo.html">IdentityDocumentCaptureInitiationInfo</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">initiateIdentityDocumentCapture</span><span class="p">()</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/IdentityDocumentCaptureInitiationInfo.html">IdentityDocumentCaptureInitiationInfo</a></span></code></pre>
 
                         </div>
                       </div>
@@ -586,7 +823,7 @@ based method.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getIdentityDataProcessingConsentContent</span><span class="p">(</span><span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/IdentityDataProcessingConsentContentInput.html">IdentityDataProcessingConsentContentInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/IdentityDataProcessingConsentContent.html">IdentityDataProcessingConsentContent</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getIdentityDataProcessingConsentContent</span><span class="p">(</span><span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/IdentityDataProcessingConsentContentInput.html">IdentityDataProcessingConsentContentInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/IdentityDataProcessingConsentContent.html">IdentityDataProcessingConsentContent</a></span></code></pre>
 
                         </div>
                       </div>
@@ -639,7 +876,7 @@ based method.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getIdentityDataProcessingConsentStatus</span><span class="p">()</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/IdentityDataProcessingConsentStatus.html">IdentityDataProcessingConsentStatus</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getIdentityDataProcessingConsentStatus</span><span class="p">()</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/IdentityDataProcessingConsentStatus.html">IdentityDataProcessingConsentStatus</a></span></code></pre>
 
                         </div>
                       </div>
@@ -673,7 +910,7 @@ based method.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">provideIdentityDataProcessingConsent</span><span class="p">(</span><span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/IdentityDataProcessingConsentInput.html">IdentityDataProcessingConsentInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/IdentityDataProcessingConsentResponse.html">IdentityDataProcessingConsentResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">provideIdentityDataProcessingConsent</span><span class="p">(</span><span class="nv">input</span><span class="p">:</span> <span class="kt"><a href="../Structs/IdentityDataProcessingConsentInput.html">IdentityDataProcessingConsentInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/IdentityDataProcessingConsentResponse.html">IdentityDataProcessingConsentResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -726,7 +963,7 @@ based method.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">withdrawIdentityDataProcessingConsent</span><span class="p">()</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/IdentityDataProcessingConsentResponse.html">IdentityDataProcessingConsentResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">withdrawIdentityDataProcessingConsent</span><span class="p">()</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/IdentityDataProcessingConsentResponse.html">IdentityDataProcessingConsentResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -778,7 +1015,7 @@ throws an error, that error will be propagated to the caller and the original op
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">setSignInDelegate</span><span class="p">(</span><span class="n">_</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt">SudoPlatformSignInDelegate</span><span class="p">?)</span> <span class="n">async</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">setSignInDelegate</span><span class="p">(</span><span class="n">_</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt">SudoPlatformSignInDelegate</span><span class="p">?)</span> <span class="k">async</span></code></pre>
 
                         </div>
                       </div>
@@ -812,7 +1049,7 @@ throws an error, that error will be propagated to the caller and the original op
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2026 <a class="link" href="" target="_blank" rel="external noopener"></a>. All rights reserved. (Last updated: 2026-05-01)</p>
+      <p>&copy; 2026 <a class="link" href="" target="_blank" rel="external noopener"></a>. All rights reserved. (Last updated: 2026-11-09)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>
