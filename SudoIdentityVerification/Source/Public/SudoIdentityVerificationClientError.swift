@@ -121,8 +121,9 @@ public enum SudoIdentityVerificationClientError: Error, Equatable, @unchecked Se
     case digitalCredentialRequestExpired
 
     /// Indicates the service asked for a digital credential this version of the SDK cannot request from
-    /// the Wallet, because a requested document type, element or storage intent is not one it can
-    /// express, or the request needs a later version of iOS.
+    /// the Wallet, because none of the requested document types can be requested by this version of
+    /// the SDK on this version of iOS, or a requested element or storage intent is not one it can
+    /// express.
     case unsupportedDigitalCredentialRequest(description: String)
 
     /// Indicates the presented digital credential was rejected because the Wallet response is

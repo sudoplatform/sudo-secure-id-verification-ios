@@ -71,10 +71,14 @@ public protocol SudoIdentityVerificationClient: AnyObject {
     /// - Returns: Verification result.
     func captureAndVerifyIdentityDocument(input: VerifyIdentityDocumentInput) async throws -> VerifiedIdentity
 
-    /// Verifies an identity using a digital credential, such as a mobile driver's licence, held in the
-    /// user's Wallet. Requests a presentation from the service, prompts the user to present the
-    /// requested document elements from their Wallet, then submits the encrypted Wallet response to the
-    /// service for verification.
+    /// Verifies an identity using a digital credential, such as a mobile driver's licence or Digital ID,
+    /// held in the user's Wallet. Requests a presentation from the service, prompts the user to present
+    /// the requested document elements from their Wallet, then submits the encrypted Wallet response to
+    /// the service for verification.
+    ///
+    /// Where the service accepts several document types, the user may present any one of them. Document
+    /// types the device cannot request are left out of the Wallet prompt; Digital ID requires iOS 26 or
+    /// later.
     ///
     /// A successful verification completes identity verification on its own; the knowledge of PII step
     /// performed by `verifyIdentity(input:)` is not required.

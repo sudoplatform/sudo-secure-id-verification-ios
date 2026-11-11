@@ -251,12 +251,14 @@ internal enum DigitalCredentialFlow: RawRepresentable, Equatable, JSONDecodable,
 internal enum AppleVerifyWithWalletDocumentType: RawRepresentable, Equatable, JSONDecodable, JSONEncodable {
   internal typealias RawValue = String
   case driversLicense
+  case photoId
   /// Auto generated constant for unknown enum values
   case unknown(RawValue)
 
   internal init?(rawValue: RawValue) {
     switch rawValue {
       case "DRIVERS_LICENSE": self = .driversLicense
+      case "PHOTO_ID": self = .photoId
       default: self = .unknown(rawValue)
     }
   }
@@ -264,6 +266,7 @@ internal enum AppleVerifyWithWalletDocumentType: RawRepresentable, Equatable, JS
   internal var rawValue: RawValue {
     switch self {
       case .driversLicense: return "DRIVERS_LICENSE"
+      case .photoId: return "PHOTO_ID"
       case .unknown(let value): return value
     }
   }
@@ -271,6 +274,7 @@ internal enum AppleVerifyWithWalletDocumentType: RawRepresentable, Equatable, JS
   internal static func == (lhs: AppleVerifyWithWalletDocumentType, rhs: AppleVerifyWithWalletDocumentType) -> Bool {
     switch (lhs, rhs) {
       case (.driversLicense, .driversLicense): return true
+      case (.photoId, .photoId): return true
       case (.unknown(let lhsValue), .unknown(let rhsValue)): return lhsValue == rhsValue
       default: return false
     }
